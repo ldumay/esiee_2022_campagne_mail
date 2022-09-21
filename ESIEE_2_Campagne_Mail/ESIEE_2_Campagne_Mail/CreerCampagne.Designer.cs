@@ -32,6 +32,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Send_campaign = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox3
@@ -72,11 +73,21 @@
             this.Send_campaign.UseVisualStyleBackColor = true;
             this.Send_campaign.Click += new System.EventHandler(this.Send_campaign_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(205, 211);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 15);
+            this.label2.TabIndex = 10;
+            // 
             // CreerCampagne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.Send_campaign);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox3);
@@ -94,5 +105,6 @@
         private Label label3;
         private Label label1;
         private Button Send_campaign;
+        private Label label2;
     }
 }
