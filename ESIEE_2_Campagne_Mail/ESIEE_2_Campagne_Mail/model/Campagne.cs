@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ESIEE_2_Campagne_Mail.model
 {
+    /**
+    * Classe Campagne.
+    */
     internal class Campagne
     {
 
@@ -25,6 +28,36 @@ namespace ESIEE_2_Campagne_Mail.model
         {
             groupeMailList = new List<GroupeMail>();
             message = new Message();
+        }
+
+        /**
+         * Constructeur vide de la classe Campagne.
+         */
+        public Campagne(List<GroupeMail> groupeMailList, Message message)
+        {
+            this.groupeMailList = groupeMailList;
+            this.message = message;
+        }
+
+        /**
+         * Changer le message contenu dans la campagne.
+         */
+        public void changerMessage(string message)
+        {
+            this.message.Contenu = message;
+        }
+
+        /**
+         * Récupérer la liste des mails actifs des groupes mails.
+         */
+        public List<string> recupererListeMailActif()
+        {
+            List<string> listeMails = new List<string>();
+            foreach (GroupeMail groupeMail in groupeMailList)
+            {
+                listeMails.AddRange(groupeMail.MailsActifsList);
+            }
+            return listeMails;
         }
 
     }
