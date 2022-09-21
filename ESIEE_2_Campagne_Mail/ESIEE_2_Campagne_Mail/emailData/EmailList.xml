@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EmailList>
+	<recipient genre="mail">
+		<mail>
+			JeanPierreDu95@gmail.com
+		</mail>
+		<first-name>
+			Benjamin
+		</first-name>
+		<last-name>
+			JeanPierre
+		</last-name>
+	</recipient>
+</EmailList>
