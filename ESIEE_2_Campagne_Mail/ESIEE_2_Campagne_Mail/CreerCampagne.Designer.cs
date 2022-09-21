@@ -70,6 +70,7 @@
             this.Send_campaign.TabIndex = 9;
             this.Send_campaign.Text = "OK";
             this.Send_campaign.UseVisualStyleBackColor = true;
+            this.Send_campaign.Click += new System.EventHandler(this.Send_campaign_Click);
             // 
             // CreerCampagne
             // 
