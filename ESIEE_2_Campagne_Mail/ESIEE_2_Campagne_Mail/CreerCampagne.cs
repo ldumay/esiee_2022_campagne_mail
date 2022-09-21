@@ -7,9 +7,14 @@ namespace ESIEE_2_Campagne_Mail
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Send_campaign_Click(object sender, EventArgs e)
         {
+            string campaignName = textBox3.Text;
 
+            if (string.IsNullOrEmpty(campaignName))
+            {
+                
+            }
         }
     }
 }
