@@ -8,19 +8,24 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\ESIEE-IT\\.nuget\\packages\\": {}
+    "C:\\Users\\zchen\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ESIEE-IT\\Documents\\GitHub\\ESIEE_2_Campagne_Mail\\ESIEE_2_Campagne_Mail\\ESIEE_2_Campagne_Mail\\ESIEE_2_Campagne_Mail.csproj",
+      "projectUniqueName": "C:\\Users\\zchen\\Documents\\GitHub\\ESIEE_2_Campagne_Mail\\ESIEE_2_Campagne_Mail\\ESIEE_2_Campagne_Mail\\ESIEE_2_Campagne_Mail.csproj",
       "projectName": "ESIEE_2_Campagne_Mail",
-      "projectPath": "C:\\Users\\ESIEE-IT\\Documents\\GitHub\\ESIEE_2_Campagne_Mail\\ESIEE_2_Campagne_Mail\\ESIEE_2_Campagne_Mail\\ESIEE_2_Campagne_Mail.csproj",
-      "packagesPath": "C:\\Users\\ESIEE-IT\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ESIEE-IT\\Documents\\GitHub\\ESIEE_2_Campagne_Mail\\ESIEE_2_Campagne_Mail\\ESIEE_2_Campagne_Mail\\obj\\",
+      "projectPath": "C:\\Users\\zchen\\Documents\\GitHub\\ESIEE_2_Campagne_Mail\\ESIEE_2_Campagne_Mail\\ESIEE_2_Campagne_Mail\\ESIEE_2_Campagne_Mail.csproj",
+      "packagesPath": "C:\\Users\\zchen\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\zchen\\Documents\\GitHub\\ESIEE_2_Campagne_Mail\\ESIEE_2_Campagne_Mail\\ESIEE_2_Campagne_Mail\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\ESIEE-IT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\zchen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
