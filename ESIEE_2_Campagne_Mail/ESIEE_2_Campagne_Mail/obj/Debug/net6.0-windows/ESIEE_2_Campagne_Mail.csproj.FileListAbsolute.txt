@@ -4,7 +4,6 @@ C:\Users\ESIEE-IT\Documents\GitHub\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\E
 C:\Users\ESIEE-IT\Documents\GitHub\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\bin\Debug\net6.0-windows\ESIEE_2_Campagne_Mail.dll
 C:\Users\ESIEE-IT\Documents\GitHub\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\bin\Debug\net6.0-windows\ESIEE_2_Campagne_Mail.pdb
 C:\Users\ESIEE-IT\Documents\GitHub\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\obj\Debug\net6.0-windows\ESIEE_2_Campagne_Mail.csproj.AssemblyReference.cache
-C:\Users\ESIEE-IT\Documents\GitHub\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\obj\Debug\net6.0-windows\ESIEE_2_Campagne_Mail.Form1.resources
 C:\Users\ESIEE-IT\Documents\GitHub\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\obj\Debug\net6.0-windows\ESIEE_2_Campagne_Mail.EditionMessage.resources
 C:\Users\ESIEE-IT\Documents\GitHub\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\obj\Debug\net6.0-windows\ESIEE_2_Campagne_Mail.EnvoiCampagne.resources
 C:\Users\ESIEE-IT\Documents\GitHub\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\obj\Debug\net6.0-windows\ESIEE_2_Campagne_Mail.ListeEmails.resources
@@ -39,3 +38,5 @@ C:\Users\zchen\Documents\GitHub\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\ESIE
 C:\Users\zchen\Documents\GitHub\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\obj\Debug\net6.0-windows\ESIEE_2_Campagne_Mail.pdb
 C:\Users\zchen\Documents\GitHub\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\obj\Debug\net6.0-windows\ESIEE_2_Campagne_Mail.genruntimeconfig.cache
 C:\Users\zchen\Documents\GitHub\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\obj\Debug\net6.0-windows\ref\ESIEE_2_Campagne_Mail.dll
+C:\Users\ESIEE-IT\Documents\GitHub\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\obj\Debug\net6.0-windows\ESIEE_2_Campagne_Mail.CreerCampagne.resources
+C:\Users\ESIEE-IT\Documents\GitHub\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\ESIEE_2_Campagne_Mail\obj\Debug\net6.0-windows\ESIEE_2_Campagne_Mail.Home.resources

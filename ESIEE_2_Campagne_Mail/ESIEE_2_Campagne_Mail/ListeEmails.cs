@@ -16,5 +16,10 @@ namespace ESIEE_2_Campagne_Mail
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
