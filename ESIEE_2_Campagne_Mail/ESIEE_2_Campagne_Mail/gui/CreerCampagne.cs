@@ -22,14 +22,15 @@ namespace ESIEE_2_Campagne_Mail
                 Home.Owner = this;
                 //Lock the second page when it's opend
                 Home.ShowDialog();
-                //-
-                this.campagne.Nom = campaignName;
             }
             else
             {
                 // warning message
                 label2.Text = "Campaign name is not accepted";
             }
+
+            //-
+            this.campagne.Nom = (campaignName!=null) ? campaignName : "";
         }
     
     }
