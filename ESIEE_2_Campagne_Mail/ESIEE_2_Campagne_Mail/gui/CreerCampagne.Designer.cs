@@ -1,4 +1,6 @@
-﻿namespace ESIEE_2_Campagne_Mail
+﻿using ESIEE_2_Campagne_Mail.Models;
+
+namespace ESIEE_2_Campagne_Mail
 {
     partial class CreerCampagne
     {
@@ -31,7 +33,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Send_campaign = new System.Windows.Forms.Button();
+            this.buttonCreateCampagne = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox3
@@ -61,23 +63,23 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Créer une campagne";
             // 
-            // Send_campaign
+            // buttonCreateCampagne
             // 
-            this.Send_campaign.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Send_campaign.Location = new System.Drawing.Point(315, 242);
-            this.Send_campaign.Name = "Send_campaign";
-            this.Send_campaign.Size = new System.Drawing.Size(156, 57);
-            this.Send_campaign.TabIndex = 9;
-            this.Send_campaign.Text = "OK";
-            this.Send_campaign.UseVisualStyleBackColor = true;
-            this.Send_campaign.Click += new System.EventHandler(this.Send_campaign_Click);
+            this.buttonCreateCampagne.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonCreateCampagne.Location = new System.Drawing.Point(315, 242);
+            this.buttonCreateCampagne.Name = "buttonCreateCampagne";
+            this.buttonCreateCampagne.Size = new System.Drawing.Size(156, 57);
+            this.buttonCreateCampagne.TabIndex = 9;
+            this.buttonCreateCampagne.Text = "OK";
+            this.buttonCreateCampagne.UseVisualStyleBackColor = true;
+            this.buttonCreateCampagne.Click += new System.EventHandler(this.buttonCreateCampagneClick);
             // 
             // CreerCampagne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Send_campaign);
+            this.Controls.Add(this.buttonCreateCampagne);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
@@ -93,6 +95,7 @@
         private TextBox textBox3;
         private Label label3;
         private Label label1;
-        private Button Send_campaign;
+        private Button buttonCreateCampagne;
+        private Campagne campagne;
     }
 }

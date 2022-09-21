@@ -7,7 +7,7 @@ namespace ESIEE_2_Campagne_Mail
             InitializeComponent();
         }
 
-        private void Send_campaign_Click(object sender, EventArgs e)
+        private void buttonCreateCampagneClick(object sender, EventArgs e)
         {
             string campaignName = textBox3.Text;
 
@@ -15,6 +15,8 @@ namespace ESIEE_2_Campagne_Mail
             {
                 
             }
+
+            this.campagne.Nom = campaignName;
         }
     }
 }

@@ -11,13 +11,15 @@ namespace ESIEE_2_Campagne_Mail.Models
     */
     internal class Campagne
     {
-
+        //Attribut du nom dela campagne
+        private string nom;
         //Attribut de la liste des mails
         private List<GroupeMail> groupeMailList;
         //Attribut du message
         private Message message;
 
         //Getters & Setter
+        public string Nom { get; set; }
         public Message Message { get; set; }
         public List<GroupeMail> GroupeMail { get; set; }
 
@@ -26,6 +28,7 @@ namespace ESIEE_2_Campagne_Mail.Models
          */
         public Campagne()
         {
+            nom = "";
             groupeMailList = new List<GroupeMail>();
             message = new Message();
         }
@@ -33,8 +36,9 @@ namespace ESIEE_2_Campagne_Mail.Models
         /**
          * Constructeur vide de la classe Campagne.
          */
-        public Campagne(List<GroupeMail> groupeMailList, Message message)
+        public Campagne(string nom,  List<GroupeMail> groupeMailList, Message message)
         {
+            this.nom = nom;
             this.groupeMailList = groupeMailList;
             this.message = message;
         }
