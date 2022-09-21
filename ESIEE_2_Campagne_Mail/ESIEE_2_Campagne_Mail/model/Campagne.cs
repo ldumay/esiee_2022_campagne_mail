@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ESIEE_2_Campagne_Mail
+namespace ESIEE_2_Campagne_Mail.model
 {
     internal class Campagne
     {
@@ -15,15 +15,16 @@ namespace ESIEE_2_Campagne_Mail
         private Message message;
 
         //Getters & Setter
-        public Message Message{get; set;}
-        public List<GroupeMail> GroupeMail { get; set;}
+        public Message Message { get; set; }
+        public List<GroupeMail> GroupeMail { get; set; }
 
         /**
          * Constructeur vide de la classe Campagne.
          */
-        public Campagne(){
-            this.groupeMailList = new List<GroupeMail>();
-            this.message = new Message();
+        public Campagne()
+        {
+            groupeMailList = new List<GroupeMail>();
+            message = new Message();
         }
 
     }
