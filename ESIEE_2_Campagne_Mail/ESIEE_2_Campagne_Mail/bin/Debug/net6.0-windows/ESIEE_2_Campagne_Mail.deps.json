@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "ESIEE_2_Campagne_Mail/1.0.0": {
+        "runtime": {
+          "ESIEE_2_Campagne_Mail.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ESIEE_2_Campagne_Mail/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
