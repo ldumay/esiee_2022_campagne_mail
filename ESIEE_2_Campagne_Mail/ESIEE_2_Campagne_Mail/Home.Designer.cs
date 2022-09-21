@@ -42,6 +42,7 @@
             this.Email.TabIndex = 0;
             this.Email.Text = "Email";
             this.Email.UseVisualStyleBackColor = true;
+            this.Email.Click += new System.EventHandler(this.Email_Click);
             // 
             // Message
             // 
@@ -52,7 +53,7 @@
             this.Message.TabIndex = 1;
             this.Message.Text = "Message";
             this.Message.UseVisualStyleBackColor = true;
-            this.Message.Click += new System.EventHandler(this.button2_Click);
+            this.Message.Click += new System.EventHandler(this.Message_Click);
             // 
             // Send_campaign
             // 
@@ -61,8 +62,9 @@
             this.Send_campaign.Name = "Send_campaign";
             this.Send_campaign.Size = new System.Drawing.Size(185, 62);
             this.Send_campaign.TabIndex = 2;
-            this.Send_campaign.Text = "Send_campaign";
+            this.Send_campaign.Text = "Envoi Campagne";
             this.Send_campaign.UseVisualStyleBackColor = true;
+            this.Send_campaign.Click += new System.EventHandler(this.EnvoiCampagne_Click);
             // 
             // Home
             // 
