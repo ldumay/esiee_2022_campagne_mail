@@ -1,10 +1,7 @@
-using ESIEE_2_Campagne_Mail.Models;
-
 namespace ESIEE_2_Campagne_Mail
 {
     public partial class CreerCampagne : Form
     {
-
         public CreerCampagne()
         {
             InitializeComponent();
