@@ -9,7 +9,7 @@ namespace ESIEE_2_Campagne_Mail.Models
     /**
     * Classe Message.
     */
-    internal class Message
+    public class Message
     {
 
         //Attribut de la liste des mails

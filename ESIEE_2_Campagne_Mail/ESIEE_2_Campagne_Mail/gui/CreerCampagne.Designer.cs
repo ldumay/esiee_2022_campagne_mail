@@ -109,6 +109,5 @@ namespace ESIEE_2_Campagne_Mail
         private Label label1;
         private Label label2;
         private Button buttonCreateCampagne;
-        private Campagne campagne;
     }
 }

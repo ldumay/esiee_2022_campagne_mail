@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ESIEE_2_Campagne_Mail.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,13 @@ namespace ESIEE_2_Campagne_Mail
 {
     public partial class Home : Form
     {
-        public Home()
+        public static Home Instance;
+        public Campagne campagne;
+        public Home(Campagne campagne)
         {
             InitializeComponent();
+            Instance = this;
+            this.campagne = campagne;
         }
 
         /**

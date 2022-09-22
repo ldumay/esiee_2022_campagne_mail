@@ -1,7 +1,10 @@
+using ESIEE_2_Campagne_Mail.Models;
+
 namespace ESIEE_2_Campagne_Mail
 {
     public partial class CreerCampagne : Form
     {
+
         public CreerCampagne()
         {
             InitializeComponent();
@@ -17,7 +20,7 @@ namespace ESIEE_2_Campagne_Mail
             if (!string.IsNullOrEmpty(campaignName))
             {
                 // object instance home
-                Home Home = new Home();
+                Home Home = new Home(new Campagne(campaignName, null, null));
                 //link with the master page
                 Home.Owner = this;
                 //Lock the second page when it's opend
@@ -28,9 +31,7 @@ namespace ESIEE_2_Campagne_Mail
                 // warning message
                 label2.Text = "Campaign name is not accepted";
             }
-
-            //-
-            this.campagne.Nom = (campaignName!=null) ? campaignName : "";
+            
         }
     
     }

@@ -9,7 +9,7 @@ namespace ESIEE_2_Campagne_Mail.Models
     /**
     * Classe Campagne.
     */
-    internal class Campagne
+    public class Campagne
     {
         //Attribut du nom dela campagne
         private string nom;

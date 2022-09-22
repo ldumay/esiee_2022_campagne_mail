@@ -9,7 +9,7 @@ namespace ESIEE_2_Campagne_Mail.Models
     /**
     * Classe GroupeMail.
     */
-    internal class GroupeMail
+    public class GroupeMail
     {
 
         //Attribut de la liste des mails

@@ -28,101 +28,105 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.labelEXP = new System.Windows.Forms.Label();
+            this.textBoxEXP = new System.Windows.Forms.TextBox();
+            this.textBoxRebound = new System.Windows.Forms.TextBox();
+            this.labelRebound = new System.Windows.Forms.Label();
+            this.textBoxTitre = new System.Windows.Forms.TextBox();
+            this.labelTitre = new System.Windows.Forms.Label();
+            this.labelMessage = new System.Windows.Forms.Label();
+            this.textBoxMessage = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // label1
+            // labelEXP
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(73, 59);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "EXP";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.labelEXP.AutoSize = true;
+            this.labelEXP.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelEXP.Location = new System.Drawing.Point(73, 59);
+            this.labelEXP.Name = "labelEXP";
+            this.labelEXP.Size = new System.Drawing.Size(39, 19);
+            this.labelEXP.TabIndex = 0;
+            this.labelEXP.Text = "EXP";
+            this.labelEXP.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox1
+            // textBoxEXP
             // 
-            this.textBox1.Location = new System.Drawing.Point(118, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(260, 23);
-            this.textBox1.TabIndex = 1;
+            this.textBoxEXP.Location = new System.Drawing.Point(118, 55);
+            this.textBoxEXP.Name = "textBoxEXP";
+            this.textBoxEXP.Size = new System.Drawing.Size(260, 23);
+            this.textBoxEXP.TabIndex = 1;
+            this.textBoxEXP.TextChanged += new System.EventHandler(this.textBoxEXP_TextChanged);
             // 
-            // textBox2
+            // textBoxRebound
             // 
-            this.textBox2.Location = new System.Drawing.Point(472, 55);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(260, 23);
-            this.textBox2.TabIndex = 3;
+            this.textBoxRebound.Location = new System.Drawing.Point(472, 55);
+            this.textBoxRebound.Name = "textBoxRebound";
+            this.textBoxRebound.Size = new System.Drawing.Size(260, 23);
+            this.textBoxRebound.TabIndex = 3;
+            this.textBoxRebound.TextChanged += new System.EventHandler(this.textBoxRebound_TextChanged);
             // 
-            // label2
+            // labelRebound
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(397, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 19);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Rebound";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.labelRebound.AutoSize = true;
+            this.labelRebound.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelRebound.Location = new System.Drawing.Point(397, 59);
+            this.labelRebound.Name = "labelRebound";
+            this.labelRebound.Size = new System.Drawing.Size(69, 19);
+            this.labelRebound.TabIndex = 2;
+            this.labelRebound.Text = "Rebound";
+            this.labelRebound.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBox3
+            // textBoxTitre
             // 
-            this.textBox3.Location = new System.Drawing.Point(118, 143);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(260, 23);
-            this.textBox3.TabIndex = 5;
+            this.textBoxTitre.Location = new System.Drawing.Point(118, 129);
+            this.textBoxTitre.Name = "textBoxTitre";
+            this.textBoxTitre.Size = new System.Drawing.Size(260, 23);
+            this.textBoxTitre.TabIndex = 5;
+            this.textBoxTitre.TextChanged += new System.EventHandler(this.textBoxTitre_TextChanged);
             // 
-            // label3
+            // labelTitre
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(73, 147);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 19);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Titre";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.labelTitre.AutoSize = true;
+            this.labelTitre.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelTitre.Location = new System.Drawing.Point(73, 133);
+            this.labelTitre.Name = "labelTitre";
+            this.labelTitre.Size = new System.Drawing.Size(42, 19);
+            this.labelTitre.TabIndex = 4;
+            this.labelTitre.Text = "Titre";
+            this.labelTitre.Click += new System.EventHandler(this.label3_Click);
             // 
-            // label4
+            // labelMessage
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(76, 225);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 19);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Message";
+            this.labelMessage.AutoSize = true;
+            this.labelMessage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelMessage.Location = new System.Drawing.Point(73, 200);
+            this.labelMessage.Name = "labelMessage";
+            this.labelMessage.Size = new System.Drawing.Size(71, 19);
+            this.labelMessage.TabIndex = 6;
+            this.labelMessage.Text = "Message";
             // 
-            // textBox4
+            // textBoxMessage
             // 
-            this.textBox4.Location = new System.Drawing.Point(76, 247);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(671, 178);
-            this.textBox4.TabIndex = 7;
+            this.textBoxMessage.Location = new System.Drawing.Point(73, 222);
+            this.textBoxMessage.Multiline = true;
+            this.textBoxMessage.Name = "textBoxMessage";
+            this.textBoxMessage.Size = new System.Drawing.Size(671, 178);
+            this.textBoxMessage.TabIndex = 7;
+            this.textBoxMessage.TextChanged += new System.EventHandler(this.textBoxMessage_TextChanged);
             // 
             // EditionMessage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxMessage);
+            this.Controls.Add(this.labelMessage);
+            this.Controls.Add(this.textBoxTitre);
+            this.Controls.Add(this.labelTitre);
+            this.Controls.Add(this.textBoxRebound);
+            this.Controls.Add(this.labelRebound);
+            this.Controls.Add(this.textBoxEXP);
+            this.Controls.Add(this.labelEXP);
             this.Name = "EditionMessage";
             this.Text = "EditionMessage";
             this.ResumeLayout(false);
@@ -132,13 +136,13 @@
 
         #endregion
 
-        private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Label label2;
-        private TextBox textBox3;
-        private Label label3;
-        private Label label4;
-        private TextBox textBox4;
+        private Label labelEXP;
+        private TextBox textBoxEXP;
+        private TextBox textBoxRebound;
+        private Label labelRebound;
+        private TextBox textBoxTitre;
+        private Label labelTitre;
+        private Label labelMessage;
+        private TextBox textBoxMessage;
     }
 }
