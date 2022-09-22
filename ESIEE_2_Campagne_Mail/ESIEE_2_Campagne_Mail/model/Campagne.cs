@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ESIEE_2_Campagne_Mail.Models;
+using Message = ESIEE_2_Campagne_Mail.Models.Message;
 
 namespace ESIEE_2_Campagne_Mail.model
 {

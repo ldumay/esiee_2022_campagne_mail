@@ -11,13 +11,13 @@ namespace ESIEE_2_Campagne_Mail.process
         private string ipAdress;
         private int port;
 
-        SMTPConnectionHandler()
+        public SMTPConnectionHandler()
         {
             this.ipAdress = "";
             this.port = 0;
         }
 
-        public bool EnvoyerCampagneMail(List<string>)
+        public bool EnvoyerCampagneMail(List<string> lsiteMails)
         {
             return false;
         }

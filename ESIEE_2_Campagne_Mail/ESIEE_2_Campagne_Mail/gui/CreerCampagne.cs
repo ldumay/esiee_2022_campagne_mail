@@ -1,3 +1,5 @@
+using ESIEE_2_Campagne_Mail.model;
+
 namespace ESIEE_2_Campagne_Mail
 {
     public partial class CreerCampagne : Form

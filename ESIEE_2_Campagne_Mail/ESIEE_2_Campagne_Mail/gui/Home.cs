@@ -1,13 +1,4 @@
-﻿using ESIEE_2_Campagne_Mail.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using ESIEE_2_Campagne_Mail.model;
 
 namespace ESIEE_2_Campagne_Mail
 {
