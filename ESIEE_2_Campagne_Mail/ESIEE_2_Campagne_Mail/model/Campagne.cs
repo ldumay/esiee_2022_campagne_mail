@@ -1,5 +1,4 @@
 ﻿using ESIEE_2_Campagne_Mail.Models;
-using Message = ESIEE_2_Campagne_Mail.Models.Message;
 
 namespace ESIEE_2_Campagne_Mail.model
 {
@@ -13,11 +12,11 @@ namespace ESIEE_2_Campagne_Mail.model
         //Attribut de la liste des mails
         private List<GroupeMail> groupeMailList;
         //Attribut du message
-        private Message message;
+        private ContenuDeMail contenuDeMail;
 
         //Getters & Setter
         public string Nom { get; set; }
-        public Message Message { get; set; }
+        public ContenuDeMail ContenuDeMail { get; set; }
         public List<GroupeMail> GroupeMail { get; set; }
 
         /**
@@ -27,17 +26,17 @@ namespace ESIEE_2_Campagne_Mail.model
         {
             nom = "";
             groupeMailList = new List<GroupeMail>();
-            message = new Message();
+            contenuDeMail = new ContenuDeMail();
         }
 
         /**
          * Constructeur vide de la classe Campagne.
          */
-        public Campagne(string nom,  List<GroupeMail> groupeMailList, Message message)
+        public Campagne(string nom,  List<GroupeMail> groupeMailList, ContenuDeMail message)
         {
             this.nom = nom;
             this.groupeMailList = groupeMailList;
-            this.message = message;
+            this.contenuDeMail = message;
         }
 
         /**
@@ -45,7 +44,7 @@ namespace ESIEE_2_Campagne_Mail.model
          */
         public void changerMessage(string message)
         {
-            this.message.Contenu = message;
+            this.contenuDeMail.Contenu = message;
         }
 
         /**

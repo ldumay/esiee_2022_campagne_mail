@@ -24,6 +24,8 @@ namespace ESIEE_2_Campagne_Mail
                 Home.Owner = this;
                 //Lock the second page when it's opend
                 Home.ShowDialog();
+                //-
+                Console.WriteLine("Campagne créée");
             }
             else
             {

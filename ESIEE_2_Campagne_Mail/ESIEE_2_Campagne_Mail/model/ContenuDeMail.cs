@@ -9,7 +9,7 @@ namespace ESIEE_2_Campagne_Mail.Models
     /**
     * Classe Message.
     */
-    public class Message
+    public class ContenuDeMail
     {
 
         //Attribut de la liste des mails
@@ -27,7 +27,7 @@ namespace ESIEE_2_Campagne_Mail.Models
         /**
          * Constructeur vide de la classe Message.
          */
-        public Message()
+        public ContenuDeMail()
         {
             expediteur = "";
             titre = "";
@@ -38,7 +38,7 @@ namespace ESIEE_2_Campagne_Mail.Models
         /**
          * Constructeur complet de la classe Message.
          */
-        public Message(string expediteur, string titre, string rebound, string contenu)
+        public ContenuDeMail(string expediteur, string titre, string rebound, string contenu)
         {
             this.expediteur = expediteur;
             this.titre = titre;
