@@ -10,7 +10,7 @@ namespace ESIEE_2_Campagne_Mail.utils
          * Importation d'une liste de mail depuis un fichier TXT.
          */
         public static GroupeMail ImportWithOpenFileDialogEmailsTXT(){
-            GroupeMail groupeMail = null;
+            GroupeMail groupeMail = new GroupeMail();
             string fileExt = "";
             string filePath = "";
             string fileName = "";
@@ -72,18 +72,44 @@ namespace ESIEE_2_Campagne_Mail.utils
             {
                 //Lecture du fichier ligne par ligne
                 string[] lines = System.IO.File.ReadAllLines(@""+ filePath + fileName + "." + fileExt);
-                
-                System.Console.WriteLine("Importation d'emails : ");
+                System.Console.WriteLine("Lecture OK");
+
+                //Conversion des lignes en liste de contact
                 foreach (string line in lines)
                 {
+                    //Ligne
                     Console.WriteLine("\t" + line);
-                }
-                
-                
+                    
+                    //Non lecture de la première ligne
+                    if(line!= "Id,Nom,Prenom,Email,Etat") {
 
-                //-
-                //  = = = = = > Update groupeMail
-                //-
+                        //Découpage de la ligne
+                        string[] lineCut = line.Split(",");
+
+                        //Création du contact
+                        Contact contact = new Contact();
+                        contact.Id = int.Parse(lineCut[0]);
+                        contact.Nom = lineCut[1];
+                        contact.Prenom = lineCut[2];
+                        contact.Email = lineCut[3];
+                        if (lineCut[4] == "Actif") {
+                            contact.Etat = ContactEtat.ACTIF;
+                        }
+                        else if (lineCut[4] == "Inactif") {
+                            contact.Etat = ContactEtat.INACTIF;
+                        }
+                        else {
+                            contact.Etat = ContactEtat.ERREUR;
+                        }
+
+                        //Ajout du contact à la liste du GroupeMail
+                        groupeMail.ajouterMail(contact.Email);
+                        if (contact.Etat == ContactEtat.ACTIF)
+                        {
+                            groupeMail.activerMail(contact.Email);
+                        }
+                    }
+                }
 
                 string message = "Le fichier a bien été chargé.";
                 MessageBox.Show(message, "Terminé", MessageBoxButtons.OK, MessageBoxIcon.Information);
