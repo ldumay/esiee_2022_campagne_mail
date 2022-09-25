@@ -1,4 +1,4 @@
-﻿using ESIEE_2_Campagne_Mail.Models;
+﻿using ESIEE_2_Campagne_Mail.models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

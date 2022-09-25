@@ -1,11 +1,4 @@
-﻿using ESIEE_2_Campagne_Mail.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ESIEE_2_Campagne_Mail.model
+﻿namespace ESIEE_2_Campagne_Mail.models
 {
     /**
      * Classe Contact
@@ -13,13 +6,10 @@ namespace ESIEE_2_Campagne_Mail.model
     public class Contact
     {
 
-        //Attribut id
+        //Attributs du contact
         private int id;
-        //Attribut nom
         private string nom;
-        //Attribut prenom
         private string prenom;
-        //Attribut email
         private string email;
 
         //Getters & Setter
@@ -44,10 +34,10 @@ namespace ESIEE_2_Campagne_Mail.model
          */
         public Contact(int id, string nom, string prenom, string email)
         {
-            id = 0;
-            nom = nom;
-            prenom = prenom;
-            email = email;
+            this.id = id;
+            this.nom = nom;
+            this.prenom = prenom;
+            this.email = email;
         }
     }
 }

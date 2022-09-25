@@ -1,6 +1,4 @@
-﻿using ESIEE_2_Campagne_Mail.Models;
-
-namespace ESIEE_2_Campagne_Mail.model
+﻿namespace ESIEE_2_Campagne_Mail.models
 {
     /**
     * Classe Campagne.
