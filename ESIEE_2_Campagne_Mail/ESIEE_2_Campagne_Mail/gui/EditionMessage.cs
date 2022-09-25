@@ -105,26 +105,29 @@ namespace ESIEE_2_Campagne_Mail
 
             if(!isExpediteurMail && !isReboundMail)
             {
-                MessageBox.Show("Oups !"
-                    + "\nL'adresse email de l'expéditeur et du rebound ne sont pas valides"
+                MessageBox.Show(
+                    "L'adresse email de l'expéditeur et du rebound ne sont pas valides"
                     + "\nVeuillez vérifier l'adresse mail de l'expéditeur et du rebound.",
-                    "Greetings", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    "Oups !",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else if (!isExpediteurMail)
             {
-                MessageBox.Show("Oups !"
-                    + "\nL'adresse mail de l'expéditeur est invalide."
+                MessageBox.Show(
+                    "L'adresse mail de l'expéditeur est invalide."
                     + "\nVeuillez vérifier l'adresse mail de l'expéditeur.",
-                    "Greetings", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    "Oups !",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else if (!isReboundMail)
             {
-                MessageBox.Show("Oups !"
-                    + "\nL'adresse mail du rebound est invalide."
+                MessageBox.Show(
+                    "L'adresse mail du rebound est invalide."
                     + "\nVeuillez vérifier l'adresse mail du rebound.",
-                    "Greetings", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    "Oups !",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else
@@ -160,10 +163,10 @@ namespace ESIEE_2_Campagne_Mail
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("Oups !"
-                        + "\nUne erreur est survenue lors de la sauvegarde du contenu de mail."
+                    MessageBox.Show(
+                        "Une erreur est survenue lors de la sauvegarde du contenu de mail."
                         + "\nVeuillez réessayer ultérieurement.",
-                        "Greetings", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        "Oups !", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     Console.WriteLine(e);
                     return false;
                 }

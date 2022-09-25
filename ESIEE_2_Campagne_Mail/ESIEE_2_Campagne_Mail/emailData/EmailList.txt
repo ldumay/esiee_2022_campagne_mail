@@ -1,7 +1,6 @@
-﻿Email,Nom,prenom
-JeanPierreDu95@gmail.com,Jean,Cailloux
-Maisa@gmail.com,Jean,Whyny
-Ouillin@gmail.com,Jean,Areiane
-Ceste@gmail.com,Jean,Younna
-Claire@gmail.com,CJean,Runing
-
+﻿Id,Nom,Prenom,Email,Etat
+Jean,Cailloux,JeanPierreDu95@gmail.com,Actif
+Jean,Whyny,Maisa@gmail.com,Actif
+Jean,Areiane,Ouillin@gmail.com,Actif
+Jean,Younna,Ceste@gmail.com,Inactif
+CJean,Runing,Claire@gmail.com,Actif

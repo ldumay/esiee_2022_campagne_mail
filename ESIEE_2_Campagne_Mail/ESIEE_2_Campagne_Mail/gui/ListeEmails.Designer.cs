@@ -31,14 +31,15 @@ namespace ESIEE_2_Campagne_Mail
         private void InitializeComponent()
         {
             this.listViewMails = new System.Windows.Forms.ListView();
+            this.columnID = new System.Windows.Forms.ColumnHeader();
+            this.columnNom = new System.Windows.Forms.ColumnHeader();
+            this.columnPrenom = new System.Windows.Forms.ColumnHeader();
+            this.columnEmail = new System.Windows.Forms.ColumnHeader();
             this.buttonImporter = new System.Windows.Forms.Button();
             this.buttonExporter = new System.Windows.Forms.Button();
             this.buttonDedoublennage = new System.Windows.Forms.Button();
             this.buttonVerificationMail = new System.Windows.Forms.Button();
-            this.columnID = new System.Windows.Forms.ColumnHeader();
-            this.columnEmail = new System.Windows.Forms.ColumnHeader();
-            this.columnNom = new System.Windows.Forms.ColumnHeader();
-            this.columnPrenom = new System.Windows.Forms.ColumnHeader();
+            this.columnEtat = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
             // listViewMails
@@ -47,7 +48,8 @@ namespace ESIEE_2_Campagne_Mail
             this.columnID,
             this.columnNom,
             this.columnPrenom,
-            this.columnEmail});
+            this.columnEmail,
+            this.columnEtat});
             this.listViewMails.Location = new System.Drawing.Point(14, 77);
             this.listViewMails.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listViewMails.Name = "listViewMails";
@@ -55,6 +57,27 @@ namespace ESIEE_2_Campagne_Mail
             this.listViewMails.TabIndex = 0;
             this.listViewMails.UseCompatibleStateImageBehavior = false;
             this.listViewMails.View = System.Windows.Forms.View.Details;
+            this.listViewMails.SelectedIndexChanged += new System.EventHandler(this.listViewMails_SelectedIndexChanged);
+            // 
+            // columnID
+            // 
+            this.columnID.Text = "ID";
+            this.columnID.Width = 100;
+            // 
+            // columnNom
+            // 
+            this.columnNom.Text = "Nom";
+            this.columnNom.Width = 200;
+            // 
+            // columnPrenom
+            // 
+            this.columnPrenom.Text = "Prénom";
+            this.columnPrenom.Width = 200;
+            // 
+            // columnEmail
+            // 
+            this.columnEmail.Text = "Email";
+            this.columnEmail.Width = 300;
             // 
             // buttonImporter
             // 
@@ -97,25 +120,10 @@ namespace ESIEE_2_Campagne_Mail
             this.buttonVerificationMail.Text = "Vérification Mail";
             this.buttonVerificationMail.UseVisualStyleBackColor = true;
             // 
-            // columnID
+            // columnEtat
             // 
-            this.columnID.Text = "ID";
-            this.columnID.Width = 100;
-            // 
-            // columnEmail
-            // 
-            this.columnEmail.Text = "Email";
-            this.columnEmail.Width = 386;
-            // 
-            // columnNom
-            // 
-            this.columnNom.Text = "Nom";
-            this.columnNom.Width = 200;
-            // 
-            // columnPrenom
-            // 
-            this.columnPrenom.Text = "Prénom";
-            this.columnPrenom.Width = 200;
+            this.columnEtat.Text = "Etat";
+            this.columnEtat.Width = 86;
             // 
             // ListeEmails
             // 
@@ -145,6 +153,6 @@ namespace ESIEE_2_Campagne_Mail
         private ColumnHeader columnNom;
         private ColumnHeader columnPrenom;
         private ColumnHeader columnEmail;
-        private List<Contact> contacts;
+        private ColumnHeader columnEtat;
     }
 }
