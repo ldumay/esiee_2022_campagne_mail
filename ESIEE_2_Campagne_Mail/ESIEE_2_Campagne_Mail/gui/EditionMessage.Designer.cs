@@ -52,19 +52,21 @@
             // 
             // textBoxEXP
             // 
-            this.textBoxEXP.Location = new System.Drawing.Point(135, 73);
+            this.textBoxEXP.Location = new System.Drawing.Point(142, 73);
             this.textBoxEXP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxEXP.Name = "textBoxEXP";
-            this.textBoxEXP.Size = new System.Drawing.Size(297, 27);
+            this.textBoxEXP.PlaceholderText = "mail@mail.com";
+            this.textBoxEXP.Size = new System.Drawing.Size(290, 27);
             this.textBoxEXP.TabIndex = 1;
             this.textBoxEXP.TextChanged += new System.EventHandler(this.textBoxEXP_TextChanged);
             // 
             // textBoxRebound
             // 
-            this.textBoxRebound.Location = new System.Drawing.Point(539, 73);
+            this.textBoxRebound.Location = new System.Drawing.Point(562, 73);
             this.textBoxRebound.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxRebound.Name = "textBoxRebound";
-            this.textBoxRebound.Size = new System.Drawing.Size(297, 27);
+            this.textBoxRebound.PlaceholderText = "mail@mail.com";
+            this.textBoxRebound.Size = new System.Drawing.Size(274, 27);
             this.textBoxRebound.TabIndex = 3;
             this.textBoxRebound.TextChanged += new System.EventHandler(this.textBoxRebound_TextChanged);
             // 
@@ -81,10 +83,11 @@
             // 
             // textBoxTitre
             // 
-            this.textBoxTitre.Location = new System.Drawing.Point(135, 140);
+            this.textBoxTitre.Location = new System.Drawing.Point(142, 140);
             this.textBoxTitre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxTitre.Name = "textBoxTitre";
-            this.textBoxTitre.Size = new System.Drawing.Size(297, 27);
+            this.textBoxTitre.PlaceholderText = "Titre de l\'email";
+            this.textBoxTitre.Size = new System.Drawing.Size(290, 27);
             this.textBoxTitre.TabIndex = 5;
             this.textBoxTitre.TextChanged += new System.EventHandler(this.textBoxTitre_TextChanged);
             // 
@@ -115,6 +118,7 @@
             this.textBoxMessage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxMessage.Multiline = true;
             this.textBoxMessage.Name = "textBoxMessage";
+            this.textBoxMessage.PlaceholderText = "Contenu de l\'email";
             this.textBoxMessage.Size = new System.Drawing.Size(766, 236);
             this.textBoxMessage.TabIndex = 7;
             this.textBoxMessage.TextChanged += new System.EventHandler(this.textBoxMessage_TextChanged);
