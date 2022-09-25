@@ -76,9 +76,9 @@ namespace ESIEE_2_Campagne_Mail
             if(
                 updateContenuDeMail(
                     (textBoxEXP.Text != null) ? (string) textBoxEXP.Text : null,
+                    (textBoxRebound.Text != null) ? (string)textBoxRebound.Text : null,
                     (textBoxTitre.Text != null) ? (string)textBoxTitre.Text : null,
-                    (textBoxMessage.Text != null) ? (string)textBoxMessage.Text : null,
-                    (textBoxRebound.Text != null) ? (string)textBoxRebound.Text : null
+                    (textBoxMessage.Text != null) ? (string)textBoxMessage.Text : null
                 )
             ) {
                 Console.WriteLine("Contenu de mail : " + Home.Instance.campagne.ContenuDeMail);
@@ -95,14 +95,39 @@ namespace ESIEE_2_Campagne_Mail
         /**
          * Vérification et édition de l'instance de ContenuDeMail dans l'instance de la Campagne.
          */
-        private bool updateContenuDeMail(string expediteur, string titre, string contenu, string rebound){
+        private bool updateContenuDeMail(string expediteur, string rebound, string titre, string contenu){
             //Préparation instance de ContenuDeMail vide pour édition de l'instance de ContenuDeMail dans l'instance de la Campagne.
             ContenuDeMail contenuDeMail = null;
 
             //Vérification de l'adresse mail de l'expéditeur et du rebound.
             bool isExpediteurMail = verifEmail(expediteur);
             bool isReboundMail = verifEmail(rebound);
-            if (isExpediteurMail && isReboundMail)
+
+            if(!isExpediteurMail && !isReboundMail)
+            {
+                MessageBox.Show("Oups !"
+                    + "\nL'adresse email de l'expéditeur et du rebound ne sont pas valides"
+                    + "\nVeuillez vérifier l'adresse mail de l'expéditeur et du rebound.",
+                    "Greetings", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if (!isExpediteurMail)
+            {
+                MessageBox.Show("Oups !"
+                    + "\nL'adresse mail de l'expéditeur est invalide."
+                    + "\nVeuillez vérifier l'adresse mail de l'expéditeur.",
+                    "Greetings", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if (!isReboundMail)
+            {
+                MessageBox.Show("Oups !"
+                    + "\nL'adresse mail du rebound est invalide."
+                    + "\nVeuillez vérifier l'adresse mail du rebound.",
+                    "Greetings", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else
             {
                 //Vérification de l'instance de ContenuDeMail dans l'instance de la Campagne.
                 try
@@ -137,31 +162,11 @@ namespace ESIEE_2_Campagne_Mail
                 {
                     MessageBox.Show("Oups !"
                         + "\nUne erreur est survenue lors de la sauvegarde du contenu de mail."
-                        + "\nVeuillez réessayer ultérieurement.");
+                        + "\nVeuillez réessayer ultérieurement.",
+                        "Greetings", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     Console.WriteLine(e);
                     return false;
                 }
-            }
-            else if (!isExpediteurMail)
-            {
-                MessageBox.Show("Oups !"
-                    + "\nL'adresse mail de l'expéditeur est invalide."
-                    + "\nVeuillez vérifier l'adresse mail de l'expéditeur.");
-                return false;
-            }
-            else if (!isReboundMail)
-            {
-                MessageBox.Show("Oups !"
-                    + "\nL'adresse mail du rebound est invalide."
-                    + "\nVeuillez vérifier l'adresse mail du rebound.");
-                return false;
-            }
-            else
-            {
-                MessageBox.Show("Oups !"
-                    + "\nL'adresse email de l'expéditeur et du rebound ne sont pas valides"
-                    + "\nVeuillez vérifier l'adresse mail de l'expéditeur et du rebound."); 
-                return false;
             }
         }
 
