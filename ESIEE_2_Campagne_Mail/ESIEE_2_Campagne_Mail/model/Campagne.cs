@@ -30,7 +30,7 @@ namespace ESIEE_2_Campagne_Mail.model
         }
 
         /**
-         * Constructeur vide de la classe Campagne.
+         * Constructeur complet de la classe Campagne.
          */
         public Campagne(string nom,  List<GroupeMail> groupeMailList, ContenuDeMail message)
         {
