@@ -14,11 +14,11 @@
         private ContactEtat etat;
 
         //Getters & Setter
-        public int Id { get; set; }
-        public string Nom { get; set; }
-        public string Prenom { get; set; }
-        public string Email { get; set; }
-        public ContactEtat Etat { get; set; }
+        public int Id { get => id; set => id = value; }
+        public string Nom { get => nom; set => nom = value; }
+        public string Prenom { get => prenom; set => prenom = value; }
+        public string Email { get => email; set => email = value; }
+        public ContactEtat Etat { get => etat; set => etat = value; }
 
         /**
          * Constructeur vide de la classe Campagne.

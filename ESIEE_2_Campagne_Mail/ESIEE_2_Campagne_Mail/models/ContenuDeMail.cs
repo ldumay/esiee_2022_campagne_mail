@@ -19,10 +19,10 @@ namespace ESIEE_2_Campagne_Mail.models
         private string contenu;
 
         //Getters & Setter
-        public string Expediteur { get; set; }
-        public string Titre { get; set; }
-        public string Rebound { get; set; }
-        public string Contenu { get; set; }
+        public string Expediteur { get => expediteur; set => expediteur = value; }
+        public string Titre { get => titre; set => titre = value; }
+        public string Rebound { get => rebound; set => rebound = value; }
+        public string Contenu { get => contenu; set => contenu = value; }
 
         /**
          * Constructeur vide de la classe Message.

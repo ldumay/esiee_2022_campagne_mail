@@ -13,9 +13,9 @@
         private ContenuDeMail contenuDeMail;
 
         //Getters & Setter
-        public string Nom { get; set; }
-        public ContenuDeMail ContenuDeMail { get; set; }
-        public List<GroupeMail> GroupeMailList { get; set; }
+        public string Nom { get => nom; set => nom = value; }
+        public List<GroupeMail> GroupeMailList { get => groupeMailList; set => groupeMailList = value; }
+        public ContenuDeMail ContenuDeMail { get => contenuDeMail; set => contenuDeMail = value; }
 
         /**
          * Constructeur vide de la classe Campagne.
@@ -50,12 +50,20 @@
          */
         public List<string> recupererListeMail()
         {
-            List<string> listeMails = new List<string>();
-            foreach (GroupeMail groupeMail in groupeMailList)
-            {
-                listeMails.AddRange(groupeMail.MailsList);
+            try {
+                List<string> listeMails = new List<string>();
+                foreach (GroupeMail groupeMail in GroupeMailList)
+                {
+                    listeMails.AddRange(groupeMail.MailsList);
+                }
+                Console.WriteLine("[Recuperer Liste Mail]");
+                return listeMails;
             }
-            return listeMails;
+            catch (Exception e)
+            {
+                Console.WriteLine("[Recuperer Liste Mail] Error\n" + e);
+                return null;
+            }
         }
 
         /**
@@ -63,13 +71,21 @@
          */
         public List<string> recupererListeMailActifs()
         {
-            List<string> listeMails = new List<string>();
-            foreach (GroupeMail groupeMail in groupeMailList)
-            {
-                listeMails.AddRange(groupeMail.MailsActifsList);
+            try {
+                List<string> listeMails = new List<string>();
+                foreach (GroupeMail groupeMail in GroupeMailList)
+                {
+                    listeMails.AddRange(groupeMail.MailsActifsList);
+                }
+                Console.WriteLine("[Recuperer Liste Mail Actifs] OK");
+                return listeMails;
             }
-            return listeMails;
-        }
+            catch (Exception e)
+            {
+                Console.WriteLine("[Recuperer Liste Mail Actifs] Error\n" + e);
+                return null;
+            }
+}
 
     }
 }

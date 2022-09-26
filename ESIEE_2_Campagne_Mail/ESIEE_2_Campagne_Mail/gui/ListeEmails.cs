@@ -23,104 +23,50 @@ namespace ESIEE_2_Campagne_Mail
         {
             //Création d'une liste des items pour la ListView.
             List<ListViewItem> itemListViewItem = new List<ListViewItem>();
-
-            int idItem = 0;
             
             //Vérification de la liste des mails
             if (Home.Instance.campagne.GroupeMailList != null)
             {
                 //Récupère de la liste des groupes de mails de la campagne
-                List<string> listeMail = Home.Instance.campagne.recupererListeMail();
+                List<string> listeMail = (Home.Instance.campagne.recupererListeMail() != null) ? Home.Instance.campagne.recupererListeMail() : new List<string>();
 
                 //Récupère de la liste des groupes de mails de la campagne
-                List<string> listeMailActif = Home.Instance.campagne.recupererListeMailActifs();
+                List<string> listeMailActif = (Home.Instance.campagne.recupererListeMailActifs() != null) ? Home.Instance.campagne.recupererListeMailActifs() : new List<string>();
 
-                //Ajout des mails dans la liste
-                foreach (string mail in listeMail)
+                if(listeMail.Count > 0)
                 {
-                    itemListViewItem.Add(
-                        addInListViewItem(new Contact()
-                        {
-                            Id = idItem,
-                            Nom = "",
-                            Prenom = "",
-                            Email = mail,
-                            Etat = listeMailActif.Contains(mail) ? ContactEtat.ACTIF : ContactEtat.INACTIF
-                        })
-                    );
-                }
-
-                /*
-                //Lecture  de la liste des groupes de mails de la campagne
-                foreach (GroupeMail groupeMail in groupeMailList) {
-
-                    groupeMail
-                    //Lecture de la liste des mails de la liste des groupes de mails de la campagne
-                    foreach (string mail in mailList) {
-                    }
-                }
-                
-                //Parcours de la liste des mails
-                foreach (List<string> mailsList in listGroupeMail)
-                {
-                    
-                }
-
-                foreach (List<string> mailsActifsList in Home.Instance.campagne.GroupeMailList.MailsActifsList)
-                {
-                    //Ajout des mails actifs dans la liste
-                    foreach (string mail in groupeMail.MailsActifsList)
+                    //Ajout des mails dans la liste
+                    foreach (string mail in listeMail)
                     {
-                        addInListViewItem(new Contact()
-                        {
-                            Id = idItem,
-                            Nom = "",
-                            Prenom = "",
-                            Email = mail,
-                            Etat = ContactEtat.ACTIF
-                        }) ;
+                        itemListViewItem.Add(
+                            addInListViewItem(new Contact()
+                            {
+                                Id = 0,
+                                Nom = "",
+                                Prenom = "",
+                                Email = mail,
+                                Etat = listeMailActif.Count > 0 ? listeMailActif.Contains(mail) ? ContactEtat.ACTIF : ContactEtat.INACTIF : ContactEtat.INACTIF
+                            })
+                        );
                     }
-                }*/
+                }
             }
 
-            
-            /*
-            //Lecture de la liste de contacts pour ajouter les contact à les liste des items pour la ListeView.
-            foreach (Contact contact in contacts)
+            if (itemListViewItem.Count > 0)
             {
-                ListViewItem item = new ListViewItem(contact.Id.ToString());
-                item.SubItems.Add(contact.Nom);
-                item.SubItems.Add(contact.Prenom);
-                item.SubItems.Add(contact.Email);
-                item.SubItems.Add(contact.Etat.ToString());
-                //-
-                itemListIew.Add(item);
-            }
-            */
+                int idItem = (this.listViewMails.Items.Count > 0) ? this.listViewMails.Items.Count : 0;
 
-            //Récupération de la liste des items pour les ajoutés dans la ListView.
-            foreach (ListViewItem item in itemListViewItem)
-            {
-                this.listViewMails.Items.Add(item);
+                //Récupération de la liste des items pour les ajoutés dans la ListView.
+                foreach (ListViewItem item in itemListViewItem)
+                {
+                    item.Text = idItem.ToString();
+                    this.listViewMails.Items.Add(item);
+                    idItem++;
+                }
             }
-        }
 
-        /*
-        private Contact createContactTest()
-        {
-            *
-            Contact newContact1 = new Contact(0, "Jean", "Pierre", "jean.pierre@mail.com");
-            ==> Bug, le constructeur full ne charge pas des donnée -_-
-            *
-            Contact newContact2 = new Contact();
-            newContact2.Id = 0;
-            newContact2.Nom = "Jean";
-            newContact2.Prenom = "Pierre";
-            newContact2.Email = "jean.pierre@mail.com";
-            newContact2.Etat = ContactEtat.ACTIF;
-            return newContact2;
+            Console.WriteLine("[Liste View Update] OK");
         }
-        */
 
         private ListViewItem addInListViewItem(Contact contact)
         {

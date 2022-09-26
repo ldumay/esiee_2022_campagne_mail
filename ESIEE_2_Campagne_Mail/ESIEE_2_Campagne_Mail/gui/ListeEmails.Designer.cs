@@ -35,11 +35,11 @@ namespace ESIEE_2_Campagne_Mail
             this.columnNom = new System.Windows.Forms.ColumnHeader();
             this.columnPrenom = new System.Windows.Forms.ColumnHeader();
             this.columnEmail = new System.Windows.Forms.ColumnHeader();
+            this.columnEtat = new System.Windows.Forms.ColumnHeader();
             this.buttonImporter = new System.Windows.Forms.Button();
             this.buttonExporter = new System.Windows.Forms.Button();
             this.buttonDedoublennage = new System.Windows.Forms.Button();
             this.buttonVerificationMail = new System.Windows.Forms.Button();
-            this.columnEtat = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
             // listViewMails
@@ -50,10 +50,9 @@ namespace ESIEE_2_Campagne_Mail
             this.columnPrenom,
             this.columnEmail,
             this.columnEtat});
-            this.listViewMails.Location = new System.Drawing.Point(14, 77);
-            this.listViewMails.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.listViewMails.Location = new System.Drawing.Point(12, 58);
             this.listViewMails.Name = "listViewMails";
-            this.listViewMails.Size = new System.Drawing.Size(886, 505);
+            this.listViewMails.Size = new System.Drawing.Size(776, 380);
             this.listViewMails.TabIndex = 0;
             this.listViewMails.UseCompatibleStateImageBehavior = false;
             this.listViewMails.View = System.Windows.Forms.View.Details;
@@ -62,29 +61,33 @@ namespace ESIEE_2_Campagne_Mail
             // columnID
             // 
             this.columnID.Text = "ID";
-            this.columnID.Width = 100;
+            this.columnID.Width = 50;
             // 
             // columnNom
             // 
             this.columnNom.Text = "Nom";
-            this.columnNom.Width = 200;
+            this.columnNom.Width = 160;
             // 
             // columnPrenom
             // 
             this.columnPrenom.Text = "Prénom";
-            this.columnPrenom.Width = 200;
+            this.columnPrenom.Width = 160;
             // 
             // columnEmail
             // 
             this.columnEmail.Text = "Email";
-            this.columnEmail.Width = 300;
+            this.columnEmail.Width = 310;
+            // 
+            // columnEtat
+            // 
+            this.columnEtat.Text = "Etat";
+            this.columnEtat.Width = 86;
             // 
             // buttonImporter
             // 
-            this.buttonImporter.Location = new System.Drawing.Point(14, 16);
-            this.buttonImporter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonImporter.Location = new System.Drawing.Point(12, 12);
             this.buttonImporter.Name = "buttonImporter";
-            this.buttonImporter.Size = new System.Drawing.Size(157, 53);
+            this.buttonImporter.Size = new System.Drawing.Size(137, 40);
             this.buttonImporter.TabIndex = 1;
             this.buttonImporter.Text = "Importer";
             this.buttonImporter.UseVisualStyleBackColor = true;
@@ -92,50 +95,41 @@ namespace ESIEE_2_Campagne_Mail
             // 
             // buttonExporter
             // 
-            this.buttonExporter.Location = new System.Drawing.Point(177, 16);
-            this.buttonExporter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonExporter.Location = new System.Drawing.Point(155, 12);
             this.buttonExporter.Name = "buttonExporter";
-            this.buttonExporter.Size = new System.Drawing.Size(157, 53);
+            this.buttonExporter.Size = new System.Drawing.Size(137, 40);
             this.buttonExporter.TabIndex = 2;
             this.buttonExporter.Text = "Exporter";
             this.buttonExporter.UseVisualStyleBackColor = true;
             // 
             // buttonDedoublennage
             // 
-            this.buttonDedoublennage.Location = new System.Drawing.Point(341, 16);
-            this.buttonDedoublennage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonDedoublennage.Location = new System.Drawing.Point(298, 12);
             this.buttonDedoublennage.Name = "buttonDedoublennage";
-            this.buttonDedoublennage.Size = new System.Drawing.Size(157, 53);
+            this.buttonDedoublennage.Size = new System.Drawing.Size(137, 40);
             this.buttonDedoublennage.TabIndex = 3;
             this.buttonDedoublennage.Text = "Dédoublennage";
             this.buttonDedoublennage.UseVisualStyleBackColor = true;
             // 
             // buttonVerificationMail
             // 
-            this.buttonVerificationMail.Location = new System.Drawing.Point(504, 16);
-            this.buttonVerificationMail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonVerificationMail.Location = new System.Drawing.Point(441, 12);
             this.buttonVerificationMail.Name = "buttonVerificationMail";
-            this.buttonVerificationMail.Size = new System.Drawing.Size(157, 53);
+            this.buttonVerificationMail.Size = new System.Drawing.Size(137, 40);
             this.buttonVerificationMail.TabIndex = 4;
             this.buttonVerificationMail.Text = "Vérification Mail";
             this.buttonVerificationMail.UseVisualStyleBackColor = true;
             // 
-            // columnEtat
-            // 
-            this.columnEtat.Text = "Etat";
-            this.columnEtat.Width = 86;
-            // 
             // ListeEmails
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 600);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.buttonVerificationMail);
             this.Controls.Add(this.buttonDedoublennage);
             this.Controls.Add(this.buttonExporter);
             this.Controls.Add(this.buttonImporter);
             this.Controls.Add(this.listViewMails);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ListeEmails";
             this.Text = "ListeEmails";
             this.ResumeLayout(false);

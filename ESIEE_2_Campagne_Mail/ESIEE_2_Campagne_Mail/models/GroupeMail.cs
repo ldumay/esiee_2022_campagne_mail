@@ -18,8 +18,8 @@ namespace ESIEE_2_Campagne_Mail.models
         private List<string> mailsActifsList;
 
         //Getters & Setter
-        public List<string> MailsList { get; set; }
-        public List<string> MailsActifsList { get; set; }
+        public List<string> MailsList { get => mailsList; set => mailsList = value; }
+        public List<string> MailsActifsList { get => mailsActifsList; set => mailsActifsList = value; }
 
         /**
          * Constructeur vide de la classe Campagne.

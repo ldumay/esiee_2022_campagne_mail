@@ -113,12 +113,14 @@ namespace ESIEE_2_Campagne_Mail.utils
 
                 string message = "Le fichier a bien été chargé.";
                 MessageBox.Show(message, "Terminé", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return groupeMail;
             }
             catch (System.IO.FileNotFoundException e)
             {
                 string message = "Le fichier n'existe pas.";
                 System.Console.WriteLine(message);
                 MessageBox.Show(message, "Oups !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
             }
             catch (Exception e)
             {
@@ -126,9 +128,8 @@ namespace ESIEE_2_Campagne_Mail.utils
                 System.Console.WriteLine(message);
                 MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 System.Console.WriteLine(e.Message);
+                return null;
             }
-
-            return groupeMail;
         }
 
         /**
