@@ -81,10 +81,17 @@ namespace ESIEE_2_Campagne_Mail
         
         private void button1_Click(object sender, EventArgs e)
         {
-            List<GroupeMail> groupeMailList = new List<GroupeMail>();
-            groupeMailList.Add(UtilsFilesEmails.ImportWithOpenFileDialogEmailsTXT());
-            Home.Instance.campagne.GroupeMailList = groupeMailList;
-            //-
+            
+            if (Home.Instance.campagne.GroupeMailList == null)
+            {
+                List<GroupeMail> groupeMailList = new List<GroupeMail>();
+                groupeMailList.Add(UtilsFilesEmails.ImportWithOpenFileDialogEmailsTXT());
+                Home.Instance.campagne.GroupeMailList = groupeMailList;
+            }
+            else
+            {
+                Home.Instance.campagne.GroupeMailList.Add(UtilsFilesEmails.ImportWithOpenFileDialogEmailsTXT());
+            }
             updateListView();
         }
 
