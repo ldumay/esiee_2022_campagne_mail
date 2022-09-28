@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ESIEE_2_Campagne_Mail.models
 {
+    /// <summary>
+    /// Enumération des états d'un contact.
+    /// </summary>
     public enum ContactEtat
     {
         ACTIF,

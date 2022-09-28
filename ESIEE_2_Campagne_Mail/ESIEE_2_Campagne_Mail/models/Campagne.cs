@@ -1,8 +1,8 @@
 ﻿namespace ESIEE_2_Campagne_Mail.models
 {
-    /**
-    * Classe Campagne.
-    */
+    /// <summary>
+    /// Classe Campagne.
+    /// </summary>
     public class Campagne
     {
         /// <summary>
@@ -12,7 +12,7 @@
         /// <summary>
         /// Attribut de la liste des mails
         /// </summary>
-        public List<GroupeMail> GroupeMailList { get; }
+        public List<GroupeContact> GroupeMailList { get; }
         /// <summary>
         /// Attribut du message
         /// </summary>
@@ -25,17 +25,14 @@
         public Campagne(string nom)
         {
             Nom = nom;
-            GroupeMailList = new List<GroupeMail>();
+            GroupeMailList = new List<GroupeContact>();
             ContenuDeMail = new ContenuDeMail();
         }
 
-        /// <summary>
-        /// Constructeur complet de la classe Campagne.
-        /// </summary>
-        /// <param name="nom"></param>
-        /// <param name="groupeMailList"></param>
-        /// <param name="message"></param>
-        public Campagne(string nom, List<GroupeMail> groupeMailList, ContenuDeMail message)
+        /**
+         * Constructeur complet de la classe Campagne.
+         */
+        public Campagne(string nom, List<GroupeContact> groupeMailList, ContenuDeMail message)
         {
             this.Nom = nom;
             this.GroupeMailList = groupeMailList;
@@ -60,11 +57,11 @@
             List<string> listeMails = new List<string>();
             try
             {
-                foreach (GroupeMail groupeMail in GroupeMailList)
+                foreach (GroupeContact groupeMail in GroupeMailList)
                 {
                     if (groupeMail != null)
                     {
-                        listeMails.AddRange(groupeMail.MailsList);
+                        listeMails.AddRange(groupeMail.ContactList);
                     }
                 }
                 Console.WriteLine("[Recuperer Liste Mail]");
@@ -85,7 +82,7 @@
             List<string> listeMails = new List<string>();
             try
             {
-                foreach (GroupeMail groupeMail in GroupeMailList)
+                foreach (GroupeContact groupeMail in GroupeMailList)
                 {
                     if (groupeMail != null)
                     {
