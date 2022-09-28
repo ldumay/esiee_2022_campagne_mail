@@ -9,7 +9,8 @@ namespace ESIEE_2_Campagne_Mail.utils
         /**
          * Importation d'une liste de mail depuis un fichier TXT.
          */
-        public static GroupeMail ImportWithOpenFileDialogEmailsTXT(){
+        public static GroupeMail ImportWithOpenFileDialogEmailsTXT()
+        {
             GroupeMail groupeMail = new GroupeMail();
             string fileExt = "";
             string filePath = "";
@@ -36,10 +37,12 @@ namespace ESIEE_2_Campagne_Mail.utils
                     ReadOnlyChecked = true,
                     ShowReadOnly = true
                 };
-                openFileDialog.ShowDialog();
-
+                DialogResult dialogResult = openFileDialog.ShowDialog();
+                if (dialogResult != DialogResult.OK)
+                {
+                    return groupeMail;
+                }
                 string openFileDialogFileNameWithPath = openFileDialog.FileName;
-
 
                 fileExt = openFileDialogFileNameWithPath.Split('.')[1];
                 filePath = openFileDialogFileNameWithPath.Split('.')[0];
@@ -60,18 +63,19 @@ namespace ESIEE_2_Campagne_Mail.utils
 
                 Console.WriteLine("File infos OK.");
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 string message = "Une erreur est survenue lors du choix du fichier.";
                 System.Console.WriteLine(message);
                 MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 System.Console.WriteLine(e.Message);
             }
-            
+
             //Lecture du fichier
             try
             {
                 //Lecture du fichier ligne par ligne
-                string[] lines = System.IO.File.ReadAllLines(@""+ filePath + fileName + "." + fileExt);
+                string[] lines = System.IO.File.ReadAllLines(@"" + filePath + fileName + "." + fileExt);
                 System.Console.WriteLine("Lecture OK");
 
                 //Conversion des lignes en liste de contact
@@ -79,9 +83,10 @@ namespace ESIEE_2_Campagne_Mail.utils
                 {
                     //Ligne
                     Console.WriteLine("\t" + line);
-                    
+
                     //Non lecture de la première ligne
-                    if(line!= "Id,Nom,Prenom,Email,Etat") {
+                    if (line != "Id,Nom,Prenom,Email,Etat")
+                    {
 
                         //Découpage de la ligne
                         string[] lineCut = line.Split(",");
@@ -92,14 +97,16 @@ namespace ESIEE_2_Campagne_Mail.utils
                         contact.Nom = lineCut[1];
                         contact.Prenom = lineCut[2];
                         contact.Email = lineCut[3];
-
-                        if (lineCut[4] == "Actif") {
+                        if (lineCut[4] == "Actif")
+                        {
                             contact.Etat = ContactEtat.ACTIF;
                         }
-                        else if (lineCut[4] == "Inactif") {
+                        else if (lineCut[4] == "Inactif")
+                        {
                             contact.Etat = ContactEtat.INACTIF;
                         }
-                        else {
+                        else
+                        {
                             contact.Etat = ContactEtat.ERREUR;
                         }
 
@@ -136,7 +143,8 @@ namespace ESIEE_2_Campagne_Mail.utils
         /**
          * Exportation d'une liste de mail vers un fichier TXT.
          */
-        public static bool ExportEmailsTXT(string path, string fileName) {
+        public static bool ExportEmailsTXT(string path, string fileName)
+        {
             bool isGood = false;
             //-
             //-

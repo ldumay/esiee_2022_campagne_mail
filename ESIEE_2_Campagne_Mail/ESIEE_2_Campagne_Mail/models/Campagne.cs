@@ -18,9 +18,10 @@
         /// </summary>
         public ContenuDeMail ContenuDeMail { get; set; }
 
-        /**
-         * Constructeur vide de la classe Campagne.
-         */
+        /// <summary>
+        /// Constructeur vide de la classe Campagne.
+        /// </summary>
+        /// <param name="nom"></param>
         public Campagne(string nom)
         {
             Nom = nom;
@@ -28,9 +29,12 @@
             ContenuDeMail = new ContenuDeMail();
         }
 
-        /**
-         * Constructeur complet de la classe Campagne.
-         */
+        /// <summary>
+        /// Constructeur complet de la classe Campagne.
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <param name="groupeMailList"></param>
+        /// <param name="message"></param>
         public Campagne(string nom, List<GroupeMail> groupeMailList, ContenuDeMail message)
         {
             this.Nom = nom;
@@ -38,17 +42,19 @@
             this.ContenuDeMail = message;
         }
 
-        /**
-         * Changer le message contenu dans la campagne.
-         */
+        /// <summary>
+        /// Changer le message contenu dans la campagne.
+        /// </summary>
+        /// <param name="message"></param>
         public void changerMessage(string message)
         {
             this.ContenuDeMail.Contenu = message;
         }
 
-        /**
-         * Récupérer la liste des mails actifs des groupes mails.
-         */
+        /// <summary>
+        /// Récupérer la liste des mails actifs des groupes mails.
+        /// </summary>
+        /// <returns>Liste de mail</returns>
         public List<string> recupererListeMail()
         {
             List<string> listeMails = new List<string>();
@@ -70,9 +76,10 @@
             return listeMails;
         }
 
-        /**
-         * Récupérer la liste des mails actifs des groupes mails.
-         */
+        /// <summary>
+        /// Récupérer la liste des mails actifs des groupes mails.
+        /// </summary>
+        /// <returns>Liste de mail actif</returns>
         public List<string> recupererListeMailActifs()
         {
             List<string> listeMails = new List<string>();
