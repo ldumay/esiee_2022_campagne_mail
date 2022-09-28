@@ -56,7 +56,10 @@
             {
                 foreach (GroupeMail groupeMail in GroupeMailList)
                 {
-                    listeMails.AddRange(groupeMail.MailsList);
+                    if (groupeMail != null)
+                    {
+                        listeMails.AddRange(groupeMail.MailsList);
+                    }
                 }
                 Console.WriteLine("[Recuperer Liste Mail]");
             }
@@ -77,7 +80,10 @@
             {
                 foreach (GroupeMail groupeMail in GroupeMailList)
                 {
-                    listeMails.AddRange(groupeMail.MailsActifsList);
+                    if (groupeMail != null)
+                    {
+                        listeMails.AddRange(groupeMail.MailsActifsList);
+                    }
                 }
                 Console.WriteLine("[Recuperer Liste Mail Actifs] OK");
             }

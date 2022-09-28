@@ -29,10 +29,10 @@ namespace ESIEE_2_Campagne_Mail
             if (Home.Instance.Manager.Campagne.GroupeMailList != null)
             {
                 //Récupère de la liste des groupes de mails de la campagne
-                List<string> listeMail = (Home.Instance.Manager.Campagne.recupererListeMail() != null) ? Home.Instance.Manager.Campagne.recupererListeMail() : new List<string>();
+                List<string> listeMail = Home.Instance.Manager.Campagne.recupererListeMail();
 
                 //Récupère de la liste des groupes de mails de la campagne
-                List<string> listeMailActif = (Home.Instance.Manager.Campagne.recupererListeMailActifs() != null) ? Home.Instance.Manager.Campagne.recupererListeMailActifs() : new List<string>();
+                List<string> listeMailActif = Home.Instance.Manager.Campagne.recupererListeMailActifs();
 
                 if (listeMail.Count > 0)
                 {
@@ -83,15 +83,8 @@ namespace ESIEE_2_Campagne_Mail
         {
             List<GroupeMail> groupeMailList = new List<GroupeMail>();
             groupeMailList.Add(UtilsFilesEmails.ImportWithOpenFileDialogEmailsTXT());
-            if (Home.Instance.campagne.GroupeMailList == null)
-            {
-                Home.Instance.Manager.Campagne.GroupeMailList = new List<GroupeMail>();
-            }
-            else
-            {
-                Home.Instance.Manager.Campagne.GroupeMailList.Clear();
-            }
-            Home.Instance.Manager.Campagne.GroupeMailList.Add(groupeMailList);
+            Home.Instance.Manager.Campagne.GroupeMailList.Clear();
+            Home.Instance.Manager.Campagne.GroupeMailList.AddRange(groupeMailList);
             //-
             updateListView();
         }
