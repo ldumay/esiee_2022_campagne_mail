@@ -1,5 +1,6 @@
 ﻿using ESIEE_2_Campagne_Mail.models;
 using ESIEE_2_Campagne_Mail.utils;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace ESIEE_2_Campagne_Mail
 {
@@ -102,10 +104,22 @@ namespace ESIEE_2_Campagne_Mail
 
         private void buttonExporter_Click(object sender, EventArgs e)
         {
+            // txt header
+            String txtHeader = "Id,Nom,Prenom,Email,Etat";
+            //get download path
+            String filePath = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "{374DE290-123F-4565-9164-39C4925E467B}", String.Empty).ToString();
+
             List<GroupeMail> groupeMailList = Home.Instance.campagne.GroupeMailList;
 
-                Console.WriteLine(groupeMailList);
+            foreach (GroupeMail mailList in groupeMailList)
+            {
+                foreach (string email in mailList.MailsList)
+                {
 
+                    MessageBox.Show(email);
+                }
+            }
+            Console.WriteLine(groupeMailList);
 
         }
 
