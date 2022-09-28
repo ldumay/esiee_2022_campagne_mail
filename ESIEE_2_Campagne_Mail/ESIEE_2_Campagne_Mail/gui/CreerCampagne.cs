@@ -19,7 +19,7 @@ namespace ESIEE_2_Campagne_Mail
             if (!string.IsNullOrEmpty(campaignName))
             {
                 // object instance home
-                Home Home = new Home(new Campagne(campaignName, null, null));
+                Home Home = new Home(campaignName);
                 //link with the master page
                 Home.Owner = this;
                 //Lock the second page when it's opend

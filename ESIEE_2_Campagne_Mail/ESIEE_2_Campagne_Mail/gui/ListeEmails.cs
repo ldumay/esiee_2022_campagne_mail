@@ -24,17 +24,17 @@ namespace ESIEE_2_Campagne_Mail
         {
             //Création d'une liste des items pour la ListView.
             List<ListViewItem> itemListViewItem = new List<ListViewItem>();
-            
+
             //Vérification de la liste des mails
-            if (Home.Instance.campagne.GroupeMailList != null)
+            if (Home.Instance.Manager.Campagne.GroupeMailList != null)
             {
                 //Récupère de la liste des groupes de mails de la campagne
-                List<string> listeMail = (Home.Instance.campagne.recupererListeMail() != null) ? Home.Instance.campagne.recupererListeMail() : new List<string>();
+                List<string> listeMail = Home.Instance.Manager.Campagne.recupererListeMail();
 
                 //Récupère de la liste des groupes de mails de la campagne
-                List<string> listeMailActif = (Home.Instance.campagne.recupererListeMailActifs() != null) ? Home.Instance.campagne.recupererListeMailActifs() : new List<string>();
+                List<string> listeMailActif = Home.Instance.Manager.Campagne.recupererListeMailActifs();
 
-                if(listeMail.Count > 0)
+                if (listeMail.Count > 0)
                 {
                     //Ajout des mails dans la liste
                     foreach (string mail in listeMail)
@@ -78,20 +78,14 @@ namespace ESIEE_2_Campagne_Mail
             item.SubItems.Add(contact.Etat.ToString());
             return item;
         }
-        
+
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            if (Home.Instance.campagne.GroupeMailList == null)
-            {
-                List<GroupeMail> groupeMailList = new List<GroupeMail>();
-                groupeMailList.Add(UtilsFilesEmails.ImportWithOpenFileDialogEmailsTXT());
-                Home.Instance.campagne.GroupeMailList = groupeMailList;
-            }
-            else
-            {
-                Home.Instance.campagne.GroupeMailList.Add(UtilsFilesEmails.ImportWithOpenFileDialogEmailsTXT());
-            }
+            List<GroupeMail> groupeMailList = new List<GroupeMail>();
+            groupeMailList.Add(UtilsFilesEmails.ImportWithOpenFileDialogEmailsTXT());
+            Home.Instance.Manager.Campagne.GroupeMailList.Clear();
+            Home.Instance.Manager.Campagne.GroupeMailList.AddRange(groupeMailList);
+            //-
             updateListView();
         }
 
