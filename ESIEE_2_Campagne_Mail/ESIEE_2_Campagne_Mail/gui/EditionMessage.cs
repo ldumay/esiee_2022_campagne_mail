@@ -142,20 +142,20 @@ namespace ESIEE_2_Campagne_Mail
                         //Récupération
                         contenuDeMail = Home.Instance.Manager.Campagne.ContenuDeMail;
                         //Edition
-                        contenuDeMail.Expediteur = (expediteur != null) ? expediteur : "";
-                        contenuDeMail.Titre = (titre != null) ? titre : "";
-                        contenuDeMail.Contenu = (contenu != null) ? contenu : "";
-                        contenuDeMail.Rebound = (rebound != null) ? rebound : "";
+                        contenuDeMail.Expediteur = expediteur ?? "";
+                        contenuDeMail.Titre = titre ?? "";
+                        contenuDeMail.Contenu = contenu ?? "";
+                        contenuDeMail.Rebound = rebound ?? "";
                     }
                     else
                     {
                         //Création
                         contenuDeMail = new ContenuDeMail();
                         //Edition
-                        contenuDeMail.Expediteur = (expediteur != null) ? expediteur : "";
-                        contenuDeMail.Titre = (titre != null) ? titre : "";
-                        contenuDeMail.Contenu = (contenu != null) ? contenu : "";
-                        contenuDeMail.Rebound = (rebound != null) ? rebound : "";
+                        contenuDeMail.Expediteur = expediteur ?? "";
+                        contenuDeMail.Titre = titre ?? "";
+                        contenuDeMail.Contenu = contenu ?? "";
+                        contenuDeMail.Rebound = rebound ?? "";
                     }
                     //Enregistrement de l'instance de ContenuDeMail dans l'instance de la Campagne. 
                     Home.Instance.Manager.Campagne.ContenuDeMail = contenuDeMail;
