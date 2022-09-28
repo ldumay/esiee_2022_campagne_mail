@@ -11,19 +11,14 @@ namespace ESIEE_2_Campagne_Mail.models
     /// </summary>
     public class GroupeContact
     {
+        public List<Contact> ContactList { get; set; }
 
-        //Attribut de la liste des mails
-        private List<Contact> contactList;
-
-        //Getters & Setter
-        public List<Contact> ContactList { get => contactList; set => contactList = value; }
-        
         /// <summary>
         /// Constructeur vide de la classe Campagne.
         /// </summary>
         public GroupeContact()
         {
-            contactList = new List<Contact>();
+            ContactList = new List<Contact>();
         }
 
         /// <summary>
@@ -33,16 +28,16 @@ namespace ESIEE_2_Campagne_Mail.models
         /// <param name="mailsActifsList"></param>
         public GroupeContact(List<Contact> mailsList)
         {
-            this.contactList = mailsList;
+            ContactList = mailsList;
         }
 
         /// <summary>
         /// Ajouter un contact à la liste des contacts.
         /// </summary>
         /// <param name="mail"></param>
-        public void AjouterMail(Contact contact)
+        public void AjouterContact(Contact contact)
         {
-            contactList.Add(contact);
+            ContactList.Add(contact);
         }
 
         /// <summary>
@@ -51,7 +46,7 @@ namespace ESIEE_2_Campagne_Mail.models
         /// <param name="mail"></param>
         public void RetirerMail(Contact contact)
         {
-            contactList.Remove(contact);
+            ContactList.Remove(contact);
         }
 
         /// <summary>
@@ -61,11 +56,12 @@ namespace ESIEE_2_Campagne_Mail.models
         /// <param name="mail"></param>
         public void ActiverMail(Contact contact)
         {
-            foreach (Contact contactInContactList in contactList)
+            foreach (Contact contactInContactList in ContactList)
             {
                 if (contactInContactList.Equals(contact))
                 {
                     contactInContactList.Etat = ContactEtat.ACTIF;
+                    break;
                 }
             }
         }
@@ -77,11 +73,12 @@ namespace ESIEE_2_Campagne_Mail.models
         /// <param name="mail"></param>
         public void DesactiverMail(Contact contact)
         {
-            foreach (Contact contactInContactList in contactList)
+            foreach (Contact contactInContactList in ContactList)
             {
                 if (contactInContactList.Equals(contact))
                 {
                     contactInContactList.Etat = ContactEtat.INACTIF;
+                    break;
                 }
             }
         }

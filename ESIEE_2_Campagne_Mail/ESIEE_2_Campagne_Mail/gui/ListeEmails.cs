@@ -88,8 +88,8 @@ namespace ESIEE_2_Campagne_Mail
         {
             List<GroupeContact> groupeMailList = new List<GroupeContact>();
             groupeMailList.Add(UtilsFiles.ImportWithOpenFileDialogEmailsTXT());
-            Home.Instance.Manager.Campagne.GroupeMailList.Clear();
-            Home.Instance.Manager.Campagne.GroupeMailList.AddRange(groupeMailList);
+            Home.Instance.Manager.GetCampagne().GroupeMailList.Clear();
+            Home.Instance.Manager.GetCampagne().GroupeMailList.AddRange(groupeMailList);
             //-
             updateListView();
         }
@@ -114,7 +114,7 @@ namespace ESIEE_2_Campagne_Mail
             string downloadFilePath = Path.Combine(filePath, "email_list_" + now.ToString("yyyy_MM_dd_HH'_'mm'_'ss") + ".txt");
 
             // get object instance / email list
-            List<GroupeContact> groupeMailList = Home.Instance.Manager.Campagne.GroupeMailList;
+            List<GroupeContact> groupeMailList = Home.Instance.Manager.GetCampagne().GroupeMailList;
 
             // This text is added only once to the file.
             if (!File.Exists(downloadFilePath))
@@ -125,12 +125,12 @@ namespace ESIEE_2_Campagne_Mail
 
             foreach (GroupeContact mailList in groupeMailList)
             {
-                foreach (string email in mailList.ContactList)
+                foreach (Contact contact in mailList.ContactList)
                 {
-                    File.AppendAllText(downloadFilePath,"nop,nop,nop,"+ email + ",nop" + Environment.NewLine, Encoding.UTF8);
+                    File.AppendAllText(downloadFilePath, "nop,nop,nop," + contact.Email + ",nop" + Environment.NewLine, Encoding.UTF8);
                 }
             }
-           
+
             MessageBox.Show("Export done");
 
         }

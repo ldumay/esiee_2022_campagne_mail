@@ -57,11 +57,14 @@
             List<string> listeMails = new List<string>();
             try
             {
-                foreach (GroupeContact groupeMail in GroupeMailList)
+                foreach (GroupeContact groupeContact in GroupeMailList)
                 {
-                    if (groupeMail != null)
+                    if (groupeContact != null)
                     {
-                        listeMails.AddRange(groupeMail.ContactList);
+                        foreach (Contact contact in groupeContact.ContactList)
+                        {
+                            listeMails.Add(contact.Email);
+                        }
                     }
                 }
                 Console.WriteLine("[Recuperer Liste Mail]");
@@ -82,11 +85,17 @@
             List<string> listeMails = new List<string>();
             try
             {
-                foreach (GroupeContact groupeMail in GroupeMailList)
+                foreach (GroupeContact groupeContact in GroupeMailList)
                 {
-                    if (groupeMail != null)
+                    if (groupeContact != null)
                     {
-                        listeMails.AddRange(groupeMail.MailsActifsList);
+                        foreach (Contact contact in groupeContact.ContactList)
+                        {
+                            if (contact.Etat == ContactEtat.ACTIF)
+                            {
+                                listeMails.Add(contact.Email);
+                            }
+                        }
                     }
                 }
                 Console.WriteLine("[Recuperer Liste Mail Actifs] OK");

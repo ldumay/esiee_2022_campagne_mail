@@ -13,7 +13,8 @@ namespace ESIEE_2_Campagne_Mail.utils
         /// Importation d'une liste de mail depuis un fichier TXT.
         /// </summary>
         /// <returns>GroupeMail</returns>
-        public static GroupeContact ImportWithOpenFileDialogEmailsTXT(){
+        public static GroupeContact ImportWithOpenFileDialogEmailsTXT()
+        {
 
             GroupeContact groupeMail = new GroupeContact();
             string fileExt = "";
@@ -114,11 +115,11 @@ namespace ESIEE_2_Campagne_Mail.utils
                             contact.Etat = ContactEtat.ERREUR;
                         }
 
-                        //Ajout du contact à la liste du GroupeMail
-                        groupeMail.AjouterMail(contact.Email);
+                        //Ajout du contact à la liste du GroupeContact
+                        groupeMail.AjouterContact(contact);
                         if (contact.Etat == ContactEtat.ACTIF)
                         {
-                            groupeMail.ActiverMail(contact.Email);
+                            groupeMail.ActiverMail(contact);
                         }
                     }
                 }
@@ -132,7 +133,7 @@ namespace ESIEE_2_Campagne_Mail.utils
                 string message = "Le fichier n'existe pas.";
                 System.Console.WriteLine(message);
                 MessageBox.Show(message, "Oups !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return null;
+                return groupeMail;
             }
             catch (Exception e)
             {
@@ -140,7 +141,7 @@ namespace ESIEE_2_Campagne_Mail.utils
                 System.Console.WriteLine(message);
                 MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 System.Console.WriteLine(e.Message);
-                return null;
+                return groupeMail;
             }
         }
 
@@ -150,7 +151,8 @@ namespace ESIEE_2_Campagne_Mail.utils
         /// <param name="path"></param>
         /// <param name="fileName"></param>
         /// <returns>bool</returns>
-        public static bool ExportEmailsTXT(string path, string fileName) {
+        public static bool ExportEmailsTXT(string path, string fileName)
+        {
             bool isGood = false;
             //-
             //-

@@ -22,7 +22,7 @@ namespace ESIEE_2_Campagne_Mail.process
         /// Ajoute le groupe de contact dans la Campagne
         /// </summary>
         /// <param name="contacts"></param>
-        internal void AddGroupContact(GroupeMail contacts)
+        internal void AddGroupContact(GroupeContact contacts)
         {
             Campagne.GroupeMailList.Add(contacts);
         }
@@ -34,7 +34,7 @@ namespace ESIEE_2_Campagne_Mail.process
         }
 
         [Obsolete("Sert juste d'entre-deux commits")]
-        internal List<GroupeMail> GetGroupContactList()
+        internal List<GroupeContact> GetGroupContactList()
         {
             return Campagne.GroupeMailList;
         }
