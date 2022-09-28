@@ -81,7 +81,7 @@ namespace ESIEE_2_Campagne_Mail
                     (textBoxMessage.Text != null) ? (string)textBoxMessage.Text : null
                 )
             ) {
-                Console.WriteLine("Contenu de mail : " + Home.Instance.campagne.ContenuDeMail);
+                Console.WriteLine("Contenu de mail : " + Home.Instance.Manager.Campagne.ContenuDeMail);
                 //-
                 this.Close();
             }
@@ -97,7 +97,8 @@ namespace ESIEE_2_Campagne_Mail
          */
         private bool updateContenuDeMail(string expediteur, string rebound, string titre, string contenu){
             //Préparation instance de ContenuDeMail vide pour édition de l'instance de ContenuDeMail dans l'instance de la Campagne.
-            ContenuDeMail contenuDeMail = null;
+            //TODO : Pourquoi l'instancier ici ???
+            ContenuDeMail contenuDeMail = new ContenuDeMail();
 
             //Vérification de l'adresse mail de l'expéditeur et du rebound.
             bool isExpediteurMail = verifEmail(expediteur);
@@ -136,10 +137,10 @@ namespace ESIEE_2_Campagne_Mail
                 try
                 {
                     //==> Récupération ou Création
-                    if (Home.Instance.campagne.ContenuDeMail != null)
+                    if (Home.Instance.Manager.Campagne.ContenuDeMail != null)
                     {
                         //Récupération
-                        contenuDeMail = Home.Instance.campagne.ContenuDeMail;
+                        contenuDeMail = Home.Instance.Manager.Campagne.ContenuDeMail;
                         //Edition
                         contenuDeMail.Expediteur = (expediteur != null) ? expediteur : "";
                         contenuDeMail.Titre = (titre != null) ? titre : "";
@@ -157,7 +158,7 @@ namespace ESIEE_2_Campagne_Mail
                         contenuDeMail.Rebound = (rebound != null) ? rebound : "";
                     }
                     //Enregistrement de l'instance de ContenuDeMail dans l'instance de la Campagne. 
-                    Home.Instance.campagne.ContenuDeMail = contenuDeMail;
+                    Home.Instance.Manager.Campagne.ContenuDeMail = contenuDeMail;
                     //Vaildation du traitement
                     return true;
                 }

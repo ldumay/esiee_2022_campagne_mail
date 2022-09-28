@@ -1,16 +1,18 @@
 ﻿using ESIEE_2_Campagne_Mail.models;
+using ESIEE_2_Campagne_Mail.process;
 
 namespace ESIEE_2_Campagne_Mail
 {
     public partial class Home : Form
     {
         public static Home Instance;
-        public Campagne campagne;
-        public Home(Campagne campagne)
+        internal CampagneManager Manager { get; }
+
+        public Home(string campagneName)
         {
             InitializeComponent();
             Instance = this;
-            this.campagne = campagne;
+            Manager = new CampagneManager(campagneName);
         }
 
         /**
