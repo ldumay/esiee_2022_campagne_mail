@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ESIEE_2_Campagne_Mail
 {
@@ -89,7 +90,17 @@ namespace ESIEE_2_Campagne_Mail
 
         private void listViewMails_SelectedIndexChanged(object sender, EventArgs e)
         {
+          
+        }
+
+        private void buttonExporter_Click(object sender, EventArgs e)
+        {
+            List<GroupeMail> groupeMailList = Home.Instance.campagne.GroupeMailList;
+
+                Console.WriteLine(groupeMailList);
+
 
         }
+
     }
 }

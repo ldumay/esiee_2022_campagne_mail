@@ -92,6 +92,7 @@ namespace ESIEE_2_Campagne_Mail.utils
                         contact.Nom = lineCut[1];
                         contact.Prenom = lineCut[2];
                         contact.Email = lineCut[3];
+
                         if (lineCut[4] == "Actif") {
                             contact.Etat = ContactEtat.ACTIF;
                         }

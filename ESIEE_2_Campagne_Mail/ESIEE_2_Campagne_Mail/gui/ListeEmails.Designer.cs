@@ -50,6 +50,7 @@ namespace ESIEE_2_Campagne_Mail
             this.columnPrenom,
             this.columnEmail,
             this.columnEtat});
+            this.listViewMails.FullRowSelect = true;
             this.listViewMails.Location = new System.Drawing.Point(12, 58);
             this.listViewMails.Name = "listViewMails";
             this.listViewMails.Size = new System.Drawing.Size(776, 380);
@@ -101,6 +102,7 @@ namespace ESIEE_2_Campagne_Mail
             this.buttonExporter.TabIndex = 2;
             this.buttonExporter.Text = "Exporter";
             this.buttonExporter.UseVisualStyleBackColor = true;
+            this.buttonExporter.Click += new System.EventHandler(this.buttonExporter_Click);
             // 
             // buttonDedoublennage
             // 

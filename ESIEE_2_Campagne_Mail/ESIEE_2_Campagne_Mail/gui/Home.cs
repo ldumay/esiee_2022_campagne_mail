@@ -51,5 +51,10 @@ namespace ESIEE_2_Campagne_Mail
             //Ouverture et blocage de la vue sur la nouvelle fenêtre
             envoiCampagne.ShowDialog();
         }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

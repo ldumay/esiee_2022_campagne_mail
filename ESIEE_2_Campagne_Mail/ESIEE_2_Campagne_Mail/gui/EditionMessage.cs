@@ -1,4 +1,5 @@
 ﻿using ESIEE_2_Campagne_Mail.models;
+using ESIEE_2_Campagne_Mail.utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -180,8 +181,7 @@ namespace ESIEE_2_Campagne_Mail
         {
             try
             {
-                string regexText = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
-                Regex regex = new Regex(regexText, RegexOptions.IgnoreCase);
+                Regex regex = new Regex(UtilsRegex.regexMail, RegexOptions.IgnoreCase);
                 //-
                 var addr = new System.Net.Mail.MailAddress(email);
                 return addr.Address == email;
