@@ -61,7 +61,7 @@ namespace ESIEE_2_Campagne_Mail
          */
         private void textBoxTitre_TextChanged(object sender, EventArgs e)
         {
-           //Home.Instance.campagne.Message.Titre = textBoxTitre.Text.ToString();
+            //Home.Instance.campagne.Message.Titre = textBoxTitre.Text.ToString();
         }
 
         /**
@@ -74,15 +74,9 @@ namespace ESIEE_2_Campagne_Mail
 
         private void buttonSave_Click_1(object sender, EventArgs e)
         {
-            if(
-                updateContenuDeMail(
-                    (textBoxEXP.Text != null) ? (string) textBoxEXP.Text : null,
-                    (textBoxRebound.Text != null) ? (string)textBoxRebound.Text : null,
-                    (textBoxTitre.Text != null) ? (string)textBoxTitre.Text : null,
-                    (textBoxMessage.Text != null) ? (string)textBoxMessage.Text : null
-                )
-            ) {
-                Console.WriteLine("Contenu de mail : " + Home.Instance.campagne.ContenuDeMail);
+            if (updateContenuDeMail(textBoxEXP.Text, textBoxRebound.Text, textBoxTitre.Text, textBoxMessage.Text))
+            {
+                Console.WriteLine("Contenu de mail : " + Home.Instance.Manager.Campagne.ContenuDeMail);
                 //-
                 this.Close();
             }
@@ -93,18 +87,25 @@ namespace ESIEE_2_Campagne_Mail
 
         }
 
-        /**
-         * Vérification et édition de l'instance de ContenuDeMail dans l'instance de la Campagne.
-         */
-        private bool updateContenuDeMail(string expediteur, string rebound, string titre, string contenu){
+        /// <summary>
+        /// Vérification et édition de l'instance de ContenuDeMail dans l'instance de la Campagne.
+        /// </summary>
+        /// <param name="expediteur"></param>
+        /// <param name="rebound"></param>
+        /// <param name="titre"></param>
+        /// <param name="contenu"></param>
+        /// <returns></returns>
+        private bool updateContenuDeMail(string expediteur, string rebound, string titre, string contenu)
+        {
             //Préparation instance de ContenuDeMail vide pour édition de l'instance de ContenuDeMail dans l'instance de la Campagne.
-            ContenuDeMail contenuDeMail = null;
+            //TODO : Pourquoi l'instancier ici ???
+            ContenuDeMail contenuDeMail = new ContenuDeMail();
 
             //Vérification de l'adresse mail de l'expéditeur et du rebound.
             bool isExpediteurMail = verifEmail(expediteur);
             bool isReboundMail = verifEmail(rebound);
 
-            if(!isExpediteurMail && !isReboundMail)
+            if (!isExpediteurMail && !isReboundMail)
             {
                 MessageBox.Show(
                     "L'adresse email de l'expéditeur et du rebound ne sont pas valides"
@@ -137,28 +138,28 @@ namespace ESIEE_2_Campagne_Mail
                 try
                 {
                     //==> Récupération ou Création
-                    if (Home.Instance.campagne.ContenuDeMail != null)
+                    if (Home.Instance.Manager.Campagne.ContenuDeMail != null)
                     {
                         //Récupération
-                        contenuDeMail = Home.Instance.campagne.ContenuDeMail;
+                        contenuDeMail = Home.Instance.Manager.Campagne.ContenuDeMail;
                         //Edition
-                        contenuDeMail.Expediteur = (expediteur != null) ? expediteur : "";
-                        contenuDeMail.Titre = (titre != null) ? titre : "";
-                        contenuDeMail.Contenu = (contenu != null) ? contenu : "";
-                        contenuDeMail.Rebound = (rebound != null) ? rebound : "";
+                        contenuDeMail.Expediteur = expediteur ?? "";
+                        contenuDeMail.Titre = titre ?? "";
+                        contenuDeMail.Contenu = contenu ?? "";
+                        contenuDeMail.Rebound = rebound ?? "";
                     }
                     else
                     {
                         //Création
                         contenuDeMail = new ContenuDeMail();
                         //Edition
-                        contenuDeMail.Expediteur = (expediteur != null) ? expediteur : "";
-                        contenuDeMail.Titre = (titre != null) ? titre : "";
-                        contenuDeMail.Contenu = (contenu != null) ? contenu : "";
-                        contenuDeMail.Rebound = (rebound != null) ? rebound : "";
+                        contenuDeMail.Expediteur = expediteur ?? "";
+                        contenuDeMail.Titre = titre ?? "";
+                        contenuDeMail.Contenu = contenu ?? "";
+                        contenuDeMail.Rebound = rebound ?? "";
                     }
                     //Enregistrement de l'instance de ContenuDeMail dans l'instance de la Campagne. 
-                    Home.Instance.campagne.ContenuDeMail = contenuDeMail;
+                    Home.Instance.Manager.Campagne.ContenuDeMail = contenuDeMail;
                     //Vaildation du traitement
                     return true;
                 }

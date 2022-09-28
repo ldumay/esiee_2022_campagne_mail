@@ -9,13 +9,15 @@ namespace ESIEE_2_Campagne_Mail.process
 {
     internal class CampagneManager
     {
-        private Campagne campagne;
-        private SMTPConnectionHandler smtpConnectionHandler;
+        public Campagne Campagne { get; }
+        private SMTPConnectionHandler SMTPConnectionHandler { get; }
 
-        public CampagneManager()
+        public CampagneManager(string nomCampagne)
         {
-            this.campagne = new Campagne();
-            this.smtpConnectionHandler = new SMTPConnectionHandler();
+            Campagne = new Campagne(nomCampagne);
+            SMTPConnectionHandler = new SMTPConnectionHandler();
         }
+
+
     }
 }

@@ -60,7 +60,7 @@ namespace ESIEE_2_Campagne_Mail.models
          * Supprimer un mail à la liste des mails actifs.
          * Soit, désactiver un mail.
          */
-        public void desctiverMail(string mail)
+        public void desactiverMail(string mail)
         {
             mailsActifsList.Remove(mail);
         }
