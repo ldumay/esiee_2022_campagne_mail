@@ -118,7 +118,7 @@ namespace ESIEE_2_Campagne_Mail
             try
             {
                 // Changement de ContenuDeMail
-                Home.Instance.Manager.ChangeContenuDuMail(expediteur, titre, rebound, contenu);
+                Home.Instance.Manager.ChangerContenuDuMail(expediteur, titre, rebound, contenu);
                 // Vaildation du traitement
                 return true;
             }
