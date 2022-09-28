@@ -86,8 +86,8 @@ namespace ESIEE_2_Campagne_Mail
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<GroupeMail> groupeMailList = new List<GroupeMail>();
-            groupeMailList.Add(UtilsFilesEmails.ImportWithOpenFileDialogEmailsTXT());
+            List<GroupeContact> groupeMailList = new List<GroupeContact>();
+            groupeMailList.Add(UtilsFiles.ImportWithOpenFileDialogEmailsTXT());
             Home.Instance.Manager.Campagne.GroupeMailList.Clear();
             Home.Instance.Manager.Campagne.GroupeMailList.AddRange(groupeMailList);
             //-
@@ -114,7 +114,7 @@ namespace ESIEE_2_Campagne_Mail
             string downloadFilePath = Path.Combine(filePath, "email_list_" + now.ToString("yyyy_MM_dd_HH'_'mm'_'ss") + ".txt");
 
             // get object instance / email list
-            List<GroupeMail> groupeMailList = Home.Instance.Manager.Campagne.GroupeMailList;
+            List<GroupeContact> groupeMailList = Home.Instance.Manager.Campagne.GroupeMailList;
 
             // This text is added only once to the file.
             if (!File.Exists(downloadFilePath))
@@ -123,9 +123,9 @@ namespace ESIEE_2_Campagne_Mail
                 File.WriteAllText(downloadFilePath, txtHeader + Environment.NewLine, Encoding.UTF8);
             }
 
-            foreach (GroupeMail mailList in groupeMailList)
+            foreach (GroupeContact mailList in groupeMailList)
             {
-                foreach (string email in mailList.MailsList)
+                foreach (string email in mailList.ContactList)
                 {
                     File.AppendAllText(downloadFilePath,"nop,nop,nop,"+ email + ",nop" + Environment.NewLine, Encoding.UTF8);
                 }

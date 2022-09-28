@@ -3,14 +3,19 @@ using System.Windows.Forms;
 
 namespace ESIEE_2_Campagne_Mail.utils
 {
-    public class UtilsFilesEmails
+    /// <summary>
+    /// Classe d'utils pour les fichier.
+    /// </summary>
+    public class UtilsFiles
     {
 
-        /**
-         * Importation d'une liste de mail depuis un fichier TXT.
-         */
-        public static GroupeMail ImportWithOpenFileDialogEmailsTXT(){
-            GroupeMail groupeMail = new GroupeMail();
+        /// <summary>
+        /// Importation d'une liste de mail depuis un fichier TXT.
+        /// </summary>
+        /// <returns>GroupeMail</returns>
+        public static GroupeContact ImportWithOpenFileDialogEmailsTXT(){
+
+            GroupeContact groupeMail = new GroupeContact();
             string fileExt = "";
             string filePath = "";
             string fileName = "";
@@ -104,10 +109,10 @@ namespace ESIEE_2_Campagne_Mail.utils
                         }
 
                         //Ajout du contact à la liste du GroupeMail
-                        groupeMail.ajouterMail(contact.Email);
+                        groupeMail.AjouterMail(contact.Email);
                         if (contact.Etat == ContactEtat.ACTIF)
                         {
-                            groupeMail.activerMail(contact.Email);
+                            groupeMail.ActiverMail(contact.Email);
                         }
                     }
                 }
@@ -133,9 +138,12 @@ namespace ESIEE_2_Campagne_Mail.utils
             }
         }
 
-        /**
-         * Exportation d'une liste de mail vers un fichier TXT.
-         */
+        /// <summary>
+        /// Exportation d'une liste de mail vers un fichier TXT.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="fileName"></param>
+        /// <returns>bool</returns>
         public static bool ExportEmailsTXT(string path, string fileName) {
             bool isGood = false;
             //-

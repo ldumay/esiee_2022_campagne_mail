@@ -1,8 +1,8 @@
 ﻿namespace ESIEE_2_Campagne_Mail.models
 {
-    /**
-     * Classe Contact
-     */
+    /// <summary>
+    /// Classe Contact
+    /// </summary>
     public class Contact
     {
 
@@ -20,9 +20,9 @@
         public string Email { get => email; set => email = value; }
         public ContactEtat Etat { get => etat; set => etat = value; }
 
-        /**
-         * Constructeur vide de la classe Campagne.
-         */
+        /// <summary>
+        /// Constructeur vide de la classe Campagne.
+        /// </summary>
         public Contact()
         {
             id = 0;
@@ -32,9 +32,14 @@
             etat = ContactEtat.INACTIF;
         }
 
-        /**
-         * Constructeur complet de la classe Campagne.
-         */
+        /// <summary>
+        /// Constructeur complet de la classe Campagne.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nom"></param>
+        /// <param name="prenom"></param>
+        /// <param name="email"></param>
+        /// <param name="etat"></param>
         public Contact(int id, string nom, string prenom, string email, ContactEtat etat)
         {
             this.id = id;
