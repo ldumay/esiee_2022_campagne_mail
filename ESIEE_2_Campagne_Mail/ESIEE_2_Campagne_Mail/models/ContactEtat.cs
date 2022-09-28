@@ -10,6 +10,8 @@ namespace ESIEE_2_Campagne_Mail.models
     {
         ACTIF,
         INACTIF,
+        DOUBLON,
+        ERREUR_MAIL_NON_CONFORMINEE,
         ERREUR
     }
 }

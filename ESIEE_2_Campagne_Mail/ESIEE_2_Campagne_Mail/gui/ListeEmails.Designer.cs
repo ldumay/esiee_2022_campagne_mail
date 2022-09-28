@@ -38,7 +38,7 @@ namespace ESIEE_2_Campagne_Mail
             this.columnEtat = new System.Windows.Forms.ColumnHeader();
             this.buttonImporter = new System.Windows.Forms.Button();
             this.buttonExporter = new System.Windows.Forms.Button();
-            this.buttonDedoublennage = new System.Windows.Forms.Button();
+            this.buttonDedoublonnage = new System.Windows.Forms.Button();
             this.buttonVerificationMail = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -77,12 +77,12 @@ namespace ESIEE_2_Campagne_Mail
             // columnEmail
             // 
             this.columnEmail.Text = "Email";
-            this.columnEmail.Width = 310;
+            this.columnEmail.Width = 300;
             // 
             // columnEtat
             // 
             this.columnEtat.Text = "Etat";
-            this.columnEtat.Width = 86;
+            this.columnEtat.Width = 80;
             // 
             // buttonImporter
             // 
@@ -104,14 +104,14 @@ namespace ESIEE_2_Campagne_Mail
             this.buttonExporter.UseVisualStyleBackColor = true;
             this.buttonExporter.Click += new System.EventHandler(this.buttonExporter_Click);
             // 
-            // buttonDedoublennage
+            // buttonDedoublonnage
             // 
-            this.buttonDedoublennage.Location = new System.Drawing.Point(298, 12);
-            this.buttonDedoublennage.Name = "buttonDedoublennage";
-            this.buttonDedoublennage.Size = new System.Drawing.Size(137, 40);
-            this.buttonDedoublennage.TabIndex = 3;
-            this.buttonDedoublennage.Text = "Dédoublennage";
-            this.buttonDedoublennage.UseVisualStyleBackColor = true;
+            this.buttonDedoublonnage.Location = new System.Drawing.Point(298, 12);
+            this.buttonDedoublonnage.Name = "buttonDedoublonnage";
+            this.buttonDedoublonnage.Size = new System.Drawing.Size(137, 40);
+            this.buttonDedoublonnage.TabIndex = 3;
+            this.buttonDedoublonnage.Text = "Dédoublonnage";
+            this.buttonDedoublonnage.UseVisualStyleBackColor = true;
             // 
             // buttonVerificationMail
             // 
@@ -128,7 +128,7 @@ namespace ESIEE_2_Campagne_Mail
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.buttonVerificationMail);
-            this.Controls.Add(this.buttonDedoublennage);
+            this.Controls.Add(this.buttonDedoublonnage);
             this.Controls.Add(this.buttonExporter);
             this.Controls.Add(this.buttonImporter);
             this.Controls.Add(this.listViewMails);
@@ -143,7 +143,7 @@ namespace ESIEE_2_Campagne_Mail
         private ListView listViewMails;
         private Button buttonImporter;
         private Button buttonExporter;
-        private Button buttonDedoublennage;
+        private Button buttonDedoublonnage;
         private Button buttonVerificationMail;
         private ColumnHeader columnID;
         private ColumnHeader columnNom;
