@@ -18,9 +18,9 @@ namespace ESIEE_2_Campagne_Mail.models
         public string Rebound { get; set; }
         public string Contenu { get; set; }
 
-        /**
-         * Constructeur vide de la classe Message.
-         */
+        /// <summary>
+        /// Constructeur vide de la classe Message.
+        /// </summary>
         public ContenuDeMail()
         {
             Expediteur = "";
@@ -29,9 +29,13 @@ namespace ESIEE_2_Campagne_Mail.models
             Contenu = "";
         }
 
-        /**
-         * Constructeur complet de la classe Message.
-         */
+        /// <summary>
+        /// Constructeur complet de la classe Message.
+        /// </summary>
+        /// <param name="expediteur"></param>
+        /// <param name="titre"></param>
+        /// <param name="rebound"></param>
+        /// <param name="contenu"></param>
         public ContenuDeMail(string expediteur, string titre, string rebound, string contenu)
         {
             Expediteur = expediteur;

@@ -12,57 +12,69 @@ namespace ESIEE_2_Campagne_Mail.models
     public class GroupeMail
     {
 
-        //Attribut de la liste des mails
-        private List<string> mailsList;
-        //Attribut de la liste des mails actifs
-        private List<string> mailsActifsList;
-
-        //Getters & Setter
-        public List<string> MailsList { get => mailsList; set => mailsList = value; }
-        public List<string> MailsActifsList { get => mailsActifsList; set => mailsActifsList = value; }
+        /// <summary>
+        /// Attribut de la liste des mails
+        /// </summary>
+        public List<string> MailsList { get; }
+        /// <summary>
+        /// Attribut de la liste des mails actifs
+        /// </summary>
+        public List<string> MailsActifsList { get; }
 
         /**
          * Constructeur vide de la classe Campagne.
          */
         public GroupeMail()
         {
-            mailsList = new List<string>();
-            mailsActifsList = new List<string>();
+            MailsList = new List<string>();
+            MailsActifsList = new List<string>();
         }
 
-        /**
-         * Constructeur complet de la classe Campagne.
-         */
+        /// <summary>
+        /// Constructeur complet de la classe Campagne.
+        /// </summary>
+        /// <param name="mailsList"></param>
+        /// <param name="mailsActifsList"></param>
         public GroupeMail(List<string> mailsList, List<string> mailsActifsList)
         {
-            this.mailsList = mailsList;
-            this.mailsActifsList = mailsActifsList;
+            this.MailsList = mailsList;
+            this.MailsActifsList = mailsActifsList;
         }
 
-        /**
-         * Ajouter un mail à la liste des mails.
-         */
+        /// <summary>
+        /// Ajouter un mail à la liste des mails.
+        /// </summary>
+        /// <param name="mail"></param>
         public void ajouterMail(string mail)
         {
-            mailsList.Add(mail);
+            MailsList.Add(mail);
+        }
+        
+        /// <summary>
+        /// Ajouter un mail à la liste des mails.
+        /// </summary>
+        /// <param name="mail"></param>
+        public void retirerMail(string mail)
+        {
+            MailsList.Remove(mail);
         }
 
-        /**
-         * Ajouter un mail à la liste des mails actifs.
-         * Soit, activer un mail.
-         */
+        /// <summary>
+        /// Ajouter un mail à la liste des mails actifs.
+        /// </summary>
+        /// <param name="mail"></param>
         public void activerMail(string mail)
         {
-            mailsActifsList.Add(mail);
+            MailsActifsList.Add(mail);
         }
 
-        /**
-         * Supprimer un mail à la liste des mails actifs.
-         * Soit, désactiver un mail.
-         */
+        /// <summary>
+        /// Supprimer un mail à la liste des mails actifs.
+        /// </summary>
+        /// <param name="mail"></param>
         public void desactiverMail(string mail)
         {
-            mailsActifsList.Remove(mail);
+            MailsActifsList.Remove(mail);
         }
 
     }

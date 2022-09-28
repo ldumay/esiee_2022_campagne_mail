@@ -6,42 +6,40 @@
     public class Contact
     {
 
-        //Attributs du contact
-        private int id;
-        private string nom;
-        private string prenom;
-        private string email;
-        private ContactEtat etat;
+        // Attribut du contact
+        public int Id { get; set; }
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
+        public string Email { get; set; }
+        public ContactEtat Etat { get; set; }
 
-        //Getters & Setter
-        public int Id { get => id; set => id = value; }
-        public string Nom { get => nom; set => nom = value; }
-        public string Prenom { get => prenom; set => prenom = value; }
-        public string Email { get => email; set => email = value; }
-        public ContactEtat Etat { get => etat; set => etat = value; }
-
-        /**
-         * Constructeur vide de la classe Campagne.
-         */
+        /// <summary>
+        /// Constructeur vide du Contact
+        /// </summary>
         public Contact()
         {
-            id = 0;
-            nom = "";
-            prenom = "";
-            email = "";
-            etat = ContactEtat.INACTIF;
+            Id = 0;
+            Nom = "";
+            Prenom = "";
+            Email = "";
+            Etat = ContactEtat.INACTIF;
         }
 
-        /**
-         * Constructeur complet de la classe Campagne.
-         */
+        /// <summary>
+        /// Constructeur complet du Contact
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nom"></param>
+        /// <param name="prenom"></param>
+        /// <param name="email"></param>
+        /// <param name="etat"></param>
         public Contact(int id, string nom, string prenom, string email, ContactEtat etat)
         {
-            this.id = id;
-            this.nom = nom;
-            this.prenom = prenom;
-            this.email = email;
-            this.etat = etat;
+            Id = id;
+            Nom = nom;
+            Prenom = prenom;
+            Email = email;
+            Etat = etat;
         }
     }
 }
