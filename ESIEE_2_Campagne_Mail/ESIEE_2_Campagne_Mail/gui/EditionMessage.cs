@@ -60,7 +60,7 @@ namespace ESIEE_2_Campagne_Mail
          */
         private void textBoxTitre_TextChanged(object sender, EventArgs e)
         {
-           //Home.Instance.campagne.Message.Titre = textBoxTitre.Text.ToString();
+            //Home.Instance.campagne.Message.Titre = textBoxTitre.Text.ToString();
         }
 
         /**
@@ -73,14 +73,8 @@ namespace ESIEE_2_Campagne_Mail
 
         private void buttonSave_Click_1(object sender, EventArgs e)
         {
-            if(
-                updateContenuDeMail(
-                    (textBoxEXP.Text != null) ? (string) textBoxEXP.Text : null,
-                    (textBoxRebound.Text != null) ? (string)textBoxRebound.Text : null,
-                    (textBoxTitre.Text != null) ? (string)textBoxTitre.Text : null,
-                    (textBoxMessage.Text != null) ? (string)textBoxMessage.Text : null
-                )
-            ) {
+            if (updateContenuDeMail(textBoxEXP.Text, textBoxRebound.Text, textBoxTitre.Text, textBoxMessage.Text))
+            {
                 Console.WriteLine("Contenu de mail : " + Home.Instance.Manager.Campagne.ContenuDeMail);
                 //-
                 this.Close();
@@ -92,10 +86,16 @@ namespace ESIEE_2_Campagne_Mail
 
         }
 
-        /**
-         * Vérification et édition de l'instance de ContenuDeMail dans l'instance de la Campagne.
-         */
-        private bool updateContenuDeMail(string expediteur, string rebound, string titre, string contenu){
+        /// <summary>
+        /// Vérification et édition de l'instance de ContenuDeMail dans l'instance de la Campagne.
+        /// </summary>
+        /// <param name="expediteur"></param>
+        /// <param name="rebound"></param>
+        /// <param name="titre"></param>
+        /// <param name="contenu"></param>
+        /// <returns></returns>
+        private bool updateContenuDeMail(string expediteur, string rebound, string titre, string contenu)
+        {
             //Préparation instance de ContenuDeMail vide pour édition de l'instance de ContenuDeMail dans l'instance de la Campagne.
             //TODO : Pourquoi l'instancier ici ???
             ContenuDeMail contenuDeMail = new ContenuDeMail();
@@ -104,7 +104,7 @@ namespace ESIEE_2_Campagne_Mail
             bool isExpediteurMail = verifEmail(expediteur);
             bool isReboundMail = verifEmail(rebound);
 
-            if(!isExpediteurMail && !isReboundMail)
+            if (!isExpediteurMail && !isReboundMail)
             {
                 MessageBox.Show(
                     "L'adresse email de l'expéditeur et du rebound ne sont pas valides"
