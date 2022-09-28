@@ -11,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -114,7 +115,7 @@ namespace ESIEE_2_Campagne_Mail
             string downloadFilePath = Path.Combine(filePath, "email_list_" + now.ToString("yyyy_MM_dd_HH'_'mm'_'ss") + ".txt");
 
             // get object instance / email list
-            List<GroupeMail> groupeMailList = Home.Instance.Manager.Campagne.GroupeMailList;
+            List<GroupeMail> groupeMailList = Home.Instance.Manager.GetCampagne().GroupeMailList;
 
             // This text is added only once to the file.
             if (!File.Exists(downloadFilePath))
@@ -123,6 +124,7 @@ namespace ESIEE_2_Campagne_Mail
                 File.WriteAllText(downloadFilePath, txtHeader + Environment.NewLine, Encoding.UTF8);
             }
 
+            //add other line into the txt file
             foreach (GroupeMail mailList in groupeMailList)
             {
                 foreach (string email in mailList.MailsList)
@@ -135,5 +137,28 @@ namespace ESIEE_2_Campagne_Mail
 
         }
 
+        private void buttonVerificationMail_Click(object sender, EventArgs e)
+        {
+            // get object instance / email list
+            List<GroupeMail> groupeMailList = Home.Instance.Manager.GetCampagne().GroupeMailList;
+
+            
+            foreach (GroupeMail mailList in groupeMailList)
+            {
+                foreach (string email in mailList.MailsList)
+                {
+                    if (Regex.IsMatch(email, UtilsRegex.regexMail))
+                    {
+                        MessageBox.Show(email+"format is accepted");
+                    }
+                    else
+                    {
+                        MessageBox.Show(email + "format not accepted");
+                    }
+                }
+            }
+
+
+        }
     }
 }

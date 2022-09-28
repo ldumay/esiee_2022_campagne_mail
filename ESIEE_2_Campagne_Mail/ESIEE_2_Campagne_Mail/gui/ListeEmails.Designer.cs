@@ -121,6 +121,7 @@ namespace ESIEE_2_Campagne_Mail
             this.buttonVerificationMail.TabIndex = 4;
             this.buttonVerificationMail.Text = "Vérification Mail";
             this.buttonVerificationMail.UseVisualStyleBackColor = true;
+            this.buttonVerificationMail.Click += new System.EventHandler(this.buttonVerificationMail_Click);
             // 
             // ListeEmails
             // 
