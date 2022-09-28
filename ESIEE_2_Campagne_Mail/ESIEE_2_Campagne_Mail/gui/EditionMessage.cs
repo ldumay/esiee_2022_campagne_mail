@@ -76,9 +76,7 @@ namespace ESIEE_2_Campagne_Mail
         {
             if (updateContenuDeMail(textBoxEXP.Text, textBoxRebound.Text, textBoxTitre.Text, textBoxMessage.Text))
             {
-                Console.WriteLine("Contenu de mail : " + Home.Instance.Manager.Campagne.ContenuDeMail);
-                //-
-                this.Close();
+                Console.WriteLine("Contenu de mail : " + Home.Instance.Manager.GetContenuDuMail());
             }
             else
             {
@@ -97,24 +95,8 @@ namespace ESIEE_2_Campagne_Mail
         /// <returns></returns>
         private bool updateContenuDeMail(string expediteur, string rebound, string titre, string contenu)
         {
-            //Préparation instance de ContenuDeMail vide pour édition de l'instance de ContenuDeMail dans l'instance de la Campagne.
-            //TODO : Pourquoi l'instancier ici ???
-            ContenuDeMail contenuDeMail = new ContenuDeMail();
-
-            //Vérification de l'adresse mail de l'expéditeur et du rebound.
-            bool isExpediteurMail = verifEmail(expediteur);
-            bool isReboundMail = verifEmail(rebound);
-
-            if (!isExpediteurMail && !isReboundMail)
-            {
-                MessageBox.Show(
-                    "L'adresse email de l'expéditeur et du rebound ne sont pas valides"
-                    + "\nVeuillez vérifier l'adresse mail de l'expéditeur et du rebound.",
-                    "Oups !",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else if (!isExpediteurMail)
+            //Vérification de l'adresse mail de l'expéditeur
+            if (!verifEmail(expediteur))
             {
                 MessageBox.Show(
                     "L'adresse mail de l'expéditeur est invalide."
@@ -123,7 +105,8 @@ namespace ESIEE_2_Campagne_Mail
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if (!isReboundMail)
+            //Vérification de l'adresse mail du rebond
+            if (!verifEmail(rebound))
             {
                 MessageBox.Show(
                     "L'adresse mail du rebound est invalide."
@@ -132,52 +115,30 @@ namespace ESIEE_2_Campagne_Mail
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else
+            try
             {
-                //Vérification de l'instance de ContenuDeMail dans l'instance de la Campagne.
-                try
-                {
-                    //==> Récupération ou Création
-                    if (Home.Instance.Manager.Campagne.ContenuDeMail != null)
-                    {
-                        //Récupération
-                        contenuDeMail = Home.Instance.Manager.Campagne.ContenuDeMail;
-                        //Edition
-                        contenuDeMail.Expediteur = expediteur ?? "";
-                        contenuDeMail.Titre = titre ?? "";
-                        contenuDeMail.Contenu = contenu ?? "";
-                        contenuDeMail.Rebound = rebound ?? "";
-                    }
-                    else
-                    {
-                        //Création
-                        contenuDeMail = new ContenuDeMail();
-                        //Edition
-                        contenuDeMail.Expediteur = expediteur ?? "";
-                        contenuDeMail.Titre = titre ?? "";
-                        contenuDeMail.Contenu = contenu ?? "";
-                        contenuDeMail.Rebound = rebound ?? "";
-                    }
-                    //Enregistrement de l'instance de ContenuDeMail dans l'instance de la Campagne. 
-                    Home.Instance.Manager.Campagne.ContenuDeMail = contenuDeMail;
-                    //Vaildation du traitement
-                    return true;
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(
-                        "Une erreur est survenue lors de la sauvegarde du contenu de mail."
-                        + "\nVeuillez réessayer ultérieurement.",
-                        "Oups !", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    Console.WriteLine(e);
-                    return false;
-                }
+                // Changement de ContenuDeMail
+                Home.Instance.Manager.ChangeContenuDuMail(expediteur, titre, rebound, contenu);
+                // Vaildation du traitement
+                return true;
             }
+            catch (Exception e)
+            {
+                MessageBox.Show(
+                    "Une erreur est survenue lors de la sauvegarde du contenu de mail."
+                    + "\nVeuillez réessayer ultérieurement.",
+                    "Oups !", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                Console.WriteLine(e);
+                return false;
+            }
+
         }
 
-        /**
-         * Vérificaiton de l'adresse mail d'un expéditeur.
-         */
+        /// <summary>
+        /// Vérificaiton de l'adresse mail d'un expéditeur.
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>true si l'adresse mail est valide, false sinon</returns>
         private bool verifEmail(string email)
         {
             try

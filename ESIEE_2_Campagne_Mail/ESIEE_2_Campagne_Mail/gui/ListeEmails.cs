@@ -91,14 +91,14 @@ namespace ESIEE_2_Campagne_Mail
 
         private void listViewMails_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+
         }
 
         private void buttonExporter_Click(object sender, EventArgs e)
         {
-            List<GroupeMail> groupeMailList = Home.Instance.campagne.GroupeMailList;
+            List<GroupeMail> groupeMailList = Home.Instance.Manager.Campagne.GroupeMailList;
 
-                Console.WriteLine(groupeMailList);
+            Console.WriteLine(groupeMailList);
 
 
         }

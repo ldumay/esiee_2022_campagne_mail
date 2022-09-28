@@ -18,6 +18,22 @@ namespace ESIEE_2_Campagne_Mail.process
             SMTPConnectionHandler = new SMTPConnectionHandler();
         }
 
-
+        internal ContenuDeMail GetContenuDuMail()
+        {
+            ContenuDeMail contenuDeMail = Campagne.ContenuDeMail;
+            if (contenuDeMail == null)
+            {
+                contenuDeMail = new ContenuDeMail();
+            }
+            return contenuDeMail;
+        }
+        internal void ChangeContenuDuMail(string? expediteur, string? titre, string? rebound, string? contenu)
+        {
+            expediteur ??= "";
+            titre ??= "";
+            contenu ??= "";
+            rebound ??= "";
+            Campagne.ContenuDeMail = new ContenuDeMail(expediteur, titre, rebound, contenu);
+        }
     }
 }
