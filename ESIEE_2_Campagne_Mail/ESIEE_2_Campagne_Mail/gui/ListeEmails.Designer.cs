@@ -92,7 +92,7 @@ namespace ESIEE_2_Campagne_Mail
             this.buttonImporter.TabIndex = 1;
             this.buttonImporter.Text = "Importer";
             this.buttonImporter.UseVisualStyleBackColor = true;
-            this.buttonImporter.Click += new System.EventHandler(this.button1_Click);
+            this.buttonImporter.Click += new System.EventHandler(this.buttonImport_Click);
             // 
             // buttonExporter
             // 
