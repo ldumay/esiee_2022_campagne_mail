@@ -1,4 +1,6 @@
-﻿namespace ESIEE_2_Campagne_Mail.models
+﻿using System.Diagnostics;
+
+namespace ESIEE_2_Campagne_Mail.models
 {
     /// <summary>
     /// Classe Campagne.
@@ -28,10 +30,13 @@
             GroupeMailList = new List<GroupeContact>();
             ContenuDeMail = new ContenuDeMail();
         }
-
-        /**
-         * Constructeur complet de la classe Campagne.
-         */
+        
+        /// <summary>
+        /// Constructeur complet de la classe Campagne.
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <param name="groupeMailList"></param>
+        /// <param name="message"></param>
         public Campagne(string nom, List<GroupeContact> groupeMailList, ContenuDeMail message)
         {
             this.Nom = nom;
@@ -67,11 +72,11 @@
                         }
                     }
                 }
-                Console.WriteLine("[Recuperer Liste Mail]");
+                Debug.WriteLine("[Recuperer Liste Mail]");
             }
             catch (Exception e)
             {
-                Console.WriteLine("[Recuperer Liste Mail] Error\n" + e.Message);
+                Debug.WriteLine("[Recuperer Liste Mail] Error\n" + e.Message);
             }
             return listeMails;
         }
@@ -98,11 +103,11 @@
                         }
                     }
                 }
-                Console.WriteLine("[Recuperer Liste Mail Actifs] OK");
+                Debug.WriteLine("[Recuperer Liste Mail Actifs] OK");
             }
             catch (Exception e)
             {
-                Console.WriteLine("[Recuperer Liste Mail Actifs] Error\n" + e.Message);
+                Debug.WriteLine("[Recuperer Liste Mail Actifs] Error\n" + e.Message);
             }
             return listeMails;
         }

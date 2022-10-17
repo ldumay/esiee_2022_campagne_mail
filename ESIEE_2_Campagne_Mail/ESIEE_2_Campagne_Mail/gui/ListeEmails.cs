@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -20,11 +21,18 @@ namespace ESIEE_2_Campagne_Mail
 {
     public partial class ListeEmails : Form
     {
+        /// <summary>
+        /// Constructeur
+        /// </summary>
         public ListeEmails()
         {
             InitializeComponent();
+            this.updateListView();
         }
 
+        /// <summary>
+        /// Mise à jour de la vue de la liste de contacts.
+        /// </summary>
         private void updateListView()
         {
             //Création d'une liste des items pour la ListView.
@@ -71,9 +79,12 @@ namespace ESIEE_2_Campagne_Mail
                 }
             }
 
-            Console.WriteLine("[Liste View Update] OK");
+            Debug.WriteLine("[Liste View Update] OK");
         }
 
+        /// <summary>
+        /// Ajout d'un élément à vue de la liste de contacts.
+        /// </summary>
         private ListViewItem addInListViewItem(Contact contact)
         {
             ListViewItem item = new ListViewItem(contact.Id.ToString());
@@ -84,6 +95,9 @@ namespace ESIEE_2_Campagne_Mail
             return item;
         }
 
+        /// <summary>
+        /// Bouton d'action d'importation.
+        /// </summary>
         private void buttonActionImporter(object sender, EventArgs e)
         {
             List<GroupeContact> groupeMailList = new List<GroupeContact>();
@@ -99,11 +113,11 @@ namespace ESIEE_2_Campagne_Mail
             }
         }
 
-        private void listViewMails_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void listViewMails_SelectedIndexChanged(object sender, EventArgs e) { }
 
-        }
-
+        /// <summary>
+        /// Bouton d'action d'exportation.
+        /// </summary>
         private void buttonActionExporter(object sender, EventArgs e)
         {
 

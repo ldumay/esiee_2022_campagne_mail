@@ -1,5 +1,6 @@
 ﻿using ESIEE_2_Campagne_Mail.models;
 using ESIEE_2_Campagne_Mail.process;
+using System.Diagnostics;
 
 namespace ESIEE_2_Campagne_Mail
 {
@@ -8,6 +9,9 @@ namespace ESIEE_2_Campagne_Mail
         public static Home Instance;
         internal CampagneManager Manager { get; }
 
+        /// <summary>
+        /// Constructeur
+        /// </summary>
         public Home(string campagneName)
         {
             InitializeComponent();
@@ -17,11 +21,12 @@ namespace ESIEE_2_Campagne_Mail
             {
                 labelCamapagneNameContent.Text = this.Manager.GetCampagne().Nom;
             }
+            this.updateAllLabelStatuts();
         }
 
-        /**
-         *  Evènement pour le bouton d'édition de message.
-         */
+        /// <summary>
+        /// Evènement pour le bouton d'édition de message.
+        /// </summary>
         private void Message_Click(object sender, EventArgs e)
         {
             //Création de la fenêtre d'édition de message
@@ -30,16 +35,15 @@ namespace ESIEE_2_Campagne_Mail
             editionMessage.Owner = this;
             //Ouverture et blocage de la vue sur la nouvelle fenêtre
             editionMessage.ShowDialog();
+            //-
+            //Le code suivant "ShowDialog()" est en attente de la fermture de la fenêtre
             //Vérification de la liste des emails à la fermeture de la fenêtre
-            editionMessage.FormClosed += delegate
-            {
-                this.ckeckAllStatuts();
-            };
+            this.updateAllLabelStatuts();
         }
-        
-        /**
-         *  Evènement pour le bouton de la liste des mails.
-         */
+
+        /// <summary>
+        /// Evènement pour le bouton de la liste des mails.
+        /// </summary>
         private void Email_Click(object sender, EventArgs e)
         {
             //Création de la fenêtre de la liste des mails
@@ -48,16 +52,15 @@ namespace ESIEE_2_Campagne_Mail
             listeEmails.Owner = this;
             //Ouverture et blocage de la vue sur la nouvelle fenêtre
             listeEmails.ShowDialog();
+            //-
+            //Le code suivant "ShowDialog()" est en attente de la fermture de la fenêtre
             //Vérification de la liste des emails à la fermeture de la fenêtre
-            listeEmails.FormClosed += delegate
-            {
-                this.ckeckAllStatuts();
-            };
+            this.updateAllLabelStatuts();
         }
 
-        /**
-         *  Evènement pour le bouton envoi de campagne.
-         */
+        /// <summary>
+        /// Evènement pour le bouton envoi de campagne.
+        /// </summary>
         private void EnvoiCampagne_Click(object sender, EventArgs e)
         {
             //Création de la fenêtre de l'envoi de la campagne
@@ -68,27 +71,37 @@ namespace ESIEE_2_Campagne_Mail
             envoiCampagne.ShowDialog();
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e) { }
 
-        }
-
-        private void ckeckAllStatuts()
+        /// <summary>
+        /// Mise à jour des labels des satuts de la campagne visible sur la page d'accueil.
+        /// </summary>
+        private void updateAllLabelStatuts()
         {
             //Vérification du statut de la liste des emails de la camapgne
             if (this.Manager.statutCampagneListeEmails == true)
             {
                 this.labelConfirmEmailReady.Text = "✅ Emails prêts";
+                Debug.WriteLine("[Campagne] La liste des emails de la campagne est prête.");
             }
             //Vérification du statut du contenu du message de la camapgne
             if (this.Manager.statutCampagneMessage == true)
             {
                 this.labelConfirmMessageReady.Text = "✅ Message prêt";
+                Debug.WriteLine("[Campagne] Le message de la campagne est prête.");
+            }
+            //Vérification du statut de la liste des emails et du statut du contenu du message de la camapgne
+            if (Home.Instance.Manager.statutCampagneListeEmails
+                && Home.Instance.Manager.statutCampagneMessage
+            )
+            {
+                Home.Instance.Manager.statutCampagne = true;
             }
             //Vérification du statut de la camapgne
             if (this.Manager.statutCampagne == true)
             {
                 this.labelConfirmCampagneReady.Text = "✅ Campagne prête";
+                Debug.WriteLine("[Campagne] La campagne est prête.");
             }
         }
     }

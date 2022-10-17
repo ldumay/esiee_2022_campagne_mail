@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ESIEE_2_Campagne_Mail.process
 {
+    /// <summary>
+    /// Classse CampagneManager.
+    /// </summary>
     internal class CampagneManager
     {
         private Campagne Campagne { get; }
@@ -33,6 +36,10 @@ namespace ESIEE_2_Campagne_Mail.process
         /// <summary>
         /// Attribut du statut de l'envoi de la campagne
         /// </summary>
+        public Boolean statutSMTPServer { get; set; }
+        /// <summary>
+        /// Attribut du statut de l'envoi de la campagne
+        /// </summary>
 
         public CampagneManager(string nomCampagne)
         {
@@ -53,6 +60,12 @@ namespace ESIEE_2_Campagne_Mail.process
         internal Campagne GetCampagne()
         {
             return Campagne;
+        }
+        
+        [Obsolete("Sert juste d'entre-deux commits")]
+        internal SMTPConnectionHandler GetSMTPConnectionHandler()
+        {
+            return SMTPConnectionHandler;
         }
 
         [Obsolete("Sert juste d'entre-deux commits")]

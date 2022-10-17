@@ -28,104 +28,106 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelSendCampaign = new System.Windows.Forms.Button();
-            this.textBoxEXP = new System.Windows.Forms.TextBox();
-            this.labelEXP = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.buttonSaveSMTPConfiguration = new System.Windows.Forms.Button();
+            this.textBoxSMTPAddressIP = new System.Windows.Forms.TextBox();
+            this.labelSMTPAddressIP = new System.Windows.Forms.Label();
+            this.textBoxSMTPPort = new System.Windows.Forms.TextBox();
+            this.labelSMTPPort = new System.Windows.Forms.Label();
+            this.textBoxSMTPUserLogin = new System.Windows.Forms.TextBox();
+            this.labelSMTPUserLogin = new System.Windows.Forms.Label();
+            this.textBoxSMTPUserMDP = new System.Windows.Forms.TextBox();
+            this.labelSMTPUserMDP = new System.Windows.Forms.Label();
             this.labelCampagneName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // labelSendCampaign
+            // buttonSaveSMTPConfiguration
             // 
-            this.labelSendCampaign.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelSendCampaign.Location = new System.Drawing.Point(37, 403);
-            this.labelSendCampaign.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.labelSendCampaign.Name = "labelSendCampaign";
-            this.labelSendCampaign.Size = new System.Drawing.Size(178, 76);
-            this.labelSendCampaign.TabIndex = 1;
-            this.labelSendCampaign.Text = "Enregistrer";
-            this.labelSendCampaign.UseVisualStyleBackColor = true;
+            this.buttonSaveSMTPConfiguration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonSaveSMTPConfiguration.Location = new System.Drawing.Point(37, 403);
+            this.buttonSaveSMTPConfiguration.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonSaveSMTPConfiguration.Name = "buttonSaveSMTPConfiguration";
+            this.buttonSaveSMTPConfiguration.Size = new System.Drawing.Size(178, 76);
+            this.buttonSaveSMTPConfiguration.TabIndex = 1;
+            this.buttonSaveSMTPConfiguration.Text = "Enregistrer";
+            this.buttonSaveSMTPConfiguration.UseVisualStyleBackColor = true;
+            this.buttonSaveSMTPConfiguration.Click += new System.EventHandler(this.buttonSaveSMTPConfiguration_Click);
             // 
-            // textBoxEXP
+            // textBoxSMTPAddressIP
             // 
-            this.textBoxEXP.Location = new System.Drawing.Point(190, 121);
-            this.textBoxEXP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxEXP.Name = "textBoxEXP";
-            this.textBoxEXP.PlaceholderText = "mail@mail.com";
-            this.textBoxEXP.Size = new System.Drawing.Size(402, 27);
-            this.textBoxEXP.TabIndex = 3;
+            this.textBoxSMTPAddressIP.Location = new System.Drawing.Point(190, 121);
+            this.textBoxSMTPAddressIP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxSMTPAddressIP.Name = "textBoxSMTPAddressIP";
+            this.textBoxSMTPAddressIP.PlaceholderText = "255.255.255.255";
+            this.textBoxSMTPAddressIP.Size = new System.Drawing.Size(402, 27);
+            this.textBoxSMTPAddressIP.TabIndex = 3;
             // 
-            // labelEXP
+            // labelSMTPAddressIP
             // 
-            this.labelEXP.AutoSize = true;
-            this.labelEXP.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelEXP.Location = new System.Drawing.Point(37, 121);
-            this.labelEXP.Name = "labelEXP";
-            this.labelEXP.Size = new System.Drawing.Size(134, 25);
-            this.labelEXP.TabIndex = 2;
-            this.labelEXP.Text = "Adresse IP :";
+            this.labelSMTPAddressIP.AutoSize = true;
+            this.labelSMTPAddressIP.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelSMTPAddressIP.Location = new System.Drawing.Point(37, 121);
+            this.labelSMTPAddressIP.Name = "labelSMTPAddressIP";
+            this.labelSMTPAddressIP.Size = new System.Drawing.Size(134, 25);
+            this.labelSMTPAddressIP.TabIndex = 2;
+            this.labelSMTPAddressIP.Text = "Adresse IP :";
             // 
-            // textBox1
+            // textBoxSMTPPort
             // 
-            this.textBox1.Location = new System.Drawing.Point(128, 178);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "mail@mail.com";
-            this.textBox1.Size = new System.Drawing.Size(464, 27);
-            this.textBox1.TabIndex = 5;
+            this.textBoxSMTPPort.Location = new System.Drawing.Point(128, 178);
+            this.textBoxSMTPPort.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxSMTPPort.Name = "textBoxSMTPPort";
+            this.textBoxSMTPPort.PlaceholderText = "000";
+            this.textBoxSMTPPort.Size = new System.Drawing.Size(464, 27);
+            this.textBoxSMTPPort.TabIndex = 5;
             // 
-            // label1
+            // labelSMTPPort
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(37, 177);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Port :";
+            this.labelSMTPPort.AutoSize = true;
+            this.labelSMTPPort.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelSMTPPort.Location = new System.Drawing.Point(37, 177);
+            this.labelSMTPPort.Name = "labelSMTPPort";
+            this.labelSMTPPort.Size = new System.Drawing.Size(71, 25);
+            this.labelSMTPPort.TabIndex = 4;
+            this.labelSMTPPort.Text = "Port :";
             // 
-            // textBox2
+            // textBoxSMTPUserLogin
             // 
-            this.textBox2.Location = new System.Drawing.Point(272, 240);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PlaceholderText = "mail@mail.com";
-            this.textBox2.Size = new System.Drawing.Size(320, 27);
-            this.textBox2.TabIndex = 7;
+            this.textBoxSMTPUserLogin.Location = new System.Drawing.Point(272, 240);
+            this.textBoxSMTPUserLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxSMTPUserLogin.Name = "textBoxSMTPUserLogin";
+            this.textBoxSMTPUserLogin.PlaceholderText = "user";
+            this.textBoxSMTPUserLogin.Size = new System.Drawing.Size(320, 27);
+            this.textBoxSMTPUserLogin.TabIndex = 7;
             // 
-            // label2
+            // labelSMTPUserLogin
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(37, 239);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(221, 25);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "User SMTP - Login :";
+            this.labelSMTPUserLogin.AutoSize = true;
+            this.labelSMTPUserLogin.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelSMTPUserLogin.Location = new System.Drawing.Point(37, 239);
+            this.labelSMTPUserLogin.Name = "labelSMTPUserLogin";
+            this.labelSMTPUserLogin.Size = new System.Drawing.Size(221, 25);
+            this.labelSMTPUserLogin.TabIndex = 6;
+            this.labelSMTPUserLogin.Text = "User SMTP - Login :";
             // 
-            // textBox3
+            // textBoxSMTPUserMDP
             // 
-            this.textBox3.Location = new System.Drawing.Point(272, 307);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PlaceholderText = "mail@mail.com";
-            this.textBox3.Size = new System.Drawing.Size(320, 27);
-            this.textBox3.TabIndex = 9;
+            this.textBoxSMTPUserMDP.Location = new System.Drawing.Point(272, 307);
+            this.textBoxSMTPUserMDP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxSMTPUserMDP.Name = "textBoxSMTPUserMDP";
+            this.textBoxSMTPUserMDP.PasswordChar = '*';
+            this.textBoxSMTPUserMDP.PlaceholderText = "****";
+            this.textBoxSMTPUserMDP.Size = new System.Drawing.Size(320, 27);
+            this.textBoxSMTPUserMDP.TabIndex = 9;
             // 
-            // label3
+            // labelSMTPUserMDP
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(37, 306);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(214, 25);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "User SMPT - Mdp :";
+            this.labelSMTPUserMDP.AutoSize = true;
+            this.labelSMTPUserMDP.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelSMTPUserMDP.Location = new System.Drawing.Point(37, 306);
+            this.labelSMTPUserMDP.Name = "labelSMTPUserMDP";
+            this.labelSMTPUserMDP.Size = new System.Drawing.Size(214, 25);
+            this.labelSMTPUserMDP.TabIndex = 8;
+            this.labelSMTPUserMDP.Text = "User SMPT - Mdp :";
             // 
             // labelCampagneName
             // 
@@ -143,15 +145,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 523);
             this.Controls.Add(this.labelCampagneName);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxEXP);
-            this.Controls.Add(this.labelEXP);
-            this.Controls.Add(this.labelSendCampaign);
+            this.Controls.Add(this.textBoxSMTPUserMDP);
+            this.Controls.Add(this.labelSMTPUserMDP);
+            this.Controls.Add(this.textBoxSMTPUserLogin);
+            this.Controls.Add(this.labelSMTPUserLogin);
+            this.Controls.Add(this.textBoxSMTPPort);
+            this.Controls.Add(this.labelSMTPPort);
+            this.Controls.Add(this.textBoxSMTPAddressIP);
+            this.Controls.Add(this.labelSMTPAddressIP);
+            this.Controls.Add(this.buttonSaveSMTPConfiguration);
             this.Name = "ConfigServerSMTP";
             this.Text = "ConfigServerSMTP";
             this.ResumeLayout(false);
@@ -161,15 +163,15 @@
 
         #endregion
 
-        private Button labelSendCampaign;
-        private TextBox textBoxEXP;
-        private Label labelEXP;
-        private TextBox textBox1;
-        private Label label1;
-        private TextBox textBox2;
-        private Label label2;
-        private TextBox textBox3;
-        private Label label3;
+        private Button buttonSaveSMTPConfiguration;
+        private TextBox textBoxSMTPAddressIP;
+        private Label labelSMTPAddressIP;
+        private TextBox textBoxSMTPPort;
+        private Label labelSMTPPort;
+        private TextBox textBoxSMTPUserLogin;
+        private Label labelSMTPUserLogin;
+        private TextBox textBoxSMTPUserMDP;
+        private Label labelSMTPUserMDP;
         private Label labelCampagneName;
     }
 }

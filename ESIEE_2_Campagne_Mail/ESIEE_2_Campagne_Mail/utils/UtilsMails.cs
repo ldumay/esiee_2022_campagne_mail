@@ -13,12 +13,11 @@ namespace ESIEE_2_Campagne_Mail.utils
     /// </summary>
     public class UtilsMails
     {
-
         /// <summary>
         /// Vérifier le bon format d'un email grâce à un Regex de norme RFC2822.
         /// </summary>
-        /// <param name="mail"></param>
-        /// <returns>bool</returns>
+        /// <param name="email"></param>
+        /// <returns>true si l'adresse mail est valide, false sinon</returns>
         public static bool MailVerification(string email)
         {
             try

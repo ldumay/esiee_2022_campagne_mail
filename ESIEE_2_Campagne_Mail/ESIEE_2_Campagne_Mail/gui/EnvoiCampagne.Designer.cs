@@ -37,6 +37,7 @@
             this.labelConfirmCampagneReady = new System.Windows.Forms.Label();
             this.labelConfirmCampagneReadyForSend = new System.Windows.Forms.Label();
             this.buttonConfigSMTPServer = new System.Windows.Forms.Button();
+            this.labelConfirmStatutSMTP = new System.Windows.Forms.Label();
             labelSendTry = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -133,12 +134,24 @@
             this.buttonConfigSMTPServer.TabIndex = 14;
             this.buttonConfigSMTPServer.Text = "Configuration du serveur SMTP";
             this.buttonConfigSMTPServer.UseVisualStyleBackColor = true;
+            this.buttonConfigSMTPServer.Click += new System.EventHandler(this.buttonConfigSMTPServer_Click);
+            // 
+            // labelConfirmStatutSMTP
+            // 
+            this.labelConfirmStatutSMTP.AutoSize = true;
+            this.labelConfirmStatutSMTP.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.labelConfirmStatutSMTP.Location = new System.Drawing.Point(368, 38);
+            this.labelConfirmStatutSMTP.Name = "labelConfirmStatutSMTP";
+            this.labelConfirmStatutSMTP.Size = new System.Drawing.Size(516, 33);
+            this.labelConfirmStatutSMTP.TabIndex = 15;
+            this.labelConfirmStatutSMTP.Text = "❌ Configuration du serveur SMTP non prêt";
             // 
             // EnvoiCampagne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(932, 523);
+            this.Controls.Add(this.labelConfirmStatutSMTP);
             this.Controls.Add(this.buttonConfigSMTPServer);
             this.Controls.Add(this.labelConfirmCampagneReadyForSend);
             this.Controls.Add(this.labelConfirmCampagneReady);
@@ -167,5 +180,6 @@
         private Label labelConfirmCampagneReady;
         private Label labelConfirmCampagneReadyForSend;
         private Button buttonConfigSMTPServer;
+        private Label labelConfirmStatutSMTP;
     }
 }
