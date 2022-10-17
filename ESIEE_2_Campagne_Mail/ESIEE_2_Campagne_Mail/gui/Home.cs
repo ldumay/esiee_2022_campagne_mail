@@ -84,11 +84,21 @@ namespace ESIEE_2_Campagne_Mail
                 this.labelConfirmEmailReady.Text = "✅ Emails prêts";
                 Debug.WriteLine("[Campagne] La liste des emails de la campagne est prête.");
             }
+            else
+            {
+                this.labelConfirmEmailReady.Text = "❌ Emails non prêts";
+                Debug.WriteLine("[Campagne] La liste des emails de la campagne est prête.");
+            }
             //Vérification du statut du contenu du message de la camapgne
             if (this.Manager.statutCampagneMessage == true)
             {
                 this.labelConfirmMessageReady.Text = "✅ Message prêt";
-                Debug.WriteLine("[Campagne] Le message de la campagne est prête.");
+                Debug.WriteLine("[Campagne] Le contenu de la campagne est prêt.");
+            }
+            else
+            {
+                this.labelConfirmMessageReady.Text = "❌ Emails non prêts";
+                Debug.WriteLine("[Campagne] Le contenu de la campagne est non prêt.");
             }
             //Vérification du statut de la liste des emails et du statut du contenu du message de la camapgne
             if (Home.Instance.Manager.statutCampagneListeEmails
@@ -97,11 +107,20 @@ namespace ESIEE_2_Campagne_Mail
             {
                 Home.Instance.Manager.statutCampagne = true;
             }
+            else
+            {
+                Home.Instance.Manager.statutCampagne = false;
+            }
             //Vérification du statut de la camapgne
             if (this.Manager.statutCampagne == true)
             {
                 this.labelConfirmCampagneReady.Text = "✅ Campagne prête";
                 Debug.WriteLine("[Campagne] La campagne est prête.");
+            }
+            else
+            {
+                this.labelConfirmCampagneReady.Text = "❌ Campagne non prête";
+                Debug.WriteLine("[Campagne] La campagne n'est pas prête.");
             }
         }
     }

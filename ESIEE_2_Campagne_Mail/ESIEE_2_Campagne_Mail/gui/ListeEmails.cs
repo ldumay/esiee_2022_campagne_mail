@@ -42,17 +42,20 @@ namespace ESIEE_2_Campagne_Mail
             if (Home.Instance.Manager.GetCampagne() != null)
             {
                 //Récupère de la liste des groupes de mails de la campagne
-                List<string> listeMail = Home.Instance.Manager.GetCampagne().recupererListeMail();
-
+                List<Contact> listeContacts = Home.Instance.Manager.GetCampagne().recupererListeContacts();
+                
                 //Récupère de la liste des groupes de mails de la campagne
-                List<string> listeMailActif = Home.Instance.Manager.GetCampagne().recupererListeMailActifs();
+                List<Contact> listeContactsActifs = Home.Instance.Manager.GetCampagne().recupererListeContactsActifs();
 
-                if (listeMail.Count > 0)
+                if (listeContacts.Count > 0)
                 {
                     //Ajout des mails dans la liste
-                    foreach (string mail in listeMail)
+                    foreach (Contact contact in listeContacts)
                     {
+                        contact.Etat = listeContactsActifs.Count > 0 ? listeContactsActifs.Contains(contact) ? ContactEtat.ACTIF : ContactEtat.INACTIF : ContactEtat.INACTIF;
                         itemListViewItem.Add(
+                            addInListViewItem(contact)
+                            /*
                             addInListViewItem(new Contact()
                             {
                                 Id = 0,
@@ -61,6 +64,7 @@ namespace ESIEE_2_Campagne_Mail
                                 Email = mail,
                                 Etat = listeMailActif.Count > 0 ? listeMailActif.Contains(mail) ? ContactEtat.ACTIF : ContactEtat.INACTIF : ContactEtat.INACTIF
                             })
+                            */
                         );
                     }
                 }
@@ -68,18 +72,24 @@ namespace ESIEE_2_Campagne_Mail
 
             if (itemListViewItem.Count > 0)
             {
-                int idItem = (this.listViewMails.Items.Count > 0) ? this.listViewMails.Items.Count : 0;
+                int idItem = (this.listViewContacts.Items.Count > 0) ? this.listViewContacts.Items.Count : 0;
 
                 //Récupération de la liste des items pour les ajoutés dans la ListView.
                 foreach (ListViewItem item in itemListViewItem)
                 {
+                    //-
                     item.Text = idItem.ToString();
-                    this.listViewMails.Items.Add(item);
-                    idItem++;
+                    
+                    //Ajout de l'item dans la ListView si il n'existe pas.
+                    if (!this.listViewContacts.Items.ContainsKey(item.Text))
+                    {
+                        this.listViewContacts.Items.Add(item);
+                        idItem++;
+                    }
                 }
             }
 
-            Debug.WriteLine("[Liste View Update] OK");
+            Debug.WriteLine("[Campagne] - Liste View Update");
         }
 
         /// <summary>
@@ -88,12 +98,14 @@ namespace ESIEE_2_Campagne_Mail
         private ListViewItem addInListViewItem(Contact contact)
         {
             ListViewItem item = new ListViewItem(contact.Id.ToString());
-            item.SubItems.Add(contact.Nom);
-            item.SubItems.Add(contact.Prenom);
-            item.SubItems.Add(contact.Email);
+            item.SubItems.Add(contact.Nom.ToString());
+            item.SubItems.Add(contact.Prenom.ToString());
+            item.SubItems.Add(contact.Email.ToString());
             item.SubItems.Add(contact.Etat.ToString());
             return item;
         }
+
+        private void listViewMails_SelectedIndexChanged(object sender, EventArgs e) { }
 
         /// <summary>
         /// Bouton d'action d'importation.
@@ -102,8 +114,8 @@ namespace ESIEE_2_Campagne_Mail
         {
             List<GroupeContact> groupeMailList = new List<GroupeContact>();
             groupeMailList.Add(UtilsFiles.ImportWithOpenFileDialogEmailsTXT());
-            Home.Instance.Manager.GetCampagne().GroupeMailList.Clear();
-            Home.Instance.Manager.GetCampagne().GroupeMailList.AddRange(groupeMailList);
+            Home.Instance.Manager.GetCampagne().ListGroupeContact.Clear();
+            Home.Instance.Manager.GetCampagne().ListGroupeContact.AddRange(groupeMailList);
             //-
             updateListView();
             //-
@@ -112,8 +124,6 @@ namespace ESIEE_2_Campagne_Mail
                 Home.Instance.Manager.statutCampagneListeEmails = true;
             }
         }
-
-        private void listViewMails_SelectedIndexChanged(object sender, EventArgs e) { }
 
         /// <summary>
         /// Bouton d'action d'exportation.
@@ -133,7 +143,7 @@ namespace ESIEE_2_Campagne_Mail
             string downloadFilePath = Path.Combine(filePath, "email_list_" + now.ToString("yyyy_MM_dd_HH'_'mm'_'ss") + ".txt");
 
             // get object instance / email list
-            List<GroupeContact> groupeMailList = Home.Instance.Manager.GetCampagne().GroupeMailList;
+            List<GroupeContact> groupeMailList = Home.Instance.Manager.GetCampagne().ListGroupeContact;
 
             // This text is added only once to the file.
             if (!File.Exists(downloadFilePath))
@@ -154,5 +164,32 @@ namespace ESIEE_2_Campagne_Mail
 
         }
 
+        /// <summary>
+        /// Bouton d'action de vérification des doublons.
+        /// </summary>
+        private void buttonDedoublonnage_Click(object sender, EventArgs e)
+        {
+            Home.Instance.Manager.DedoublonnageListeContacts();
+            this.updateListView();
+        }
+
+        /// <summary>
+        /// Bouton d'action de vérification des doublons.
+        /// </summary>
+        private void buttonMinifyMail_Click(object sender, EventArgs e)
+        {
+            Home.Instance.Manager.CleanMajusculeListeContacts();
+            this.updateListView();
+        }
+
+        private void buttonListeView_Click(object sender, EventArgs e)
+        {
+            Home.Instance.Manager.ClearListeContacts();
+            this.listViewContacts.Clear();
+            //-
+            string message = "Le nettoyage de la vue de la liste des contacts a bien été effectué.";
+            MessageBox.Show(message, "Liste des emails - Nettoyage de la vue de la liste des contacts terminé", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Debug.WriteLine("[Campagne] - Nettoyage de la vue de la liste des contacts");
+        }
     }
 }

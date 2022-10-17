@@ -14,7 +14,7 @@ namespace ESIEE_2_Campagne_Mail.models
         /// <summary>
         /// Attribut de la liste des mails
         /// </summary>
-        public List<GroupeContact> GroupeMailList { get; }
+        public List<GroupeContact> ListGroupeContact { get; }
         /// <summary>
         /// Attribut du message
         /// </summary>
@@ -27,7 +27,7 @@ namespace ESIEE_2_Campagne_Mail.models
         public Campagne(string nom)
         {
             Nom = nom;
-            GroupeMailList = new List<GroupeContact>();
+            ListGroupeContact = new List<GroupeContact>();
             ContenuDeMail = new ContenuDeMail();
         }
         
@@ -40,7 +40,7 @@ namespace ESIEE_2_Campagne_Mail.models
         public Campagne(string nom, List<GroupeContact> groupeMailList, ContenuDeMail message)
         {
             this.Nom = nom;
-            this.GroupeMailList = groupeMailList;
+            this.ListGroupeContact = groupeMailList;
             this.ContenuDeMail = message;
         }
 
@@ -54,43 +54,43 @@ namespace ESIEE_2_Campagne_Mail.models
         }
 
         /// <summary>
-        /// Récupérer la liste des mails actifs des groupes mails.
+        /// Récupérer la liste des contacts  actifs des groupes mails.
         /// </summary>
-        /// <returns>Liste de mail</returns>
-        public List<string> recupererListeMail()
+        /// <returns>listeContacts</returns>
+        public List<Contact> recupererListeContacts()
         {
-            List<string> listeMails = new List<string>();
+            List<Contact> listeContacts = new List<Contact>();
             try
             {
-                foreach (GroupeContact groupeContact in GroupeMailList)
+                foreach (GroupeContact groupeContact in ListGroupeContact)
                 {
                     if (groupeContact != null)
                     {
                         foreach (Contact contact in groupeContact.ContactList)
                         {
-                            listeMails.Add(contact.Email);
+                            listeContacts.Add(contact);
                         }
                     }
                 }
-                Debug.WriteLine("[Recuperer Liste Mail]");
+                Debug.WriteLine("[Campagne] La récupération de la liste des contacts de la campagne a bien été effectué.");
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[Recuperer Liste Mail] Error\n" + e.Message);
+                Debug.WriteLine("[Campagne] Erreur lors de la récupération de la liste des contacts de la campagne.\");\n" + e.Message);
             }
-            return listeMails;
+            return listeContacts;
         }
 
         /// <summary>
         /// Récupérer la liste des mails actifs des groupes mails.
         /// </summary>
-        /// <returns>Liste de mail actif</returns>
-        public List<string> recupererListeMailActifs()
+        /// <returns>listeContacts</returns>
+        public List<Contact> recupererListeContactsActifs()
         {
-            List<string> listeMails = new List<string>();
+            List<Contact> listeMailsActifs = new List<Contact>();
             try
             {
-                foreach (GroupeContact groupeContact in GroupeMailList)
+                foreach (GroupeContact groupeContact in ListGroupeContact)
                 {
                     if (groupeContact != null)
                     {
@@ -98,18 +98,18 @@ namespace ESIEE_2_Campagne_Mail.models
                         {
                             if (contact.Etat == ContactEtat.ACTIF)
                             {
-                                listeMails.Add(contact.Email);
+                                listeMailsActifs.Add(contact);
                             }
                         }
                     }
                 }
-                Debug.WriteLine("[Recuperer Liste Mail Actifs] OK");
+                Debug.WriteLine("[Campagne] La récupération de la liste des contacts actifs de la campagne a bien été effectué.");
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[Recuperer Liste Mail Actifs] Error\n" + e.Message);
+                Debug.WriteLine("[Campagne] Erreur lors de la récupération de la liste des contacts actifs de la campagne.\n" + e.Message);
             }
-            return listeMails;
+            return listeMailsActifs;
         }
     }
 }
