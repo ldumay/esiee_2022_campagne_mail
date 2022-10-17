@@ -155,6 +155,7 @@
             this.Controls.Add(this.labelSMTPAddressIP);
             this.Controls.Add(this.buttonSaveSMTPConfiguration);
             this.Name = "ConfigServerSMTP";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ConfigServerSMTP";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -139,6 +139,7 @@
             this.Controls.Add(this.Email);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Home";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Home";
             this.ResumeLayout(false);
             this.PerformLayout();

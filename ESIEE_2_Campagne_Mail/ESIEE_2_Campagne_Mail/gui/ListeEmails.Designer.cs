@@ -143,6 +143,7 @@ namespace ESIEE_2_Campagne_Mail
             this.Controls.Add(this.listViewMails);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ListeEmails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ListeEmails";
             this.ResumeLayout(false);
 

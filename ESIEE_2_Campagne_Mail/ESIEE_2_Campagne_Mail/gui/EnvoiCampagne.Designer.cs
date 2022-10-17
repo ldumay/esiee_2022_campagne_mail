@@ -163,6 +163,7 @@
             this.Controls.Add(this.labelSendCampaign);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "EnvoiCampagne";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EnvoiCampagne";
             this.ResumeLayout(false);
             this.PerformLayout();

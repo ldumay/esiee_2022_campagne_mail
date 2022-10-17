@@ -150,6 +150,7 @@
             this.Controls.Add(this.labelEXP);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "EditionMessage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EditionMessage";
             this.ResumeLayout(false);
             this.PerformLayout();

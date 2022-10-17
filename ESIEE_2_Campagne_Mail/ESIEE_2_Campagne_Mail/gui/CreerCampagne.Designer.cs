@@ -96,6 +96,7 @@
             this.Controls.Add(this.label3);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CreerCampagne";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreerCampagne";
             this.ResumeLayout(false);
             this.PerformLayout();
