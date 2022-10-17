@@ -30,12 +30,13 @@
         {
             System.Windows.Forms.Label labelSendTry;
             this.labelSendCampaign = new System.Windows.Forms.Button();
-            this.sendingTest = new System.Windows.Forms.Button();
+            this.buttonCampagneSendingTest = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.labelSendTryResultContent = new System.Windows.Forms.Label();
             this.labelSendTryResult = new System.Windows.Forms.Label();
             this.labelConfirmCampagneReady = new System.Windows.Forms.Label();
             this.labelConfirmCampagneReadyForSend = new System.Windows.Forms.Label();
+            this.buttonConfigSMTPServer = new System.Windows.Forms.Button();
             labelSendTry = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -62,16 +63,16 @@
             this.labelSendCampaign.UseVisualStyleBackColor = true;
             this.labelSendCampaign.Click += new System.EventHandler(this.button1_Click);
             // 
-            // sendingTest
+            // buttonCampagneSendingTest
             // 
-            this.sendingTest.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.sendingTest.Location = new System.Drawing.Point(396, 163);
-            this.sendingTest.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.sendingTest.Name = "sendingTest";
-            this.sendingTest.Size = new System.Drawing.Size(248, 31);
-            this.sendingTest.TabIndex = 1;
-            this.sendingTest.Text = "Effectuer le test d\'envoi";
-            this.sendingTest.UseVisualStyleBackColor = true;
+            this.buttonCampagneSendingTest.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonCampagneSendingTest.Location = new System.Drawing.Point(376, 163);
+            this.buttonCampagneSendingTest.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonCampagneSendingTest.Name = "buttonCampagneSendingTest";
+            this.buttonCampagneSendingTest.Size = new System.Drawing.Size(248, 31);
+            this.buttonCampagneSendingTest.TabIndex = 1;
+            this.buttonCampagneSendingTest.Text = "Effectuer le test d\'envoi";
+            this.buttonCampagneSendingTest.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -79,7 +80,7 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "mail@mail.com";
-            this.textBox1.Size = new System.Drawing.Size(335, 27);
+            this.textBox1.Size = new System.Drawing.Size(322, 27);
             this.textBox1.TabIndex = 2;
             // 
             // labelSendTryResultContent
@@ -122,18 +123,30 @@
             this.labelConfirmCampagneReadyForSend.TabIndex = 13;
             this.labelConfirmCampagneReadyForSend.Text = "❌ Test d\'envoi valider";
             // 
+            // buttonConfigSMTPServer
+            // 
+            this.buttonConfigSMTPServer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonConfigSMTPServer.Location = new System.Drawing.Point(641, 163);
+            this.buttonConfigSMTPServer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonConfigSMTPServer.Name = "buttonConfigSMTPServer";
+            this.buttonConfigSMTPServer.Size = new System.Drawing.Size(248, 31);
+            this.buttonConfigSMTPServer.TabIndex = 14;
+            this.buttonConfigSMTPServer.Text = "Configuration du serveur SMTP";
+            this.buttonConfigSMTPServer.UseVisualStyleBackColor = true;
+            // 
             // EnvoiCampagne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(932, 523);
+            this.Controls.Add(this.buttonConfigSMTPServer);
             this.Controls.Add(this.labelConfirmCampagneReadyForSend);
             this.Controls.Add(this.labelConfirmCampagneReady);
             this.Controls.Add(this.labelSendTryResult);
             this.Controls.Add(this.labelSendTryResultContent);
             this.Controls.Add(labelSendTry);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.sendingTest);
+            this.Controls.Add(this.buttonCampagneSendingTest);
             this.Controls.Add(this.labelSendCampaign);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "EnvoiCampagne";
@@ -146,12 +159,13 @@
         #endregion
 
         private Button labelSendCampaign;
-        private Button sendingTest;
+        private Button buttonCampagneSendingTest;
         private TextBox textBox1;
         private Label labelSendTry;
         private Label labelSendTryResultContent;
         private Label labelSendTryResult;
         private Label labelConfirmCampagneReady;
         private Label labelConfirmCampagneReadyForSend;
+        private Button buttonConfigSMTPServer;
     }
 }
