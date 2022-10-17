@@ -28,8 +28,17 @@ namespace ESIEE_2_Campagne_Mail.gui
         /// </summary>
         private void buttonSaveSMTPConfiguration_Click(object sender, EventArgs e)
         {
+            int port = 0;
             Home.Instance.Manager.GetSMTPConnectionHandler().SMTPAddressIP = (textBoxSMTPAddressIP.Text != null) ? textBoxSMTPAddressIP.Text : "";
-            Home.Instance.Manager.GetSMTPConnectionHandler().SMTPPort = (textBoxSMTPPort.Text != null) ? int.Parse(textBoxSMTPPort.Text) : 0;
+            try {
+                port = int.Parse(textBoxSMTPPort.Text);
+            } catch (Exception)
+            {
+                string message = "Le port saisi n'est pas un nombre.";
+                MessageBox.Show(message, "Configuration du serveur SMTP - Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Debug.WriteLine("[Campagne] Le port saisi n'est pas un nombre.");
+            }
+            Home.Instance.Manager.GetSMTPConnectionHandler().SMTPPort = (textBoxSMTPPort.Text != null) ? port : 0;
             Home.Instance.Manager.GetSMTPConnectionHandler().SMTPUserLogin = (textBoxSMTPUserLogin.Text != null) ? textBoxSMTPUserLogin.Text: "";
             Home.Instance.Manager.GetSMTPConnectionHandler().SMTPUserMDP = (textBoxSMTPUserMDP.Text != null) ? textBoxSMTPUserMDP.Text: "";
         
