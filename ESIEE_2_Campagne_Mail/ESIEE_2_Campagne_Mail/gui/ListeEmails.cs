@@ -84,7 +84,7 @@ namespace ESIEE_2_Campagne_Mail
             return item;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonActionImporter(object sender, EventArgs e)
         {
             List<GroupeContact> groupeMailList = new List<GroupeContact>();
             groupeMailList.Add(UtilsFiles.ImportWithOpenFileDialogEmailsTXT());
@@ -92,6 +92,11 @@ namespace ESIEE_2_Campagne_Mail
             Home.Instance.Manager.GetCampagne().GroupeMailList.AddRange(groupeMailList);
             //-
             updateListView();
+            //-
+            if (groupeMailList.Count > 0)
+            {
+                Home.Instance.Manager.statutCampagneListeEmails = true;
+            }
         }
 
         private void listViewMails_SelectedIndexChanged(object sender, EventArgs e)
@@ -99,7 +104,7 @@ namespace ESIEE_2_Campagne_Mail
 
         }
 
-        private void buttonExporter_Click(object sender, EventArgs e)
+        private void buttonActionExporter(object sender, EventArgs e)
         {
 
             // txt header

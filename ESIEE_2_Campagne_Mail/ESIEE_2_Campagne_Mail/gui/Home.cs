@@ -13,6 +13,10 @@ namespace ESIEE_2_Campagne_Mail
             InitializeComponent();
             Instance = this;
             Manager = new CampagneManager(campagneName);
+            if (this.Manager.GetCampagne != null)
+            {
+                labelCamapagneNameContent.Text = this.Manager.GetCampagne().Nom;
+            }
         }
 
         /**
@@ -26,8 +30,13 @@ namespace ESIEE_2_Campagne_Mail
             editionMessage.Owner = this;
             //Ouverture et blocage de la vue sur la nouvelle fenêtre
             editionMessage.ShowDialog();
+            //Vérification de la liste des emails à la fermeture de la fenêtre
+            editionMessage.FormClosed += delegate
+            {
+                this.ckeckAllStatuts();
+            };
         }
-
+        
         /**
          *  Evènement pour le bouton de la liste des mails.
          */
@@ -39,6 +48,11 @@ namespace ESIEE_2_Campagne_Mail
             listeEmails.Owner = this;
             //Ouverture et blocage de la vue sur la nouvelle fenêtre
             listeEmails.ShowDialog();
+            //Vérification de la liste des emails à la fermeture de la fenêtre
+            listeEmails.FormClosed += delegate
+            {
+                this.ckeckAllStatuts();
+            };
         }
 
         /**
@@ -57,6 +71,25 @@ namespace ESIEE_2_Campagne_Mail
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void ckeckAllStatuts()
+        {
+            //Vérification du statut de la liste des emails de la camapgne
+            if (this.Manager.statutCampagneListeEmails == true)
+            {
+                this.labelConfirmEmailReady.Text = "✅ Emails prêts";
+            }
+            //Vérification du statut du contenu du message de la camapgne
+            if (this.Manager.statutCampagneMessage == true)
+            {
+                this.labelConfirmMessageReady.Text = "✅ Message prêt";
+            }
+            //Vérification du statut de la camapgne
+            if (this.Manager.statutCampagne == true)
+            {
+                this.labelConfirmCampagneReady.Text = "✅ Campagne prête";
+            }
         }
     }
 }

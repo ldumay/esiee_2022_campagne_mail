@@ -76,6 +76,14 @@ namespace ESIEE_2_Campagne_Mail
         {
             if (updateContenuDeMail(textBoxEXP.Text, textBoxRebound.Text, textBoxTitre.Text, textBoxMessage.Text))
             {
+                if (textBoxEXP.Text != null
+                    && textBoxRebound.Text != null
+                    && textBoxTitre.Text != null
+                    && textBoxMessage.Text != null
+                )
+                {
+                    Home.Instance.Manager.statutCampagneMessage = true;
+                }
                 Console.WriteLine("Contenu de mail : " + Home.Instance.Manager.GetContenuDuMail());
             }
             else

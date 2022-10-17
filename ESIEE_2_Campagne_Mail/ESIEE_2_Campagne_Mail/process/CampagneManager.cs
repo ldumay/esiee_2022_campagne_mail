@@ -10,7 +10,29 @@ namespace ESIEE_2_Campagne_Mail.process
     internal class CampagneManager
     {
         private Campagne Campagne { get; }
+        /// <summary>
+        /// Attribut de la Campagne
+        /// </summary>
         private SMTPConnectionHandler SMTPConnectionHandler { get; }
+        /// <summary>
+        /// Attribut du SMTPConnectionHandler
+        /// </summary>
+        public Boolean statutCampagneListeEmails { get; set; }
+        /// <summary>
+        /// Attribut du statut de la liste des mails de la campagne
+        /// </summary>
+        public Boolean statutCampagneMessage { get; set; }
+        /// <summary>
+        /// Attribut du statut du message de la campagne
+        /// </summary>
+        public Boolean statutCampagne { get; set; }
+        /// <summary>
+        /// Attribut du statut de la campagne
+        /// </summary>
+        public Boolean statutSendReady { get; set; }
+        /// <summary>
+        /// Attribut du statut de l'envoi de la campagne
+        /// </summary>
 
         public CampagneManager(string nomCampagne)
         {

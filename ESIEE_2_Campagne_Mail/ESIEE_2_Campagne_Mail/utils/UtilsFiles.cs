@@ -125,21 +125,21 @@ namespace ESIEE_2_Campagne_Mail.utils
                 }
 
                 string message = "Le fichier a bien été chargé.";
-                MessageBox.Show(message, "Terminé", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(message, "Importation - Terminé", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return groupeMail;
             }
             catch (System.IO.FileNotFoundException e)
             {
                 string message = "Le fichier n'existe pas.";
                 System.Console.WriteLine(message);
-                MessageBox.Show(message, "Oups !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Oups !\n\n" + message, "Importation - Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return groupeMail;
             }
             catch (Exception e)
             {
                 string message = "Une erreur est survenue lors de l'importation du fichier.";
                 System.Console.WriteLine(message);
-                MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erreur !\n\n" + message, "Importation - Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 System.Console.WriteLine(e.Message);
                 return groupeMail;
             }
