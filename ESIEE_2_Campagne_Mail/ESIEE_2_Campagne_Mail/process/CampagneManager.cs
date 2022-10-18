@@ -141,9 +141,9 @@ namespace ESIEE_2_Campagne_Mail.process
                 List<Contact> contactList = groupeContact.ContactList;
                 foreach (Contact contact in contactList)
                 {
-                    if (!emailsNonDoublons.Contains(contact.Email))
+                    if (!emailsNonDoublons.Contains(contact.Email.ToLower()))
                     {
-                        emailsNonDoublons.Add(contact.Email);
+                        emailsNonDoublons.Add(contact.Email.ToLower());
                     }
                     else
                     {

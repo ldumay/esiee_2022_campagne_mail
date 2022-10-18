@@ -49,7 +49,8 @@ namespace ESIEE_2_Campagne_Mail
                     {
                         contact.Etat = ContactEtat.ACTIF;
                     }
-                    else
+                    else if (!Home.Instance.Manager.GetCampagne().recupererListeContactsActifs().Contains(contact)
+                        && contact.Etat == ContactEtat.ACTIF)
                     {
                         contact.Etat = ContactEtat.INACTIF;
                     }
