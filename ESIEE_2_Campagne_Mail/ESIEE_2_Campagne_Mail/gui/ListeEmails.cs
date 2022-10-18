@@ -21,6 +21,9 @@ namespace ESIEE_2_Campagne_Mail
 {
     public partial class ListeEmails : Form
     {
+        private List<Contact> listeContactsDeLaCampagne = new List<Contact>();
+        private List<ListViewItem> listeItemsDansLaListeView = new List<ListViewItem>();
+
         /// <summary>
         /// Constructeur
         /// </summary>
@@ -31,65 +34,69 @@ namespace ESIEE_2_Campagne_Mail
         }
 
         /// <summary>
-        /// Mise à jour de la vue de la liste de contacts.
+        /// Mise à jour de la liste des contacts.
+        /// </summary>
+        private void updateListContacts() {
+            Debug.WriteLine("[Campagne] - Mise à jour de la liste des contacts - Début");
+            
+            if (Home.Instance.Manager.GetCampagne().recupererListeContacts().Count > 0)
+            {
+                int compteurIDs = (listeContactsDeLaCampagne.Count > 0) ? listeContactsDeLaCampagne.Count + 1 : 0;
+                foreach (Contact contact in Home.Instance.Manager.GetCampagne().recupererListeContacts())
+                {
+                    //Vérification de la présence du contact dans la liste des contacts actifs
+                    if (Home.Instance.Manager.GetCampagne().recupererListeContactsActifs().Contains(contact))
+                    {
+                        contact.Etat = ContactEtat.ACTIF;
+                    }
+                    else
+                    {
+                        contact.Etat = ContactEtat.INACTIF;
+                    }
+                    //Vérification de l'existance du contact dans la liste des contacts de la campagne
+                    if (!listeContactsDeLaCampagne.Contains(contact))
+                    {
+                        contact.Id = compteurIDs;
+                        listeContactsDeLaCampagne.Add(contact);
+                    }
+                    //-
+                    compteurIDs++;
+                }
+            }
+
+            Debug.WriteLine("[Campagne] - Mise à jour de la liste des contacts - Début");
+        }
+
+        /// <summary>
+        /// Mise à jour de la vue de la liste des contacts.
         /// </summary>
         private void updateListView()
         {
-            //Création d'une liste des items pour la ListView.
-            List<ListViewItem> itemListViewItem = new List<ListViewItem>();
+            Debug.WriteLine("[Campagne] - Liste View Update - Début");
+            
+            //Vidage de la vue de la liste des contacts existants
+            this.listViewContacts.Items.Clear();
+            //Vidage de la liste des items de la vue de la liste des contacts
+            this.listeItemsDansLaListeView.Clear();
 
-            //Vérification de la liste des mails
-            if (Home.Instance.Manager.GetCampagne() != null)
+            //Mise à jour de la liste des contacts
+            this.updateListContacts();
+
+            //Ajout de la nouvelle liste de contacts dans la liste des items de la vue de la liste des contacts
+            foreach (Contact contact in listeContactsDeLaCampagne)
             {
-                //Récupère de la liste des groupes de mails de la campagne
-                List<Contact> listeContacts = Home.Instance.Manager.GetCampagne().recupererListeContacts();
-                
-                //Récupère de la liste des groupes de mails de la campagne
-                List<Contact> listeContactsActifs = Home.Instance.Manager.GetCampagne().recupererListeContactsActifs();
-
-                if (listeContacts.Count > 0)
+                List<Contact> listContactAdded = new List<Contact>();
+                if (!listContactAdded.Contains(contact))
                 {
-                    //Ajout des mails dans la liste
-                    foreach (Contact contact in listeContacts)
-                    {
-                        contact.Etat = listeContactsActifs.Count > 0 ? listeContactsActifs.Contains(contact) ? ContactEtat.ACTIF : ContactEtat.INACTIF : ContactEtat.INACTIF;
-                        itemListViewItem.Add(
-                            addInListViewItem(contact)
-                            /*
-                            addInListViewItem(new Contact()
-                            {
-                                Id = 0,
-                                Nom = "",
-                                Prenom = "",
-                                Email = mail,
-                                Etat = listeMailActif.Count > 0 ? listeMailActif.Contains(mail) ? ContactEtat.ACTIF : ContactEtat.INACTIF : ContactEtat.INACTIF
-                            })
-                            */
-                        );
-                    }
+                    listContactAdded.Add(contact);
+                    this.listeItemsDansLaListeView.Add(addInListViewItem(contact));
                 }
             }
 
-            if (itemListViewItem.Count > 0)
-            {
-                int idItem = (this.listViewContacts.Items.Count > 0) ? this.listViewContacts.Items.Count : 0;
+            //Ajouter la liste des items dans la vue de la liste des contacts
+            this.listViewContacts.Items.AddRange(listeItemsDansLaListeView.ToArray());
 
-                //Récupération de la liste des items pour les ajoutés dans la ListView.
-                foreach (ListViewItem item in itemListViewItem)
-                {
-                    //-
-                    item.Text = idItem.ToString();
-                    
-                    //Ajout de l'item dans la ListView si il n'existe pas.
-                    if (!this.listViewContacts.Items.ContainsKey(item.Text))
-                    {
-                        this.listViewContacts.Items.Add(item);
-                        idItem++;
-                    }
-                }
-            }
-
-            Debug.WriteLine("[Campagne] - Liste View Update");
+            Debug.WriteLine("[Campagne] - Liste View Update - Fin");
         }
 
         /// <summary>
@@ -182,7 +189,10 @@ namespace ESIEE_2_Campagne_Mail
             this.updateListView();
         }
 
-        private void buttonListeView_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Bouton d'action de nettoyage de la liste des emails.
+        /// </summary>
+        private void buttonClearListeView_Click(object sender, EventArgs e)
         {
             Home.Instance.Manager.ClearListeContacts();
             this.listViewContacts.Clear();

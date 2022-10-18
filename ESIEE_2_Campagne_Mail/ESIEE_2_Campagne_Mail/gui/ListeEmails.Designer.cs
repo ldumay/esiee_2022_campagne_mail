@@ -44,7 +44,7 @@ namespace ESIEE_2_Campagne_Mail
             this.buttonListeView = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listViewMails
+            // listViewContacts
             // 
             this.listViewContacts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnID,
@@ -55,7 +55,7 @@ namespace ESIEE_2_Campagne_Mail
             this.listViewContacts.FullRowSelect = true;
             this.listViewContacts.Location = new System.Drawing.Point(14, 77);
             this.listViewContacts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.listViewContacts.Name = "listViewMails";
+            this.listViewContacts.Name = "listViewContacts";
             this.listViewContacts.Size = new System.Drawing.Size(906, 433);
             this.listViewContacts.TabIndex = 0;
             this.listViewContacts.UseCompatibleStateImageBehavior = false;
@@ -65,27 +65,26 @@ namespace ESIEE_2_Campagne_Mail
             // columnID
             // 
             this.columnID.Text = "ID";
-            this.columnID.Width = 50;
             // 
             // columnNom
             // 
             this.columnNom.Text = "Nom";
-            this.columnNom.Width = 160;
+            this.columnNom.Width = 200;
             // 
             // columnPrenom
             // 
             this.columnPrenom.Text = "Prénom";
-            this.columnPrenom.Width = 160;
+            this.columnPrenom.Width = 200;
             // 
             // columnEmail
             // 
             this.columnEmail.Text = "Email";
-            this.columnEmail.Width = 300;
+            this.columnEmail.Width = 320;
             // 
             // columnEtat
             // 
             this.columnEtat.Text = "Etat";
-            this.columnEtat.Width = 80;
+            this.columnEtat.Width = 100;
             // 
             // buttonImporter
             // 
@@ -156,7 +155,7 @@ namespace ESIEE_2_Campagne_Mail
             this.buttonListeView.TabIndex = 6;
             this.buttonListeView.Text = "Vider la liste";
             this.buttonListeView.UseVisualStyleBackColor = true;
-            this.buttonListeView.Click += new System.EventHandler(this.buttonListeView_Click);
+            this.buttonListeView.Click += new System.EventHandler(this.buttonClearListeView_Click);
             // 
             // ListeEmails
             // 
