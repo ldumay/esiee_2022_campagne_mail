@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,58 +16,50 @@ namespace ESIEE_2_Campagne_Mail
 {
     public partial class EditionMessage : Form
     {
+        /// <summary>
+        /// Constructeur
+        /// </summary>
         public EditionMessage()
         {
             InitializeComponent();
+            this.updateEditionMessageContent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+        private void label1_Click(object sender, EventArgs e) { }
 
-        }
+        private void label2_Click(object sender, EventArgs e) { }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
+        private void label3_Click(object sender, EventArgs e) { }
 
-        }
+        private void buttonSave_Click(object sender, EventArgs e) { }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonSave_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        /**
-         * Récuprération de l'expéditeur via le champs expéditeur.
-         */
+        /// <summary>
+        /// Récuprération de l'expéditeur via le champs expéditeur.
+        /// </summary>
         private void textBoxEXP_TextChanged(object sender, EventArgs e)
         {
             //Home.Instance.campagne.Message.Expediteur = textBoxEXP.Text.ToString();
         }
 
-        /**
-         * Récuprération du message via le champs message.
-         */
+        /// <summary>
+        /// Récuprération du message via le champs message.
+        /// </summary>
         private void textBoxMessage_TextChanged(object sender, EventArgs e)
         {
             //Home.Instance.campagne.Message.Contenu = textBoxMessage.Text.ToString();
         }
 
-        /**
-         * Récuprération du titre via le champs titre.
-         */
+        /// <summary>
+        /// Récuprération du titre via le champs titre.
+        /// </summary>
         private void textBoxTitre_TextChanged(object sender, EventArgs e)
         {
             //Home.Instance.campagne.Message.Titre = textBoxTitre.Text.ToString();
         }
 
-        /**
-         * Récuprération du rebound via le champs rebound.
-         */
+        /// <summary>
+        /// Récuprération du rebound via le champs rebound.
+        /// </summary>
         private void textBoxRebound_TextChanged(object sender, EventArgs e)
         {
             //Home.Instance.campagne.Message.Rebound = textBoxRebound.Text.ToString();
@@ -76,11 +69,24 @@ namespace ESIEE_2_Campagne_Mail
         {
             if (updateContenuDeMail(textBoxEXP.Text, textBoxRebound.Text, textBoxTitre.Text, textBoxMessage.Text))
             {
-                Console.WriteLine("Contenu de mail : " + Home.Instance.Manager.GetContenuDuMail());
+                if (textBoxEXP.Text != null
+                    && textBoxRebound.Text != null
+                    && textBoxTitre.Text != null
+                    && textBoxMessage.Text != null
+                )
+                {
+                    Home.Instance.Manager.statutCampagneMessage = true;
+                }
+                //-
+                string message = "Le contenu du mail a bien été enregistrée.";
+                MessageBox.Show(message, "Edition du contenu du mail - Enregistré", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Debug.WriteLine("[Campagne] Contenu de mail : " + Home.Instance.Manager.statutCampagneMessage);
             }
             else
             {
-                Console.WriteLine("Erreur lors de la sauvegarde du contenu de mail");
+                string message = "Le contenu du mail n'a pas pu être enregistrée.";
+                MessageBox.Show(message, "Edition du contenu du mail - Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Debug.WriteLine("[Campagne] Erreur lors de la sauvegarde du contenu de mail.");
             }
 
         }
@@ -96,7 +102,7 @@ namespace ESIEE_2_Campagne_Mail
         private bool updateContenuDeMail(string expediteur, string rebound, string titre, string contenu)
         {
             //Vérification de l'adresse mail de l'expéditeur
-            if (!verifEmail(expediteur))
+            if (!UtilsMails.MailVerification(expediteur))
             {
                 MessageBox.Show(
                     "L'adresse mail de l'expéditeur est invalide."
@@ -106,7 +112,7 @@ namespace ESIEE_2_Campagne_Mail
                 return false;
             }
             //Vérification de l'adresse mail du rebond
-            if (!verifEmail(rebound))
+            if (!UtilsMails.MailVerification(rebound))
             {
                 MessageBox.Show(
                     "L'adresse mail du rebound est invalide."
@@ -128,29 +134,39 @@ namespace ESIEE_2_Campagne_Mail
                     "Une erreur est survenue lors de la sauvegarde du contenu de mail."
                     + "\nVeuillez réessayer ultérieurement.",
                     "Oups !", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                Console.WriteLine(e);
+                Debug.WriteLine(e);
                 return false;
             }
 
         }
 
         /// <summary>
-        /// Vérificaiton de l'adresse mail d'un expéditeur.
+        /// Vérification du contenu exsitant
         /// </summary>
-        /// <param name="email"></param>
-        /// <returns>true si l'adresse mail est valide, false sinon</returns>
-        private bool verifEmail(string email)
+        private void updateEditionMessageContent()
         {
-            try
+            if(Home.Instance.Manager.GetCampagne().ContenuDeMail != null)
             {
-                Regex regex = new Regex(UtilsRegex.regexMail, RegexOptions.IgnoreCase);
-                //-
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
+                //Expéditeur
+                if(Home.Instance.Manager.GetCampagne().ContenuDeMail.Expediteur != null)
+                {
+                    textBoxEXP.Text = Home.Instance.Manager.GetCampagne().ContenuDeMail.Expediteur;
+                }
+                //Rebound
+                if (Home.Instance.Manager.GetCampagne().ContenuDeMail.Rebound != null)
+                {
+                    textBoxRebound.Text = Home.Instance.Manager.GetCampagne().ContenuDeMail.Rebound;
+                }
+                //Rebound
+                if (Home.Instance.Manager.GetCampagne().ContenuDeMail.Titre != null)
+                {
+                    textBoxTitre.Text = Home.Instance.Manager.GetCampagne().ContenuDeMail.Titre;
+                }
+                //Rebound
+                if (Home.Instance.Manager.GetCampagne().ContenuDeMail.Contenu != null)
+                {
+                    textBoxMessage.Text = Home.Instance.Manager.GetCampagne().ContenuDeMail.Contenu;
+                } 
             }
         }
     }

@@ -1,8 +1,8 @@
 ﻿namespace ESIEE_2_Campagne_Mail.models
 {
-    /**
-     * Classe Contact
-     */
+    /// <summary>
+    /// Classe Contact
+    /// </summary>
     public class Contact
     {
 
