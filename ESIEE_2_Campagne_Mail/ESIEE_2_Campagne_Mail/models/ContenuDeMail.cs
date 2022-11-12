@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ESIEE_2_Campagne_Mail.models
 {
-    /**
-    * Classe Message.
-    */
+    /// <summary>
+    /// Classe contenu de mail.
+    /// </summary>
     public class ContenuDeMail
     {
 

@@ -1,4 +1,5 @@
 ﻿using ESIEE_2_Campagne_Mail.models;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace ESIEE_2_Campagne_Mail.utils
@@ -66,14 +67,14 @@ namespace ESIEE_2_Campagne_Mail.utils
                     }
                 }
 
-                Console.WriteLine("File infos OK.");
+                Debug.WriteLine("File infos OK.");
             }
             catch (Exception e)
             {
                 string message = "Une erreur est survenue lors du choix du fichier.";
-                System.Console.WriteLine(message);
+                Debug.WriteLine(message);
                 MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                System.Console.WriteLine(e.Message);
+                Debug.WriteLine(e.Message);
             }
 
             //Lecture du fichier
@@ -81,13 +82,13 @@ namespace ESIEE_2_Campagne_Mail.utils
             {
                 //Lecture du fichier ligne par ligne
                 string[] lines = System.IO.File.ReadAllLines(@"" + filePath + fileName + "." + fileExt);
-                System.Console.WriteLine("Lecture OK");
+                Debug.WriteLine("Lecture OK");
 
                 //Conversion des lignes en liste de contact
                 foreach (string line in lines)
                 {
                     //Ligne
-                    Console.WriteLine("\t" + line);
+                    Debug.WriteLine("\t" + line);
 
                     //Non lecture de la première ligne
                     if (line != "Id,Nom,Prenom,Email,Etat")
@@ -125,22 +126,22 @@ namespace ESIEE_2_Campagne_Mail.utils
                 }
 
                 string message = "Le fichier a bien été chargé.";
-                MessageBox.Show(message, "Terminé", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(message, "Importation - Terminé", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return groupeMail;
             }
             catch (System.IO.FileNotFoundException e)
             {
                 string message = "Le fichier n'existe pas.";
-                System.Console.WriteLine(message);
-                MessageBox.Show(message, "Oups !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Debug.WriteLine(message);
+                MessageBox.Show("Oups !\n\n" + message, "Importation - Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return groupeMail;
             }
             catch (Exception e)
             {
                 string message = "Une erreur est survenue lors de l'importation du fichier.";
-                System.Console.WriteLine(message);
-                MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                System.Console.WriteLine(e.Message);
+                Debug.WriteLine(message);
+                MessageBox.Show("Erreur !\n\n" + message, "Importation - Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Debug.WriteLine(e.Message);
                 return groupeMail;
             }
         }

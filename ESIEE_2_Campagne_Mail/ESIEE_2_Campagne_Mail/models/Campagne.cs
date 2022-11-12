@@ -1,4 +1,6 @@
-﻿namespace ESIEE_2_Campagne_Mail.models
+﻿using System.Diagnostics;
+
+namespace ESIEE_2_Campagne_Mail.models
 {
 	/// <summary>
 	/// Classe Campagne.
@@ -12,7 +14,7 @@
 		/// <summary>
 		/// Attribut de la liste des mails
 		/// </summary>
-		public List<GroupeContact> GroupeMailList { get; }
+		public List<GroupeContact> ListGroupeContact { get; }
 		/// <summary>
 		/// Attribut du message
 		/// </summary>
@@ -25,17 +27,20 @@
 		public Campagne(string nom)
 		{
 			Nom = nom;
-			GroupeMailList = new List<GroupeContact>();
+			ListGroupeContact = new List<GroupeContact>();
 			ContenuDeMail = new ContenuDeMail();
 		}
 
-		/**
-		 * Constructeur complet de la classe Campagne.
-		 */
-		public Campagne(string nom, List<GroupeContact> groupeMailList, ContenuDeMail message)
+		/// <summary>
+		/// Constructeur complet de la classe Campagne.
+		/// </summary>
+		/// <param name="nom"></param>
+		/// <param name="listGroupeContact"></param>
+		/// <param name="message"></param>
+		public Campagne(string nom, List<GroupeContact> listGroupeContact, ContenuDeMail message)
 		{
 			this.Nom = nom;
-			this.GroupeMailList = groupeMailList;
+			this.ListGroupeContact = listGroupeContact;
 			this.ContenuDeMail = message;
 		}
 

@@ -6,15 +6,25 @@ using System.Threading.Tasks;
 
 namespace ESIEE_2_Campagne_Mail.process
 {
+    /// <summary>
+    /// Classse SMTPConnectionHandler.
+    /// </summary>
     internal class SMTPConnectionHandler
     {
-        private string ipAdress;
-        private int port;
+        public string SMTPAddressIP { get; set; }
+        public int SMTPPort { get; set; }
+        public string SMTPUserLogin { get; set; }
+        public string SMTPUserMDP { get; set; }
 
+        /// <summary>
+        /// Constructeur
+        /// </summary>
         public SMTPConnectionHandler()
         {
-            this.ipAdress = "";
-            this.port = 0;
+            this.SMTPAddressIP = "";
+            this.SMTPPort = 0;
+            this.SMTPUserLogin = "";
+            this.SMTPUserMDP = "";
         }
 
         public bool EnvoyerCampagneMail(List<string> lsiteMails)
