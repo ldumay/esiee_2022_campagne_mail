@@ -36,21 +36,21 @@ namespace ESIEE_2_Campagne_Mail
         /// <summary>
         /// Mise à jour de la liste des contacts.
         /// </summary>
-        private void updateListContacts() {
+        private void updateListContacts()
+        {
             Debug.WriteLine("[Campagne] - Mise à jour de la liste des contacts - Début");
-            
-            if (Home.Instance.Manager.GetCampagne().recupererListeContacts().Count > 0)
+
+            if (Home.Instance.Manager.RecupererListContact().Count > 0)
             {
                 int compteurIDs = (listeContactsDeLaCampagne.Count > 0) ? listeContactsDeLaCampagne.Count + 1 : 0;
-                foreach (Contact contact in Home.Instance.Manager.GetCampagne().recupererListeContacts())
+                foreach (Contact contact in Home.Instance.Manager.RecupererListContact())
                 {
                     //Vérification de la présence du contact dans la liste des contacts actifs
-                    if (Home.Instance.Manager.GetCampagne().recupererListeContactsActifs().Contains(contact))
+                    if (Home.Instance.Manager.RecupererListContact().Contains(contact))
                     {
                         contact.Etat = ContactEtat.ACTIF;
                     }
-                    else if (!Home.Instance.Manager.GetCampagne().recupererListeContactsActifs().Contains(contact)
-                        && contact.Etat == ContactEtat.ACTIF)
+                    else if (!Home.Instance.Manager.RecupererListContact().Contains(contact) && contact.Etat == ContactEtat.ACTIF)
                     {
                         contact.Etat = ContactEtat.INACTIF;
                     }
@@ -68,30 +68,30 @@ namespace ESIEE_2_Campagne_Mail
             Debug.WriteLine("[Campagne] - Mise à jour de la liste des contacts - Début");
         }
 
-		/// <summary>
-		/// Récupère la liste des Contacts dans la Campagne et les ajoute dans la ListView
-		/// </summary>
-		private void oldupdateListView()
-		{
-			//Récupère de la liste des groupes de mails de la campagne
-			List<Contact> listeContact = Home.Instance.Manager.RecupererListContact();
+        /// <summary>
+        /// Récupère la liste des Contacts dans la Campagne et les ajoute dans la ListView
+        /// </summary>
+        private void oldupdateListView()
+        {
+            //Récupère de la liste des groupes de mails de la campagne
+            List<Contact> listeContact = Home.Instance.Manager.RecupererListContact();
 
-			// Réinitialisation de la ListView
-			listViewMails.Items.Clear();
-			// Index pour l'id de l'item (sera actuellement toujours 0)
-			int nbItem = listViewMails.Items.Count;
-			//Ajout des Contact dans la ListView
-			foreach (Contact contact in listeContact)
-			{
-				System.Diagnostics.Debug.WriteLine(contact.Email);
-				ListViewItem listViewItem = SetContactInListViewItem(contact);
-				// Utilisation Id ou NbItem ?
-				listViewItem.Text = nbItem.ToString();
-				listViewMails.Items.Add(listViewItem);
-				nbItem++;
-			}
-			Console.WriteLine("[Liste View Update] OK");
-		}
+            // Réinitialisation de la ListView
+            listViewContacts.Items.Clear();
+            // Index pour l'id de l'item (sera actuellement toujours 0)
+            int nbItem = listViewContacts.Items.Count;
+            //Ajout des Contact dans la ListView
+            foreach (Contact contact in listeContact)
+            {
+                System.Diagnostics.Debug.WriteLine(contact.Email);
+                ListViewItem listViewItem = SetContactInListViewItem(contact);
+                // Utilisation Id ou NbItem ?
+                listViewItem.Text = nbItem.ToString();
+                listViewContacts.Items.Add(listViewItem);
+                nbItem++;
+            }
+            Console.WriteLine("[Liste View Update] OK");
+        }
 
         /// <summary>
         /// Mise à jour de la vue de la liste des contacts.
@@ -99,14 +99,14 @@ namespace ESIEE_2_Campagne_Mail
         private void updateListView()
         {
             Debug.WriteLine("[Campagne] - Liste View Update - Début");
-            
+
             //Vidage de la vue de la liste des contacts existants
-            this.listViewContacts.Items.Clear();
+            listViewContacts.Items.Clear();
             //Vidage de la liste des items de la vue de la liste des contacts
-            this.listeItemsDansLaListeView.Clear();
+            listeItemsDansLaListeView.Clear();
 
             //Mise à jour de la liste des contacts
-            this.updateListContacts();
+            updateListContacts();
 
             //Ajout de la nouvelle liste de contacts dans la liste des items de la vue de la liste des contacts
             foreach (Contact contact in listeContactsDeLaCampagne)
@@ -115,27 +115,33 @@ namespace ESIEE_2_Campagne_Mail
                 if (!listContactAdded.Contains(contact))
                 {
                     listContactAdded.Add(contact);
-                    this.listeItemsDansLaListeView.Add(addInListViewItem(contact));
+                    listeItemsDansLaListeView.Add(addInListViewItem(contact));
                 }
             }
 
             //Ajouter la liste des items dans la vue de la liste des contacts
-            this.listViewContacts.Items.AddRange(listeItemsDansLaListeView.ToArray());
+            listViewContacts.Items.AddRange(listeItemsDansLaListeView.ToArray());
+
+            // TODO : refaire cette fonction pour appliquer les changements dans CampagneManager au lieu d'ici
+            if (listViewContacts.Items.Count > 0)
+            {
+                Home.Instance.Manager.statutCampagneListeEmails = true;
+            }
 
             Debug.WriteLine("[Campagne] - Liste View Update - Fin");
         }
 
-		private ListViewItem SetContactInListViewItem(Contact contact)
-		{
-			ListViewItem item = new ListViewItem();
-			// Id utilisé ?
-			item.Text = contact.Id.ToString();
-			item.SubItems.Add(contact.Nom);
-			item.SubItems.Add(contact.Prenom);
-			item.SubItems.Add(contact.Email);
-			item.SubItems.Add(contact.Etat.ToString());
-			return item;
-		}
+        private ListViewItem SetContactInListViewItem(Contact contact)
+        {
+            ListViewItem item = new ListViewItem();
+            // Id utilisé ?
+            item.Text = contact.Id.ToString();
+            item.SubItems.Add(contact.Nom);
+            item.SubItems.Add(contact.Prenom);
+            item.SubItems.Add(contact.Email);
+            item.SubItems.Add(contact.Etat.ToString());
+            return item;
+        }
 
         /// <summary>
         /// Ajout d'un élément à vue de la liste de contacts.
@@ -152,16 +158,16 @@ namespace ESIEE_2_Campagne_Mail
 
         private void listViewMails_SelectedIndexChanged(object sender, EventArgs e) { }
 
-		/// <summary>
-		/// Fonction appellé lors d'un click sur le bouton Import
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void buttonImport_Click(object sender, EventArgs e)
-		{
-			Home.Instance.Manager.AddGroupContact(UtilsFiles.ImportWithOpenFileDialogEmailsTXT());
-			updateListView();
-		}
+        /// <summary>
+        /// Fonction appellé lors d'un click sur le bouton Import
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonImport_Click(object sender, EventArgs e)
+        {
+            Home.Instance.Manager.AddGroupContact(UtilsFiles.ImportWithOpenFileDialogEmailsTXT());
+            updateListView();
+        }
 
         /// <summary>
         /// Bouton d'action d'importation.
@@ -170,15 +176,10 @@ namespace ESIEE_2_Campagne_Mail
         {
             List<GroupeContact> groupeMailList = new List<GroupeContact>();
             groupeMailList.Add(UtilsFiles.ImportWithOpenFileDialogEmailsTXT());
-            Home.Instance.Manager.GetCampagne().ListGroupeContact.Clear();
-            Home.Instance.Manager.GetCampagne().ListGroupeContact.AddRange(groupeMailList);
+            Home.Instance.Manager.GetGroupContactList().Clear();
+            Home.Instance.Manager.GetGroupContactList().AddRange(groupeMailList);
             //-
             updateListView();
-            //-
-            if (groupeMailList.Count > 0)
-            {
-                Home.Instance.Manager.statutCampagneListeEmails = true;
-            }
         }
 
         /// <summary>
@@ -190,7 +191,7 @@ namespace ESIEE_2_Campagne_Mail
             // txt header
             String txtHeader = "Id,Nom,Prenom,Email,Etat";
             //get download path
-            String filePath = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "{374DE290-123F-4565-9164-39C4925E467B}", String.Empty).ToString();
+            string filePath = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "{374DE290-123F-4565-9164-39C4925E467B}", string.Empty).ToString() ?? string.Empty;
 
             //get today date
             DateTime now = DateTime.Now;
@@ -199,7 +200,7 @@ namespace ESIEE_2_Campagne_Mail
             string downloadFilePath = Path.Combine(filePath, "email_list_" + now.ToString("yyyy_MM_dd_HH'_'mm'_'ss") + ".txt");
 
             // get object instance / email list
-            List<GroupeContact> groupeMailList = Home.Instance.Manager.GetCampagne().ListGroupeContact;
+            List<GroupeContact> groupeMailList = Home.Instance.Manager.GetGroupContactList();
 
             // This text is added only once to the file.
             if (!File.Exists(downloadFilePath))

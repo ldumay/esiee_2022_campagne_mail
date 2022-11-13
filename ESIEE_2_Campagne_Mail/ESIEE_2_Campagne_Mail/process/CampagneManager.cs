@@ -1,4 +1,5 @@
 ﻿using ESIEE_2_Campagne_Mail.models;
+using ESIEE_2_Campagne_Mail.utils;
 using Microsoft.VisualBasic.Devices;
 using System;
 using System.Collections.Generic;
@@ -22,37 +23,28 @@ namespace ESIEE_2_Campagne_Mail.process
         /// <summary>
         /// Attribut du SMTPConnectionHandler.
         /// </summary>
-        public Boolean statutCampagneListeEmails { get; set; }
+        public Boolean statutCampagneListeEmails { get; private set; }
         /// <summary>
         /// Attribut du statut de la liste des mails de la campagne.
         /// </summary>
-        public Boolean statutCampagneMessage { get; set; }
+        public Boolean statutCampagneMessage { get; private set; }
         /// <summary>
         /// Attribut du statut du message de la campagne.
         /// </summary>
-        public Boolean statutCampagne { get; set; }
+        public Boolean statutCampagne { get; private set; }
         /// <summary>
         /// Attribut du statut de la campagne.
         /// </summary>
-        public Boolean statutSendReady { get; set; }
+        public Boolean statutSendReady { get; private set; }
         /// <summary>
         /// Attribut du statut de l'envoi de la campagne.
         /// </summary>
-        public Boolean statutSMTPServer { get; set; }
+        public Boolean statutSMTPServer { get; private set; }
 
-		public CampagneManager(string nomCampagne)
-		{
-			Campagne = new Campagne(nomCampagne);
-			SMTPConnectionHandler = new SMTPConnectionHandler();
-		}
-
-        /// <summary>
-        /// Ajoute le groupe de contact dans la campagne.
-        /// </summary>
-        /// <param name="contacts"></param>
-        internal void AddGroupContact(GroupeContact contacts)
+        public CampagneManager(string nomCampagne)
         {
-            Campagne.ListGroupeContact.Add(contacts);
+            Campagne = new Campagne(nomCampagne);
+            SMTPConnectionHandler = new SMTPConnectionHandler();
         }
 
         [Obsolete("Sert juste d'entre-deux commits")]
@@ -60,8 +52,8 @@ namespace ESIEE_2_Campagne_Mail.process
         {
             return Campagne;
         }
-        
-        [Obsolete("Sert juste d'entre-deux commits")]
+
+        [Obsolete("Il vaut mieux mettre en place de méthode dans cette classe plutot que de donner accès au SMTPHandler")]
         internal SMTPConnectionHandler GetSMTPConnectionHandler()
         {
             return SMTPConnectionHandler;
@@ -92,12 +84,27 @@ namespace ESIEE_2_Campagne_Mail.process
         /// <param name="contenu"></param>
         internal void ChangerContenuDuMail(string? expediteur, string? titre, string? rebound, string? contenu)
         {
+            //Vérification de l'adresse mail de l'expéditeur
+            if (!UtilsMails.MailVerification(expediteur))
+            {
+                throw new InvalidDataException(
+                    "L'adresse mail de l'expéditeur est invalide."
+                    + "\nVeuillez vérifier l'adresse mail de l'expéditeur.");
+            }
+            //Vérification de l'adresse mail du rebond
+            if (!UtilsMails.MailVerification(rebound))
+            {
+                throw new InvalidDataException(
+                    "L'adresse mail du rebound est invalide."
+                    + "\nVeuillez vérifier l'adresse mail du rebound.");
+            }
             ContenuDeMail contenuDeMail = GetContenuDuMail();
             expediteur = string.IsNullOrEmpty(expediteur) ? contenuDeMail.Expediteur : expediteur;
             titre = string.IsNullOrEmpty(titre) ? contenuDeMail.Titre : titre;
             contenu = string.IsNullOrEmpty(contenu) ? contenuDeMail.Contenu : contenu;
             rebound = string.IsNullOrEmpty(rebound) ? contenuDeMail.Rebound : rebound;
             Campagne.ContenuDeMail = new ContenuDeMail(expediteur, titre, rebound, contenu);
+            statutCampagneMessage = true;
         }
 
         /// <summary>
@@ -121,7 +128,7 @@ namespace ESIEE_2_Campagne_Mail.process
             MessageBox.Show(message, "Liste des emails - Nettoyage des majuscules terminé", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Debug.WriteLine("[Campagne] - Fin du nettoyage des majuscules des emails de la liste des contacts");
         }
-        
+
         /// <summary>
         /// Vérification des doublons existants dans la liste des emails de la campagne.
         /// </summary>
@@ -159,38 +166,46 @@ namespace ESIEE_2_Campagne_Mail.process
             Debug.WriteLine("[Campagne] - Fin du dédoublonnage de la liste des contacts");
         }
 
-		internal List<Contact> RecupererListContact()
-		{
-			List<Contact> listeContact = new();
-			foreach (GroupeContact groupeContact in Campagne.GroupeMailList)
-			{
-				listeContact.AddRange(groupeContact.ContactList);
-			}
-			return listeContact;
-		}
+        /// <summary>
+        /// Ajoute le groupe de contact dans la campagne.
+        /// </summary>
+        /// <param name="contacts"></param>
+        internal void AddGroupContact(GroupeContact contacts)
+        {
+            Campagne.ListGroupeContact.Add(contacts);
+        }
 
-		internal List<Contact> RecupererListContactActif()
-		{
-			List<Contact> listeContact = new();
-			foreach (GroupeContact groupeContact in Campagne.GroupeMailList)
-			{
-				foreach (Contact contact in groupeContact.ContactList)
-				{
-					if (contact.Etat == ContactEtat.ACTIF)
-					{
-						listeContact.Add(contact);
-					}
-				}
-			}
-			return listeContact;
-		}
+        internal List<Contact> RecupererListContact()
+        {
+            List<Contact> listeContact = new();
+            foreach (GroupeContact groupeContact in Campagne.ListGroupeContact)
+            {
+                listeContact.AddRange(groupeContact.ContactList);
+            }
+            return listeContact;
+        }
+
+        internal List<Contact> RecupererListContactActif()
+        {
+            List<Contact> listeContact = RecupererListContact();
+            List<Contact> listeContactActif = new();
+            foreach (Contact contact in listeContact)
+            {
+                if (contact.Etat == ContactEtat.ACTIF)
+                {
+                    listeContactActif.Add(contact);
+                }
+            }
+            return listeContactActif;
+        }
 
         /// <summary>
         /// Nettoyage de la liste des contacts de la campagne.
         /// </summary>
-        public void ClearListeContacts() {
+        public void ClearListeContacts()
+        {
             Campagne.ListGroupeContact.Clear();
-            this.statutCampagneListeEmails = false;
+            statutCampagneListeEmails = false;
         }
     }
 }
