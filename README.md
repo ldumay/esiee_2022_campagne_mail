@@ -12,7 +12,25 @@ Afin de pouvoir éditer ou débugger l'application, il est nécessaire d'avoir :
     
 ![img](_img/Visual_Studio_Installer.png)
 
-## 2 - Visuel de l'application
+## 2 - Conception de l'application
+
+### Diagramme de cas d'utilisation.
+
+![img](_img/Projet_CSharp-User_Case.jpg)
+
+### UI-UX Design modèle
+
+![img](_img/Projet_CSharp-UI_UX_Design.jpg)
+
+### Diagramme de flux
+
+![img](_img/Projet_CSharp-Diagramme_de_flux.jpg)
+
+### Diagramme de classes
+
+![img](_img/Projet_CSharp-Diagramme_de_classe.jpg)
+
+## 3 - Rendu de l'application
 
 ![img](_img/app_001.png)
 
