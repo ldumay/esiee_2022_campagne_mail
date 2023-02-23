@@ -44,7 +44,7 @@ namespace ESIEE_2_Campagne_Mail.gui
 			string SMTPUserLogin = textBoxSMTPUserLogin.Text ?? string.Empty;
 			string SMTPUserMDP = textBoxSMTPUserMDP.Text ?? string.Empty;
 
-			Home.Instance.Manager.ChangerSMTPConnectionParametres(SMTPAddressIP, SMTPport, SMTPUserLogin, SMTPUserMDP);
+			Home.Instance.Manager.ChangeSMTPConnectionParametres(SMTPAddressIP, SMTPport, SMTPUserLogin, SMTPUserMDP);
 
 			if (
 				Home.Instance.Manager.GetSMTPConnectionHandler().SMTPAddressIP != null
