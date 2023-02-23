@@ -23,10 +23,10 @@ namespace ESIEE_2_Campagne_Mail.models
         /// </summary>
         public ContenuDeMail()
         {
-            Expediteur = "";
-            Titre = "";
-            Rebound = "";
-            Contenu = "";
+            Expediteur = string.Empty;
+            Titre = string.Empty;
+            Rebound = string.Empty;
+            Contenu = string.Empty;
         }
 
         /// <summary>
@@ -36,23 +36,29 @@ namespace ESIEE_2_Campagne_Mail.models
         /// <param name="titre"></param>
         /// <param name="rebound"></param>
         /// <param name="contenu"></param>
-        public ContenuDeMail(string expediteur, string titre, string rebound, string contenu)
+        public ContenuDeMail(string? expediteur, string? titre, string? rebound, string? contenu)
         {
-            Expediteur = expediteur;
-            Titre = titre;
-            Rebound = rebound;
-            Contenu = contenu;
+            Expediteur = expediteur ?? string.Empty;
+            Titre = titre ?? string.Empty;
+            Rebound = rebound ?? string.Empty;
+            Contenu = contenu ?? string.Empty;
         }
-        
+
         /// <summary>
         ///     Clear all fields
         /// </summary>
         public void Clear()
         {
-            Expediteur = "";
-            Titre = "";
-            Rebound = "";
-            Contenu = "";
+            Expediteur = string.Empty;
+            Titre = string.Empty;
+            Rebound = string.Empty;
+            Contenu = string.Empty;
+        }
+
+        public bool IsValid()
+        {
+            bool MissingValue = string.IsNullOrWhiteSpace(Expediteur) || string.IsNullOrWhiteSpace(Titre) || string.IsNullOrWhiteSpace(Contenu);
+            return !MissingValue;
         }
     }
 }

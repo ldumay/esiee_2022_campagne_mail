@@ -99,12 +99,13 @@ namespace ESIEE_2_Campagne_Mail.process
                     + "\nVeuillez vérifier l'adresse mail du rebound.");
             }
             ContenuDeMail contenuDeMail = GetContenuDuMail();
+            // contenuDeMail.update();
             expediteur = string.IsNullOrEmpty(expediteur) ? contenuDeMail.Expediteur : expediteur;
             titre = string.IsNullOrEmpty(titre) ? contenuDeMail.Titre : titre;
             contenu = string.IsNullOrEmpty(contenu) ? contenuDeMail.Contenu : contenu;
             rebound = string.IsNullOrEmpty(rebound) ? contenuDeMail.Rebound : rebound;
             Campagne.ContenuDeMail = new ContenuDeMail(expediteur, titre, rebound, contenu);
-            statutCampagneMessage = true;
+            // statutCampagneMessage = true;
         }
 
         /// <summary>
@@ -125,8 +126,8 @@ namespace ESIEE_2_Campagne_Mail.process
             }
             //-
             string message = "Le nettoyage des majuscules des emails de la liste des contacts a bien été effectué.";
+            Debug.WriteLine("[Campagne] - " + message);
             MessageBox.Show(message, "Liste des emails - Nettoyage des majuscules terminé", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Debug.WriteLine("[Campagne] - Fin du nettoyage des majuscules des emails de la liste des contacts");
         }
 
         /// <summary>
@@ -175,37 +176,61 @@ namespace ESIEE_2_Campagne_Mail.process
             Campagne.ListGroupeContact.Add(contacts);
         }
 
-        internal List<Contact> RecupererListContact()
+        /// <summary>
+        /// Nettoyage de la liste des contacts de la campagne.
+        /// </summary>
+        public void ClearGroupContact()
+        {
+            Campagne.ListGroupeContact.Clear();
+            statutCampagneListeEmails = false;
+        }
+
+        /// <summary>
+        /// Nettoyage de la liste des contacts de la campagne.
+        /// </summary>
+        public void ReplaceGroupContact(GroupeContact contacts)
+        {
+            ClearGroupContact();
+            AddGroupContact(contacts);
+        }
+
+        internal List<Contact> RecupererListContact(bool activeOnly = false)
         {
             List<Contact> listeContact = new();
             foreach (GroupeContact groupeContact in Campagne.ListGroupeContact)
             {
                 listeContact.AddRange(groupeContact.ContactList);
             }
+            if (activeOnly)
+            {
+                List<Contact> listeContactActif = new();
+                foreach (Contact contact in listeContact)
+                {
+                    if (contact.Etat == ContactEtat.ACTIF)
+                    {
+                        listeContactActif.Add(contact);
+                    }
+                }
+                return listeContactActif;
+            }
             return listeContact;
         }
 
-        internal List<Contact> RecupererListContactActif()
+        public bool HasListeEmail()
         {
-            List<Contact> listeContact = RecupererListContact();
-            List<Contact> listeContactActif = new();
-            foreach (Contact contact in listeContact)
+            foreach (GroupeContact groupeContact in Campagne.ListGroupeContact)
             {
-                if (contact.Etat == ContactEtat.ACTIF)
+                if (groupeContact.ContactList.Count > 0)
                 {
-                    listeContactActif.Add(contact);
+                    return true;
                 }
             }
-            return listeContactActif;
+            return false;
         }
 
-        /// <summary>
-        /// Nettoyage de la liste des contacts de la campagne.
-        /// </summary>
-        public void ClearListeContacts()
+        public bool HasContenuValid()
         {
-            Campagne.ListGroupeContact.Clear();
-            statutCampagneListeEmails = false;
+            return Campagne.ContenuDeMail.IsValid();
         }
     }
 }

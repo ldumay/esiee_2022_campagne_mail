@@ -11,24 +11,15 @@ namespace ESIEE_2_Campagne_Mail.models
     /// </summary>
     public class GroupeContact
     {
-        public List<Contact> ContactList { get; set; }
+        public List<Contact> ContactList { get; private set; }
 
         /// <summary>
-        /// Constructeur vide de la classe Campagne.
-        /// </summary>
-        public GroupeContact()
-        {
-            ContactList = new List<Contact>();
-        }
-
-        /// <summary>
-        /// Constructeur complet de la classe Campagne.
+        /// Constructeur de la classe GroupeContact.
         /// </summary>
         /// <param name="mailsList"></param>
-        /// <param name="mailsActifsList"></param>
-        public GroupeContact(List<Contact> mailsList)
+        public GroupeContact(List<Contact>? mailsList)
         {
-            ContactList = mailsList;
+            ContactList = mailsList ?? new List<Contact>();
         }
 
         /// <summary>

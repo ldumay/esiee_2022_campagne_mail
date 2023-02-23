@@ -39,9 +39,9 @@ namespace ESIEE_2_Campagne_Mail.models
 		/// <param name="message"></param>
 		public Campagne(string nom, List<GroupeContact> listGroupeContact, ContenuDeMail message)
 		{
-			this.Nom = nom;
-			this.ListGroupeContact = listGroupeContact;
-			this.ContenuDeMail = message;
+			Nom = nom;
+			ListGroupeContact = listGroupeContact;
+			ContenuDeMail = message;
 		}
 
 	}
