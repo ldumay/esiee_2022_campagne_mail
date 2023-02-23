@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace ESIEE_2_Campagne_Mail.models
 {
-    /// <summary>
-    /// Classe contenu de mail.
-    /// </summary>
-    public class ContenuDeMail
-    {
+	/// <summary>
+	/// Classe contenu de mail.
+	/// </summary>
+	public class ContenuDeMail
+	{
 
-        //Attribut de la liste des mails
-        public string Expediteur { get; set; }
-        public string Titre { get; set; }
-        public string Rebound { get; set; }
-        public string Contenu { get; set; }
+		//Attribut de la liste des mails
+		public string Expediteur { get; set; }
+		public string Titre { get; set; }
+		public string Rebound { get; set; }
+		public string Contenu { get; set; }
 
         /// <summary>
         /// Constructeur vide de la classe Message.
