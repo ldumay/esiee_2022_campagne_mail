@@ -1,4 +1,4 @@
-﻿using ESIEE_2_Campagne_Mail.models;
+using ESIEE_2_Campagne_Mail.models;
 using ESIEE_2_Campagne_Mail.utils;
 using Microsoft.VisualBasic.Devices;
 using System;
@@ -53,26 +53,13 @@ namespace ESIEE_2_Campagne_Mail.process
 			return Campagne;
 		}
 
-		[Obsolete("Il vaut mieux mettre en place de méthode dans cette classe plutot que de donner accès au SMTPHandler")]
-		internal SMTPConnectionHandler GetSMTPConnectionHandler()
-		{
-			return SMTPConnectionHandler;
-		}
-
-		[Obsolete("Sert juste d'entre-deux commits")]
-		internal List<GroupeContact> GetGroupContactList()
-		{
-			return Campagne.ListGroupeContact;
-		}
-
 		/// <summary>
 		/// Retourne le contenu du mail de la campagne.
 		/// </summary>
 		/// <returns></returns>
 		internal ContenuDeMail GetContenuDuMail()
 		{
-			ContenuDeMail contenuDeMail = Campagne.ContenuDeMail ?? new ContenuDeMail();
-			return contenuDeMail;
+			return Campagne.ContenuDeMail;
 		}
 
 		/// <summary>
@@ -109,6 +96,11 @@ namespace ESIEE_2_Campagne_Mail.process
 		}
 
 
+		internal SMTPConnectionHandler GetSMTPConnectionHandler()
+		{
+			return SMTPConnectionHandler;
+		}
+
 		/// <summary>
 		/// Change la configuration de SMTPConnectionHandler selon les paramètres donnés
 		/// </summary>
@@ -119,7 +111,7 @@ namespace ESIEE_2_Campagne_Mail.process
 		/// <exception cref="NotImplementedException"></exception>
 		internal void ChangeSMTPConnectionParametres(string SMTPAddressIP, int SMTPport, string SMTPUserLogin, string SMTPUserMDP)
 		{
-			if (string.IsNullOrEmpty(SMTPAddressIP))
+			if (string.IsNullOrWhiteSpace(SMTPAddressIP))
 			{
 				throw new ArgumentException($"« {nameof(SMTPAddressIP)} » ne peut pas être vide ou avoir la valeur Null.", nameof(SMTPAddressIP));
 			}
@@ -128,17 +120,16 @@ namespace ESIEE_2_Campagne_Mail.process
 				throw new ArgumentException($"« {nameof(SMTPport)} » ne peut pas être vide ou avoir la valeur Null.", nameof(SMTPport));
 			}
 
-			if (string.IsNullOrEmpty(SMTPUserLogin))
+			if (string.IsNullOrWhiteSpace(SMTPUserLogin))
 			{
 				throw new ArgumentException($"« {nameof(SMTPUserLogin)} » ne peut pas être vide ou avoir la valeur Null.", nameof(SMTPUserLogin));
 			}
-
-			if (string.IsNullOrEmpty(SMTPUserMDP))
+			// TOFIX : MDP peut être vide ?
+			if (string.IsNullOrWhiteSpace(SMTPUserMDP))
 			{
 				throw new ArgumentException($"« {nameof(SMTPUserMDP)} » ne peut pas être vide ou avoir la valeur Null.", nameof(SMTPUserMDP));
 			}
-
-			throw new NotImplementedException();
+			SMTPConnectionHandler.ChangeSMTPParameters(SMTPAddressIP, SMTPport, SMTPUserLogin, SMTPUserMDP);
 		}
 
 		/// <summary>

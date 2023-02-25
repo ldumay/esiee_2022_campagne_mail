@@ -1,7 +1,9 @@
 ﻿using ESIEE_2_Campagne_Mail.models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +14,13 @@ namespace ESIEE_2_Campagne_Mail.process
 	/// Classse SMTPConnectionHandler.
 	/// </summary>
 	internal class SMTPConnectionHandler
-    {
-        public string SMTPAddressIP { get; private set; }
+	{
+		public string SMTPHost { get; private set; }
 		public int SMTPPort { get; private set; }
 		public string SMTPUserLogin { get; private set; }
-		public string SMTPUserMDP { get; private set; }
+		private string SMTPUserMDP { get; set; }
+		[Obsolete("On ne devrait pas sortir le mot de passe n'importe où")]
+		public string GetSMTPUserMDP() { return SMTPUserMDP; }
 		public SmtpClient Client { get; private set; }
 
 		/// <summary>
@@ -24,20 +28,27 @@ namespace ESIEE_2_Campagne_Mail.process
 		/// </summary>
 		public SMTPConnectionHandler()
 		{
-			SMTPAddressIP = string.Empty;
+			SMTPHost = string.Empty;
 			SMTPPort = 0;
 			SMTPUserLogin = string.Empty;
 			SMTPUserMDP = string.Empty;
 			Client = new SmtpClient();
 		}
 
-		public void ChangeSMTPParameters(string? ipAdresse, int? port, string? login, string? password)
+		/// <summary>
+		/// Change les parametres du serveur SMTP
+		/// </summary>
+		/// <param name="host"></param>
+		/// <param name="port"></param>
+		/// <param name="login"></param>
+		/// <param name="password"></param>
+		public void ChangeSMTPParameters(string? host, int? port, string? login, string? password)
 		{
-            SMTPAddressIP = ipAdresse ?? string.Empty;
-            SMTPPort = port ?? 0;
-            SMTPUserLogin = login ?? string.Empty;
-            SMTPUserMDP = password ?? string.Empty;
-        }
+			SMTPHost = host ?? string.Empty;
+			SMTPPort = port ?? 0;
+			SMTPUserLogin = login ?? string.Empty;
+			SMTPUserMDP = password ?? string.Empty;
+		}
 
 		public bool EnvoyerCampagneMail(List<string> listeMails, ContenuDeMail ContenuMail)
 		{
@@ -53,14 +64,25 @@ namespace ESIEE_2_Campagne_Mail.process
 			{
 				message.CC.Add(new MailAddress(mail));
 			}
-			// TODO: implement mail send
+			Client.Host = SMTPHost;
+			Client.Port = SMTPPort;
+			Client.Credentials = new NetworkCredential(SMTPUserLogin, SMTPUserMDP);
+			try
+			{
+				Client.Send(message);
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex.Message);
+				return false;
+			}
 			return true;
 		}
 
-		private bool IsSMTPParameterValid()
+		public bool IsSMTPParameterValid()
 		{
 			return !(
-				string.IsNullOrWhiteSpace(SMTPAddressIP) || SMTPPort <= 0 || string.IsNullOrWhiteSpace(SMTPUserLogin) || string.IsNullOrWhiteSpace(SMTPUserMDP)
+				string.IsNullOrWhiteSpace(SMTPHost) || SMTPPort <= 0 || string.IsNullOrWhiteSpace(SMTPUserLogin) || string.IsNullOrWhiteSpace(SMTPUserMDP)
 			);
 		}
 	}
