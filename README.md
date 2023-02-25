@@ -25,3 +25,30 @@ Afin de pouvoir éditer ou débugger l'application, il est nécessaire d'avoir :
 ## 2 - Conception de l'application
 
 - [CONCEPT_v1](CONCEPT_v1.md)
+
+## 3 - Chargé les packages du projet
+
+Tout d'abord, **descendre** dans le dossier du projet avec **PowerShell**.
+
+```
+Structure du dossier
+Le numéro de série du volume est 36A6-D39A
+C:
+└───ESIEE_2_Campagne_Mail_v2/
+    ├───.vs
+    ├───ESIEE_2_Campagne_Mail_v2/ <== IL_FAUT_ALLER_A_CE_NIVEAU
+    │    ├───bin/
+    │    ├───obj/
+    │    ├───Properties/
+    │    ├───views/
+    │    ├───ESIEE_2_Campagne_Mail_v2.csproj
+    │    ├───ESIEE_2_Campagne_Mail_v2.csproj.user
+    │    └───Program.cs
+    └───ESIEE_2_Campagne_Mail_v2.slnn
+```
+
+Puis **recharger** tous les packages nécessaire avec la commande ci-dessous.
+
+```
+donet restore
+```
