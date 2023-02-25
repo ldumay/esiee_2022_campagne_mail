@@ -86,13 +86,7 @@ namespace ESIEE_2_Campagne_Mail.process
 					+ "\nVeuillez vérifier l'adresse mail du rebound.");
 			}
 			ContenuDeMail contenuDeMail = GetContenuDuMail();
-			// contenuDeMail.update();
-			expediteur = string.IsNullOrEmpty(expediteur) ? contenuDeMail.Expediteur : expediteur;
-			titre = string.IsNullOrEmpty(titre) ? contenuDeMail.Titre : titre;
-			contenu = string.IsNullOrEmpty(contenu) ? contenuDeMail.Contenu : contenu;
-			rebound = string.IsNullOrEmpty(rebound) ? contenuDeMail.Rebound : rebound;
-			Campagne.ContenuDeMail = new ContenuDeMail(expediteur, titre, rebound, contenu);
-			// statutCampagneMessage = true;
+			contenuDeMail.ChangerContenu(expediteur, titre, rebound, contenu);
 		}
 
 
