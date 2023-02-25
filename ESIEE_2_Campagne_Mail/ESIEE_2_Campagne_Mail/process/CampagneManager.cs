@@ -155,9 +155,16 @@ namespace ESIEE_2_Campagne_Mail.process
 		/// </summary>
 		internal void EnvoyerCampagneMail()
 		{
-			if (Campagne.ListGroupeContact.Count > 0)
+			if (HasListeEmail())
 			{
 				// Envoyer la campagne
+				List<Contact> contacts = RecupererListContact(true);
+				List<string> emails = new List<string>();
+				foreach (Contact contact in contacts)
+				{
+					emails.Add(contact.Email);
+				}
+				SMTPConnectionHandler.EnvoyerCampagneMail(emails, Campagne.ContenuDeMail);
 			}
 		}
 

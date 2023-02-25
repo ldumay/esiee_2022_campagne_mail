@@ -18,7 +18,7 @@ namespace ESIEE_2_Campagne_Mail.models
 		/// <summary>
 		/// Attribut du message
 		/// </summary>
-		public ContenuDeMail ContenuDeMail { get; set; }
+		public ContenuDeMail ContenuDeMail { get; private set; }
 
 		/// <summary>
 		/// Constructeur vide de la classe Campagne.
