@@ -46,24 +46,17 @@ namespace ESIEE_2_Campagne_Mail.gui
 
 			Home.Instance.Manager.ChangeSMTPConnectionParametres(SMTPAddressIP, SMTPport, SMTPUserLogin, SMTPUserMDP);
 
-			if (
-				Home.Instance.Manager.GetSMTPConnectionHandler().SMTPAddressIP != null
-				&& Home.Instance.Manager.GetSMTPConnectionHandler().SMTPPort != 0
-				&& Home.Instance.Manager.GetSMTPConnectionHandler().SMTPUserLogin != null
-				&& Home.Instance.Manager.GetSMTPConnectionHandler().SMTPUserMDP != null
-			)
+			if (Home.Instance.Manager.GetSMTPConnectionHandler().IsSMTPParameterValid())
 			{
-				Home.Instance.Manager.statutSMTPServer = true;
-				//-
 				string message = "La configuration du serveur SMTP a bien été enregistrée.";
+				Debug.WriteLine("[Campagne] Configuration SMTP : " + message);
 				MessageBox.Show(message, "Configuration du serveur SMTP - Terminé", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				Debug.WriteLine("[Campagne] Configuration SMTP : " + Home.Instance.Manager.statutSMTPServer);
 			}
 			else
 			{
 				string message = "La configuration du serveur SMTP n'a pas pu être enregistrée.";
+				Debug.WriteLine("[Campagne] Configuration SMTP : " + message);
 				MessageBox.Show(message, "Configuration du serveur SMTP - Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				Debug.WriteLine("[Campagne] Erreur lors de la sauvegarde de la configuration du serveur SMTP.");
 			}
 		}
 
@@ -72,29 +65,14 @@ namespace ESIEE_2_Campagne_Mail.gui
 		/// </summary>
 		private void updateConfigServerSMTPContent()
 		{
-			if (Home.Instance.Manager.GetSMTPConnectionHandler() != null)
-			{
-				//Expéditeur
-				if (Home.Instance.Manager.GetSMTPConnectionHandler().SMTPAddressIP != null)
-				{
-					textBoxSMTPAddressIP.Text = Home.Instance.Manager.GetSMTPConnectionHandler().SMTPAddressIP;
-				}
-				//Rebound
-				if (Home.Instance.Manager.GetSMTPConnectionHandler().SMTPPort != null)
-				{
-					textBoxSMTPPort.Text = Home.Instance.Manager.GetSMTPConnectionHandler().SMTPPort.ToString();
-				}
-				//Rebound
-				if (Home.Instance.Manager.GetSMTPConnectionHandler().SMTPUserLogin != null)
-				{
-					textBoxSMTPUserLogin.Text = Home.Instance.Manager.GetSMTPConnectionHandler().SMTPUserLogin;
-				}
-				//Rebound
-				if (Home.Instance.Manager.GetSMTPConnectionHandler().SMTPUserMDP != null)
-				{
-					textBoxSMTPUserMDP.Text = Home.Instance.Manager.GetSMTPConnectionHandler().SMTPUserMDP;
-				}
-			}
+			// Adresse IP
+			textBoxSMTPAddressIP.Text = Home.Instance.Manager.GetSMTPConnectionHandler().SMTPHost;
+			// Port
+			textBoxSMTPPort.Text = Home.Instance.Manager.GetSMTPConnectionHandler().SMTPPort.ToString();
+			// Login
+			textBoxSMTPUserLogin.Text = Home.Instance.Manager.GetSMTPConnectionHandler().SMTPUserLogin;
+			// Rebound
+			textBoxSMTPUserMDP.Text = Home.Instance.Manager.GetSMTPConnectionHandler().GetSMTPUserMDP();
 		}
 	}
 }
