@@ -8,17 +8,17 @@
 
 Afin de pouvoir éditer ou débugger l'application, il est nécessaire d'avoir :
 
-- **Windows 10**
-- **.Net 6.0**
-- **Visual Studio - Version : Communauté**
+1. **Windows 10**
+2. **.Net 6.0**
+3. **Visual Studio - Version : Communauté**
     - Téléchargeable [ici](https://visualstudio.microsoft.com/fr/downloads/)
     - Pack à installer : Développement .Net Desktop
       - ![img](_img/Visual_Studio_Installer.png)
-- **.Net CLI**
+4. **.Net CLI**
     - Si besoin, voici un [guide d'installation de DotNet CLI](Install_DotNet_CLI.md)
-- **Nuget**
+5. **Nuget**
     - Si besoin, voici un [guide d'installation de Nuget](Install_Nuget.md)
-- **.Net CLI - Packages**
+6. **.Net CLI - Packages**
     - **FontAwesome.Sharp**
         - Si besoin, voici un [guide d'installation du package FontAwesome.Sharp](Install_DotNet_CLI_FontAwesome_Sharp.md)
 
