@@ -26,7 +26,7 @@ Afin de pouvoir éditer ou débugger l'application, il est nécessaire d'avoir :
 
 - [CONCEPT_v1](CONCEPT_v1.md)
 
-## 3 - Chargé les packages du projet
+## 3 - Chargé les paquets du projet
 
 Tout d'abord, **descendre** dans le dossier du projet avec **PowerShell**.
 
@@ -47,8 +47,30 @@ C:
     └───ESIEE_2_Campagne_Mail_v2.slnn
 ```
 
-Puis **recharger** tous les packages nécessaire avec la commande ci-dessous.
+Puis **recharger** tous les paquets nécessaire avec la commande ci-dessous.
 
 ```
 donet restore
 ```
+
+## 4 - Ouvrir le projet
+
+Lancer **Visual Studio** et ouvrer le projet via le fichier de solution d'extension **.sln**.
+
+![img](_img/004.png)
+
+Vérifier l'état des paquets avec une clique droit sur le projet pour ouvrir le gestionnaire de paquets de **Nuget**.
+
+![img](_img/005.png)
+
+Il est possible que ce message apparait si les paquets ont mal été chargé, mais **Visual Studio** devrait aussi pouvoir les rechargés (si non, rechargé les paquets via la commande plus haut).
+
+![img](_img/006.png)
+
+Une fois le gestionnaire de paquets de **Nuget**, il est possible de gérer les paquets du projet.
+
+![img](_img/007.png)
+
+## 5 - Lancer le projet
+
+[En cours ...]
