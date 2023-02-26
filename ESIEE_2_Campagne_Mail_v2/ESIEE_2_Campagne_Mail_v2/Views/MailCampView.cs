@@ -94,22 +94,25 @@ namespace ESIEE_2_Campagne_Mail_v2
             if (senderBtn != null)
             {
                 DisableButton();
+                
                 //Button
                 currentBtn = (IconButton)senderBtn;
-                currentBtn.BackColor = RGBColors.color2;
+                currentBtn.BackColor = RGBColors.color3;
                 currentBtn.ForeColor = color;
                 currentBtn.TextAlign = ContentAlignment.MiddleCenter;
                 currentBtn.IconColor = color;
                 currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
                 currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+                
                 //Left border button
                 leftBorderBtn.BackColor = color;
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
+                
                 //Current Child Form Icon
                 iconPictureBoxTopCurrentForm.IconChar = currentBtn.IconChar;
-                iconPictureBoxTopCurrentForm.IconColor = color;
+                //iconPictureBoxTopCurrentForm.IconColor = color;
             }
         }
 
@@ -120,7 +123,7 @@ namespace ESIEE_2_Campagne_Mail_v2
         {
             if (currentBtn != null)
             {
-                currentBtn.BackColor = RGBColors.color2;
+                currentBtn.BackColor = RGBColors.color5;
                 currentBtn.ForeColor = Color.Gainsboro;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
                 currentBtn.IconColor = Color.Gainsboro;
@@ -129,12 +132,17 @@ namespace ESIEE_2_Campagne_Mail_v2
             }
         }
 
+        /// <summary>
+        /// Réinitialisation du formulaire principal.
+        /// - Désactiver un bouton activer.
+        /// - Nettoyage de vue centrale du formulaire principal.
+        /// </summary>
         private void Reset()
         {
             DisableButton();
             leftBorderBtn.Visible = false;
             iconPictureBoxTopCurrentForm.IconChar = IconChar.Home;
-            iconPictureBoxTopCurrentForm.IconColor = Color.MediumPurple;
+            //iconPictureBoxTopCurrentForm.IconColor = Color.MediumPurple;
             labelTopCurrentForm.Text = "Accueil";
         }
 
@@ -161,7 +169,7 @@ namespace ESIEE_2_Campagne_Mail_v2
         {
             Debug.WriteLine("[Click - Button - New Campaign]");
             //-
-            ActivateButton(sender, RGBColors.color3);
+            ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new CreateCampaignView());
         }
     }

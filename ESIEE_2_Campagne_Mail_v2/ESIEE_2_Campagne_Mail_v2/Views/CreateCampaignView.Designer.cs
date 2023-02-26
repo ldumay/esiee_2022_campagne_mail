@@ -52,10 +52,11 @@
             // labelNewCampaignContent
             // 
             this.labelNewCampaignContent.AutoSize = true;
-            this.labelNewCampaignContent.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelNewCampaignContent.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelNewCampaignContent.ForeColor = System.Drawing.Color.White;
             this.labelNewCampaignContent.Location = new System.Drawing.Point(20, 30);
             this.labelNewCampaignContent.Name = "labelNewCampaignContent";
-            this.labelNewCampaignContent.Size = new System.Drawing.Size(277, 32);
+            this.labelNewCampaignContent.Size = new System.Drawing.Size(312, 38);
             this.labelNewCampaignContent.TabIndex = 6;
             this.labelNewCampaignContent.Text = "Nom de la campagne :";
             // 
@@ -64,6 +65,7 @@
             this.labelNewCampaignTop.AutoSize = true;
             this.labelNewCampaignTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelNewCampaignTop.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelNewCampaignTop.ForeColor = System.Drawing.Color.White;
             this.labelNewCampaignTop.Location = new System.Drawing.Point(0, 0);
             this.labelNewCampaignTop.Name = "labelNewCampaignTop";
             this.labelNewCampaignTop.Size = new System.Drawing.Size(583, 54);
@@ -72,14 +74,18 @@
             // 
             // buttonNewCampaign
             // 
-            this.buttonNewCampaign.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonNewCampaign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(108)))), ((int)(((byte)(130)))));
+            this.buttonNewCampaign.FlatAppearance.BorderSize = 0;
+            this.buttonNewCampaign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNewCampaign.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonNewCampaign.ForeColor = System.Drawing.Color.White;
             this.buttonNewCampaign.Location = new System.Drawing.Point(20, 20);
             this.buttonNewCampaign.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonNewCampaign.Name = "buttonNewCampaign";
             this.buttonNewCampaign.Size = new System.Drawing.Size(269, 68);
             this.buttonNewCampaign.TabIndex = 9;
             this.buttonNewCampaign.Text = "Valider le nom";
-            this.buttonNewCampaign.UseVisualStyleBackColor = true;
+            this.buttonNewCampaign.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -122,6 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(92)))), ((int)(((byte)(122)))));
             this.ClientSize = new System.Drawing.Size(652, 308);
             this.Controls.Add(this.panelNewCampaignBottom);
             this.Controls.Add(this.panelNewCampaignContent);
@@ -130,7 +137,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CreateCampaignView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "s";
+            this.Text = "Nouvelle campagne";
             this.panelNewCampaignTop.ResumeLayout(false);
             this.panelNewCampaignTop.PerformLayout();
             this.panelNewCampaignContent.ResumeLayout(false);

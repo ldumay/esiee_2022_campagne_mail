@@ -271,7 +271,7 @@
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(340, 60);
             this.iconButton2.TabIndex = 1;
-            this.iconButton2.Text = "Nouvelle camapgne";
+            this.iconButton2.Text = "Nouvelle campagne";
             this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton2.UseVisualStyleBackColor = true;
