@@ -1,4 +1,4 @@
-﻿using ESIEE_2_Campagne_Mail.models;
+using ESIEE_2_Campagne_Mail.models;
 using ESIEE_2_Campagne_Mail.utils;
 using System;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ namespace ESIEE_2_Campagne_Mail
         public EditionMessage()
         {
             InitializeComponent();
-            this.updateEditionMessageContent();
+            updateEditionMessageContent();
         }
 
         private void label1_Click(object sender, EventArgs e) { }

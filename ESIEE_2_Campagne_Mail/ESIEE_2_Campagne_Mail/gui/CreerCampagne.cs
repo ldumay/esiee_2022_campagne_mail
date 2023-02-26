@@ -23,11 +23,11 @@ namespace ESIEE_2_Campagne_Mail
             // get the input text value 
             string campaignName = textBox3.Text;
             
-            if (!string.IsNullOrEmpty(campaignName))
+            if (!string.IsNullOrWhiteSpace(campaignName))
             {
-                if(this.homeCampagne == null) {
+                if(homeCampagne == null) {
                     // object instance home
-                    this.homeCampagne = new Home(campaignName);
+                    homeCampagne = new Home(campaignName);
                     //-
                     Debug.WriteLine("[Campagne] La campagne a été créé. - Nom : " + campaignName);
                 } else
@@ -35,9 +35,9 @@ namespace ESIEE_2_Campagne_Mail
                     Debug.WriteLine("[Campagne] La campagne existe déjà. - Nom : " + campaignName);
                 }
                 //link with the master page
-                this.homeCampagne.Owner = this;
+                homeCampagne.Owner = this;
                 //Lock the second page when it's opend
-                this.homeCampagne.ShowDialog();
+                homeCampagne.ShowDialog();
             }
             else
             {

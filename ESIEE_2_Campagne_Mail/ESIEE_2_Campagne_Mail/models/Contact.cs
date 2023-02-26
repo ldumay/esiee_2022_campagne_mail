@@ -1,4 +1,4 @@
-﻿namespace ESIEE_2_Campagne_Mail.models
+namespace ESIEE_2_Campagne_Mail.models
 {
 	/// <summary>
 	/// Classe Contact
