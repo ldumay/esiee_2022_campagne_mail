@@ -4,10 +4,10 @@ using System.Diagnostics;
 
 namespace ESIEE_2_Campagne_Mail
 {
-    public partial class Home : Form
-    {
-        public static Home Instance;
-        internal CampagneManager Manager { get; }
+	public partial class Home : Form
+	{
+		public static Home Instance;
+		internal CampagneManager Manager { get; }
 
         /// <summary>
         /// Constructeur
@@ -19,6 +19,8 @@ namespace ESIEE_2_Campagne_Mail
             Manager = new CampagneManager(campagneName);
             if (this.Manager.GetCampagne != null)
             {
+                // Une vérification de null est-elle obligatoire ici ?
+                // Lors de l'init de CampagneManager, soit Campagne sera trouvé, soit Campagne sera créé
                 labelCamapagneNameContent.Text = this.Manager.GetCampagne().Nom;
             }
             this.updateAllLabelStatuts();

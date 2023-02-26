@@ -65,79 +65,31 @@ namespace ESIEE_2_Campagne_Mail
             //Home.Instance.campagne.Message.Rebound = textBoxRebound.Text.ToString();
         }
 
+
+        /// <summary>
+        /// Vérification et changement du ContenuDeMail dans la Campagne.
+        /// </summary>
         private void buttonSave_Click_1(object sender, EventArgs e)
         {
-            if (updateContenuDeMail(textBoxEXP.Text, textBoxRebound.Text, textBoxTitre.Text, textBoxMessage.Text))
+            try
             {
-                if (textBoxEXP.Text != null
-                    && textBoxRebound.Text != null
-                    && textBoxTitre.Text != null
-                    && textBoxMessage.Text != null
-                )
-                {
-                    Home.Instance.Manager.statutCampagneMessage = true;
-                }
+                // Changement de ContenuDeMail
+                Home.Instance.Manager.ChangerContenuDuMail(textBoxEXP.Text, textBoxTitre.Text, textBoxRebound.Text, textBoxMessage.Text);
                 //-
                 string message = "Le contenu du mail a bien été enregistrée.";
                 MessageBox.Show(message, "Edition du contenu du mail - Enregistré", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Debug.WriteLine("[Campagne] Contenu de mail : " + Home.Instance.Manager.statutCampagneMessage);
             }
-            else
+            catch (Exception err)
             {
-                string message = "Le contenu du mail n'a pas pu être enregistrée.";
-                MessageBox.Show(message, "Edition du contenu du mail - Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Debug.WriteLine("[Campagne] Erreur lors de la sauvegarde du contenu de mail.");
-            }
-
-        }
-
-        /// <summary>
-        /// Vérification et édition de l'instance de ContenuDeMail dans l'instance de la Campagne.
-        /// </summary>
-        /// <param name="expediteur"></param>
-        /// <param name="rebound"></param>
-        /// <param name="titre"></param>
-        /// <param name="contenu"></param>
-        /// <returns></returns>
-        private bool updateContenuDeMail(string expediteur, string rebound, string titre, string contenu)
-        {
-            //Vérification de l'adresse mail de l'expéditeur
-            if (!UtilsMails.MailVerification(expediteur))
-            {
+                Debug.WriteLine(err.Message);
                 MessageBox.Show(
-                    "L'adresse mail de l'expéditeur est invalide."
-                    + "\nVeuillez vérifier l'adresse mail de l'expéditeur.",
-                    "Oups !",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            //Vérification de l'adresse mail du rebond
-            if (!UtilsMails.MailVerification(rebound))
-            {
-                MessageBox.Show(
-                    "L'adresse mail du rebound est invalide."
-                    + "\nVeuillez vérifier l'adresse mail du rebound.",
-                    "Oups !",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            try
-            {
-                // Changement de ContenuDeMail
-                Home.Instance.Manager.ChangerContenuDuMail(expediteur, titre, rebound, contenu);
-                // Vaildation du traitement
-                return true;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(
-                    "Une erreur est survenue lors de la sauvegarde du contenu de mail."
+                    "Le contenu du mail n'a pas pu être enregistrée."
+                    + "\n" + err.Message
                     + "\nVeuillez réessayer ultérieurement.",
-                    "Oups !", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                Debug.WriteLine(e);
-                return false;
+                    "Edition du contenu du mail - Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         /// <summary>
@@ -145,29 +97,15 @@ namespace ESIEE_2_Campagne_Mail
         /// </summary>
         private void updateEditionMessageContent()
         {
-            if(Home.Instance.Manager.GetCampagne().ContenuDeMail != null)
-            {
-                //Expéditeur
-                if(Home.Instance.Manager.GetCampagne().ContenuDeMail.Expediteur != null)
-                {
-                    textBoxEXP.Text = Home.Instance.Manager.GetCampagne().ContenuDeMail.Expediteur;
-                }
-                //Rebound
-                if (Home.Instance.Manager.GetCampagne().ContenuDeMail.Rebound != null)
-                {
-                    textBoxRebound.Text = Home.Instance.Manager.GetCampagne().ContenuDeMail.Rebound;
-                }
-                //Rebound
-                if (Home.Instance.Manager.GetCampagne().ContenuDeMail.Titre != null)
-                {
-                    textBoxTitre.Text = Home.Instance.Manager.GetCampagne().ContenuDeMail.Titre;
-                }
-                //Rebound
-                if (Home.Instance.Manager.GetCampagne().ContenuDeMail.Contenu != null)
-                {
-                    textBoxMessage.Text = Home.Instance.Manager.GetCampagne().ContenuDeMail.Contenu;
-                } 
-            }
+            ContenuDeMail contenuMail = Home.Instance.Manager.GetContenuDuMail();
+            // Expéditeur
+            textBoxEXP.Text = contenuMail.Expediteur ?? string.Empty;
+            // Rebound
+            textBoxRebound.Text = contenuMail.Rebound ?? string.Empty;
+            // Titre
+            textBoxTitre.Text = contenuMail.Titre ?? string.Empty;
+            // Contenu
+            textBoxMessage.Text = contenuMail.Contenu ?? string.Empty;
         }
     }
 }
