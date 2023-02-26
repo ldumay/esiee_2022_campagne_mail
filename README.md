@@ -22,9 +22,21 @@ Afin de pouvoir éditer ou débugger l'application, il est nécessaire d'avoir :
     - **FontAwesome.Sharp**
         - Si besoin, voici un [guide d'installation du package FontAwesome.Sharp](Install_DotNet_CLI_FontAwesome_Sharp.md)
 
-## 2 - Conception de l'application
+## 2 - Conception de l'application & Design
+
+### Conceptions
 
 - [CONCEPT_v1](CONCEPT_v1.md)
+
+### Design
+
+#### Palette de couleur utilisée
+
+![img](_img/flat-color-palettes-3.png)
+
+Codes couleurs : 
+
+`FCBB6D` - `D8737F` - `AB6C82` - `685D79` - `475C7A` 
 
 ## 3 - Chargé les paquets du projet
 
