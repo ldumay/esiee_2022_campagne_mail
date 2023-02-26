@@ -315,7 +315,7 @@
             this.Controls.Add(this.panelBottom);
             this.Controls.Add(this.panelTop);
             this.Name = "HomeViews";
-            this.Text = "Form1";
+            this.Text = "MailCamp";
             this.panelTop.ResumeLayout(false);
             this.panelTopTitle.ResumeLayout(false);
             this.panelTopTitle.PerformLayout();
