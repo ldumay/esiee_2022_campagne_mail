@@ -1,4 +1,5 @@
 using ESIEE_2_Campagne_Mail;
+using ESIEE_2_Campagne_Mail.process;
 using FontAwesome.Sharp;
 using System.Diagnostics;
 using static ESIEE_2_Campagne_Mail_v2.utils.UtilsDesign;
@@ -7,6 +8,10 @@ namespace ESIEE_2_Campagne_Mail_v2
 {
     public partial class MailCampView : Form
     {
+        // - - - [Instances] - - -
+        public static MailCampView Instance;
+        internal CampagneManager Manager { get; }
+
         // - - - [Variables] - - -
         private IconButton? currentBtn;
         private Panel? leftBorderBtn;
@@ -54,10 +59,10 @@ namespace ESIEE_2_Campagne_Mail_v2
         /// </summary>
         private void initForm()
         {
+            //Form
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
-            //Form
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
@@ -149,7 +154,8 @@ namespace ESIEE_2_Campagne_Mail_v2
         // - - - [Events Buttons] - - -
 
         /// <summary>
-        /// Clique sur le bouton d'accueil.
+        /// Clique sur le bouton d'accueil
+        /// et nettoie la vue centrale du formulaire principal.
         /// </summary>
         private void iconButtonHome_Click(object sender, EventArgs e)
         {
@@ -163,7 +169,8 @@ namespace ESIEE_2_Campagne_Mail_v2
         }
 
         /// <summary>
-        /// Clique sur le bouton de nouvelle campagne.
+        /// Clique sur le bouton de nouvelle campagne
+        /// et ouvre le formulaire de création de campagne.
         /// </summary>
         private void iconButtonCampaign_Click(object sender, EventArgs e)
         {
@@ -171,6 +178,18 @@ namespace ESIEE_2_Campagne_Mail_v2
             //-
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new CreateCampaignView());
+        }
+
+        /// <summary>
+        /// Clique sur le bouton de liste des mails
+        /// et ouvre le formulaire de liste des mails.
+        /// </summary>
+        private void iconButtonMailsList_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("[Click - Button - Mails List]");
+            //-
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new ListeEmails());
         }
 
         /// <summary>

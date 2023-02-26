@@ -43,10 +43,11 @@
             // 
             // textBoxNewCampaignContent
             // 
+            this.textBoxNewCampaignContent.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBoxNewCampaignContent.Location = new System.Drawing.Point(20, 70);
             this.textBoxNewCampaignContent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxNewCampaignContent.Name = "textBoxNewCampaignContent";
-            this.textBoxNewCampaignContent.Size = new System.Drawing.Size(447, 27);
+            this.textBoxNewCampaignContent.Size = new System.Drawing.Size(447, 34);
             this.textBoxNewCampaignContent.TabIndex = 7;
             // 
             // labelNewCampaignContent
@@ -112,16 +113,16 @@
             this.panelNewCampaignContent.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelNewCampaignContent.Location = new System.Drawing.Point(0, 64);
             this.panelNewCampaignContent.Name = "panelNewCampaignContent";
-            this.panelNewCampaignContent.Size = new System.Drawing.Size(652, 125);
+            this.panelNewCampaignContent.Size = new System.Drawing.Size(652, 151);
             this.panelNewCampaignContent.TabIndex = 12;
             // 
             // panelNewCampaignBottom
             // 
             this.panelNewCampaignBottom.Controls.Add(this.buttonNewCampaign);
             this.panelNewCampaignBottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelNewCampaignBottom.Location = new System.Drawing.Point(0, 189);
+            this.panelNewCampaignBottom.Location = new System.Drawing.Point(0, 215);
             this.panelNewCampaignBottom.Name = "panelNewCampaignBottom";
-            this.panelNewCampaignBottom.Size = new System.Drawing.Size(652, 119);
+            this.panelNewCampaignBottom.Size = new System.Drawing.Size(652, 109);
             this.panelNewCampaignBottom.TabIndex = 13;
             // 
             // CreateCampaignView
@@ -129,7 +130,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(92)))), ((int)(((byte)(122)))));
-            this.ClientSize = new System.Drawing.Size(652, 308);
+            this.ClientSize = new System.Drawing.Size(652, 324);
             this.Controls.Add(this.panelNewCampaignBottom);
             this.Controls.Add(this.panelNewCampaignContent);
             this.Controls.Add(this.panelNewCampaignTop);
