@@ -1,6 +1,6 @@
 ﻿namespace ESIEE_2_Campagne_Mail_v2
 {
-    partial class HomeViews
+    partial class MailCampView
     {
         /// <summary>
         ///  Required designer variable.
@@ -30,8 +30,8 @@
         {
             this.panelTop = new System.Windows.Forms.Panel();
             this.panelTopTitle = new System.Windows.Forms.Panel();
-            this.iconPictureBoxTopCurrentPage = new FontAwesome.Sharp.IconPictureBox();
-            this.labelTopCurrentPage = new System.Windows.Forms.Label();
+            this.iconPictureBoxTopCurrentForm = new FontAwesome.Sharp.IconPictureBox();
+            this.labelTopCurrentForm = new System.Windows.Forms.Label();
             this.panelTopLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelBottom = new System.Windows.Forms.Panel();
@@ -47,7 +47,7 @@
             this.panelContent = new System.Windows.Forms.Panel();
             this.panelTop.SuspendLayout();
             this.panelTopTitle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxTopCurrentPage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxTopCurrentForm)).BeginInit();
             this.panelTopLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelBottom.SuspendLayout();
@@ -67,38 +67,38 @@
             // 
             // panelTopTitle
             // 
-            this.panelTopTitle.Controls.Add(this.iconPictureBoxTopCurrentPage);
-            this.panelTopTitle.Controls.Add(this.labelTopCurrentPage);
+            this.panelTopTitle.Controls.Add(this.iconPictureBoxTopCurrentForm);
+            this.panelTopTitle.Controls.Add(this.labelTopCurrentForm);
             this.panelTopTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTopTitle.Location = new System.Drawing.Point(340, 0);
             this.panelTopTitle.Name = "panelTopTitle";
             this.panelTopTitle.Size = new System.Drawing.Size(922, 80);
             this.panelTopTitle.TabIndex = 1;
             // 
-            // iconPictureBoxTopCurrentPage
+            // iconPictureBoxTopCurrentForm
             // 
-            this.iconPictureBoxTopCurrentPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(187)))), ((int)(((byte)(109)))));
-            this.iconPictureBoxTopCurrentPage.IconChar = FontAwesome.Sharp.IconChar.Water;
-            this.iconPictureBoxTopCurrentPage.IconColor = System.Drawing.Color.White;
-            this.iconPictureBoxTopCurrentPage.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBoxTopCurrentPage.IconSize = 38;
-            this.iconPictureBoxTopCurrentPage.Location = new System.Drawing.Point(20, 20);
-            this.iconPictureBoxTopCurrentPage.Name = "iconPictureBoxTopCurrentPage";
-            this.iconPictureBoxTopCurrentPage.Size = new System.Drawing.Size(39, 38);
-            this.iconPictureBoxTopCurrentPage.TabIndex = 1;
-            this.iconPictureBoxTopCurrentPage.TabStop = false;
+            this.iconPictureBoxTopCurrentForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(187)))), ((int)(((byte)(109)))));
+            this.iconPictureBoxTopCurrentForm.IconChar = FontAwesome.Sharp.IconChar.Water;
+            this.iconPictureBoxTopCurrentForm.IconColor = System.Drawing.Color.White;
+            this.iconPictureBoxTopCurrentForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBoxTopCurrentForm.IconSize = 38;
+            this.iconPictureBoxTopCurrentForm.Location = new System.Drawing.Point(20, 20);
+            this.iconPictureBoxTopCurrentForm.Name = "iconPictureBoxTopCurrentForm";
+            this.iconPictureBoxTopCurrentForm.Size = new System.Drawing.Size(39, 38);
+            this.iconPictureBoxTopCurrentForm.TabIndex = 1;
+            this.iconPictureBoxTopCurrentForm.TabStop = false;
             // 
-            // labelTopCurrentPage
+            // labelTopCurrentForm
             // 
-            this.labelTopCurrentPage.AutoSize = true;
-            this.labelTopCurrentPage.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelTopCurrentPage.ForeColor = System.Drawing.Color.White;
-            this.labelTopCurrentPage.Location = new System.Drawing.Point(70, 12);
-            this.labelTopCurrentPage.Name = "labelTopCurrentPage";
-            this.labelTopCurrentPage.Size = new System.Drawing.Size(388, 50);
-            this.labelTopCurrentPage.TabIndex = 0;
-            this.labelTopCurrentPage.Text = "labelTopCurrentPage";
-            this.labelTopCurrentPage.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelTopCurrentForm.AutoSize = true;
+            this.labelTopCurrentForm.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelTopCurrentForm.ForeColor = System.Drawing.Color.White;
+            this.labelTopCurrentForm.Location = new System.Drawing.Point(70, 12);
+            this.labelTopCurrentForm.Name = "labelTopCurrentForm";
+            this.labelTopCurrentForm.Size = new System.Drawing.Size(388, 50);
+            this.labelTopCurrentForm.TabIndex = 0;
+            this.labelTopCurrentForm.Text = "labelTopCurrentPage";
+            this.labelTopCurrentForm.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panelTopLogo
             // 
@@ -275,6 +275,7 @@
             this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton2.UseVisualStyleBackColor = true;
+            this.iconButton2.Click += new System.EventHandler(this.iconButtonCampaign_Click);
             // 
             // iconButton1
             // 
@@ -295,6 +296,7 @@
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButtonHome_Click);
             // 
             // panelContent
             // 
@@ -304,7 +306,7 @@
             this.panelContent.Size = new System.Drawing.Size(922, 553);
             this.panelContent.TabIndex = 3;
             // 
-            // HomeViews
+            // MailCampView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -314,12 +316,12 @@
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelBottom);
             this.Controls.Add(this.panelTop);
-            this.Name = "HomeViews";
+            this.Name = "MailCampView";
             this.Text = "MailCamp";
             this.panelTop.ResumeLayout(false);
             this.panelTopTitle.ResumeLayout(false);
             this.panelTopTitle.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxTopCurrentPage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxTopCurrentForm)).EndInit();
             this.panelTopLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelBottom.ResumeLayout(false);
@@ -338,7 +340,7 @@
         private Panel panelMenu;
         private FontAwesome.Sharp.IconButton iconButton1;
         private Panel panelContent;
-        private Label labelTopCurrentPage;
+        private Label labelTopCurrentForm;
         private PictureBox pictureBox1;
         private Label label2;
         private FontAwesome.Sharp.IconButton iconButton7;
@@ -347,6 +349,6 @@
         private FontAwesome.Sharp.IconButton iconButton4;
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBoxTopCurrentPage;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBoxTopCurrentForm;
     }
 }
