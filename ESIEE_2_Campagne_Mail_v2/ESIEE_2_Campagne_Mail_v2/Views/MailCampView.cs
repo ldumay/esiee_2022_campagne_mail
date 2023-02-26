@@ -172,5 +172,15 @@ namespace ESIEE_2_Campagne_Mail_v2
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new CreateCampaignView());
         }
+
+        /// <summary>
+        /// Clique sur le bouton de fermeture de l'application.
+        /// </summary>
+        private void iconButtonExitApp_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("[Click - Button - Exit App]");
+            //-
+            Application.Exit();
+        }
     }
 }
