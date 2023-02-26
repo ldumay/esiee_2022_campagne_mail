@@ -9,7 +9,7 @@ namespace ESIEE_2_Campagne_Mail.utils
     /// </summary>
     public class UtilsFiles
     {
-
+        /*
         /// <summary>
         /// Importation d'une liste de mail depuis un fichier TXT.
         /// </summary>
@@ -145,6 +145,7 @@ namespace ESIEE_2_Campagne_Mail.utils
                 return groupeMail;
             }
         }
+        */
 
         /// <summary>
         /// Exportation d'une liste de mail vers un fichier TXT.

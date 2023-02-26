@@ -1,5 +1,7 @@
 using ESIEE_2_Campagne_Mail;
+using ESIEE_2_Campagne_Mail.gui;
 using ESIEE_2_Campagne_Mail.process;
+using ESIEE_2_Campagne_Mail_v2.Views;
 using FontAwesome.Sharp;
 using System.Diagnostics;
 using static ESIEE_2_Campagne_Mail_v2.utils.UtilsDesign;
@@ -9,14 +11,15 @@ namespace ESIEE_2_Campagne_Mail_v2
     public partial class MailCampView : Form
     {
         // - - - [Instances] - - -
-        public static MailCampView Instance;
+        public static MailCampView? Instance;
         internal CampagneManager Manager { get; }
 
         // - - - [Variables] - - -
+        private String? campagneName;
         private IconButton? currentBtn;
         private Panel? leftBorderBtn;
         private Form? currentChildForm;
-        
+
         /// <summary>
         /// Constructeur
         /// </summary>
@@ -66,7 +69,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
-            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
         /// <summary>
@@ -99,7 +102,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             if (senderBtn != null)
             {
                 DisableButton();
-                
+
                 //Button
                 currentBtn = (IconButton)senderBtn;
                 currentBtn.BackColor = RGBColors.color3;
@@ -108,13 +111,13 @@ namespace ESIEE_2_Campagne_Mail_v2
                 currentBtn.IconColor = color;
                 currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
                 currentBtn.ImageAlign = ContentAlignment.MiddleRight;
-                
+
                 //Left border button
                 leftBorderBtn.BackColor = color;
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
-                
+
                 //Current Child Form Icon
                 iconPictureBoxTopCurrentForm.IconChar = currentBtn.IconChar;
                 //iconPictureBoxTopCurrentForm.IconColor = color;
@@ -151,7 +154,40 @@ namespace ESIEE_2_Campagne_Mail_v2
             labelTopCurrentForm.Text = "Accueil";
         }
 
-        // - - - [Events Buttons] - - -
+        // - - - [Events] - - -
+
+        /// <summary>
+        /// Ouverture de l'accueil dans la vue centrale du formulaire principal.
+        /// </summary>
+        private void openHome()
+        {
+            Debug.WriteLine("[Open - Button - Home]");
+            //-
+            if (campagneName != null)
+            {
+                OpenChildForm(new Home(campagneName));
+            }
+            else
+            {
+                OpenChildForm(new Home(null));
+            }
+        }
+
+        /// <summary>
+        /// Nettoyage de la vue centrale du formulaire principal.
+        /// </summary>
+        private void clear()
+        {
+            Debug.WriteLine("[Clear - MailCamp View]");
+            //6
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+            Reset();
+        }
+        
+        // - - - [Click Buttons] - - -
 
         /// <summary>
         /// Clique sur le bouton d'accueil
@@ -161,11 +197,10 @@ namespace ESIEE_2_Campagne_Mail_v2
         {
             Debug.WriteLine("[Click - Button - Home]");
             //-
-            if (currentChildForm != null)
-            {
-                currentChildForm.Close();
-            }
-            Reset();
+            clear();
+            //-
+            ActivateButton(sender, RGBColors.color1);
+            openHome();
         }
 
         /// <summary>
@@ -190,6 +225,54 @@ namespace ESIEE_2_Campagne_Mail_v2
             //-
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new ListeEmails());
+        }
+
+        /// <summary>
+        /// Clique sur le bouton de message de la campagne
+        /// et ouvre le formulaire d'édition du message de la campagne.
+        /// </summary>
+        private void iconButtonCampaignMessage_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("[Click - Button - Campaign Message]");
+            //-
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new EditionMessage());
+        }
+
+        /// <summary>
+        /// Clique sur le bouton de configuration du serveur SMTP
+        /// et ouvre le formulaire de configuration du serveur SMTP.
+        /// </summary>
+        private void iconButtonConfigSMTP_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("[Click - Button - Config SMTP]");
+            //-
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new ConfigServerSMTP());
+        }
+
+        /// <summary>
+        /// Clique sur le bouton de l'envoi de la campagne
+        /// et ouvre le formulaire de l'envoi de la campagne.
+        /// </summary>
+        private void iconButtonCampaignSend_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("[Click - Button - Campaign Send]");
+            //-
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new EnvoiCampagne());
+        }
+
+        /// <summary>
+        /// Clique sur le bouton de à propos
+        /// et ouvre le formulaire d'informations à propos de l'application.
+        /// </summary>
+        private void iconButtonAboutApp_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("[Click - Button - About Appd]");
+            //-
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new AboutView());
         }
 
         /// <summary>

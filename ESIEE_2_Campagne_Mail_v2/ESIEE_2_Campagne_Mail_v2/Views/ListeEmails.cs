@@ -41,7 +41,7 @@ namespace ESIEE_2_Campagne_Mail
         {
             Debug.WriteLine("[Campagne] - Mise à jour de la liste des contacts - Début");
             int compteurIDs = listeContactView.Count + 1;
-            List<Contact> listContactCampagne = MailCampView.Instance.Manager.RecupererListContact();
+            List<Contact> listContactCampagne = Home.Instance.Manager.RecupererListContact();
             foreach (Contact contact in listContactCampagne)
             {
                 // Vérification de la présence du contact dans la liste des contacts actifs
@@ -71,7 +71,7 @@ namespace ESIEE_2_Campagne_Mail
         private void oldupdateListView()
         {
             //Récupère de la liste des groupes de mails de la campagne
-            List<Contact> listeContact = MailCampView.Instance.Manager.RecupererListContact();
+            List<Contact> listeContact = Home.Instance.Manager.RecupererListContact();
 
             // Réinitialisation de la ListView
             listViewContacts.Items.Clear();
@@ -122,7 +122,7 @@ namespace ESIEE_2_Campagne_Mail
             // TODO : refaire cette fonction pour appliquer les changements dans CampagneManager au lieu d'ici
             if (listViewContacts.Items.Count > 0)
             {
-                MailCampView.Instance.Manager.statutCampagneListeEmails = true;
+                Home.Instance.Manager.statutCampagneListeEmails = true;
             }
             */
 
@@ -163,7 +163,7 @@ namespace ESIEE_2_Campagne_Mail
         /// <param name="e"></param>
         private void buttonImport_Click(object sender, EventArgs e)
         {
-            MailCampView.Instance.Manager.AddGroupContact(UtilsFiles.ImportWithOpenFileDialogEmailsTXT());
+            //Home.Instance.Manager.AddGroupContact(UtilsFiles.ImportWithOpenFileDialogEmailsTXT());
             updateListView();
         }
 
@@ -173,12 +173,14 @@ namespace ESIEE_2_Campagne_Mail
         private void buttonActionImporter(object sender, EventArgs e)
         {
             List<GroupeContact> groupeMailList = new List<GroupeContact>();
+            /*
             groupeMailList.Add(UtilsFiles.ImportWithOpenFileDialogEmailsTXT());
-            MailCampView.Instance.Manager.ClearGroupContact();
+            Home.Instance.Manager.ClearGroupContact();
             foreach (GroupeContact contacts in groupeMailList)
             {
-                MailCampView.Instance.Manager.AddGroupContact(contacts);
+                Home.Instance.Manager.AddGroupContact(contacts);
             }
+            */
             //-
             updateListView();
         }
@@ -208,7 +210,7 @@ namespace ESIEE_2_Campagne_Mail
             }
 
             // get object instance / email list
-            List<Contact> contactList = MailCampView.Instance.Manager.RecupererListContact();
+            List<Contact> contactList = Home.Instance.Manager.RecupererListContact();
             foreach (Contact contact in contactList)
             {
                 File.AppendAllText(downloadFilePath, "nop,nop,nop," + contact.Email + ",nop" + Environment.NewLine, Encoding.UTF8);
@@ -223,7 +225,7 @@ namespace ESIEE_2_Campagne_Mail
         /// </summary>
         private void buttonDedoublonnage_Click(object sender, EventArgs e)
         {
-            MailCampView.Instance.Manager.DedoublonnageListeContacts();
+            Home.Instance.Manager.DedoublonnageListeContacts();
             this.updateListView();
         }
 
@@ -232,7 +234,7 @@ namespace ESIEE_2_Campagne_Mail
         /// </summary>
         private void buttonMinifyMail_Click(object sender, EventArgs e)
         {
-            MailCampView.Instance.Manager.CleanMajusculeListeContacts();
+            Home.Instance.Manager.CleanMajusculeListeContacts();
             this.updateListView();
         }
 
@@ -241,7 +243,7 @@ namespace ESIEE_2_Campagne_Mail
         /// </summary>
         private void buttonClearListeView_Click(object sender, EventArgs e)
         {
-            MailCampView.Instance.Manager.ClearGroupContact();
+            Home.Instance.Manager.ClearGroupContact();
             this.listViewContacts.Clear();
             //-
             string message = "Le nettoyage de la vue de la liste des contacts a bien été effectué.";

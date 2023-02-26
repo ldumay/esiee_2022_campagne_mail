@@ -199,6 +199,7 @@
             this.iconButton7.Text = "A propos";
             this.iconButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton7.UseVisualStyleBackColor = true;
+            this.iconButton7.Click += new System.EventHandler(this.iconButtonAboutApp_Click);
             // 
             // iconButton6
             // 
@@ -218,6 +219,7 @@
             this.iconButton6.Text = "Envoi de campagne";
             this.iconButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton6.UseVisualStyleBackColor = true;
+            this.iconButton6.Click += new System.EventHandler(this.iconButtonCampaignSend_Click);
             // 
             // iconButton5
             // 
@@ -238,6 +240,7 @@
             this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton5.UseVisualStyleBackColor = true;
+            this.iconButton5.Click += new System.EventHandler(this.iconButtonConfigSMTP_Click);
             // 
             // iconButton4
             // 
@@ -258,6 +261,7 @@
             this.iconButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton4.UseVisualStyleBackColor = true;
+            this.iconButton4.Click += new System.EventHandler(this.iconButtonCampaignMessage_Click);
             // 
             // iconButton3
             // 
