@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +14,15 @@ namespace ESIEE_2_Campagne_Mail.models
 		public List<Contact> ContactList { get; private set; }
 
 		/// <summary>
+		/// Constructeur vide de la classe GroupeContact.
+		/// </summary>
+		/// <param name="mailsList"></param>
+		public GroupeContact()
+		{
+			ContactList = new List<Contact>();
+		}
+
+		/// <summary>
 		/// Constructeur de la classe GroupeContact.
 		/// </summary>
 		/// <param name="mailsList"></param>
@@ -23,7 +32,7 @@ namespace ESIEE_2_Campagne_Mail.models
 		}
 
 		/// <summary>
-		/// Ajouter un contact à la liste des contacts.
+		/// Ajouter un contact de la liste des contacts.
 		/// </summary>
 		/// <param name="mail"></param>
 		public void AjouterContact(Contact contact)
@@ -32,12 +41,24 @@ namespace ESIEE_2_Campagne_Mail.models
 		}
 
 		/// <summary>
-		/// Retirer un contact à la liste des contacts.
+		/// Retirer un contact de la liste des contacts.
 		/// </summary>
 		/// <param name="mail"></param>
-		public void RetirerMail(Contact contact)
+		public void RetirerContact(Contact contact)
 		{
 			ContactList.Remove(contact);
+		}
+
+		public Contact? RecupererContact(Contact contact)
+		{
+			foreach (Contact contactInContactList in ContactList)
+			{
+				if (contactInContactList.Equals(contact))
+				{
+					return contactInContactList;
+				}
+			}
+			return null;
 		}
 
 		/// <summary>
@@ -47,13 +68,10 @@ namespace ESIEE_2_Campagne_Mail.models
 		/// <param name="mail"></param>
 		public void ActiverMail(Contact contact)
 		{
-			foreach (Contact contactInContactList in ContactList)
+			Contact? contactToActivate = RecupererContact(contact);
+			if (contactToActivate != null)
 			{
-				if (contactInContactList.Equals(contact))
-				{
-					contactInContactList.Etat = ContactEtat.ACTIF;
-					break;
-				}
+				contactToActivate.Etat = ContactEtat.ACTIF;
 			}
 		}
 
@@ -64,13 +82,10 @@ namespace ESIEE_2_Campagne_Mail.models
 		/// <param name="mail"></param>
 		public void DesactiverMail(Contact contact)
 		{
-			foreach (Contact contactInContactList in ContactList)
+			Contact? contactToActivate = RecupererContact(contact);
+			if (contactToActivate != null)
 			{
-				if (contactInContactList.Equals(contact))
-				{
-					contactInContactList.Etat = ContactEtat.INACTIF;
-					break;
-				}
+				contactToActivate.Etat = ContactEtat.INACTIF;
 			}
 		}
 

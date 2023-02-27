@@ -204,11 +204,9 @@ namespace ESIEE_2_Campagne_Mail.process
 				}
 			}
 			//-
-			string messagePart1 = "Le dédoublonnage a bien été effectué.";
-			string messagePart2 = "Doublon total trouvé : " + compteur;
-			string message = messagePart1 + "\n" + messagePart2;
+			string message = "Le dédoublonnage a bien été effectué. Doublon total trouvé : " + compteur;
+			Debug.WriteLine("[Campagne] - " + message);
 			MessageBox.Show(message, "Liste des emails - Dédoublonnage terminé", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			Debug.WriteLine("[Campagne] - " + messagePart2);
 			Debug.WriteLine("[Campagne] - Fin du dédoublonnage de la liste des contacts");
 		}
 
