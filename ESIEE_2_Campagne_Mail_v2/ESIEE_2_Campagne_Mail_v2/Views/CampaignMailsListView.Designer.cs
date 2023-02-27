@@ -64,9 +64,8 @@ namespace ESIEE_2_Campagne_Mail
             this.listViewContacts.ForeColor = System.Drawing.Color.White;
             this.listViewContacts.FullRowSelect = true;
             this.listViewContacts.Location = new System.Drawing.Point(0, 0);
-            this.listViewContacts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listViewContacts.Name = "listViewContacts";
-            this.listViewContacts.Size = new System.Drawing.Size(1388, 668);
+            this.listViewContacts.Size = new System.Drawing.Size(1215, 501);
             this.listViewContacts.TabIndex = 20;
             this.listViewContacts.UseCompatibleStateImageBehavior = false;
             this.listViewContacts.View = System.Windows.Forms.View.Details;
@@ -100,9 +99,10 @@ namespace ESIEE_2_Campagne_Mail
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 54);
+            this.panel1.Location = new System.Drawing.Point(0, 40);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(5, 673);
+            this.panel1.Size = new System.Drawing.Size(4, 505);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -115,8 +115,9 @@ namespace ESIEE_2_Campagne_Mail
             this.panel2.Controls.Add(this.iconButton2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1398, 54);
+            this.panel2.Size = new System.Drawing.Size(1223, 40);
             this.panel2.TabIndex = 8;
             // 
             // iconButton6
@@ -131,9 +132,10 @@ namespace ESIEE_2_Campagne_Mail
             this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton6.IconSize = 36;
             this.iconButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton6.Location = new System.Drawing.Point(713, 0);
+            this.iconButton6.Location = new System.Drawing.Point(746, 0);
+            this.iconButton6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.iconButton6.Name = "iconButton6";
-            this.iconButton6.Size = new System.Drawing.Size(122, 54);
+            this.iconButton6.Size = new System.Drawing.Size(138, 40);
             this.iconButton6.TabIndex = 26;
             this.iconButton6.Text = "Vider la liste";
             this.iconButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -153,9 +155,10 @@ namespace ESIEE_2_Campagne_Mail
             this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton5.IconSize = 36;
             this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.Location = new System.Drawing.Point(591, 0);
+            this.iconButton5.Location = new System.Drawing.Point(600, 0);
+            this.iconButton5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(122, 54);
+            this.iconButton5.Size = new System.Drawing.Size(146, 40);
             this.iconButton5.TabIndex = 25;
             this.iconButton5.Text = "Minifier Mails";
             this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -175,9 +178,10 @@ namespace ESIEE_2_Campagne_Mail
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton4.IconSize = 36;
             this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.Location = new System.Drawing.Point(449, 0);
+            this.iconButton4.Location = new System.Drawing.Point(434, 0);
+            this.iconButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(142, 54);
+            this.iconButton4.Size = new System.Drawing.Size(166, 40);
             this.iconButton4.TabIndex = 24;
             this.iconButton4.Text = "Vérfication Mails";
             this.iconButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -196,9 +200,10 @@ namespace ESIEE_2_Campagne_Mail
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 36;
             this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(266, 0);
+            this.iconButton3.Location = new System.Drawing.Point(232, 0);
+            this.iconButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(183, 54);
+            this.iconButton3.Size = new System.Drawing.Size(202, 40);
             this.iconButton3.TabIndex = 23;
             this.iconButton3.Text = "Dédoublonnage Mails";
             this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -218,9 +223,10 @@ namespace ESIEE_2_Campagne_Mail
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 36;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(133, 0);
+            this.iconButton1.Location = new System.Drawing.Point(116, 0);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(133, 54);
+            this.iconButton1.Size = new System.Drawing.Size(116, 40);
             this.iconButton1.TabIndex = 22;
             this.iconButton1.Text = "Exporter";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -241,8 +247,9 @@ namespace ESIEE_2_Campagne_Mail
             this.iconButton2.IconSize = 36;
             this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton2.Location = new System.Drawing.Point(0, 0);
+            this.iconButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(133, 54);
+            this.iconButton2.Size = new System.Drawing.Size(116, 40);
             this.iconButton2.TabIndex = 21;
             this.iconButton2.Text = "Importer";
             this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -255,41 +262,43 @@ namespace ESIEE_2_Campagne_Mail
             this.panel3.Controls.Add(this.listViewContacts);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(5, 54);
+            this.panel3.Location = new System.Drawing.Point(4, 40);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1388, 673);
+            this.panel3.Size = new System.Drawing.Size(1215, 505);
             this.panel3.TabIndex = 9;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 668);
+            this.panel5.Location = new System.Drawing.Point(0, 501);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1388, 5);
+            this.panel5.Size = new System.Drawing.Size(1215, 4);
             this.panel5.TabIndex = 8;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Black;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(1393, 54);
+            this.panel4.Location = new System.Drawing.Point(1219, 40);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(5, 673);
+            this.panel4.Size = new System.Drawing.Size(4, 505);
             this.panel4.TabIndex = 0;
             // 
-            // ListeEmails
+            // CampaignMailsListView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(92)))), ((int)(((byte)(122)))));
-            this.ClientSize = new System.Drawing.Size(1398, 727);
+            this.ClientSize = new System.Drawing.Size(1223, 545);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "ListeEmails";
+            this.Name = "CampaignMailsListView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ListeEmails";
             this.panel2.ResumeLayout(false);
