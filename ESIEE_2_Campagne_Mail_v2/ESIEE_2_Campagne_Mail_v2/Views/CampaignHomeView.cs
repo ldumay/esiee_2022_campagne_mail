@@ -5,13 +5,13 @@ using System.Diagnostics;
 
 namespace ESIEE_2_Campagne_Mail
 {
-	public partial class Home : Form
+	public partial class CampaignHomeView : Form
 	{
 
         /// <summary>
         /// Constructeur
         /// </summary>
-        public Home(string campagneName)
+        public CampaignHomeView(string campagneName)
         {
             InitializeComponent();
             if (MailCampView.Instance.Manager.GetCampagne != null)
@@ -29,7 +29,7 @@ namespace ESIEE_2_Campagne_Mail
         private void Message_Click(object sender, EventArgs e)
         {
             //Création de la fenêtre d'édition de message
-            EditionMessage editionMessage = new EditionMessage();
+            CampaignMessageEditorView editionMessage = new CampaignMessageEditorView();
             //Liaison avec la page maître
             editionMessage.Owner = this;
             //Ouverture et blocage de la vue sur la nouvelle fenêtre
@@ -46,7 +46,7 @@ namespace ESIEE_2_Campagne_Mail
         private void Email_Click(object sender, EventArgs e)
         {
             //Création de la fenêtre de la liste des mails
-            ListeEmails listeEmails = new ListeEmails();
+            CampaignMailsListView listeEmails = new CampaignMailsListView();
             //Liaison avec la page maître
             listeEmails.Owner = this;
             //Ouverture et blocage de la vue sur la nouvelle fenêtre
@@ -63,7 +63,7 @@ namespace ESIEE_2_Campagne_Mail
         private void EnvoiCampagne_Click(object sender, EventArgs e)
         {
             //Création de la fenêtre de l'envoi de la campagne
-            EnvoiCampagne envoiCampagne = new EnvoiCampagne();
+            CampaignSendView envoiCampagne = new CampaignSendView();
             //Liaison avec la page maître
             envoiCampagne.Owner = this;
             //Ouverture et blocage de la vue sur la nouvelle fenêtre

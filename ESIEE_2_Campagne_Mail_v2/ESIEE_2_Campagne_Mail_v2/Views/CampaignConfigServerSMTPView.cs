@@ -13,12 +13,12 @@ using System.Windows.Forms.VisualStyles;
 
 namespace ESIEE_2_Campagne_Mail.gui
 {
-	public partial class ConfigServerSMTP : Form
+	public partial class CampaignConfigServerSMTPView : Form
 	{
 		/// <summary>
 		/// Constructeur
 		/// </summary>
-		public ConfigServerSMTP()
+		public CampaignConfigServerSMTPView()
 		{
 			InitializeComponent();
 			this.updateConfigServerSMTPContent();

@@ -165,11 +165,11 @@ namespace ESIEE_2_Campagne_Mail_v2
             //-
             if (Manager.GetCampagne().Nom != null)
             {
-                OpenChildForm(new Home(Manager.GetCampagne().Nom));
+                OpenChildForm(new CampaignHomeView(Manager.GetCampagne().Nom));
             }
             else
             {
-                OpenChildForm(new Home(campagneNameDefault));
+                OpenChildForm(new CampaignHomeView(campagneNameDefault));
             }
         }
 
@@ -212,7 +212,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             Debug.WriteLine("[Click - Button - New Campaign]");
             //-
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new CreateCampaignView());
+            OpenChildForm(new CampaignNameView());
         }
 
         /// <summary>
@@ -224,7 +224,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             Debug.WriteLine("[Click - Button - Mails List]");
             //-
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new ListeEmails());
+            OpenChildForm(new CampaignMailsListView());
         }
 
         /// <summary>
@@ -236,7 +236,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             Debug.WriteLine("[Click - Button - Campaign Message]");
             //-
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new EditionMessage());
+            OpenChildForm(new CampaignMessageEditorView());
         }
 
         /// <summary>
@@ -248,7 +248,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             Debug.WriteLine("[Click - Button - Config SMTP]");
             //-
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new ConfigServerSMTP());
+            OpenChildForm(new CampaignConfigServerSMTPView());
         }
 
         /// <summary>
@@ -260,7 +260,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             Debug.WriteLine("[Click - Button - Campaign Send]");
             //-
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new EnvoiCampagne());
+            OpenChildForm(new CampaignSendView());
         }
 
         /// <summary>

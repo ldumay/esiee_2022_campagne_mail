@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace ESIEE_2_Campagne_Mail
 {
-    public partial class EnvoiCampagne : Form
+    public partial class CampaignSendView : Form
     {
         /// <summary>
         /// Constructeur
         /// </summary>
-        public EnvoiCampagne()
+        public CampaignSendView()
         {
             InitializeComponent();
             this.updateAllLabelStatuts();
@@ -34,7 +34,7 @@ namespace ESIEE_2_Campagne_Mail
         private void buttonConfigSMTPServer_Click(object sender, EventArgs e)
         {
             //Création de la fenêtre d'édition de message
-            ConfigServerSMTP configServerSMTP = new ConfigServerSMTP();
+            CampaignConfigServerSMTPView configServerSMTP = new CampaignConfigServerSMTPView();
             //Liaison avec la page maître
             configServerSMTP.Owner = this;
             //Ouverture et blocage de la vue sur la nouvelle fenêtre

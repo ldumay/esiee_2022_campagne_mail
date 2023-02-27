@@ -1,6 +1,6 @@
 ﻿namespace ESIEE_2_Campagne_Mail
 {
-    partial class EnvoiCampagne
+    partial class CampaignSendView
     {
         /// <summary>
         /// Required designer variable.

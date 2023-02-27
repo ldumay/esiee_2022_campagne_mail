@@ -20,7 +20,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace ESIEE_2_Campagne_Mail
 {
-    public partial class ListeEmails : Form
+    public partial class CampaignMailsListView : Form
     {
         private readonly List<Contact> listeContactView = new List<Contact>();
         private List<ListViewItem> listeItemsDansLaListeView = new List<ListViewItem>();
@@ -28,7 +28,7 @@ namespace ESIEE_2_Campagne_Mail
         /// <summary>
         /// Constructeur
         /// </summary>
-        public ListeEmails()
+        public CampaignMailsListView()
         {
             InitializeComponent();
             updateListView();

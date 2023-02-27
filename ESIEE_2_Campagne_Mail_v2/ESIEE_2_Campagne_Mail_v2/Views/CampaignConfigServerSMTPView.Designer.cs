@@ -1,6 +1,6 @@
 ﻿namespace ESIEE_2_Campagne_Mail.gui
 {
-    partial class ConfigServerSMTP
+    partial class CampaignConfigServerSMTPView
     {
         /// <summary>
         /// Required designer variable.
