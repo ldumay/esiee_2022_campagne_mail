@@ -37,6 +37,7 @@
             this.panelBottom = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.iconButtonExitApp = new FontAwesome.Sharp.IconButton();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
@@ -99,6 +100,7 @@
             this.labelTopCurrentForm.TabIndex = 0;
             this.labelTopCurrentForm.Text = "labelTopCurrentPage";
             this.labelTopCurrentForm.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelTopCurrentForm.Click += new System.EventHandler(this.iconButtonExitApp_Click);
             // 
             // panelTopLogo
             // 
@@ -145,6 +147,7 @@
             // 
             // panelMenu
             // 
+            this.panelMenu.Controls.Add(this.iconButtonExitApp);
             this.panelMenu.Controls.Add(this.iconButton7);
             this.panelMenu.Controls.Add(this.iconButton6);
             this.panelMenu.Controls.Add(this.iconButton5);
@@ -157,6 +160,26 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(340, 553);
             this.panelMenu.TabIndex = 2;
+            // 
+            // iconButtonExitApp
+            // 
+            this.iconButtonExitApp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButtonExitApp.FlatAppearance.BorderSize = 0;
+            this.iconButtonExitApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonExitApp.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.iconButtonExitApp.ForeColor = System.Drawing.Color.White;
+            this.iconButtonExitApp.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
+            this.iconButtonExitApp.IconColor = System.Drawing.Color.White;
+            this.iconButtonExitApp.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonExitApp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonExitApp.Location = new System.Drawing.Point(0, 420);
+            this.iconButtonExitApp.Name = "iconButtonExitApp";
+            this.iconButtonExitApp.Size = new System.Drawing.Size(340, 60);
+            this.iconButtonExitApp.TabIndex = 7;
+            this.iconButtonExitApp.Text = "Quitter l\'application";
+            this.iconButtonExitApp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButtonExitApp.UseVisualStyleBackColor = true;
+            this.iconButtonExitApp.Click += new System.EventHandler(this.iconButtonExitApp_Click);
             // 
             // iconButton7
             // 
@@ -176,6 +199,7 @@
             this.iconButton7.Text = "A propos";
             this.iconButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton7.UseVisualStyleBackColor = true;
+            this.iconButton7.Click += new System.EventHandler(this.iconButtonAboutApp_Click);
             // 
             // iconButton6
             // 
@@ -195,6 +219,7 @@
             this.iconButton6.Text = "Envoi de campagne";
             this.iconButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton6.UseVisualStyleBackColor = true;
+            this.iconButton6.Click += new System.EventHandler(this.iconButtonCampaignSend_Click);
             // 
             // iconButton5
             // 
@@ -215,6 +240,7 @@
             this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton5.UseVisualStyleBackColor = true;
+            this.iconButton5.Click += new System.EventHandler(this.iconButtonConfigSMTP_Click);
             // 
             // iconButton4
             // 
@@ -235,6 +261,7 @@
             this.iconButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton4.UseVisualStyleBackColor = true;
+            this.iconButton4.Click += new System.EventHandler(this.iconButtonCampaignMessage_Click);
             // 
             // iconButton3
             // 
@@ -255,6 +282,7 @@
             this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton3.UseVisualStyleBackColor = true;
+            this.iconButton3.Click += new System.EventHandler(this.iconButtonMailsList_Click);
             // 
             // iconButton2
             // 
@@ -350,5 +378,6 @@
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconPictureBox iconPictureBoxTopCurrentForm;
+        private FontAwesome.Sharp.IconButton iconButtonExitApp;
     }
 }

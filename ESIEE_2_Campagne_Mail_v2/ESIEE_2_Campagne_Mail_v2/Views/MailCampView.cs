@@ -1,4 +1,8 @@
 using ESIEE_2_Campagne_Mail;
+using ESIEE_2_Campagne_Mail.gui;
+using ESIEE_2_Campagne_Mail.models;
+using ESIEE_2_Campagne_Mail.process;
+using ESIEE_2_Campagne_Mail_v2.Views;
 using FontAwesome.Sharp;
 using System.Diagnostics;
 using static ESIEE_2_Campagne_Mail_v2.utils.UtilsDesign;
@@ -8,10 +12,16 @@ namespace ESIEE_2_Campagne_Mail_v2
     public partial class MailCampView : Form
     {
         // - - - [Variables] - - -
+        public string? campagneName;
+        public string? campagneNameDefault = "default-name";
         private IconButton? currentBtn;
         private Panel? leftBorderBtn;
         private Form? currentChildForm;
         
+        // - - - [Instances] - - -
+        public static MailCampView? Instance;
+        internal CampagneManager Manager { get; }
+
         /// <summary>
         /// Constructeur
         /// </summary>
@@ -21,8 +31,12 @@ namespace ESIEE_2_Campagne_Mail_v2
             InitializeComponent();
             // Chargement de la configuration de démarrage
             startConfiguration(true, true, true, "center", false);
-            // Surcharge du formulaire
-            initForm();
+            //Préparation du gestionnaire de campagne
+            Instance = this;
+            if (campagneName == null)
+                Manager = new CampagneManager(campagneNameDefault);
+            //Ouverture de l'accueil
+            openHome();
         }
 
         // - - - [Methods] - - -
@@ -47,21 +61,15 @@ namespace ESIEE_2_Campagne_Mail_v2
             // Affiche le formulaire sous la forme d'une boîte de dialogue modale.
             if (show)
                 this.ShowDialog();
-        }
 
-        /// <summary>
-        /// Surcharge du formulaire
-        /// </summary>
-        private void initForm()
-        {
+            //Form
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
-            //Form
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
-            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
         /// <summary>
@@ -94,7 +102,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             if (senderBtn != null)
             {
                 DisableButton();
-                
+
                 //Button
                 currentBtn = (IconButton)senderBtn;
                 currentBtn.BackColor = RGBColors.color3;
@@ -103,13 +111,13 @@ namespace ESIEE_2_Campagne_Mail_v2
                 currentBtn.IconColor = color;
                 currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
                 currentBtn.ImageAlign = ContentAlignment.MiddleRight;
-                
+
                 //Left border button
                 leftBorderBtn.BackColor = color;
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
-                
+
                 //Current Child Form Icon
                 iconPictureBoxTopCurrentForm.IconChar = currentBtn.IconChar;
                 //iconPictureBoxTopCurrentForm.IconColor = color;
@@ -146,24 +154,58 @@ namespace ESIEE_2_Campagne_Mail_v2
             labelTopCurrentForm.Text = "Accueil";
         }
 
-        // - - - [Events Buttons] - - -
+        // - - - [Events] - - -
 
         /// <summary>
-        /// Clique sur le bouton d'accueil.
+        /// Ouverture de l'accueil dans la vue centrale du formulaire principal.
         /// </summary>
-        private void iconButtonHome_Click(object sender, EventArgs e)
+        private void openHome()
         {
-            Debug.WriteLine("[Click - Button - Home]");
+            Debug.WriteLine("[Open - Button - Home]");
             //-
+            if (Manager.GetCampagne().Nom != null)
+            {
+                OpenChildForm(new Home(Manager.GetCampagne().Nom));
+            }
+            else
+            {
+                OpenChildForm(new Home(campagneNameDefault));
+            }
+        }
+
+        /// <summary>
+        /// Nettoyage de la vue centrale du formulaire principal.
+        /// </summary>
+        private void clear()
+        {
+            Debug.WriteLine("[Clear - MailCamp View]");
+            //6
             if (currentChildForm != null)
             {
                 currentChildForm.Close();
             }
             Reset();
         }
+        
+        // - - - [Click Buttons] - - -
 
         /// <summary>
-        /// Clique sur le bouton de nouvelle campagne.
+        /// Clique sur le bouton d'accueil
+        /// et nettoie la vue centrale du formulaire principal.
+        /// </summary>
+        private void iconButtonHome_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("[Click - Button - Home]");
+            //-
+            clear();
+            //-
+            ActivateButton(sender, RGBColors.color1);
+            openHome();
+        }
+
+        /// <summary>
+        /// Clique sur le bouton de nouvelle campagne
+        /// et ouvre le formulaire de création de campagne.
         /// </summary>
         private void iconButtonCampaign_Click(object sender, EventArgs e)
         {
@@ -171,6 +213,76 @@ namespace ESIEE_2_Campagne_Mail_v2
             //-
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new CreateCampaignView());
+        }
+
+        /// <summary>
+        /// Clique sur le bouton de liste des mails
+        /// et ouvre le formulaire de liste des mails.
+        /// </summary>
+        private void iconButtonMailsList_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("[Click - Button - Mails List]");
+            //-
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new ListeEmails());
+        }
+
+        /// <summary>
+        /// Clique sur le bouton de message de la campagne
+        /// et ouvre le formulaire d'édition du message de la campagne.
+        /// </summary>
+        private void iconButtonCampaignMessage_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("[Click - Button - Campaign Message]");
+            //-
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new EditionMessage());
+        }
+
+        /// <summary>
+        /// Clique sur le bouton de configuration du serveur SMTP
+        /// et ouvre le formulaire de configuration du serveur SMTP.
+        /// </summary>
+        private void iconButtonConfigSMTP_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("[Click - Button - Config SMTP]");
+            //-
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new ConfigServerSMTP());
+        }
+
+        /// <summary>
+        /// Clique sur le bouton de l'envoi de la campagne
+        /// et ouvre le formulaire de l'envoi de la campagne.
+        /// </summary>
+        private void iconButtonCampaignSend_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("[Click - Button - Campaign Send]");
+            //-
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new EnvoiCampagne());
+        }
+
+        /// <summary>
+        /// Clique sur le bouton de à propos
+        /// et ouvre le formulaire d'informations à propos de l'application.
+        /// </summary>
+        private void iconButtonAboutApp_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("[Click - Button - About Appd]");
+            //-
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new AboutView());
+        }
+
+        /// <summary>
+        /// Clique sur le bouton de fermeture de l'application.
+        /// </summary>
+        private void iconButtonExitApp_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("[Click - Button - Exit App]");
+            //-
+            Application.Exit();
         }
     }
 }
