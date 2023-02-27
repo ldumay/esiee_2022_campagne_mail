@@ -1,6 +1,6 @@
 ﻿namespace ESIEE_2_Campagne_Mail
 {
-    partial class EditionMessage
+    partial class CampaignMessageEditorView
     {
         /// <summary>
         /// Required designer variable.

@@ -2,7 +2,7 @@
 
 namespace ESIEE_2_Campagne_Mail
 {
-    partial class ListeEmails
+    partial class CampaignMailsListView
     {
         /// <summary>
         /// Required designer variable.

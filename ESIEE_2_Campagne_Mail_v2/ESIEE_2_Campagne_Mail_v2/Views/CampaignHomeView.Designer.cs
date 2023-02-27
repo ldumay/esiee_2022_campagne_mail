@@ -1,6 +1,6 @@
 ﻿namespace ESIEE_2_Campagne_Mail
 {
-    partial class Home
+    partial class CampaignHomeView
     {
         /// <summary>
         /// Required designer variable.

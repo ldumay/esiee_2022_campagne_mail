@@ -15,12 +15,12 @@ using System.Windows.Forms;
 
 namespace ESIEE_2_Campagne_Mail
 {
-    public partial class EditionMessage : Form
+    public partial class CampaignMessageEditorView : Form
     {
         /// <summary>
         /// Constructeur
         /// </summary>
-        public EditionMessage()
+        public CampaignMessageEditorView()
         {
             InitializeComponent();
             this.updateEditionMessageContent();
