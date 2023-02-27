@@ -45,9 +45,9 @@ namespace ESIEE_2_Campagne_Mail.gui
 			string SMTPUserLogin = textBoxSMTPUserLogin.Text ?? string.Empty;
 			string SMTPUserMDP = textBoxSMTPUserMDP.Text ?? string.Empty;
 
-            Home.Instance.Manager.ChangeSMTPConnectionParametres(SMTPAddressIP, SMTPport, SMTPUserLogin, SMTPUserMDP);
+            MailCampView.Instance.Manager.ChangeSMTPConnectionParametres(SMTPAddressIP, SMTPport, SMTPUserLogin, SMTPUserMDP);
 
-			if (Home.Instance.Manager.GetSMTPConnectionHandler().IsSMTPParameterValid())
+			if (MailCampView.Instance.Manager.GetSMTPConnectionHandler().IsSMTPParameterValid())
 			{
 				string message = "La configuration du serveur SMTP a bien été enregistrée.";
 				Debug.WriteLine("[Campagne] Configuration SMTP : " + message);
@@ -67,13 +67,13 @@ namespace ESIEE_2_Campagne_Mail.gui
 		private void updateConfigServerSMTPContent()
 		{
 			// Adresse IP
-			textBoxSMTPAddressIP.Text = Home.Instance.Manager.GetSMTPConnectionHandler().SMTPHost;
+			textBoxSMTPAddressIP.Text = MailCampView.Instance.Manager.GetSMTPConnectionHandler().SMTPHost;
 			// Port
-			textBoxSMTPPort.Text = Home.Instance.Manager.GetSMTPConnectionHandler().SMTPPort.ToString();
+			textBoxSMTPPort.Text = MailCampView.Instance.Manager.GetSMTPConnectionHandler().SMTPPort.ToString();
 			// Login
-			textBoxSMTPUserLogin.Text = Home.Instance.Manager.GetSMTPConnectionHandler().SMTPUserLogin;
+			textBoxSMTPUserLogin.Text = MailCampView.Instance.Manager.GetSMTPConnectionHandler().SMTPUserLogin;
 			// Rebound
-			textBoxSMTPUserMDP.Text = Home.Instance.Manager.GetSMTPConnectionHandler().GetSMTPUserMDP();
+			textBoxSMTPUserMDP.Text = MailCampView.Instance.Manager.GetSMTPConnectionHandler().GetSMTPUserMDP();
 		}
 	}
 }

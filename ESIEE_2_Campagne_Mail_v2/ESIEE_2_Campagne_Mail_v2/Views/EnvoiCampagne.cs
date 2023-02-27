@@ -51,13 +51,13 @@ namespace ESIEE_2_Campagne_Mail
         private void updateAllLabelStatuts()
         {
             //Vérification du statut de la camapgne
-            if (Home.Instance.Manager.statutCampagne == true)
+            if (MailCampView.Instance.Manager.statutCampagne == true)
             {
                 this.labelConfirmCampagneReady.Text = "✅ Campagne prête";
                 Debug.WriteLine("[Campagne] La campagne est prête.");
             }
             //Vérification du statut de la camapgne
-            if (Home.Instance.Manager.statutSMTPServer == true)
+            if (MailCampView.Instance.Manager.statutSMTPServer == true)
             {
                 this.labelConfirmStatutSMTP.Text = "✅ Configuration du serveur SMTP prêt";
                 Debug.WriteLine("[Campagne] La campagne est prête.");

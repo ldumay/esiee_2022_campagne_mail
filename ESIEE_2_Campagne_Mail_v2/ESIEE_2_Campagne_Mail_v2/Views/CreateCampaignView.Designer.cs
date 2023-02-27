@@ -32,7 +32,7 @@
             this.labelNewCampaignContent = new System.Windows.Forms.Label();
             this.labelNewCampaignTop = new System.Windows.Forms.Label();
             this.buttonNewCampaign = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelWarning = new System.Windows.Forms.Label();
             this.panelNewCampaignTop = new System.Windows.Forms.Panel();
             this.panelNewCampaignContent = new System.Windows.Forms.Panel();
             this.panelNewCampaignBottom = new System.Windows.Forms.Panel();
@@ -87,15 +87,18 @@
             this.buttonNewCampaign.TabIndex = 9;
             this.buttonNewCampaign.Text = "Valider le nom";
             this.buttonNewCampaign.UseVisualStyleBackColor = false;
+            this.buttonNewCampaign.Click += new System.EventHandler(this.buttonCreateCampagneClick);
             // 
-            // label2
+            // labelWarning
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(234, 281);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 20);
-            this.label2.TabIndex = 10;
+            this.labelWarning.AutoSize = true;
+            this.labelWarning.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelWarning.Location = new System.Drawing.Point(20, 121);
+            this.labelWarning.Name = "labelWarning";
+            this.labelWarning.Size = new System.Drawing.Size(160, 28);
+            this.labelWarning.TabIndex = 10;
+            this.labelWarning.Text = "[temp-warning]";
             // 
             // panelNewCampaignTop
             // 
@@ -103,26 +106,27 @@
             this.panelNewCampaignTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelNewCampaignTop.Location = new System.Drawing.Point(0, 0);
             this.panelNewCampaignTop.Name = "panelNewCampaignTop";
-            this.panelNewCampaignTop.Size = new System.Drawing.Size(652, 64);
+            this.panelNewCampaignTop.Size = new System.Drawing.Size(764, 64);
             this.panelNewCampaignTop.TabIndex = 11;
             // 
             // panelNewCampaignContent
             // 
             this.panelNewCampaignContent.Controls.Add(this.labelNewCampaignContent);
             this.panelNewCampaignContent.Controls.Add(this.textBoxNewCampaignContent);
+            this.panelNewCampaignContent.Controls.Add(this.labelWarning);
             this.panelNewCampaignContent.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelNewCampaignContent.Location = new System.Drawing.Point(0, 64);
             this.panelNewCampaignContent.Name = "panelNewCampaignContent";
-            this.panelNewCampaignContent.Size = new System.Drawing.Size(652, 151);
+            this.panelNewCampaignContent.Size = new System.Drawing.Size(764, 187);
             this.panelNewCampaignContent.TabIndex = 12;
             // 
             // panelNewCampaignBottom
             // 
             this.panelNewCampaignBottom.Controls.Add(this.buttonNewCampaign);
             this.panelNewCampaignBottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelNewCampaignBottom.Location = new System.Drawing.Point(0, 215);
+            this.panelNewCampaignBottom.Location = new System.Drawing.Point(0, 251);
             this.panelNewCampaignBottom.Name = "panelNewCampaignBottom";
-            this.panelNewCampaignBottom.Size = new System.Drawing.Size(652, 109);
+            this.panelNewCampaignBottom.Size = new System.Drawing.Size(764, 115);
             this.panelNewCampaignBottom.TabIndex = 13;
             // 
             // CreateCampaignView
@@ -130,11 +134,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(92)))), ((int)(((byte)(122)))));
-            this.ClientSize = new System.Drawing.Size(652, 324);
+            this.ClientSize = new System.Drawing.Size(764, 366);
             this.Controls.Add(this.panelNewCampaignBottom);
             this.Controls.Add(this.panelNewCampaignContent);
             this.Controls.Add(this.panelNewCampaignTop);
-            this.Controls.Add(this.label2);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CreateCampaignView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -145,7 +148,6 @@
             this.panelNewCampaignContent.PerformLayout();
             this.panelNewCampaignBottom.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -154,7 +156,7 @@
         private TextBox textBoxNewCampaignContent;
         private Label labelNewCampaignContent;
         private Label labelNewCampaignTop;
-        private Label label2;
+        private Label labelWarning;
         private Button buttonNewCampaign;
         private Panel panelNewCampaignTop;
         private Panel panelNewCampaignContent;

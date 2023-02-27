@@ -1,5 +1,6 @@
 using ESIEE_2_Campagne_Mail;
 using ESIEE_2_Campagne_Mail.gui;
+using ESIEE_2_Campagne_Mail.models;
 using ESIEE_2_Campagne_Mail.process;
 using ESIEE_2_Campagne_Mail_v2.Views;
 using FontAwesome.Sharp;
@@ -10,15 +11,16 @@ namespace ESIEE_2_Campagne_Mail_v2
 {
     public partial class MailCampView : Form
     {
-        // - - - [Instances] - - -
-        public static MailCampView? Instance;
-        internal CampagneManager Manager { get; }
-
         // - - - [Variables] - - -
-        private String? campagneName;
+        public string? campagneName;
+        public string? campagneNameDefault = "default-name";
         private IconButton? currentBtn;
         private Panel? leftBorderBtn;
         private Form? currentChildForm;
+        
+        // - - - [Instances] - - -
+        public static MailCampView? Instance;
+        internal CampagneManager Manager { get; }
 
         /// <summary>
         /// Constructeur
@@ -29,8 +31,12 @@ namespace ESIEE_2_Campagne_Mail_v2
             InitializeComponent();
             // Chargement de la configuration de démarrage
             startConfiguration(true, true, true, "center", false);
-            // Surcharge du formulaire
-            initForm();
+            //Préparation du gestionnaire de campagne
+            Instance = this;
+            if (campagneName == null)
+                Manager = new CampagneManager(campagneNameDefault);
+            //Ouverture de l'accueil
+            openHome();
         }
 
         // - - - [Methods] - - -
@@ -55,13 +61,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             // Affiche le formulaire sous la forme d'une boîte de dialogue modale.
             if (show)
                 this.ShowDialog();
-        }
 
-        /// <summary>
-        /// Surcharge du formulaire
-        /// </summary>
-        private void initForm()
-        {
             //Form
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
@@ -163,13 +163,13 @@ namespace ESIEE_2_Campagne_Mail_v2
         {
             Debug.WriteLine("[Open - Button - Home]");
             //-
-            if (campagneName != null)
+            if (Manager.GetCampagne().Nom != null)
             {
-                OpenChildForm(new Home(campagneName));
+                OpenChildForm(new Home(Manager.GetCampagne().Nom));
             }
             else
             {
-                OpenChildForm(new Home(null));
+                OpenChildForm(new Home(campagneNameDefault));
             }
         }
 

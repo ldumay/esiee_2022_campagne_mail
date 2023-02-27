@@ -75,11 +75,11 @@ namespace ESIEE_2_Campagne_Mail
             try
             {
                 // Changement de ContenuDeMail
-                Home.Instance.Manager.ChangerContenuDuMail(textBoxEXP.Text, textBoxTitre.Text, textBoxRebound.Text, textBoxMessage.Text);
+                MailCampView.Instance.Manager.ChangerContenuDuMail(textBoxEXP.Text, textBoxTitre.Text, textBoxRebound.Text, textBoxMessage.Text);
                 //-
                 string message = "Le contenu du mail a bien été enregistrée.";
                 MessageBox.Show(message, "Edition du contenu du mail - Enregistré", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Debug.WriteLine("[Campagne] Contenu de mail : " + Home.Instance.Manager.statutCampagneMessage);
+                Debug.WriteLine("[Campagne] Contenu de mail : " + MailCampView.Instance.Manager.statutCampagneMessage);
             }
             catch (Exception err)
             {

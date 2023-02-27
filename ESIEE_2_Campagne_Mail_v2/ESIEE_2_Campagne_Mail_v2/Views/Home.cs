@@ -1,13 +1,12 @@
 ﻿using ESIEE_2_Campagne_Mail.models;
 using ESIEE_2_Campagne_Mail.process;
+using ESIEE_2_Campagne_Mail_v2;
 using System.Diagnostics;
 
 namespace ESIEE_2_Campagne_Mail
 {
 	public partial class Home : Form
 	{
-		public static Home? Instance;
-		internal CampagneManager Manager { get; }
 
         /// <summary>
         /// Constructeur
@@ -15,13 +14,11 @@ namespace ESIEE_2_Campagne_Mail
         public Home(string campagneName)
         {
             InitializeComponent();
-            Instance = this;
-            Manager = new CampagneManager(campagneName);
-            if (this.Manager.GetCampagne != null)
+            if (MailCampView.Instance.Manager.GetCampagne != null)
             {
                 // Une vérification de null est-elle obligatoire ici ?
                 // Lors de l'init de CampagneManager, soit Campagne sera trouvé, soit Campagne sera créé
-                labelCamapagneNameContent.Text = this.Manager.GetCampagne().Nom;
+                labelCamapagneNameContent.Text = MailCampView.Instance.Manager.GetCampagne().Nom;
             }
             this.updateAllLabelStatuts();
         }
@@ -81,7 +78,7 @@ namespace ESIEE_2_Campagne_Mail
         private void updateAllLabelStatuts()
         {
             //Vérification du statut de la liste des emails de la camapgne
-            if (this.Manager.statutCampagneListeEmails == true)
+            if (MailCampView.Instance.Manager.statutCampagneListeEmails == true)
             {
                 this.labelConfirmEmailReady.Text = "✅ Emails prêts";
                 Debug.WriteLine("[Campagne] La liste des emails de la campagne est prête.");
@@ -92,7 +89,7 @@ namespace ESIEE_2_Campagne_Mail
                 Debug.WriteLine("[Campagne] La liste des emails de la campagne est prête.");
             }
             //Vérification du statut du contenu du message de la camapgne
-            if (this.Manager.statutCampagneMessage == true)
+            if (MailCampView.Instance.Manager.statutCampagneMessage == true)
             {
                 this.labelConfirmMessageReady.Text = "✅ Message prêt";
                 Debug.WriteLine("[Campagne] Le contenu de la campagne est prêt.");
@@ -104,19 +101,19 @@ namespace ESIEE_2_Campagne_Mail
             }
             /*
             //Vérification du statut de la liste des emails et du statut du contenu du message de la camapgne
-            if (Home.Instance.Manager.statutCampagneListeEmails
-                && Home.Instance.Manager.statutCampagneMessage
+            if (MailCampView.Instance.Manager.statutCampagneListeEmails
+                && MailCampView.Instance.Manager.statutCampagneMessage
             )
             {
-                Home.Instance.Manager.statutCampagne = true;
+                MailCampView.Instance.Manager.statutCampagne = true;
             }
             else
             {
-                Home.Instance.Manager.statutCampagne = false;
+                MailCampView.Instance.Manager.statutCampagne = false;
             }
             */
             //Vérification du statut de la camapgne
-            if (this.Manager.statutCampagne == true)
+            if (MailCampView.Instance.Manager.statutCampagne == true)
             {
                 this.labelConfirmCampagneReady.Text = "✅ Campagne prête";
                 Debug.WriteLine("[Campagne] La campagne est prête.");
