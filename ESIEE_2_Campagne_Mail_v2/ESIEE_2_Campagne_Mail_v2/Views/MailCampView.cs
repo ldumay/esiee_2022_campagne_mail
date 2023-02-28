@@ -64,7 +64,7 @@ namespace ESIEE_2_Campagne_Mail_v2
 
             //Form
             leftBorderBtn = new Panel();
-            leftBorderBtn.Size = new Size(7, 60);
+            leftBorderBtn.Size = new Size(7, 45);
             panelMenu.Controls.Add(leftBorderBtn);
             this.Text = string.Empty;
             this.ControlBox = false;
