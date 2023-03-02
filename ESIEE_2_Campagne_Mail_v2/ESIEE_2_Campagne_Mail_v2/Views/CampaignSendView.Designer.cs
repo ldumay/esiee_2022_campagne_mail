@@ -58,7 +58,6 @@
             labelSendTry.Size = new System.Drawing.Size(109, 21);
             labelSendTry.TabIndex = 3;
             labelSendTry.Text = "Email d\'essai";
-            labelSendTry.Click += new System.EventHandler(this.label1_Click);
             // 
             // labelSendCampaign
             // 
@@ -73,7 +72,7 @@
             this.labelSendCampaign.TabIndex = 0;
             this.labelSendCampaign.Text = "Envoyer la campagne";
             this.labelSendCampaign.UseVisualStyleBackColor = false;
-            this.labelSendCampaign.Click += new System.EventHandler(this.button1_Click);
+            this.labelSendCampaign.Click += new System.EventHandler(this.envoiDeLaCampagne);
             // 
             // buttonCampagneSendingTest
             // 
@@ -88,6 +87,7 @@
             this.buttonCampagneSendingTest.TabIndex = 1;
             this.buttonCampagneSendingTest.Text = "Effectuer le test d\'envoi";
             this.buttonCampagneSendingTest.UseVisualStyleBackColor = false;
+            this.buttonCampagneSendingTest.Click += new System.EventHandler(this.testDuServeurSMTP);
             // 
             // textBox1
             // 

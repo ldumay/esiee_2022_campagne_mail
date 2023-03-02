@@ -24,9 +24,13 @@ namespace ESIEE_2_Campagne_Mail
 			this.updateAllLabelStatuts();
 		}
 
-		private void label1_Click(object sender, EventArgs e) { }
+		private void testDuServeurSMTP(object sender, EventArgs e) {
+			Debug.WriteLine("[Campagne] Test du serveur d'envoi");
+		}
 
-		private void button1_Click(object sender, EventArgs e) { }
+		private void envoiDeLaCampagne(object sender, EventArgs e) {
+			Debug.WriteLine("[Campagne] Envoi de la campagne");
+		}
 
 		/// <summary>
 		/// Mise à jour des labels des satuts de la campagne visible sur la page d'accueil.
