@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace ESIEE_2_Campagne_Mail.process
 {
 	/// <summary>
-	/// Classse SMTPConnectionHandler.
+	/// Classe SMTPConnectionHandler.
 	/// </summary>
 	internal class SMTPConnectionHandler
 	{

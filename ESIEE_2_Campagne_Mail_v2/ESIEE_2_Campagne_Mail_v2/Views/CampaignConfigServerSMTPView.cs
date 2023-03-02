@@ -41,7 +41,7 @@ namespace ESIEE_2_Campagne_Mail.gui
 				Debug.WriteLine(message);
 				MessageBox.Show(message, "Configuration du serveur SMTP - Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
-			// Home.Instance.Manager.GetSMTPConnectionHandler().SMTPPort = (textBoxSMTPPort.Text != null) ? port : 0;
+			//MailCampView.Instance.Manager.GetSMTPConnectionHandler().SMTPPort = (textBoxSMTPPort.Text != null) ? port : 0;
 			string SMTPUserLogin = textBoxSMTPUserLogin.Text ?? string.Empty;
 			string SMTPUserMDP = textBoxSMTPUserMDP.Text ?? string.Empty;
 

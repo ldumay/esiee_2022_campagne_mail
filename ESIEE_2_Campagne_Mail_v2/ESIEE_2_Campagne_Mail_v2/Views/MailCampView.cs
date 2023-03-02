@@ -29,9 +29,9 @@ namespace ESIEE_2_Campagne_Mail_v2
         {
             // Chargement des composants
             InitializeComponent();
-            // Chargement de la configuration de démarrage
+            // Chargement de la configuration de dÃ©marrage
             startConfiguration(true, true, true, "center", false);
-            //Préparation du gestionnaire de campagne
+            //PrÃ©paration du gestionnaire de campagne
             Instance = this;
             if (campagneName == null)
                 Manager = new CampagneManager(campagneNameDefault);
@@ -42,23 +42,23 @@ namespace ESIEE_2_Campagne_Mail_v2
         // - - - [Methods] - - -
 
         /// <summary>
-        /// Configuration de démarrage du formulaire.
+        /// Configuration de dÃ©marrage du formulaire.
         /// </summary>
         private void startConfiguration(bool fixe, bool maximize, bool reduce, string position, bool show)
         {
-            // Définit le style de bordure du formulaire à une boîte de dialogue.
+            // DÃ©finit le style de bordure du formulaire Ã  une boÃ®te de dialogue.
             if (fixe)
                 this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            // Maximise la boîte de maximisation.
+            // Maximise la boÃ®te de maximisation.
             if (maximize)
                 this.MaximizeBox = true;
-            // Supprime la boîte de réduction.
+            // Supprime la boÃ®te de rÃ©duction.
             if (reduce)
                 this.MinimizeBox = true;
-            // Définit la position de départ du formulaire au centre de l'écran.
+            // DÃ©finit la position de dÃ©part du formulaire au centre de l'Ã©cran.
             if (position == "center")
                 this.StartPosition = FormStartPosition.CenterScreen;
-            // Affiche le formulaire sous la forme d'une boîte de dialogue modale.
+            // Affiche le formulaire sous la forme d'une boÃ®te de dialogue modale.
             if (show)
                 this.ShowDialog();
 
@@ -95,7 +95,7 @@ namespace ESIEE_2_Campagne_Mail_v2
         }
 
         /// <summary>
-        /// Activer un bouton si il a été cliqué.
+        /// Activer un bouton si il a Ã©tÃ© cliquÃ©.
         /// </summary>
         private void ActivateButton(object senderBtn, Color color)
         {
@@ -125,7 +125,7 @@ namespace ESIEE_2_Campagne_Mail_v2
         }
 
         /// <summary>
-        /// Désactiver un bouton activer.
+        /// DÃ©sactiver un bouton activer.
         /// </summary>
         private void DisableButton()
         {
@@ -141,8 +141,8 @@ namespace ESIEE_2_Campagne_Mail_v2
         }
 
         /// <summary>
-        /// Réinitialisation du formulaire principal.
-        /// - Désactiver un bouton activer.
+        /// RÃ©initialisation du formulaire principal.
+        /// - DÃ©sactiver un bouton activer.
         /// - Nettoyage de vue centrale du formulaire principal.
         /// </summary>
         private void Reset()
@@ -205,7 +205,7 @@ namespace ESIEE_2_Campagne_Mail_v2
 
         /// <summary>
         /// Clique sur le bouton de nouvelle campagne
-        /// et ouvre le formulaire de création de campagne.
+        /// et ouvre le formulaire de crÃ©ation de campagne.
         /// </summary>
         private void iconButtonCampaign_Click(object sender, EventArgs e)
         {
@@ -229,7 +229,7 @@ namespace ESIEE_2_Campagne_Mail_v2
 
         /// <summary>
         /// Clique sur le bouton de message de la campagne
-        /// et ouvre le formulaire d'édition du message de la campagne.
+        /// et ouvre le formulaire d'Ã©dition du message de la campagne.
         /// </summary>
         private void iconButtonCampaignMessage_Click(object sender, EventArgs e)
         {
@@ -264,8 +264,8 @@ namespace ESIEE_2_Campagne_Mail_v2
         }
 
         /// <summary>
-        /// Clique sur le bouton de à propos
-        /// et ouvre le formulaire d'informations à propos de l'application.
+        /// Clique sur le bouton de Ã  propos
+        /// et ouvre le formulaire d'informations Ã  propos de l'application.
         /// </summary>
         private void iconButtonAboutApp_Click(object sender, EventArgs e)
         {

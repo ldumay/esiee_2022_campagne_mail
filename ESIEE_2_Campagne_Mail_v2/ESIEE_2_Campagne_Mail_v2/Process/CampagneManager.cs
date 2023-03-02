@@ -124,7 +124,7 @@ namespace ESIEE_2_Campagne_Mail.process
 		/// Test l'envoie de la campagne à l'aide d'un adresse
 		/// </summary>
 		/// <returns></returns>
-		internal bool TesterEnvoieCampagne(string adresseMail)
+		internal bool TesterEnvoiCampagne(string adresseMail)
 		{
 			return false;
 		}
@@ -132,7 +132,7 @@ namespace ESIEE_2_Campagne_Mail.process
 		/// <summary>
 		/// Envoie le ContenuDeMail à tous les GroupeContact dans SMTPConnectionHandler 
 		/// </summary>
-		internal void EnvoyerCampagneMail()
+		internal bool EnvoyerCampagneMail()
 		{
 			if (HasListeEmail())
 			{
@@ -144,6 +144,11 @@ namespace ESIEE_2_Campagne_Mail.process
 					emails.Add(contact.Email);
 				}
 				SMTPConnectionHandler.EnvoyerCampagneMail(emails, Campagne.ContenuDeMail);
+				//-
+				return false;
+			} else
+			{
+				return false;
 			}
 		}
 
