@@ -45,7 +45,6 @@ namespace ESIEE_2_Campagne_Mail
 
 			// Vérification de la saisie
 			if (!string.IsNullOrEmpty(campaignName)
-				&& !string.IsNullOrEmpty(MailCampView.Instance.Manager.GetCampagneName())
 				&& !campaignName.Equals(MailCampView.Instance.Manager.GetCampagneName())
 			)
 			{
@@ -55,7 +54,7 @@ namespace ESIEE_2_Campagne_Mail
 				message = "La campagne \"" + campaignName + "\" a bien été créé.";
 				// warning message
 				labelWarning.Text = "[Campagne] " + message;
-				labelWarning.ForeColor = System.Drawing.Color.Green;
+                labelWarning.ForeColor = System.Drawing.Color.FromArgb(127, 255, 0);
 				//-
 				Debug.WriteLine("[Campagne] " + message + " - Nom : " + campaignName);
 			}

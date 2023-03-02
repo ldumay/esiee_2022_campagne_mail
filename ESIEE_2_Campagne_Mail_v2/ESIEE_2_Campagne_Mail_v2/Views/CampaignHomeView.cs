@@ -78,7 +78,7 @@ namespace ESIEE_2_Campagne_Mail
         private void updateAllLabelStatuts()
         {
             //Vérification du statut de la liste des emails de la camapgne
-            if (MailCampView.Instance.Manager.statutCampagneListeEmails == true)
+            if (MailCampView.Instance.Manager.HasListeEmail())
             {
                 this.labelConfirmEmailReady.Text = "✅ Emails prêts";
                 Debug.WriteLine("[Campagne] La liste des emails de la campagne est prête.");
@@ -89,38 +89,50 @@ namespace ESIEE_2_Campagne_Mail
                 Debug.WriteLine("[Campagne] La liste des emails de la campagne est prête.");
             }
             //Vérification du statut du contenu du message de la camapgne
-            if (MailCampView.Instance.Manager.statutCampagneMessage == true)
+            if (MailCampView.Instance.Manager.HasContenuValid())
             {
-                this.labelConfirmMessageReady.Text = "✅ Message prêt";
+                this.labelConfirmMessageReady.Text = "✅ Message prêt.";
                 Debug.WriteLine("[Campagne] Le contenu de la campagne est prêt.");
             }
             else
             {
-                this.labelConfirmMessageReady.Text = "❌ Emails non prêts";
+                this.labelConfirmMessageReady.Text = "❌ Emails non prêt.s";
                 Debug.WriteLine("[Campagne] Le contenu de la campagne est non prêt.");
             }
-            /*
-            //Vérification du statut de la liste des emails et du statut du contenu du message de la camapgne
-            if (MailCampView.Instance.Manager.statutCampagneListeEmails
-                && MailCampView.Instance.Manager.statutCampagneMessage
-            )
-            {
-                MailCampView.Instance.Manager.statutCampagne = true;
-            }
-            else
-            {
-                MailCampView.Instance.Manager.statutCampagne = false;
-            }
-            */
+
+
+			//Vérification du statut de la liste des emails et du statut du contenu du message de la camapgne
+			if (MailCampView.Instance.Manager.statutCampagneListeEmails
+				&& MailCampView.Instance.Manager.statutCampagneMessage
+			)
+			{
+				MailCampView.Instance.Manager.statutCampagne = true;
+			}
+			else
+			{
+				MailCampView.Instance.Manager.statutCampagne = false;
+			}
+
+			//Vérification du statut de la configuration du serveur SMTP
+			if (MailCampView.Instance.Manager.statutCampagne == true)
+			{
+				this.labelConfirmServerSMTPReady.Text = "✅ Serveur SMTP prêt.";
+				Debug.WriteLine("[Campagne] La campagne est prête.");
+			}
+			else
+			{
+				this.labelConfirmServerSMTPReady.Text = "❌ Serveur SMTP non prête.";
+				Debug.WriteLine("[Campagne] La campagne n'est pas prête.");
+			}
             //Vérification du statut de la camapgne
             if (MailCampView.Instance.Manager.statutCampagne == true)
             {
-                this.labelConfirmCampagneReady.Text = "✅ Campagne prête";
+                this.labelConfirmCampagneReady.Text = "✅ Campagne prête.";
                 Debug.WriteLine("[Campagne] La campagne est prête.");
             }
             else
             {
-                this.labelConfirmCampagneReady.Text = "❌ Campagne non prête";
+                this.labelConfirmCampagneReady.Text = "❌ Campagne non prête.";
                 Debug.WriteLine("[Campagne] La campagne n'est pas prête.");
             }
         }
