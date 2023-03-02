@@ -44,15 +44,18 @@ namespace ESIEE_2_Campagne_Mail
             List<Contact> listContactCampagne = MailCampView.Instance.Manager.RecupererListContact();
             foreach (Contact contact in listContactCampagne)
             {
+				/*
                 // Vérification de la présence du contact dans la liste des contacts actifs
                 if (listContactCampagne.Contains(contact))
                 {
-                    contact.Etat = ContactEtat.ACTIF;
+                    if(contact.Etat.Equals(ContactEtat.INACTIF))
+						contact.Etat = ContactEtat.ACTIF;
                 }
                 else if (contact.Etat == ContactEtat.ACTIF)
                 {
                     contact.Etat = ContactEtat.INACTIF;
                 }
+				*/
                 // Vérification de l'existance du contact dans la liste des contacts de la campagne
                 if (!listeContactView.Contains(contact))
                 {

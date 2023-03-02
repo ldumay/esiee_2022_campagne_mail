@@ -100,7 +100,7 @@ namespace ESIEE_2_Campagne_Mail
                 Debug.WriteLine("[Campagne] Le contenu de la campagne est non prêt.");
             }
 
-
+			/*
 			//Vérification du statut de la liste des emails et du statut du contenu du message de la camapgne
 			if (MailCampView.Instance.Manager.statutCampagneListeEmails
 				&& MailCampView.Instance.Manager.statutCampagneMessage
@@ -135,6 +135,7 @@ namespace ESIEE_2_Campagne_Mail
                 this.labelConfirmCampagneReady.Text = "❌ Campagne non prête.";
                 Debug.WriteLine("[Campagne] La campagne n'est pas prête.");
             }
+			*/
         }
     }
 }

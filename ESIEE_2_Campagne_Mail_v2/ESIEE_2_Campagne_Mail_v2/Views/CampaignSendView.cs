@@ -29,23 +29,6 @@ namespace ESIEE_2_Campagne_Mail
 		private void button1_Click(object sender, EventArgs e) { }
 
 		/// <summary>
-		/// Bouton de lancement la configuration du serveur SMTP de la campagne.
-		/// </summary>
-		private void buttonConfigSMTPServer_Click(object sender, EventArgs e)
-		{
-			//Création de la fenêtre d'édition de message
-			CampaignConfigServerSMTPView configServerSMTP = new CampaignConfigServerSMTPView();
-			//Liaison avec la page maître
-			configServerSMTP.Owner = this;
-			//Ouverture et blocage de la vue sur la nouvelle fenêtre
-			configServerSMTP.ShowDialog();
-			//-
-			//Le code suivant "ShowDialog()" est en attente de la fermture de la fenêtre
-			//Vérification de la liste des emails à la fermeture de la fenêtre
-			this.updateAllLabelStatuts();
-		}
-
-		/// <summary>
 		/// Mise à jour des labels des satuts de la campagne visible sur la page d'accueil.
 		/// </summary>
 		private void updateAllLabelStatuts()
