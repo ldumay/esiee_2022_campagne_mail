@@ -47,6 +47,21 @@ namespace ESIEE_2_Campagne_Mail.process
 			return Campagne;
 		}
 
+		internal string GetCampagneName()
+		{
+			return Campagne.Nom;
+		}
+
+		internal bool ChangeCampagneName(string name)
+		{
+			if (string.IsNullOrWhiteSpace(name))
+			{
+				return false;
+			}
+			Campagne.Nom = name;
+			return true;
+		}
+
 		/// <summary>
 		/// Retourne le contenu du mail de la campagne.
 		/// </summary>
