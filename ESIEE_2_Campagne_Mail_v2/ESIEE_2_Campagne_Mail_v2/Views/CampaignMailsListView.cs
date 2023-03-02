@@ -1,4 +1,4 @@
-﻿using ESIEE_2_Campagne_Mail.models;
+using ESIEE_2_Campagne_Mail.models;
 using ESIEE_2_Campagne_Mail.utils;
 using ESIEE_2_Campagne_Mail_v2;
 using Microsoft.VisualBasic;
@@ -172,7 +172,6 @@ namespace ESIEE_2_Campagne_Mail
         /// </summary>
         private void buttonActionImporter(object sender, EventArgs e)
         {
-            /*
             List<GroupeContact> groupeMailList = new List<GroupeContact>();
             groupeMailList.Add(UtilsFiles.ImportWithOpenFileDialogEmailsTXT());
             MailCampView.Instance.Manager.ClearGroupContact();
@@ -180,7 +179,6 @@ namespace ESIEE_2_Campagne_Mail
             {
                 MailCampView.Instance.Manager.AddGroupContact(contacts);
             }
-            */
             //-
             updateListView();
         }
