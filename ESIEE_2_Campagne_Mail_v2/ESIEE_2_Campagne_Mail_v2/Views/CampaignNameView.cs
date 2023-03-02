@@ -3,78 +3,80 @@ using System.Diagnostics;
 
 namespace ESIEE_2_Campagne_Mail
 {
-    public partial class CampaignNameView : Form
-    {
-        private string? message;
-        private string? campaignName;
+	public partial class CampaignNameView : Form
+	{
+		private string? message;
+		private string? campaignName;
 
-        /// <summary>
-        /// Constructeur
-        /// </summary>
-        public CampaignNameView()
-        {
-            // Initialisation des composants de la vue
-            InitializeComponent();
-            // Nettoyage du label d'erreur
-            clearWarning();
-            // Vérification du nom de campagne
-            checkNameCampagne();
-        }
+		/// <summary>
+		/// Constructeur
+		/// </summary>
+		public CampaignNameView()
+		{
+			// Initialisation des composants de la vue
+			InitializeComponent();
+			// Nettoyage du label d'erreur
+			clearWarning();
+			// VÃ©rification du nom de campagne
+			checkNameCampagne();
+		}
 
-        /// <summary>
-        /// Vérification de l'existance d'un nom de campagne
-        /// </summary>
-        private void checkNameCampagne()
-        {
-            if (!String.IsNullOrEmpty(MailCampView.Instance.Manager.GetCampagne().Nom))
-                textBoxNewCampaignContent.Text = MailCampView.Instance.Manager.GetCampagne().Nom;
-        }
-        
-        /// <summary>
-        /// Bouton de vérification à la bonne création d'une nouvelle campagne.
-        /// </summary>
-        private void buttonCreateCampagneClick(object sender, EventArgs e)
-        {
-            // Nettoyage du label d'erreur
-            clearWarning();
+		/// <summary>
+		/// VÃ©rification de l'existance d'un nom de campagne
+		/// </summary>
+		private void checkNameCampagne()
+		{
+			if (!string.IsNullOrEmpty(MailCampView.Instance.Manager.GetCampagneName()))
+			{
+				textBoxNewCampaignContent.Text = MailCampView.Instance.Manager.GetCampagneName();
+			}
+		}
 
-            // Récuparation du nom saisi dans le champ de texte
-            campaignName = textBoxNewCampaignContent.Text;
+		/// <summary>
+		/// Bouton de vÃ©rification Ã  la bonne crÃ©ation d'une nouvelle campagne.
+		/// </summary>
+		private void buttonCreateCampagneClick(object sender, EventArgs e)
+		{
+			// Nettoyage du label d'erreur
+			clearWarning();
 
-            // Vérification de la saisie
-            if (!string.IsNullOrEmpty(campaignName)
-                && !String.IsNullOrEmpty(MailCampView.Instance.Manager.GetCampagne().Nom)
-                && !campaignName.Equals(MailCampView.Instance.Manager.GetCampagne().Nom)
-            )
-            {
-                //On enregistre le nom de la campagne
-                MailCampView.Instance.Manager.GetCampagne().Nom = campaignName;
-                // Préparation du message d'erreur
-                message = "La campagne \"" + campaignName + "\" a bien été créé.";
-                // warning message
-                labelWarning.Text = "[Campagne] " + message;
-                labelWarning.ForeColor = System.Drawing.Color.Green;
-                //-
-                Debug.WriteLine("[Campagne] " + message + " - Nom : " + campaignName);
-            }
-            else
-            {
-                // Préparation du message d'erreur
-                message = "La campagne n'a pas pu être créé car le nom n'est pas correcte ou celui-ci existe déjà.";
-                // warning message
-                labelWarning.Text = "[Campagne] " + message;
-                labelWarning.ForeColor = System.Drawing.Color.Red;
-                //-
-                Debug.WriteLine("[Campagne] " + message  + " - Nom : " + campaignName);
-            }
-        }
+			// RÃ©cuparation du nom saisi dans le champ de texte
+			campaignName = textBoxNewCampaignContent.Text;
 
-        /// <summary>
-        /// Nettoyage de l'affichage du label d'erreur.
-        /// </summary>
-        private void clearWarning()
-        {
-            labelWarning.Text = "";
-        }
-    }
+			// VÃ©rification de la saisie
+			if (!string.IsNullOrEmpty(campaignName)
+				&& !string.IsNullOrEmpty(MailCampView.Instance.Manager.GetCampagneName())
+				&& !campaignName.Equals(MailCampView.Instance.Manager.GetCampagneName())
+			)
+			{
+				// On enregistre le nom de la campagne
+				MailCampView.Instance.Manager.ChangeCampagneName(campaignName);
+				// PrÃ©paration du message d'erreur
+				message = "La campagne \"" + campaignName + "\" a bien Ã©tÃ© crÃ©Ã©.";
+				// warning message
+				labelWarning.Text = "[Campagne] " + message;
+				labelWarning.ForeColor = System.Drawing.Color.Green;
+				//-
+				Debug.WriteLine("[Campagne] " + message + " - Nom : " + campaignName);
+			}
+			else
+			{
+				// PrÃ©paration du message d'erreur
+				message = "La campagne n'a pas pu Ãªtre crÃ©Ã© car le nom n'est pas correcte ou celui-ci existe dÃ©jÃ .";
+				// warning message
+				labelWarning.Text = "[Campagne] " + message;
+				labelWarning.ForeColor = System.Drawing.Color.Red;
+				//-
+				Debug.WriteLine("[Campagne] " + message + " - Nom : " + campaignName);
+			}
+		}
+
+		/// <summary>
+		/// Nettoyage de l'affichage du label d'erreur.
+		/// </summary>
+		private void clearWarning()
+		{
+			labelWarning.Text = "";
+		}
+	}
 }

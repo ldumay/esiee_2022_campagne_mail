@@ -1,4 +1,4 @@
-﻿using ESIEE_2_Campagne_Mail.models;
+using ESIEE_2_Campagne_Mail.models;
 using ESIEE_2_Campagne_Mail.process;
 using ESIEE_2_Campagne_Mail_v2;
 using System.Diagnostics;
@@ -18,7 +18,7 @@ namespace ESIEE_2_Campagne_Mail
             {
                 // Une vérification de null est-elle obligatoire ici ?
                 // Lors de l'init de CampagneManager, soit Campagne sera trouvé, soit Campagne sera créé
-                labelCamapagneNameContent.Text = MailCampView.Instance.Manager.GetCampagne().Nom;
+                labelCamapagneNameContent.Text = MailCampView.Instance.Manager.GetCampagneName();
             }
             this.updateAllLabelStatuts();
         }

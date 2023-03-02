@@ -9,280 +9,279 @@ using static ESIEE_2_Campagne_Mail_v2.utils.UtilsDesign;
 
 namespace ESIEE_2_Campagne_Mail_v2
 {
-    public partial class MailCampView : Form
-    {
-        // - - - [Variables] - - -
-        public string? campagneName;
-        public string? campagneNameDefault = "default-name";
-        private IconButton? currentBtn;
-        private Panel? leftBorderBtn;
-        private Form? currentChildForm;
-        
-        // - - - [Instances] - - -
-        public static MailCampView? Instance;
-        internal CampagneManager Manager { get; }
+	public partial class MailCampView : Form
+	{
+		// - - - [Variables] - - -
+		public string? campagneName;
+		public readonly string campagneNameDefault = "default-name";
+		private IconButton? currentBtn;
+		private Panel? leftBorderBtn;
+		private Form? currentChildForm;
 
-        /// <summary>
-        /// Constructeur
-        /// </summary>
-        public MailCampView()
-        {
-            // Chargement des composants
-            InitializeComponent();
-            // Chargement de la configuration de démarrage
-            startConfiguration(true, true, true, "center", false);
-            //Préparation du gestionnaire de campagne
-            Instance = this;
-            if (campagneName == null)
-                Manager = new CampagneManager(campagneNameDefault);
-            //Ouverture de l'accueil
-            openHome();
-        }
+		// - - - [Instances] - - -
+		public static MailCampView? Instance;
+		internal CampagneManager Manager { get; }
 
-        // - - - [Methods] - - -
+		/// <summary>
+		/// Constructeur
+		/// </summary>
+		public MailCampView()
+		{
+			// Chargement des composants
+			InitializeComponent();
+			// Chargement de la configuration de dÃ©marrage
+			startConfiguration(true, true, true, "center", false);
+			// PrÃ©paration du gestionnaire de campagne
+			Instance = this;
+			if (string.IsNullOrEmpty(campagneName))
+			{
+				Manager = new CampagneManager(campagneNameDefault);
+			}
+			else
+			{
+				Manager = new CampagneManager(campagneName);
+			}
+			// Ouverture de l'accueil
+			openHome();
+		}
 
-        /// <summary>
-        /// Configuration de démarrage du formulaire.
-        /// </summary>
-        private void startConfiguration(bool fixe, bool maximize, bool reduce, string position, bool show)
-        {
-            // Définit le style de bordure du formulaire à une boîte de dialogue.
-            if (fixe)
-                this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            // Maximise la boîte de maximisation.
-            if (maximize)
-                this.MaximizeBox = true;
-            // Supprime la boîte de réduction.
-            if (reduce)
-                this.MinimizeBox = true;
-            // Définit la position de départ du formulaire au centre de l'écran.
-            if (position == "center")
-                this.StartPosition = FormStartPosition.CenterScreen;
-            // Affiche le formulaire sous la forme d'une boîte de dialogue modale.
-            if (show)
-                this.ShowDialog();
+		// - - - [Methods] - - -
 
-            //Form
-            leftBorderBtn = new Panel();
-            leftBorderBtn.Size = new Size(7, 45);
-            panelMenu.Controls.Add(leftBorderBtn);
-            this.Text = string.Empty;
-            this.ControlBox = false;
-            this.DoubleBuffered = true;
-            //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-        }
+		/// <summary>
+		/// Configuration de dÃ©marrage du formulaire.
+		/// </summary>
+		private void startConfiguration(bool fixe, bool maximize, bool reduce, string position, bool show)
+		{
+			// DÃ©finit le style de bordure du formulaire Ã  une boÃ®te de dialogue.
+			if (fixe)
+				this.FormBorderStyle = FormBorderStyle.FixedDialog;
+			// Maximise la boÃ®te de maximisation.
+			if (maximize)
+				this.MaximizeBox = true;
+			// Supprime la boÃ®te de rÃ©duction.
+			if (reduce)
+				this.MinimizeBox = true;
+			// DÃ©finit la position de dÃ©part du formulaire au centre de l'Ã©cran.
+			if (position == "center")
+				this.StartPosition = FormStartPosition.CenterScreen;
+			// Affiche le formulaire sous la forme d'une boÃ®te de dialogue modale.
+			if (show)
+				this.ShowDialog();
 
-        /// <summary>
-        /// Ouverture d'un nouveau formulaire dans notre formulaire principal.
-        /// </summary>
-        private void OpenChildForm(Form childForm)
-        {
-            //open only form
-            if (currentChildForm != null)
-            {
-                currentChildForm.Close();
-            }
-            currentChildForm = childForm;
-            //End
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.Controls.Add(childForm);
-            this.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
-            labelTopCurrentForm.Text = childForm.Text;
-        }
+			//Form
+			leftBorderBtn = new Panel();
+			leftBorderBtn.Size = new Size(7, 45);
+			panelMenu.Controls.Add(leftBorderBtn);
+			this.Text = string.Empty;
+			this.ControlBox = false;
+			this.DoubleBuffered = true;
+			//this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+		}
 
-        /// <summary>
-        /// Activer un bouton si il a été cliqué.
-        /// </summary>
-        private void ActivateButton(object senderBtn, Color color)
-        {
-            if (senderBtn != null)
-            {
-                DisableButton();
+		/// <summary>
+		/// Ouverture d'un nouveau formulaire dans notre formulaire principal.
+		/// </summary>
+		private void OpenChildForm(Form childForm)
+		{
+			//open only form
+			if (currentChildForm != null)
+			{
+				currentChildForm.Close();
+			}
+			currentChildForm = childForm;
+			//End
+			childForm.TopLevel = false;
+			childForm.FormBorderStyle = FormBorderStyle.None;
+			childForm.Dock = DockStyle.Fill;
+			this.Controls.Add(childForm);
+			this.Tag = childForm;
+			childForm.BringToFront();
+			childForm.Show();
+			labelTopCurrentForm.Text = childForm.Text;
+		}
 
-                //Button
-                currentBtn = (IconButton)senderBtn;
-                currentBtn.BackColor = RGBColors.color3;
-                currentBtn.ForeColor = color;
-                currentBtn.TextAlign = ContentAlignment.MiddleCenter;
-                currentBtn.IconColor = color;
-                currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
-                currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+		/// <summary>
+		/// Activer un bouton si il a Ã©tÃ© cliquÃ©.
+		/// </summary>
+		private void ActivateButton(object senderBtn, Color color)
+		{
+			if (senderBtn != null)
+			{
+				DisableButton();
 
-                //Left border button
-                leftBorderBtn.BackColor = color;
-                leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
-                leftBorderBtn.Visible = true;
-                leftBorderBtn.BringToFront();
+				//Button
+				currentBtn = (IconButton)senderBtn;
+				currentBtn.BackColor = RGBColors.color3;
+				currentBtn.ForeColor = color;
+				currentBtn.TextAlign = ContentAlignment.MiddleCenter;
+				currentBtn.IconColor = color;
+				currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+				currentBtn.ImageAlign = ContentAlignment.MiddleRight;
 
-                //Current Child Form Icon
-                iconPictureBoxTopCurrentForm.IconChar = currentBtn.IconChar;
-                //iconPictureBoxTopCurrentForm.IconColor = color;
-            }
-        }
+				//Left border button
+				leftBorderBtn.BackColor = color;
+				leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
+				leftBorderBtn.Visible = true;
+				leftBorderBtn.BringToFront();
 
-        /// <summary>
-        /// Désactiver un bouton activer.
-        /// </summary>
-        private void DisableButton()
-        {
-            if (currentBtn != null)
-            {
-                currentBtn.BackColor = RGBColors.color5;
-                currentBtn.ForeColor = Color.Gainsboro;
-                currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                currentBtn.IconColor = Color.Gainsboro;
-                currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
-                currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            }
-        }
+				//Current Child Form Icon
+				iconPictureBoxTopCurrentForm.IconChar = currentBtn.IconChar;
+				//iconPictureBoxTopCurrentForm.IconColor = color;
+			}
+		}
 
-        /// <summary>
-        /// Réinitialisation du formulaire principal.
-        /// - Désactiver un bouton activer.
-        /// - Nettoyage de vue centrale du formulaire principal.
-        /// </summary>
-        private void Reset()
-        {
-            DisableButton();
-            leftBorderBtn.Visible = false;
-            iconPictureBoxTopCurrentForm.IconChar = IconChar.Home;
-            //iconPictureBoxTopCurrentForm.IconColor = Color.MediumPurple;
-            labelTopCurrentForm.Text = "Accueil";
-        }
+		/// <summary>
+		/// DÃ©sactiver un bouton activer.
+		/// </summary>
+		private void DisableButton()
+		{
+			if (currentBtn != null)
+			{
+				currentBtn.BackColor = RGBColors.color5;
+				currentBtn.ForeColor = Color.Gainsboro;
+				currentBtn.TextAlign = ContentAlignment.MiddleLeft;
+				currentBtn.IconColor = Color.Gainsboro;
+				currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+				currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
+			}
+		}
 
-        // - - - [Events] - - -
+		/// <summary>
+		/// RÃ©initialisation du formulaire principal.
+		/// - DÃ©sactiver un bouton activer.
+		/// - Nettoyage de vue centrale du formulaire principal.
+		/// </summary>
+		private void Reset()
+		{
+			DisableButton();
+			leftBorderBtn.Visible = false;
+			iconPictureBoxTopCurrentForm.IconChar = IconChar.Home;
+			//iconPictureBoxTopCurrentForm.IconColor = Color.MediumPurple;
+			labelTopCurrentForm.Text = "Accueil";
+		}
 
-        /// <summary>
-        /// Ouverture de l'accueil dans la vue centrale du formulaire principal.
-        /// </summary>
-        private void openHome()
-        {
-            Debug.WriteLine("[Open - Button - Home]");
-            //-
-            if (Manager.GetCampagne().Nom != null)
-            {
-                OpenChildForm(new CampaignHomeView(Manager.GetCampagne().Nom));
-            }
-            else
-            {
-                OpenChildForm(new CampaignHomeView(campagneNameDefault));
-            }
-        }
+		// - - - [Events] - - -
 
-        /// <summary>
-        /// Nettoyage de la vue centrale du formulaire principal.
-        /// </summary>
-        private void clear()
-        {
-            Debug.WriteLine("[Clear - MailCamp View]");
-            //6
-            if (currentChildForm != null)
-            {
-                currentChildForm.Close();
-            }
-            Reset();
-        }
-        
-        // - - - [Click Buttons] - - -
+		/// <summary>
+		/// Ouverture de l'accueil dans la vue centrale du formulaire principal.
+		/// </summary>
+		private void openHome()
+		{
+			Debug.WriteLine("[Open - Button - Home]");
+			//-
+			OpenChildForm(new CampaignHomeView(Manager.GetCampagneName()));
+		}
 
-        /// <summary>
-        /// Clique sur le bouton d'accueil
-        /// et nettoie la vue centrale du formulaire principal.
-        /// </summary>
-        private void iconButtonHome_Click(object sender, EventArgs e)
-        {
-            Debug.WriteLine("[Click - Button - Home]");
-            //-
-            clear();
-            //-
-            ActivateButton(sender, RGBColors.color1);
-            openHome();
-        }
+		/// <summary>
+		/// Nettoyage de la vue centrale du formulaire principal.
+		/// </summary>
+		private void clear()
+		{
+			Debug.WriteLine("[Clear - MailCamp View]");
+			//6
+			if (currentChildForm != null)
+			{
+				currentChildForm.Close();
+			}
+			Reset();
+		}
 
-        /// <summary>
-        /// Clique sur le bouton de nouvelle campagne
-        /// et ouvre le formulaire de création de campagne.
-        /// </summary>
-        private void iconButtonCampaign_Click(object sender, EventArgs e)
-        {
-            Debug.WriteLine("[Click - Button - New Campaign]");
-            //-
-            ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new CampaignNameView());
-        }
+		// - - - [Click Buttons] - - -
 
-        /// <summary>
-        /// Clique sur le bouton de liste des mails
-        /// et ouvre le formulaire de liste des mails.
-        /// </summary>
-        private void iconButtonMailsList_Click(object sender, EventArgs e)
-        {
-            Debug.WriteLine("[Click - Button - Mails List]");
-            //-
-            ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new CampaignMailsListView());
-        }
+		/// <summary>
+		/// Clique sur le bouton d'accueil
+		/// et nettoie la vue centrale du formulaire principal.
+		/// </summary>
+		private void iconButtonHome_Click(object sender, EventArgs e)
+		{
+			Debug.WriteLine("[Click - Button - Home]");
+			//-
+			clear();
+			//-
+			ActivateButton(sender, RGBColors.color1);
+			openHome();
+		}
 
-        /// <summary>
-        /// Clique sur le bouton de message de la campagne
-        /// et ouvre le formulaire d'édition du message de la campagne.
-        /// </summary>
-        private void iconButtonCampaignMessage_Click(object sender, EventArgs e)
-        {
-            Debug.WriteLine("[Click - Button - Campaign Message]");
-            //-
-            ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new CampaignMessageEditorView());
-        }
+		/// <summary>
+		/// Clique sur le bouton de nouvelle campagne
+		/// et ouvre le formulaire de crÃ©ation de campagne.
+		/// </summary>
+		private void iconButtonCampaign_Click(object sender, EventArgs e)
+		{
+			Debug.WriteLine("[Click - Button - New Campaign]");
+			//-
+			ActivateButton(sender, RGBColors.color1);
+			OpenChildForm(new CampaignNameView());
+		}
 
-        /// <summary>
-        /// Clique sur le bouton de configuration du serveur SMTP
-        /// et ouvre le formulaire de configuration du serveur SMTP.
-        /// </summary>
-        private void iconButtonConfigSMTP_Click(object sender, EventArgs e)
-        {
-            Debug.WriteLine("[Click - Button - Config SMTP]");
-            //-
-            ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new CampaignConfigServerSMTPView());
-        }
+		/// <summary>
+		/// Clique sur le bouton de liste des mails
+		/// et ouvre le formulaire de liste des mails.
+		/// </summary>
+		private void iconButtonMailsList_Click(object sender, EventArgs e)
+		{
+			Debug.WriteLine("[Click - Button - Mails List]");
+			//-
+			ActivateButton(sender, RGBColors.color1);
+			OpenChildForm(new CampaignMailsListView());
+		}
 
-        /// <summary>
-        /// Clique sur le bouton de l'envoi de la campagne
-        /// et ouvre le formulaire de l'envoi de la campagne.
-        /// </summary>
-        private void iconButtonCampaignSend_Click(object sender, EventArgs e)
-        {
-            Debug.WriteLine("[Click - Button - Campaign Send]");
-            //-
-            ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new CampaignSendView());
-        }
+		/// <summary>
+		/// Clique sur le bouton de message de la campagne
+		/// et ouvre le formulaire d'Ã©dition du message de la campagne.
+		/// </summary>
+		private void iconButtonCampaignMessage_Click(object sender, EventArgs e)
+		{
+			Debug.WriteLine("[Click - Button - Campaign Message]");
+			//-
+			ActivateButton(sender, RGBColors.color1);
+			OpenChildForm(new CampaignMessageEditorView());
+		}
 
-        /// <summary>
-        /// Clique sur le bouton de à propos
-        /// et ouvre le formulaire d'informations à propos de l'application.
-        /// </summary>
-        private void iconButtonAboutApp_Click(object sender, EventArgs e)
-        {
-            Debug.WriteLine("[Click - Button - About Appd]");
-            //-
-            ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new AboutView());
-        }
+		/// <summary>
+		/// Clique sur le bouton de configuration du serveur SMTP
+		/// et ouvre le formulaire de configuration du serveur SMTP.
+		/// </summary>
+		private void iconButtonConfigSMTP_Click(object sender, EventArgs e)
+		{
+			Debug.WriteLine("[Click - Button - Config SMTP]");
+			//-
+			ActivateButton(sender, RGBColors.color1);
+			OpenChildForm(new CampaignConfigServerSMTPView());
+		}
 
-        /// <summary>
-        /// Clique sur le bouton de fermeture de l'application.
-        /// </summary>
-        private void iconButtonExitApp_Click(object sender, EventArgs e)
-        {
-            Debug.WriteLine("[Click - Button - Exit App]");
-            //-
-            Application.Exit();
-        }
-    }
+		/// <summary>
+		/// Clique sur le bouton de l'envoi de la campagne
+		/// et ouvre le formulaire de l'envoi de la campagne.
+		/// </summary>
+		private void iconButtonCampaignSend_Click(object sender, EventArgs e)
+		{
+			Debug.WriteLine("[Click - Button - Campaign Send]");
+			//-
+			ActivateButton(sender, RGBColors.color1);
+			OpenChildForm(new CampaignSendView());
+		}
+
+		/// <summary>
+		/// Clique sur le bouton de Ã  propos
+		/// et ouvre le formulaire d'informations Ã  propos de l'application.
+		/// </summary>
+		private void iconButtonAboutApp_Click(object sender, EventArgs e)
+		{
+			Debug.WriteLine("[Click - Button - About Appd]");
+			//-
+			ActivateButton(sender, RGBColors.color1);
+			OpenChildForm(new AboutView());
+		}
+
+		/// <summary>
+		/// Clique sur le bouton de fermeture de l'application.
+		/// </summary>
+		private void iconButtonExitApp_Click(object sender, EventArgs e)
+		{
+			Debug.WriteLine("[Click - Button - Exit App]");
+			//-
+			Application.Exit();
+		}
+	}
 }
