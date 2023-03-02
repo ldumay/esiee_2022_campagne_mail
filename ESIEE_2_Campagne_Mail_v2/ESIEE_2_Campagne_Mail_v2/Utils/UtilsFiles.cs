@@ -1,6 +1,5 @@
 using ESIEE_2_Campagne_Mail.models;
 using System.Diagnostics;
-using System.Windows.Forms;
 
 namespace ESIEE_2_Campagne_Mail.utils
 {

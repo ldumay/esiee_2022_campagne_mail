@@ -1,5 +1,3 @@
-using System.Diagnostics;
-
 namespace ESIEE_2_Campagne_Mail.models
 {
 	/// <summary>
