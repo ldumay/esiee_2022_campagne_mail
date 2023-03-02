@@ -99,22 +99,8 @@ namespace ESIEE_2_Campagne_Mail
                 this.labelConfirmMessageReady.Text = "❌ Emails non prêt.s";
                 Debug.WriteLine("[Campagne] Le contenu de la campagne est non prêt.");
             }
-
-			/*
-			//Vérification du statut de la liste des emails et du statut du contenu du message de la camapgne
-			if (MailCampView.Instance.Manager.statutCampagneListeEmails
-				&& MailCampView.Instance.Manager.statutCampagneMessage
-			)
-			{
-				MailCampView.Instance.Manager.statutCampagne = true;
-			}
-			else
-			{
-				MailCampView.Instance.Manager.statutCampagne = false;
-			}
-
 			//Vérification du statut de la configuration du serveur SMTP
-			if (MailCampView.Instance.Manager.statutCampagne == true)
+			if (MailCampView.Instance.Manager.SMTPConnectionHandler.IsSMTPParameterValid())
 			{
 				this.labelConfirmServerSMTPReady.Text = "✅ Serveur SMTP prêt.";
 				Debug.WriteLine("[Campagne] La campagne est prête.");
@@ -124,8 +110,10 @@ namespace ESIEE_2_Campagne_Mail
 				this.labelConfirmServerSMTPReady.Text = "❌ Serveur SMTP non prête.";
 				Debug.WriteLine("[Campagne] La campagne n'est pas prête.");
 			}
-            //Vérification du statut de la camapgne
-            if (MailCampView.Instance.Manager.statutCampagne == true)
+			//Vérification du statut de la camapgne
+			if (MailCampView.Instance.Manager.HasListeEmail()
+				&& MailCampView.Instance.Manager.HasContenuValid()
+				&& MailCampView.Instance.Manager.SMTPConnectionHandler.IsSMTPParameterValid())
             {
                 this.labelConfirmCampagneReady.Text = "✅ Campagne prête.";
                 Debug.WriteLine("[Campagne] La campagne est prête.");
@@ -135,7 +123,6 @@ namespace ESIEE_2_Campagne_Mail
                 this.labelConfirmCampagneReady.Text = "❌ Campagne non prête.";
                 Debug.WriteLine("[Campagne] La campagne n'est pas prête.");
             }
-			*/
         }
     }
 }
