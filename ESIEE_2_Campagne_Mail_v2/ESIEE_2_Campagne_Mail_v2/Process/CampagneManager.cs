@@ -19,7 +19,7 @@ namespace ESIEE_2_Campagne_Mail.process
 		/// <summary>
 		/// Attribut de la Campagne.
 		/// </summary>
-		private SMTPConnectionHandler SMTPConnectionHandler { get; }
+		public SMTPConnectionHandler SMTPConnectionHandler { get; private set; }
 		/// <summary>
 		/// Attribut du SMTPConnectionHandler.
 		/// </summary>
@@ -87,12 +87,6 @@ namespace ESIEE_2_Campagne_Mail.process
 			}
 			ContenuDeMail contenuDeMail = GetContenuDuMail();
 			contenuDeMail.ChangerContenu(expediteur, titre, rebound, contenu);
-		}
-
-
-		internal SMTPConnectionHandler GetSMTPConnectionHandler()
-		{
-			return SMTPConnectionHandler;
 		}
 
 		/// <summary>
@@ -220,16 +214,15 @@ namespace ESIEE_2_Campagne_Mail.process
 		}
 
 		/// <summary>
-		/// Nettoyage de la liste des contacts de la campagne.
+		/// Nettoyage de la liste des contacts
 		/// </summary>
 		public void ClearGroupContact()
 		{
 			Campagne.ListGroupeContact.Clear();
-			statutCampagneListeEmails = false;
 		}
 
 		/// <summary>
-		/// Nettoyage de la liste des contacts de la campagne.
+		/// Vide et remplace la liste des contacts
 		/// </summary>
 		public void ReplaceGroupContact(GroupeContact contacts)
 		{

@@ -62,7 +62,7 @@ namespace ESIEE_2_Campagne_Mail.process
 			message.Body = ContenuMail.Contenu;
 			foreach (string mail in listeMails)
 			{
-				message.CC.Add(new MailAddress(mail));
+				message.To.Add(new MailAddress(mail));
 			}
 			Client.Host = SMTPHost;
 			Client.Port = SMTPPort;
