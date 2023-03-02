@@ -214,12 +214,37 @@ namespace ESIEE_2_Campagne_Mail
             List<Contact> contactList = MailCampView.Instance.Manager.RecupererListContact();
             foreach (Contact contact in contactList)
             {
-                File.AppendAllText(downloadFilePath, "nop,nop,nop," + contact.Email + ",nop" + Environment.NewLine, Encoding.UTF8);
+                File.AppendAllText(
+					downloadFilePath, //
+					contact.Id //Id
+					+ "," + contact.Nom //Nom
+					+ "," + contact.Prenom //Prenom
+					+ "," + contact.Email //Email
+					+ "," + formatageEtat(contact.Etat)
+					+ Environment.NewLine,
+					Encoding.UTF8
+				);
             }
-
-            MessageBox.Show("Export done");
-
+            MessageBox.Show("L'exportation a bien été effectué.\nLe fichier a été déposé dans le dossier : "+downloadFilePath);
         }
+
+		/// <summary>
+		/// Méthode de formatage d'un état reçu en majuscule.
+		/// </summary>
+		private string formatageEtat(ContactEtat contactEtat) {
+			if (contactEtat.Equals(ContactEtat.ACTIF) || contactEtat.Equals("ACTIF"))
+				return "Actif";
+			else if (contactEtat.Equals(ContactEtat.INACTIF) || contactEtat.Equals("INACTIF"))
+				return "Inactif";
+			else if (contactEtat.Equals(ContactEtat.DOUBLON) || contactEtat.Equals("DOUBLON"))
+				return "Doublon";
+			else if (contactEtat.Equals(ContactEtat.ERREUR_MAIL_NON_CONFORME) || contactEtat.Equals("ERREUR_MAIL_NON_CONFORME"))
+				return "Erreur_mail_non_conforme";
+			else if (contactEtat.Equals(ContactEtat.ERREUR) || contactEtat.Equals("ERREUR"))
+				return "Erreur";
+			else
+				return "Inconnu";
+		}
 
         /// <summary>
         /// Bouton d'action de vérification des doublons.
