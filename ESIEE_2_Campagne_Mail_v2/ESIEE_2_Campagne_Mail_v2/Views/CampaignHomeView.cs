@@ -1,4 +1,4 @@
-﻿using ESIEE_2_Campagne_Mail.models;
+using ESIEE_2_Campagne_Mail.models;
 using ESIEE_2_Campagne_Mail.process;
 using ESIEE_2_Campagne_Mail_v2;
 using System.Diagnostics;
@@ -78,7 +78,7 @@ namespace ESIEE_2_Campagne_Mail
         private void updateAllLabelStatuts()
         {
             //Vérification du statut de la liste des emails de la camapgne
-            if (MailCampView.Instance.Manager.statutCampagneListeEmails == true)
+            if (MailCampView.Instance.Manager.HasListeEmail())
             {
                 this.labelConfirmEmailReady.Text = "✅ Emails prêts";
                 Debug.WriteLine("[Campagne] La liste des emails de la campagne est prête.");
@@ -89,7 +89,7 @@ namespace ESIEE_2_Campagne_Mail
                 Debug.WriteLine("[Campagne] La liste des emails de la campagne est prête.");
             }
             //Vérification du statut du contenu du message de la camapgne
-            if (MailCampView.Instance.Manager.statutCampagneMessage == true)
+            if (MailCampView.Instance.Manager.HasContenuValid())
             {
                 this.labelConfirmMessageReady.Text = "✅ Message prêt";
                 Debug.WriteLine("[Campagne] Le contenu de la campagne est prêt.");
@@ -99,7 +99,7 @@ namespace ESIEE_2_Campagne_Mail
                 this.labelConfirmMessageReady.Text = "❌ Emails non prêts";
                 Debug.WriteLine("[Campagne] Le contenu de la campagne est non prêt.");
             }
-            /*
+			/*
             //Vérification du statut de la liste des emails et du statut du contenu du message de la camapgne
             if (MailCampView.Instance.Manager.statutCampagneListeEmails
                 && MailCampView.Instance.Manager.statutCampagneMessage
@@ -111,7 +111,6 @@ namespace ESIEE_2_Campagne_Mail
             {
                 MailCampView.Instance.Manager.statutCampagne = false;
             }
-            */
             //Vérification du statut de la camapgne
             if (MailCampView.Instance.Manager.statutCampagne == true)
             {
@@ -123,6 +122,7 @@ namespace ESIEE_2_Campagne_Mail
                 this.labelConfirmCampagneReady.Text = "❌ Campagne non prête";
                 Debug.WriteLine("[Campagne] La campagne n'est pas prête.");
             }
+			*/
         }
     }
 }

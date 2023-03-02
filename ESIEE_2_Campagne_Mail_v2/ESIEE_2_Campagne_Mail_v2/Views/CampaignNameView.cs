@@ -17,12 +17,12 @@ namespace ESIEE_2_Campagne_Mail
             InitializeComponent();
             // Nettoyage du label d'erreur
             clearWarning();
-            // Vérification du nom de campagne
+            // VÃ©rification du nom de campagne
             checkNameCampagne();
         }
 
         /// <summary>
-        /// Vérification de l'existance d'un nom de campagne
+        /// VÃ©rification de l'existance d'un nom de campagne
         /// </summary>
         private void checkNameCampagne()
         {
@@ -31,17 +31,17 @@ namespace ESIEE_2_Campagne_Mail
         }
         
         /// <summary>
-        /// Bouton de vérification à la bonne création d'une nouvelle campagne.
+        /// Bouton de vÃ©rification Ã  la bonne crÃ©ation d'une nouvelle campagne.
         /// </summary>
         private void buttonCreateCampagneClick(object sender, EventArgs e)
         {
             // Nettoyage du label d'erreur
             clearWarning();
 
-            // Récuparation du nom saisi dans le champ de texte
+            // RÃ©cuparation du nom saisi dans le champ de texte
             campaignName = textBoxNewCampaignContent.Text;
 
-            // Vérification de la saisie
+            // VÃ©rification de la saisie
             if (!string.IsNullOrEmpty(campaignName)
                 && !String.IsNullOrEmpty(MailCampView.Instance.Manager.GetCampagne().Nom)
                 && !campaignName.Equals(MailCampView.Instance.Manager.GetCampagne().Nom)
@@ -49,18 +49,18 @@ namespace ESIEE_2_Campagne_Mail
             {
                 //On enregistre le nom de la campagne
                 MailCampView.Instance.Manager.GetCampagne().Nom = campaignName;
-                // Préparation du message d'erreur
-                message = "La campagne \"" + campaignName + "\" a bien été créé.";
+                // PrÃ©paration du message d'erreur
+                message = "La campagne \"" + campaignName + "\" a bien Ã©tÃ© crÃ©Ã©.";
                 // warning message
                 labelWarning.Text = "[Campagne] " + message;
-                labelWarning.ForeColor = System.Drawing.Color.Green;
+                labelWarning.ForeColor = System.Drawing.Color.FromArgb(127, 255, 0);
                 //-
                 Debug.WriteLine("[Campagne] " + message + " - Nom : " + campaignName);
             }
             else
             {
-                // Préparation du message d'erreur
-                message = "La campagne n'a pas pu être créé car le nom n'est pas correcte ou celui-ci existe déjà.";
+                // PrÃ©paration du message d'erreur
+                message = "La campagne n'a pas pu Ãªtre crÃ©Ã© car le nom n'est pas correcte ou celui-ci existe dÃ©jÃ .";
                 // warning message
                 labelWarning.Text = "[Campagne] " + message;
                 labelWarning.ForeColor = System.Drawing.Color.Red;

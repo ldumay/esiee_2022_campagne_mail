@@ -33,9 +33,6 @@
             this.labelConfirmEmailReady = new System.Windows.Forms.Label();
             this.labelConfirmMessageReady = new System.Windows.Forms.Label();
             this.labelConfirmCampagneReady = new System.Windows.Forms.Label();
-            this.Email = new System.Windows.Forms.Button();
-            this.Message = new System.Windows.Forms.Button();
-            this.Send_campaign = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelCampagneName
@@ -93,51 +90,6 @@
             this.labelConfirmCampagneReady.TabIndex = 13;
             this.labelConfirmCampagneReady.Text = "❌ Campagne non prête";
             // 
-            // Email
-            // 
-            this.Email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(108)))), ((int)(((byte)(130)))));
-            this.Email.FlatAppearance.BorderSize = 0;
-            this.Email.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Email.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Email.ForeColor = System.Drawing.Color.White;
-            this.Email.Location = new System.Drawing.Point(323, 71);
-            this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(262, 85);
-            this.Email.TabIndex = 0;
-            this.Email.Text = "Emails\r\n\r\nSélection la liste des emails à contacter";
-            this.Email.UseVisualStyleBackColor = false;
-            this.Email.Click += new System.EventHandler(this.Email_Click);
-            // 
-            // Message
-            // 
-            this.Message.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(108)))), ((int)(((byte)(130)))));
-            this.Message.FlatAppearance.BorderSize = 0;
-            this.Message.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Message.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Message.ForeColor = System.Drawing.Color.White;
-            this.Message.Location = new System.Drawing.Point(323, 175);
-            this.Message.Name = "Message";
-            this.Message.Size = new System.Drawing.Size(262, 85);
-            this.Message.TabIndex = 1;
-            this.Message.Text = "Message\r\n\r\nEdition du contenu de l\'email";
-            this.Message.UseVisualStyleBackColor = false;
-            this.Message.Click += new System.EventHandler(this.Message_Click);
-            // 
-            // Send_campaign
-            // 
-            this.Send_campaign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(108)))), ((int)(((byte)(130)))));
-            this.Send_campaign.FlatAppearance.BorderSize = 0;
-            this.Send_campaign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Send_campaign.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Send_campaign.ForeColor = System.Drawing.Color.White;
-            this.Send_campaign.Location = new System.Drawing.Point(27, 202);
-            this.Send_campaign.Name = "Send_campaign";
-            this.Send_campaign.Size = new System.Drawing.Size(262, 84);
-            this.Send_campaign.TabIndex = 2;
-            this.Send_campaign.Text = "Envoi\r\n\r\nTest et envoi de la campagne";
-            this.Send_campaign.UseVisualStyleBackColor = false;
-            this.Send_campaign.Click += new System.EventHandler(this.EnvoiCampagne_Click);
-            // 
             // CampaignHomeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -149,9 +101,6 @@
             this.Controls.Add(this.labelConfirmEmailReady);
             this.Controls.Add(this.labelCamapagneNameContent);
             this.Controls.Add(this.labelCampagneName);
-            this.Controls.Add(this.Send_campaign);
-            this.Controls.Add(this.Message);
-            this.Controls.Add(this.Email);
             this.Name = "CampaignHomeView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Accueil";
@@ -166,8 +115,5 @@
         private Label labelConfirmEmailReady;
         private Label labelConfirmMessageReady;
         private Label labelConfirmCampagneReady;
-        private Button Email;
-        private Button Message;
-        private Button Send_campaign;
     }
 }
