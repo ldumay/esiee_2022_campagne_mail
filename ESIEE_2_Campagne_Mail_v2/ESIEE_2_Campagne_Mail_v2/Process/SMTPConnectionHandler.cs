@@ -67,13 +67,18 @@ namespace ESIEE_2_Campagne_Mail.process
 			Client.Host = SMTPHost;
 			Client.Port = SMTPPort;
 			Client.Credentials = new NetworkCredential(SMTPUserLogin, SMTPUserMDP);
+			//-
+			string messageError = "";
+			//-
 			try
 			{
 				Client.Send(message);
 			}
 			catch (Exception ex)
 			{
-				Debug.WriteLine(ex.Message);
+				messageError = ex.Message;
+				Debug.WriteLine("[Campagne] - Message d'erreur :\n" + messageError);
+				MessageBox.Show("Oups !\n\n" + messageError, "Envoi de la campagne - Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return false;
 			}
 			return true;
