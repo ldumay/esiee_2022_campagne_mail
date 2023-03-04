@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 
-namespace ESIEE_2_Campagne_Mail.gui
+namespace ESIEE_2_Campagne_Mail_v2.Views
 {
 	public partial class CampaignConfigServerSMTPView : Form
 	{

@@ -1,6 +1,7 @@
-using ESIEE_2_Campagne_Mail.models;
-using ESIEE_2_Campagne_Mail.utils;
+using ESIEE_2_Campagne_Mail_v2.models;
+using ESIEE_2_Campagne_Mail_v2.utils;
 using ESIEE_2_Campagne_Mail_v2;
+using ESIEE_2_Campagne_Mail_v2.enums;
 using Microsoft.VisualBasic;
 using Microsoft.Win32;
 using System;
@@ -18,9 +19,9 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
-namespace ESIEE_2_Campagne_Mail
+namespace ESIEE_2_Campagne_Mail_v2
 {
-    public partial class CampaignMailsListView : Form
+	public partial class CampaignMailsListView : Form
     {
         private readonly List<Contact> listeContactView = new List<Contact>();
         private List<ListViewItem> listeItemsDansLaListeView = new List<ListViewItem>();

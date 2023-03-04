@@ -1,6 +1,6 @@
-﻿using ESIEE_2_Campagne_Mail.models;
+using ESIEE_2_Campagne_Mail_v2.models;
 
-namespace ESIEE_2_Campagne_Mail
+namespace ESIEE_2_Campagne_Mail_v2
 {
     partial class CampaignMailsListView
     {

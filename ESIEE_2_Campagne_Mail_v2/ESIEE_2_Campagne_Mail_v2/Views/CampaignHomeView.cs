@@ -1,9 +1,9 @@
-using ESIEE_2_Campagne_Mail.models;
-using ESIEE_2_Campagne_Mail.process;
+using ESIEE_2_Campagne_Mail_v2.models;
+using ESIEE_2_Campagne_Mail_v2.process;
 using ESIEE_2_Campagne_Mail_v2;
 using System.Diagnostics;
 
-namespace ESIEE_2_Campagne_Mail
+namespace ESIEE_2_Campagne_Mail_v2
 {
 	public partial class CampaignHomeView : Form
 	{

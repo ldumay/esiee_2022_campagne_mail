@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
-namespace ESIEE_2_Campagne_Mail.utils
+namespace ESIEE_2_Campagne_Mail_v2.utils
 {
 	/// <summary>
 	/// Classe d'utils sur les mails.

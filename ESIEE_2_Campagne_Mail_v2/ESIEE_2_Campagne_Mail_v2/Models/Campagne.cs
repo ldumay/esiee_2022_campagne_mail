@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace ESIEE_2_Campagne_Mail.models
+namespace ESIEE_2_Campagne_Mail_v2.models
 {
 	/// <summary>
 	/// Classe Campagne.

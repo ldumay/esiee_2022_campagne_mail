@@ -1,5 +1,5 @@
-﻿using ESIEE_2_Campagne_Mail.models;
-using ESIEE_2_Campagne_Mail.utils;
+using ESIEE_2_Campagne_Mail_v2.models;
+using ESIEE_2_Campagne_Mail_v2.utils;
 using ESIEE_2_Campagne_Mail_v2;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ESIEE_2_Campagne_Mail
+namespace ESIEE_2_Campagne_Mail_v2
 {
     public partial class CampaignMessageEditorView : Form
     {

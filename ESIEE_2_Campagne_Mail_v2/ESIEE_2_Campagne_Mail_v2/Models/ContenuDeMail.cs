@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ESIEE_2_Campagne_Mail.models
+namespace ESIEE_2_Campagne_Mail_v2.models
 {
 	/// <summary>
 	/// Classe contenu de mail.

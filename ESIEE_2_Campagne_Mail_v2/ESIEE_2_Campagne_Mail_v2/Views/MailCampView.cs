@@ -1,7 +1,7 @@
-using ESIEE_2_Campagne_Mail;
-using ESIEE_2_Campagne_Mail.gui;
-using ESIEE_2_Campagne_Mail.models;
-using ESIEE_2_Campagne_Mail.process;
+using ESIEE_2_Campagne_Mail_v2;
+using ESIEE_2_Campagne_Mail_v2.Views;
+using ESIEE_2_Campagne_Mail_v2.models;
+using ESIEE_2_Campagne_Mail_v2.process;
 using ESIEE_2_Campagne_Mail_v2.Views;
 using FontAwesome.Sharp;
 using System.Diagnostics;

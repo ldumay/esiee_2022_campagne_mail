@@ -1,4 +1,4 @@
-using ESIEE_2_Campagne_Mail.gui;
+using ESIEE_2_Campagne_Mail_v2.Views;
 using ESIEE_2_Campagne_Mail_v2;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ESIEE_2_Campagne_Mail
+namespace ESIEE_2_Campagne_Mail_v2
 {
 	public partial class CampaignSendView : Form
 	{
