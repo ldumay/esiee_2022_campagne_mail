@@ -18,8 +18,10 @@ namespace ESIEE_2_Campagne_Mail_v2
 			//-
 			if (MailCampView.Instance.Manager.TesterEnvoiCampagne(textBoxMailTest.Text))
 			{
-				string message = "[Campagne] Le serveur d'envoi est bien configuré.";
-				Debug.WriteLine(message);
+				string message = " Le serveur d'envoi est bien configuré\n et le mail de test à bien été envoyé à : " + textBoxMailTest.Text;
+				labelSendTryResultContent.Text = message;
+				labelConfirmCampagneReadyForSend.Text = "✅ Test d'envoi valider";
+				Debug.WriteLine("[Campagne]" + message);
 				MessageBox.Show(message, "Configuration du serveur SMTP - OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			else

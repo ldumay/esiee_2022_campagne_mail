@@ -38,6 +38,7 @@ namespace ESIEE_2_Campagne_Mail_v2.Views
             this.textBoxSMTPUserMDP = new System.Windows.Forms.TextBox();
             this.labelSMTPUserMDP = new System.Windows.Forms.Label();
             this.labelCampagneName = new System.Windows.Forms.Label();
+            this.checkBoxSMTPSSL = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // buttonSaveSMTPConfiguration
@@ -47,7 +48,7 @@ namespace ESIEE_2_Campagne_Mail_v2.Views
             this.buttonSaveSMTPConfiguration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveSMTPConfiguration.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonSaveSMTPConfiguration.ForeColor = System.Drawing.Color.White;
-            this.buttonSaveSMTPConfiguration.Location = new System.Drawing.Point(37, 403);
+            this.buttonSaveSMTPConfiguration.Location = new System.Drawing.Point(37, 435);
             this.buttonSaveSMTPConfiguration.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonSaveSMTPConfiguration.Name = "buttonSaveSMTPConfiguration";
             this.buttonSaveSMTPConfiguration.Size = new System.Drawing.Size(178, 76);
@@ -152,12 +153,25 @@ namespace ESIEE_2_Campagne_Mail_v2.Views
             this.labelCampagneName.TabIndex = 10;
             this.labelCampagneName.Text = "Configuration du serveur SMTP";
             // 
-            // ConfigServerSMTP
+            // checkBoxSSL
+            // 
+            this.checkBoxSMTPSSL.AutoSize = true;
+            this.checkBoxSMTPSSL.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.checkBoxSMTPSSL.ForeColor = System.Drawing.Color.White;
+            this.checkBoxSMTPSSL.Location = new System.Drawing.Point(37, 372);
+            this.checkBoxSMTPSSL.Name = "checkBoxSSL";
+            this.checkBoxSMTPSSL.Size = new System.Drawing.Size(66, 32);
+            this.checkBoxSMTPSSL.TabIndex = 11;
+            this.checkBoxSMTPSSL.Text = "SSL";
+            this.checkBoxSMTPSSL.UseVisualStyleBackColor = true;
+            // 
+            // CampaignConfigServerSMTPView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(92)))), ((int)(((byte)(122)))));
-            this.ClientSize = new System.Drawing.Size(912, 523);
+            this.ClientSize = new System.Drawing.Size(912, 585);
+            this.Controls.Add(this.checkBoxSMTPSSL);
             this.Controls.Add(this.labelCampagneName);
             this.Controls.Add(this.textBoxSMTPUserMDP);
             this.Controls.Add(this.labelSMTPUserMDP);
@@ -168,7 +182,7 @@ namespace ESIEE_2_Campagne_Mail_v2.Views
             this.Controls.Add(this.textBoxSMTPAddressIP);
             this.Controls.Add(this.labelSMTPAddressIP);
             this.Controls.Add(this.buttonSaveSMTPConfiguration);
-            this.Name = "ConfigServerSMTP";
+            this.Name = "CampaignConfigServerSMTPView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ConfigServerSMTP";
             this.ResumeLayout(false);
@@ -188,5 +202,6 @@ namespace ESIEE_2_Campagne_Mail_v2.Views
         private TextBox textBoxSMTPUserMDP;
         private Label labelSMTPUserMDP;
         private Label labelCampagneName;
+        private CheckBox checkBoxSMTPSSL;
     }
 }

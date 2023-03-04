@@ -30,11 +30,12 @@ namespace ESIEE_2_Campagne_Mail_v2.Views
 				Debug.WriteLine(message);
 				MessageBox.Show(message, "Configuration du serveur SMTP - Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
+			bool SMTPSSL = (textBoxSMTPPort.Text != null) ? true : false;
 			//MailCampView.Instance.Manager.GetSMTPConnectionHandler().SMTPPort = (textBoxSMTPPort.Text != null) ? port : 0;
 			string SMTPUserLogin = textBoxSMTPUserLogin.Text ?? string.Empty;
 			string SMTPUserMDP = textBoxSMTPUserMDP.Text ?? string.Empty;
 
-			MailCampView.Instance.Manager.ChangeSMTPConnectionParametres(SMTPAddressIP, SMTPport, SMTPUserLogin, SMTPUserMDP);
+			MailCampView.Instance.Manager.ChangeSMTPConnectionParametres(SMTPAddressIP, SMTPport, SMTPSSL, SMTPUserLogin, SMTPUserMDP);
 
 			if (MailCampView.Instance.Manager.SMTPConnectionHandler.IsSMTPParameterValid())
 			{
@@ -59,6 +60,8 @@ namespace ESIEE_2_Campagne_Mail_v2.Views
 			textBoxSMTPAddressIP.Text = MailCampView.Instance.Manager.SMTPConnectionHandler.SMTPHost;
 			// Port
 			textBoxSMTPPort.Text = MailCampView.Instance.Manager.SMTPConnectionHandler.SMTPPort.ToString();
+			// SSL
+			checkBoxSMTPSSL.Checked = MailCampView.Instance.Manager.SMTPConnectionHandler.SMTPSSL;
 			// Login
 			textBoxSMTPUserLogin.Text = MailCampView.Instance.Manager.SMTPConnectionHandler.SMTPUserLogin;
 			// Rebound

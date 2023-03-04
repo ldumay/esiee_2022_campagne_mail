@@ -27,7 +27,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             // Chargement des composants
             InitializeComponent();
             // Chargement de la configuration de démarrage
-            startConfiguration(true, true, true, "center", false);
+            startConfiguration(false, false, false, false, false, "center", false);
             //Préparation du gestionnaire de campagne
             Instance = this;
             if (campagneName == null)
@@ -36,12 +36,19 @@ namespace ESIEE_2_Campagne_Mail_v2
             openHome();
         }
 
-        // - - - [Methods] - - -
+		// - - - [Methods] - - -
 
-        /// <summary>
-        /// Configuration de démarrage du formulaire.
-        /// </summary>
-        private void startConfiguration(bool fixe, bool maximize, bool reduce, string position, bool show)
+		/// <summary>
+		/// Configuration de démarrage du formulaire.
+		/// </summary>
+		/// <param name="fixe"></param>
+		/// <param name="maximize"></param>
+		/// <param name="reduce"></param>
+		/// <param name="nameApp"></param>
+		/// <param name="controlBox"></param>
+		/// <param name="position"></param>
+		/// <param name="show"></param>
+		private void startConfiguration(bool fixe, bool maximize, bool reduce, bool nameApp, bool controlBox, string position, bool show)
         {
             // Définit le style de bordure du formulaire à une boîte de dialogue.
             if (fixe)
@@ -52,8 +59,14 @@ namespace ESIEE_2_Campagne_Mail_v2
             // Supprime la boîte de réduction.
             if (reduce)
                 this.MinimizeBox = true;
-            // Définit la position de départ du formulaire au centre de l'écran.
-            if (position == "center")
+			// Définit le texte du formulaire.
+			if (nameApp)
+				this.Text = string.Empty;
+			// Supprime la boîte de contrôle de taille du formulaire.
+			if (controlBox)
+				this.ControlBox = false;
+			// Définit la position de départ du formulaire au centre de l'écran.
+			if (position == "center")
                 this.StartPosition = FormStartPosition.CenterScreen;
             // Affiche le formulaire sous la forme d'une boîte de dialogue modale.
             if (show)
@@ -63,16 +76,15 @@ namespace ESIEE_2_Campagne_Mail_v2
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 45);
             panelMenu.Controls.Add(leftBorderBtn);
-            this.Text = string.Empty;
-            this.ControlBox = false;
-            this.DoubleBuffered = true;
+            //this.DoubleBuffered = true;
             //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
-        /// <summary>
-        /// Ouverture d'un nouveau formulaire dans notre formulaire principal.
-        /// </summary>
-        private void OpenChildForm(Form childForm)
+		/// <summary>
+		/// Ouverture d'un nouveau formulaire dans notre formulaire principal.
+		/// </summary>
+		/// <param name="childForm"></param>
+		private void OpenChildForm(Form childForm)
         {
             //open only form
             if (currentChildForm != null)
@@ -91,10 +103,12 @@ namespace ESIEE_2_Campagne_Mail_v2
             labelTopCurrentForm.Text = childForm.Text;
         }
 
-        /// <summary>
-        /// Activer un bouton si il a été cliqué.
-        /// </summary>
-        private void ActivateButton(object senderBtn, Color color)
+		/// <summary>
+		/// Activer un bouton si il a été cliqué.
+		/// </summary>
+		/// <param name="senderBtn"></param>
+		/// <param name="color"></param>
+		private void ActivateButton(object senderBtn, Color color)
         {
             if (senderBtn != null)
             {
@@ -183,14 +197,16 @@ namespace ESIEE_2_Campagne_Mail_v2
             }
             Reset();
         }
-        
-        // - - - [Click Buttons] - - -
 
-        /// <summary>
-        /// Clique sur le bouton d'accueil
-        /// et nettoie la vue centrale du formulaire principal.
-        /// </summary>
-        private void iconButtonHome_Click(object sender, EventArgs e)
+		// - - - [Click Buttons] - - -
+
+		/// <summary>
+		/// Clique sur le bouton d'accueil
+		/// et nettoie la vue centrale du formulaire principal.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void iconButtonHome_Click(object sender, EventArgs e)
         {
             Debug.WriteLine("[Click - Button - Home]");
             //-
@@ -200,11 +216,13 @@ namespace ESIEE_2_Campagne_Mail_v2
             openHome();
         }
 
-        /// <summary>
-        /// Clique sur le bouton de nouvelle campagne
-        /// et ouvre le formulaire de création de campagne.
-        /// </summary>
-        private void iconButtonCampaign_Click(object sender, EventArgs e)
+		/// <summary>
+		/// Clique sur le bouton de nouvelle campagne
+		/// et ouvre le formulaire de création de campagne.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void iconButtonCampaign_Click(object sender, EventArgs e)
         {
             Debug.WriteLine("[Click - Button - New Campaign]");
             //-
@@ -212,11 +230,13 @@ namespace ESIEE_2_Campagne_Mail_v2
             OpenChildForm(new CampaignNameView());
         }
 
-        /// <summary>
-        /// Clique sur le bouton de liste des mails
-        /// et ouvre le formulaire de liste des mails.
-        /// </summary>
-        private void iconButtonMailsList_Click(object sender, EventArgs e)
+		/// <summary>
+		/// Clique sur le bouton de liste des mails
+		/// et ouvre le formulaire de liste des mails.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void iconButtonMailsList_Click(object sender, EventArgs e)
         {
             Debug.WriteLine("[Click - Button - Mails List]");
             //-
@@ -224,11 +244,13 @@ namespace ESIEE_2_Campagne_Mail_v2
             OpenChildForm(new CampaignMailsListView());
         }
 
-        /// <summary>
-        /// Clique sur le bouton de message de la campagne
-        /// et ouvre le formulaire d'édition du message de la campagne.
-        /// </summary>
-        private void iconButtonCampaignMessage_Click(object sender, EventArgs e)
+		/// <summary>
+		/// Clique sur le bouton de message de la campagne
+		/// et ouvre le formulaire d'édition du message de la campagne.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void iconButtonCampaignMessage_Click(object sender, EventArgs e)
         {
             Debug.WriteLine("[Click - Button - Campaign Message]");
             //-
@@ -236,11 +258,13 @@ namespace ESIEE_2_Campagne_Mail_v2
             OpenChildForm(new CampaignMessageEditorView());
         }
 
-        /// <summary>
-        /// Clique sur le bouton de configuration du serveur SMTP
-        /// et ouvre le formulaire de configuration du serveur SMTP.
-        /// </summary>
-        private void iconButtonConfigSMTP_Click(object sender, EventArgs e)
+		/// <summary>
+		/// Clique sur le bouton de configuration du serveur SMTP
+		/// et ouvre le formulaire de configuration du serveur SMTP.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void iconButtonConfigSMTP_Click(object sender, EventArgs e)
         {
             Debug.WriteLine("[Click - Button - Config SMTP]");
             //-
@@ -248,11 +272,13 @@ namespace ESIEE_2_Campagne_Mail_v2
             OpenChildForm(new CampaignConfigServerSMTPView());
         }
 
-        /// <summary>
-        /// Clique sur le bouton de l'envoi de la campagne
-        /// et ouvre le formulaire de l'envoi de la campagne.
-        /// </summary>
-        private void iconButtonCampaignSend_Click(object sender, EventArgs e)
+		/// <summary>
+		/// Clique sur le bouton de l'envoi de la campagne
+		/// et ouvre le formulaire de l'envoi de la campagne.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void iconButtonCampaignSend_Click(object sender, EventArgs e)
         {
             Debug.WriteLine("[Click - Button - Campaign Send]");
             //-
@@ -260,11 +286,13 @@ namespace ESIEE_2_Campagne_Mail_v2
             OpenChildForm(new CampaignSendView());
         }
 
-        /// <summary>
-        /// Clique sur le bouton de à propos
-        /// et ouvre le formulaire d'informations à propos de l'application.
-        /// </summary>
-        private void iconButtonAboutApp_Click(object sender, EventArgs e)
+		/// <summary>
+		/// Clique sur le bouton de à propos
+		/// et ouvre le formulaire d'informations à propos de l'application.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void iconButtonAboutApp_Click(object sender, EventArgs e)
         {
             Debug.WriteLine("[Click - Button - About Appd]");
             //-
@@ -272,10 +300,12 @@ namespace ESIEE_2_Campagne_Mail_v2
             OpenChildForm(new AboutView());
         }
 
-        /// <summary>
-        /// Clique sur le bouton de fermeture de l'application.
-        /// </summary>
-        private void iconButtonExitApp_Click(object sender, EventArgs e)
+		/// <summary>
+		/// Clique sur le bouton de fermeture de l'application.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void iconButtonExitApp_Click(object sender, EventArgs e)
         {
             Debug.WriteLine("[Click - Button - Exit App]");
             //-

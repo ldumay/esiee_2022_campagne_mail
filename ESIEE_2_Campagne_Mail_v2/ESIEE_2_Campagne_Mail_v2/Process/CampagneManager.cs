@@ -92,7 +92,7 @@ namespace ESIEE_2_Campagne_Mail_v2.Process
 		/// <param name="SMTPUserLogin"></param>
 		/// <param name="SMTPUserMDP"></param>
 		/// <exception cref="NotImplementedException"></exception>
-		internal void ChangeSMTPConnectionParametres(string SMTPAddressIP, int SMTPport, string SMTPUserLogin, string SMTPUserMDP)
+		internal void ChangeSMTPConnectionParametres(string SMTPAddressIP, int SMTPport, bool SMTPSSL, string SMTPUserLogin, string SMTPUserMDP)
 		{
 			if (string.IsNullOrWhiteSpace(SMTPAddressIP))
 			{
@@ -102,7 +102,10 @@ namespace ESIEE_2_Campagne_Mail_v2.Process
 			{
 				throw new ArgumentException($"« {nameof(SMTPport)} » ne peut pas être vide ou avoir la valeur Null.", nameof(SMTPport));
 			}
-
+			if (SMTPSSL == null)
+			{
+				throw new ArgumentException($"« {nameof(SMTPSSL)} » ne peut pas être vide ou avoir la valeur Null.", nameof(SMTPSSL));
+			}
 			if (string.IsNullOrWhiteSpace(SMTPUserLogin))
 			{
 				throw new ArgumentException($"« {nameof(SMTPUserLogin)} » ne peut pas être vide ou avoir la valeur Null.", nameof(SMTPUserLogin));
@@ -112,7 +115,7 @@ namespace ESIEE_2_Campagne_Mail_v2.Process
 			{
 				throw new ArgumentException($"« {nameof(SMTPUserMDP)} » ne peut pas être vide ou avoir la valeur Null.", nameof(SMTPUserMDP));
 			}
-			SMTPConnectionHandler.ChangeSMTPParameters(SMTPAddressIP, SMTPport, SMTPUserLogin, SMTPUserMDP);
+			SMTPConnectionHandler.ChangeSMTPParameters(SMTPAddressIP, SMTPport, SMTPSSL, SMTPUserLogin, SMTPUserMDP);
 		}
 
 		/// <summary>
@@ -134,7 +137,6 @@ namespace ESIEE_2_Campagne_Mail_v2.Process
 		{
 			if (HasListeEmail())
 			{
-				// Envoyer la campagne
 				List<Contact> contacts = RecupererListContact(true);
 				List<string> emails = new List<string>();
 				foreach (Contact contact in contacts)
@@ -142,8 +144,7 @@ namespace ESIEE_2_Campagne_Mail_v2.Process
 					emails.Add(contact.Email);
 				}
 				SMTPConnectionHandler.EnvoyerCampagneMail(emails, Campagne.ContenuDeMail);
-				//-
-				return false;
+				return true;
 			} else
 			{
 				return false;

@@ -1,0 +1,6 @@
+Id,Nom,Prenom,Email,Etat
+1,Dumay,Loïc,Mailtester@ldumay.fr,Actif
+2,Dumay,Loïc,hello@ldumay.fr,Actif
+3,Dumay,Loïc,MailTester@ldumay.fr,Actif
+4,Dumay,Loïc,loic.dumay@edu.itescia.fr,Actif
+4,Dumay,Loïc,LoiC.dumay@Edu.itescia.fr,Actif

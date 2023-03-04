@@ -53,7 +53,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             labelSendTry.AutoSize = true;
             labelSendTry.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             labelSendTry.ForeColor = System.Drawing.Color.White;
-            labelSendTry.Location = new System.Drawing.Point(11, 21);
+            labelSendTry.Location = new System.Drawing.Point(25, 21);
             labelSendTry.Name = "labelSendTry";
             labelSendTry.Size = new System.Drawing.Size(134, 28);
             labelSendTry.TabIndex = 3;
@@ -82,7 +82,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             this.buttonCampagneSendingTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCampagneSendingTest.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonCampagneSendingTest.ForeColor = System.Drawing.Color.White;
-            this.buttonCampagneSendingTest.Location = new System.Drawing.Point(341, 65);
+            this.buttonCampagneSendingTest.Location = new System.Drawing.Point(370, 65);
             this.buttonCampagneSendingTest.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonCampagneSendingTest.Name = "buttonCampagneSendingTest";
             this.buttonCampagneSendingTest.Size = new System.Drawing.Size(261, 47);
@@ -94,7 +94,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             // textBoxMailTest
             // 
             this.textBoxMailTest.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxMailTest.Location = new System.Drawing.Point(11, 71);
+            this.textBoxMailTest.Location = new System.Drawing.Point(25, 71);
             this.textBoxMailTest.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxMailTest.Name = "textBoxMailTest";
             this.textBoxMailTest.PlaceholderText = "mail@mail.com";
@@ -106,7 +106,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             this.labelSendTryResultContent.AutoSize = true;
             this.labelSendTryResultContent.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSendTryResultContent.ForeColor = System.Drawing.Color.White;
-            this.labelSendTryResultContent.Location = new System.Drawing.Point(213, 15);
+            this.labelSendTryResultContent.Location = new System.Drawing.Point(238, 70);
             this.labelSendTryResultContent.Name = "labelSendTryResultContent";
             this.labelSendTryResultContent.Size = new System.Drawing.Size(310, 28);
             this.labelSendTryResultContent.TabIndex = 10;
@@ -117,7 +117,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             this.labelSendTryResult.AutoSize = true;
             this.labelSendTryResult.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelSendTryResult.ForeColor = System.Drawing.Color.White;
-            this.labelSendTryResult.Location = new System.Drawing.Point(11, 15);
+            this.labelSendTryResult.Location = new System.Drawing.Point(25, 70);
             this.labelSendTryResult.Name = "labelSendTryResult";
             this.labelSendTryResult.Size = new System.Drawing.Size(194, 28);
             this.labelSendTryResult.TabIndex = 11;
@@ -128,7 +128,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             this.labelConfirmCampagneReady.AutoSize = true;
             this.labelConfirmCampagneReady.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelConfirmCampagneReady.ForeColor = System.Drawing.Color.White;
-            this.labelConfirmCampagneReady.Location = new System.Drawing.Point(11, 20);
+            this.labelConfirmCampagneReady.Location = new System.Drawing.Point(25, 20);
             this.labelConfirmCampagneReady.Name = "labelConfirmCampagneReady";
             this.labelConfirmCampagneReady.Size = new System.Drawing.Size(243, 28);
             this.labelConfirmCampagneReady.TabIndex = 12;
@@ -139,7 +139,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             this.labelConfirmCampagneReadyForSend.AutoSize = true;
             this.labelConfirmCampagneReadyForSend.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelConfirmCampagneReadyForSend.ForeColor = System.Drawing.Color.White;
-            this.labelConfirmCampagneReadyForSend.Location = new System.Drawing.Point(11, 59);
+            this.labelConfirmCampagneReadyForSend.Location = new System.Drawing.Point(25, 23);
             this.labelConfirmCampagneReadyForSend.Name = "labelConfirmCampagneReadyForSend";
             this.labelConfirmCampagneReadyForSend.Size = new System.Drawing.Size(231, 28);
             this.labelConfirmCampagneReadyForSend.TabIndex = 13;
@@ -150,7 +150,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             this.labelConfirmStatutSMTP.AutoSize = true;
             this.labelConfirmStatutSMTP.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelConfirmStatutSMTP.ForeColor = System.Drawing.Color.White;
-            this.labelConfirmStatutSMTP.Location = new System.Drawing.Point(261, 20);
+            this.labelConfirmStatutSMTP.Location = new System.Drawing.Point(285, 20);
             this.labelConfirmStatutSMTP.Name = "labelConfirmStatutSMTP";
             this.labelConfirmStatutSMTP.Size = new System.Drawing.Size(431, 28);
             this.labelConfirmStatutSMTP.TabIndex = 15;
@@ -185,16 +185,16 @@ namespace ESIEE_2_Campagne_Mail_v2
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 204);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(912, 107);
+            this.panel3.Size = new System.Drawing.Size(912, 186);
             this.panel3.TabIndex = 18;
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.labelSendCampaign);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 311);
+            this.panel4.Location = new System.Drawing.Point(0, 390);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(912, 108);
+            this.panel4.Size = new System.Drawing.Size(912, 110);
             this.panel4.TabIndex = 19;
             // 
             // CampaignSendView
@@ -202,7 +202,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(92)))), ((int)(((byte)(122)))));
-            this.ClientSize = new System.Drawing.Size(912, 419);
+            this.ClientSize = new System.Drawing.Size(912, 500);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
