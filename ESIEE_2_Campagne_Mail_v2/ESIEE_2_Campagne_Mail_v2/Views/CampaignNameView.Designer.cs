@@ -44,9 +44,10 @@ namespace ESIEE_2_Campagne_Mail_v2
             // textBoxNewCampaignContent
             // 
             this.textBoxNewCampaignContent.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxNewCampaignContent.Location = new System.Drawing.Point(18, 52);
+            this.textBoxNewCampaignContent.Location = new System.Drawing.Point(21, 69);
+            this.textBoxNewCampaignContent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxNewCampaignContent.Name = "textBoxNewCampaignContent";
-            this.textBoxNewCampaignContent.Size = new System.Drawing.Size(392, 29);
+            this.textBoxNewCampaignContent.Size = new System.Drawing.Size(447, 34);
             this.textBoxNewCampaignContent.TabIndex = 7;
             // 
             // labelNewCampaignContent
@@ -54,9 +55,9 @@ namespace ESIEE_2_Campagne_Mail_v2
             this.labelNewCampaignContent.AutoSize = true;
             this.labelNewCampaignContent.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelNewCampaignContent.ForeColor = System.Drawing.Color.White;
-            this.labelNewCampaignContent.Location = new System.Drawing.Point(18, 22);
+            this.labelNewCampaignContent.Location = new System.Drawing.Point(21, 29);
             this.labelNewCampaignContent.Name = "labelNewCampaignContent";
-            this.labelNewCampaignContent.Size = new System.Drawing.Size(245, 30);
+            this.labelNewCampaignContent.Size = new System.Drawing.Size(312, 38);
             this.labelNewCampaignContent.TabIndex = 6;
             this.labelNewCampaignContent.Text = "Nom de la campagne :";
             // 
@@ -68,7 +69,7 @@ namespace ESIEE_2_Campagne_Mail_v2
             this.labelNewCampaignTop.ForeColor = System.Drawing.Color.White;
             this.labelNewCampaignTop.Location = new System.Drawing.Point(0, 0);
             this.labelNewCampaignTop.Name = "labelNewCampaignTop";
-            this.labelNewCampaignTop.Size = new System.Drawing.Size(338, 45);
+            this.labelNewCampaignTop.Size = new System.Drawing.Size(425, 54);
             this.labelNewCampaignTop.TabIndex = 8;
             this.labelNewCampaignTop.Text = "Nom de la campagne";
             // 
@@ -79,9 +80,10 @@ namespace ESIEE_2_Campagne_Mail_v2
             this.buttonNewCampaign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNewCampaign.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonNewCampaign.ForeColor = System.Drawing.Color.White;
-            this.buttonNewCampaign.Location = new System.Drawing.Point(18, 15);
+            this.buttonNewCampaign.Location = new System.Drawing.Point(21, 20);
+            this.buttonNewCampaign.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonNewCampaign.Name = "buttonNewCampaign";
-            this.buttonNewCampaign.Size = new System.Drawing.Size(235, 51);
+            this.buttonNewCampaign.Size = new System.Drawing.Size(269, 68);
             this.buttonNewCampaign.TabIndex = 9;
             this.buttonNewCampaign.Text = "Valider le nom";
             this.buttonNewCampaign.UseVisualStyleBackColor = false;
@@ -92,9 +94,9 @@ namespace ESIEE_2_Campagne_Mail_v2
             this.labelWarning.AutoSize = true;
             this.labelWarning.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelWarning.Location = new System.Drawing.Point(18, 91);
+            this.labelWarning.Location = new System.Drawing.Point(21, 121);
             this.labelWarning.Name = "labelWarning";
-            this.labelWarning.Size = new System.Drawing.Size(131, 21);
+            this.labelWarning.Size = new System.Drawing.Size(160, 28);
             this.labelWarning.TabIndex = 10;
             this.labelWarning.Text = "[temp-warning]";
             // 
@@ -103,9 +105,8 @@ namespace ESIEE_2_Campagne_Mail_v2
             this.panelNewCampaignTop.Controls.Add(this.labelNewCampaignTop);
             this.panelNewCampaignTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelNewCampaignTop.Location = new System.Drawing.Point(0, 0);
-            this.panelNewCampaignTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelNewCampaignTop.Name = "panelNewCampaignTop";
-            this.panelNewCampaignTop.Size = new System.Drawing.Size(668, 48);
+            this.panelNewCampaignTop.Size = new System.Drawing.Size(763, 64);
             this.panelNewCampaignTop.TabIndex = 11;
             // 
             // panelNewCampaignContent
@@ -114,31 +115,30 @@ namespace ESIEE_2_Campagne_Mail_v2
             this.panelNewCampaignContent.Controls.Add(this.textBoxNewCampaignContent);
             this.panelNewCampaignContent.Controls.Add(this.labelWarning);
             this.panelNewCampaignContent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelNewCampaignContent.Location = new System.Drawing.Point(0, 48);
-            this.panelNewCampaignContent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelNewCampaignContent.Location = new System.Drawing.Point(0, 64);
             this.panelNewCampaignContent.Name = "panelNewCampaignContent";
-            this.panelNewCampaignContent.Size = new System.Drawing.Size(668, 140);
+            this.panelNewCampaignContent.Size = new System.Drawing.Size(763, 187);
             this.panelNewCampaignContent.TabIndex = 12;
             // 
             // panelNewCampaignBottom
             // 
             this.panelNewCampaignBottom.Controls.Add(this.buttonNewCampaign);
             this.panelNewCampaignBottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelNewCampaignBottom.Location = new System.Drawing.Point(0, 188);
-            this.panelNewCampaignBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelNewCampaignBottom.Location = new System.Drawing.Point(0, 251);
             this.panelNewCampaignBottom.Name = "panelNewCampaignBottom";
-            this.panelNewCampaignBottom.Size = new System.Drawing.Size(668, 86);
+            this.panelNewCampaignBottom.Size = new System.Drawing.Size(763, 114);
             this.panelNewCampaignBottom.TabIndex = 13;
             // 
             // CampaignNameView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(92)))), ((int)(((byte)(122)))));
-            this.ClientSize = new System.Drawing.Size(668, 274);
+            this.ClientSize = new System.Drawing.Size(763, 365);
             this.Controls.Add(this.panelNewCampaignBottom);
             this.Controls.Add(this.panelNewCampaignContent);
             this.Controls.Add(this.panelNewCampaignTop);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CampaignNameView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nouvelle campagne";

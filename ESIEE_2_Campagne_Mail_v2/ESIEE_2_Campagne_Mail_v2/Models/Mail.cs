@@ -1,11 +1,6 @@
-using ESIEE_2_Campagne_Mail_v2.enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ESIEE_2_Campagne_Mail_v2.Enums;
 
-namespace ESIEE_2_Campagne_Mail_v2.models
+namespace ESIEE_2_Campagne_Mail_v2.Models
 {
     /// <summary>
 	/// Classe d'un mail.

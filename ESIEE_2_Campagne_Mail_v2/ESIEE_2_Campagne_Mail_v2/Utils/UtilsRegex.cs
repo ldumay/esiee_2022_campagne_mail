@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ESIEE_2_Campagne_Mail_v2.utils
+namespace ESIEE_2_Campagne_Mail_v2.Utils
 {
     
     /// <summary>

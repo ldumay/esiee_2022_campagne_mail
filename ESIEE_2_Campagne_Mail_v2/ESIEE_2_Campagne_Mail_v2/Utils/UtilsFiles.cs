@@ -1,9 +1,8 @@
-using ESIEE_2_Campagne_Mail_v2.models;
-using ESIEE_2_Campagne_Mail_v2.enums;
+using ESIEE_2_Campagne_Mail_v2.Models;
+using ESIEE_2_Campagne_Mail_v2.Enums;
 using System.Diagnostics;
-using System.Windows.Forms;
 
-namespace ESIEE_2_Campagne_Mail_v2.utils
+namespace ESIEE_2_Campagne_Mail_v2.Utils
 {
 	/// <summary>
 	/// Classe d'utils pour les fichier.

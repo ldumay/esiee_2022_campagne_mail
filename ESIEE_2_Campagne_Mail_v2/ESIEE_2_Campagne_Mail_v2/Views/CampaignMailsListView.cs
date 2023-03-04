@@ -1,23 +1,9 @@
-using ESIEE_2_Campagne_Mail_v2.models;
-using ESIEE_2_Campagne_Mail_v2.utils;
-using ESIEE_2_Campagne_Mail_v2;
-using ESIEE_2_Campagne_Mail_v2.enums;
-using Microsoft.VisualBasic;
+using ESIEE_2_Campagne_Mail_v2.Models;
+using ESIEE_2_Campagne_Mail_v2.Utils;
+using ESIEE_2_Campagne_Mail_v2.Enums;
 using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Security.Policy;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace ESIEE_2_Campagne_Mail_v2
 {

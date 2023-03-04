@@ -1,22 +1,17 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
-using ESIEE_2_Campagne_Mail_v2.models;
-using System.Runtime.ConstrainedExecution;
+using ESIEE_2_Campagne_Mail_v2.Models;
 
 namespace ESIEE_2_Campagne_Mail_v2.Utils
 {
 	/// <summary>
 	/// Classe d'utils sur l'envoi de mail(s).
 	/// </summary>
-	public class UtilsMail
-    {
+	public class UtilsSendMail
+	{
         /// <summary>
         /// Cette méthode permet d'envoyer un mail 
         /// à un ou plusieurs destinataire(s) direct,

@@ -1,15 +1,9 @@
-using ESIEE_2_Campagne_Mail_v2.models;
-using ESIEE_2_Campagne_Mail_v2.utils;
-using ESIEE_2_Campagne_Mail_v2.enums;
-using Microsoft.VisualBasic.Devices;
-using System;
-using System.Collections.Generic;
+using ESIEE_2_Campagne_Mail_v2.Models;
+using ESIEE_2_Campagne_Mail_v2.Enums;
+using ESIEE_2_Campagne_Mail_v2.Utils;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ESIEE_2_Campagne_Mail_v2.process
+namespace ESIEE_2_Campagne_Mail_v2.Process
 {
 	/// <summary>
 	/// Classse CampagneManager.
@@ -127,7 +121,7 @@ namespace ESIEE_2_Campagne_Mail_v2.process
 		/// <returns></returns>
 		internal bool TesterEnvoiCampagne(string adresseMail)
 		{
-			if(SMTPConnectionHandler.TestEnvoiDeMail(adresseMail))
+			if(SMTPConnectionHandler.TestEnvoiDeMail(adresseMail, Campagne.ContenuDeMail))
 				return true;
 			else
 				return false;

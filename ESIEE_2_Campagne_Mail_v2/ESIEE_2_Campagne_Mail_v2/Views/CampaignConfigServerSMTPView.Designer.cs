@@ -1,4 +1,4 @@
-﻿namespace ESIEE_2_Campagne_Mail.gui
+namespace ESIEE_2_Campagne_Mail_v2.Views
 {
     partial class CampaignConfigServerSMTPView
     {

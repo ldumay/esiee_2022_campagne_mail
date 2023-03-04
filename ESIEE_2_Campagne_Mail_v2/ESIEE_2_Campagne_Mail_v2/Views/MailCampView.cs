@@ -1,11 +1,8 @@
-using ESIEE_2_Campagne_Mail_v2;
 using ESIEE_2_Campagne_Mail_v2.Views;
-using ESIEE_2_Campagne_Mail_v2.models;
-using ESIEE_2_Campagne_Mail_v2.process;
-using ESIEE_2_Campagne_Mail_v2.Views;
+using ESIEE_2_Campagne_Mail_v2.Process;
 using FontAwesome.Sharp;
 using System.Diagnostics;
-using static ESIEE_2_Campagne_Mail_v2.utils.UtilsDesign;
+using static ESIEE_2_Campagne_Mail_v2.Utils.UtilsDesign;
 
 namespace ESIEE_2_Campagne_Mail_v2
 {

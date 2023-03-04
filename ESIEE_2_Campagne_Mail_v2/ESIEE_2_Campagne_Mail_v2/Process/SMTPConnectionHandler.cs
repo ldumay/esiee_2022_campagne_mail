@@ -1,16 +1,11 @@
-using ESIEE_2_Campagne_Mail_v2.enums;
-using ESIEE_2_Campagne_Mail_v2.models;
-using ESIEE_2_Campagne_Mail_v2.utils;
-using System;
-using System.Collections.Generic;
+using ESIEE_2_Campagne_Mail_v2.Enums;
+using ESIEE_2_Campagne_Mail_v2.Models;
+using ESIEE_2_Campagne_Mail_v2.Utils;
 using System.Diagnostics;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ESIEE_2_Campagne_Mail_v2.process
+namespace ESIEE_2_Campagne_Mail_v2.Process
 {
 	/// <summary>
 	/// Classe SMTPConnectionHandler.
