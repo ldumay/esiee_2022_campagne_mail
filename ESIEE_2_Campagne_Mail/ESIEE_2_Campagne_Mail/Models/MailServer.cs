@@ -51,7 +51,7 @@ namespace ESIEE_2_Campagne_Mail.Models
         /// Cette méthode permet de vérifier si le serveur de mail 
         /// est prêt à être utilisé.
         /// </summary>
-        public bool isReady()
+        public bool IsReady()
         {
             if (Type == null || Type == MailServerType.DEFAULT)
                 return false;

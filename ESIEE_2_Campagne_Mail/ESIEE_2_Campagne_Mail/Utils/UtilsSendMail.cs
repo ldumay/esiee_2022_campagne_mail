@@ -33,7 +33,7 @@ namespace ESIEE_2_Campagne_Mail.Utils
 
             // Il est néssaire de vérifier la non-nullité des données.
             // du seveur de mail et du mail.
-            if (mailServer.isReady() && mail.isReady()) {
+            if (mailServer.IsReady() && mail.IsReady()) {
                 //-
                 Console.WriteLine("---");
                 Console.WriteLine("[Mail] Préparation du message et du serveur SMTP...\n");

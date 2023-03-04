@@ -4,7 +4,29 @@
 
 - [HELP_RECHERCHES](HELP_RECHERCHES.md)
 
-## 1 - Requis
+## 1 - Conception de l'application & Design
+
+Au vu du fait que l'application est passé par divers reflexion, celle-ci à pu obtenir plusieurs conception d'évolution.
+
+Vous les trouverez ci-dessous, ainsi que leurs archive de version.
+
+### Conceptions
+
+- [CONCEPT_v1](CONCEPT_v1.md)
+- [CONCEPT_v2](CONCEPT_v2.md)
+
+### Versions
+
+- Version 1.0
+  - [release v1.0](https://github.com/ldumay/esiee_2022_campagne_mail/releases/tag/v1.0)
+  - [branche v1.0](https://github.com/ldumay/esiee_2022_campagne_mail/tree/v1.0)
+- Version 2.0
+  - [release v2.0](https://github.com/ldumay/esiee_2022_campagne_mail/releases/tag/v2.0)
+  - [branche v2.0](https://github.com/ldumay/esiee_2022_campagne_mail/tree/v2.0)
+
+Toutes les releases sont disponibles ici : [esiee_2022_campagne_mail/releases](https://github.com/ldumay/esiee_2022_campagne_mail/releases) 
+
+## 2 - Pré-requis
 
 Afin de pouvoir éditer ou débugger l'application, il est nécessaire d'avoir :
 
@@ -22,22 +44,6 @@ Afin de pouvoir éditer ou débugger l'application, il est nécessaire d'avoir :
     - **FontAwesome.Sharp**
         - Si besoin, voici un [guide d'installation du package FontAwesome.Sharp](Install_DotNet_CLI_FontAwesome_Sharp.md)
 
-## 2 - Conception de l'application & Design
-
-### Conceptions
-
-- [CONCEPT_v1](CONCEPT_v1.md)
-
-### Design
-
-#### Palette de couleur utilisée
-
-![img](_img/flat-color-palettes-3.png)
-
-Codes couleurs : 
-
-`FCBB6D` - `D8737F` - `AB6C82` - `685D79` - `475C7A` 
-
 ## 3 - Chargé les paquets du projet
 
 Tout d'abord, **descendre** dans le dossier du projet avec **PowerShell**.
@@ -46,17 +52,17 @@ Tout d'abord, **descendre** dans le dossier du projet avec **PowerShell**.
 Structure du dossier
 Le numéro de série du volume est 36A6-D39A
 C:
-└───ESIEE_2_Campagne_Mail_v2/
+└───ESIEE_2_Campagne_Mail/
     ├───.vs
-    ├───ESIEE_2_Campagne_Mail_v2/ <== IL_FAUT_ALLER_A_CE_NIVEAU
+    ├───ESIEE_2_Campagne_Mail/ <== IL_FAUT_ALLER_A_CE_NIVEAU
     │    ├───bin/
     │    ├───obj/
     │    ├───Properties/
     │    ├───views/
-    │    ├───ESIEE_2_Campagne_Mail_v2.csproj
-    │    ├───ESIEE_2_Campagne_Mail_v2.csproj.user
+    │    ├───ESIEE_2_Campagne_Mail.csproj
+    │    ├───ESIEE_2_Campagne_Mail.csproj.user
     │    └───Program.cs
-    └───ESIEE_2_Campagne_Mail_v2.slnn
+    └───ESIEE_2_Campagne_Mail.slnn
 ```
 
 Puis **recharger** tous les paquets nécessaire avec la commande ci-dessous.
@@ -85,4 +91,6 @@ Une fois le gestionnaire de paquets de **Nuget**, il est possible de gérer les 
 
 ## 5 - Lancer le projet
 
-[En cours ...]
+Une fois projet chargé dans Visual Studio, vous pouvez le lancer.
+
+![img](_img/start.png)

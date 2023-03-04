@@ -70,7 +70,7 @@ namespace ESIEE_2_Campagne_Mail.Models
         /// Cette méthode permet de vérifier si le  mail 
         /// est prêt à être utilisé.
         /// </summary>
-        public bool isReady()
+        public bool IsReady()
         {
             if (To.Count > 0 && Subject != string.Empty && Body != string.Empty)
             {
