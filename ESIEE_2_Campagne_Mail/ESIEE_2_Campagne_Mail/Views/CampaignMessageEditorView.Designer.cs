@@ -55,7 +55,6 @@ namespace ESIEE_2_Campagne_Mail
             this.labelEXP.Size = new System.Drawing.Size(48, 28);
             this.labelEXP.TabIndex = 0;
             this.labelEXP.Text = "EXP";
-            this.labelEXP.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBoxEXP
             // 
@@ -89,7 +88,6 @@ namespace ESIEE_2_Campagne_Mail
             this.labelRebound.Size = new System.Drawing.Size(96, 28);
             this.labelRebound.TabIndex = 2;
             this.labelRebound.Text = "Rebound";
-            this.labelRebound.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBoxTitre
             // 
@@ -112,7 +110,6 @@ namespace ESIEE_2_Campagne_Mail
             this.labelTitre.Size = new System.Drawing.Size(57, 28);
             this.labelTitre.TabIndex = 4;
             this.labelTitre.Text = "Titre";
-            this.labelTitre.Click += new System.EventHandler(this.label3_Click);
             // 
             // labelMessage
             // 
@@ -184,8 +181,9 @@ namespace ESIEE_2_Campagne_Mail
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1022, 121);
             this.panel3.TabIndex = 11;
+            this.panel3.Click += new System.EventHandler(this.buttonSave_Click_1);
             // 
-            // EditionMessage
+            // CampaignMessageEditorView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -195,7 +193,7 @@ namespace ESIEE_2_Campagne_Mail
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "EditionMessage";
+            this.Name = "CampaignMessageEditorView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Edition du message de la campagne";
             this.panel1.ResumeLayout(false);

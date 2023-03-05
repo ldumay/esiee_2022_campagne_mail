@@ -14,14 +14,6 @@ namespace ESIEE_2_Campagne_Mail
             this.updateEditionMessageContent();
         }
 
-        private void label1_Click(object sender, EventArgs e) { }
-
-        private void label2_Click(object sender, EventArgs e) { }
-
-        private void label3_Click(object sender, EventArgs e) { }
-
-        private void buttonSave_Click(object sender, EventArgs e) { }
-
         /// <summary>
         /// Récuprération de l'expéditeur via le champs expéditeur.
         /// </summary>
