@@ -1,4 +1,4 @@
-# ESIEE_2_Campagne_Mail
+# ESIEE-IT - Campagne Mail
 
 ## 0 - Recherches Ldumay
 
