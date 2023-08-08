@@ -1,6 +1,6 @@
 # ESIEE-IT - Campagne Mail
 
-> 🚨 **Projet déplacer ici ▶▶ : [https://github.com/2023-esiee-projectlab/campagne_mail](https://github.com/2023-esiee-projectlab/campagne_mail)**
+> 🚨 **Projet déplacer ici ▶▶ : [https://github.com/2023-esiee-projectlab/M2_campagne_mail](https://github.com/2023-esiee-projectlab/M2_campagne_mail)**
 
 ## 0 - Recherches Ldumay
 
